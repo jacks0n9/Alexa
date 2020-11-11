@@ -1,0 +1,5 @@
+add_vercmp.patch -p1
+add_uname_support.patch -p1
+fix_installorder.patch -p1
+offline_postinstall.patch -p1
+track_parents.patch -p1

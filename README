@@ -1,0 +1,69 @@
+THESE INSTRUCTIONS ARE PROVIDED "AS IS," AND WITHOUT WARRANTIES OR CONDITIONS
+OF ANY KIND, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING WARRANTIES OR CONDITIONS
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE OR NON-INFRINGEMENT.
+YOUR USE OF THE INSTRUCTIONS IS AT YOUR SOLE RISK. IN NO EVENT WILL AMAZON.COM,
+INC. AND/OR ITS AFFILIATES BE LIABLE FOR ANY DAMAGES, INCLUDING WITHOUT
+LIMITATION ANY DIRECT, INDIRECT, CONSEQUENTIAL, SPECIAL, INCIDENTAL, OR
+PUNITIVE DAMAGES (INCLUDING FOR ANY LOSS OF GOODWILL, BUSINESS INTERRUPTION,
+LOST PROFITS OR DATA, OR COMPUTER FAILURE OR MALFUNCTION) ARISING FROM OR
+RELATING TO THE INSTRUCTIONS, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF
+LIABILITY, EVEN IF AMAZON.COM, INC. AND/OR ITS AFFILIATES HAS BEEN ADVISED OF
+THE POSSIBILITY OF SUCH DAMAGES.  AMAZON.COM, INC. AND ITS AFFILIATES HAVE NO
+OBLIGATION TO PROVIDE ANY SUPPORT OR OTHER SERVICES RELATED TO THE INSTRUCTIONS.
+THESE LIMITATIONS AND DISCLAIMERS APPLY EXCEPT TO THE EXTENT PROHIBITED BY
+APPLICABLE LAW.
+
+
+Toolchain
+
+The Echo toolchain is based on OpenEmbedded (OE), a build framework for
+embedded linux. GCC is the main compiler used for cross-compiling. OE is not
+required to build the components, but can be used for assistance.
+
+Building Components
+
+NOTE: Some components require other OSS components not included in the GPL
+release.
+
+NOTE: Some components are only partial trees. If you want to build those, you
+will need to download the remainder of the source from the component's site.
+
+Each component (except partial components) has its own build process. Generally,
+the components use an autotools-based build -- but that isn't always the case
+(for example, busybox uses a Kconfig build). You should read through the INSTALL
+(and/or README) file that comes with the component, for details on how to build
+the component.
+
+For components that do use autotools, if their configure supports the --host
+flag, you should be able to cross-compile the component using the usual
+configure/make/make install.
+
+The LAB126 define enables code changes specific to LAB126 found in our
+open-source distribution.
+
+The exact --disable/--enable configure flags will vary from component to
+component.
+
+You should be able to run:
+
+$ ./configure --help
+
+to see a list of the configure flags available for the component.
+
+The compile and link flags as specified in the CFLAGS var in the above command
+line are what was used by Lab126 and should always be included when building any
+of the components -- the flags just might need to be passed in differently for
+components that have a build process that isn't based on autotools.
+
+For example, the busybox build doesn't use autotools, so there is no configure
+script to run -- you just pass the compline and link flags to the make command
+directly (along with the CROSS_COMPILE var, which contains just the path up to
+but not including gcc):
+
+CFLAGS="-march=armv7-a -fno-tree-vectorize -mthumb-interwork \
+-mfloat-abi=softfp -mfpu=neon -mtune=cortex-a8 --sysroot=armv7a-linux-gnueabi \
+-DLAB126 -DLINUX" make CROSS_COMPILE=arm-linux-gnueabi-"
+
+See the busybox INSTALL file for complete information on the busybox build,
+including how to generate the config file (using menuconfig).
+

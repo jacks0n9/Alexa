@@ -1,0 +1,663 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>SoupXmlrpcMessage</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="libsoup Reference Manual">
+<link rel="up" href="ch02.html" title="libsoup API Reference">
+<link rel="prev" href="libsoup-SoupUri.html" title="soup-uri">
+<link rel="next" href="SoupXmlrpcResponse.html" title="SoupXmlrpcResponse">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libsoup Tutorial">
+<link rel="chapter" href="ch02.html" title="libsoup API Reference">
+<link rel="chapter" href="ch03.html" title="libsoup internals">
+<link rel="index" href="ix01.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libsoup-SoupUri.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libsoup Reference Manual</th>
+<td><a accesskey="n" href="SoupXmlrpcResponse.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id367552" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id418960" class="shortcut">Description</a>
+                  &#160;|&#160;
+                  <a href="#id418930" class="shortcut">Object Hierarchy</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="SoupXmlrpcMessage"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id367552"></a><span class="refentrytitle">SoupXmlrpcMessage</span>
+</h2>
+<p>SoupXmlrpcMessage &#8212; An XML-RPC Message</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+                    <a class="link" href="SoupXmlrpcMessage.html#SoupXmlrpcMessage-struct">SoupXmlrpcMessage</a>;
+<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a>*  <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-new">soup_xmlrpc_message_new</a>             (const char *uri_string);
+<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a>*  <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-new-from-uri">soup_xmlrpc_message_new_from_uri</a>    (const <a class="link" href="libsoup-SoupUri.html#SoupUri">SoupUri</a> *uri);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-from-string">soup_xmlrpc_message_from_string</a>     (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *message,
+                                                         const char *xmlstr);
+
+void                <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-start-call">soup_xmlrpc_message_start_call</a>      (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg,
+                                                         const char *method_name);
+void                <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-end-call">soup_xmlrpc_message_end_call</a>        (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);
+void                <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-start-param">soup_xmlrpc_message_start_param</a>     (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);
+void                <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-end-param">soup_xmlrpc_message_end_param</a>       (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);
+
+void                <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-write-int">soup_xmlrpc_message_write_int</a>       (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg,
+                                                         long i );
+void                <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-write-boolean">soup_xmlrpc_message_write_boolean</a>   (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> b);
+void                <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-write-string">soup_xmlrpc_message_write_string</a>    (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg,
+                                                         const char *str);
+void                <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-write-double">soup_xmlrpc_message_write_double</a>    (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg,
+                                                         double d);
+void                <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-write-datetime">soup_xmlrpc_message_write_datetime</a>  (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg,
+                                                         const time_t timeval);
+void                <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-write-base64">soup_xmlrpc_message_write_base64</a>    (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gconstpointer"
+>gconstpointer</a> buf,
+                                                         int len);
+
+void                <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-start-struct">soup_xmlrpc_message_start_struct</a>    (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);
+void                <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-end-struct">soup_xmlrpc_message_end_struct</a>      (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);
+void                <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-start-member">soup_xmlrpc_message_start_member</a>    (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg,
+                                                         const char *name);
+void                <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-end-member">soup_xmlrpc_message_end_member</a>      (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);
+
+void                <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-start-array">soup_xmlrpc_message_start_array</a>     (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);
+void                <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-end-array">soup_xmlrpc_message_end_array</a>       (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);
+
+xmlChar*            <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-to-string">soup_xmlrpc_message_to_string</a>       (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);
+void                <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-persist">soup_xmlrpc_message_persist</a>         (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);
+
+<a class="link" href="SoupXmlrpcResponse.html" title="SoupXmlrpcResponse">SoupXmlrpcResponse</a>* <a class="link" href="SoupXmlrpcMessage.html#soup-xmlrpc-message-parse-response">soup_xmlrpc_message_parse_response</a>  (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id418930"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a class="link" href="SoupMessage.html" title="SoupMessage">SoupMessage</a>
+         +----SoupXmlrpcMessage
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id418960"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id418976"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id418986"></a><h3>
+<a name="SoupXmlrpcMessage-struct"></a>SoupXmlrpcMessage</h3>
+<a class="indexterm" name="id418999"></a><pre class="programlisting">typedef struct _SoupXmlrpcMessage SoupXmlrpcMessage;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id419014"></a><h3>
+<a name="soup-xmlrpc-message-new"></a>soup_xmlrpc_message_new ()</h3>
+<a class="indexterm" name="id419026"></a><pre class="programlisting"><a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a>*  soup_xmlrpc_message_new             (const char *uri_string);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri_string</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id419081"></a><h3>
+<a name="soup-xmlrpc-message-new-from-uri"></a>soup_xmlrpc_message_new_from_uri ()</h3>
+<a class="indexterm" name="id419094"></a><pre class="programlisting"><a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a>*  soup_xmlrpc_message_new_from_uri    (const <a class="link" href="libsoup-SoupUri.html#SoupUri">SoupUri</a> *uri);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id419149"></a><h3>
+<a name="soup-xmlrpc-message-from-string"></a>soup_xmlrpc_message_from_string ()</h3>
+<a class="indexterm" name="id419162"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            soup_xmlrpc_message_from_string     (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *message,
+                                                         const char *xmlstr);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>message</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xmlstr</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id419237"></a><h3>
+<a name="soup-xmlrpc-message-start-call"></a>soup_xmlrpc_message_start_call ()</h3>
+<a class="indexterm" name="id419250"></a><pre class="programlisting">void                soup_xmlrpc_message_start_call      (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg,
+                                                         const char *method_name);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>method_name</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id419315"></a><h3>
+<a name="soup-xmlrpc-message-end-call"></a>soup_xmlrpc_message_end_call ()</h3>
+<a class="indexterm" name="id419327"></a><pre class="programlisting">void                soup_xmlrpc_message_end_call        (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id419372"></a><h3>
+<a name="soup-xmlrpc-message-start-param"></a>soup_xmlrpc_message_start_param ()</h3>
+<a class="indexterm" name="id419384"></a><pre class="programlisting">void                soup_xmlrpc_message_start_param     (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id419429"></a><h3>
+<a name="soup-xmlrpc-message-end-param"></a>soup_xmlrpc_message_end_param ()</h3>
+<a class="indexterm" name="id419442"></a><pre class="programlisting">void                soup_xmlrpc_message_end_param       (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id419487"></a><h3>
+<a name="soup-xmlrpc-message-write-int"></a>soup_xmlrpc_message_write_int ()</h3>
+<a class="indexterm" name="id419499"></a><pre class="programlisting">void                soup_xmlrpc_message_write_int       (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg,
+                                                         long i );</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Param2</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id419564"></a><h3>
+<a name="soup-xmlrpc-message-write-boolean"></a>soup_xmlrpc_message_write_boolean ()</h3>
+<a class="indexterm" name="id419576"></a><pre class="programlisting">void                soup_xmlrpc_message_write_boolean   (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> b);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id419641"></a><h3>
+<a name="soup-xmlrpc-message-write-string"></a>soup_xmlrpc_message_write_string ()</h3>
+<a class="indexterm" name="id419654"></a><pre class="programlisting">void                soup_xmlrpc_message_write_string    (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg,
+                                                         const char *str);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id419719"></a><h3>
+<a name="soup-xmlrpc-message-write-double"></a>soup_xmlrpc_message_write_double ()</h3>
+<a class="indexterm" name="id419731"></a><pre class="programlisting">void                soup_xmlrpc_message_write_double    (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg,
+                                                         double d);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>d</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id419796"></a><h3>
+<a name="soup-xmlrpc-message-write-datetime"></a>soup_xmlrpc_message_write_datetime ()</h3>
+<a class="indexterm" name="id419808"></a><pre class="programlisting">void                soup_xmlrpc_message_write_datetime  (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg,
+                                                         const time_t timeval);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>timeval</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id419873"></a><h3>
+<a name="soup-xmlrpc-message-write-base64"></a>soup_xmlrpc_message_write_base64 ()</h3>
+<a class="indexterm" name="id419886"></a><pre class="programlisting">void                soup_xmlrpc_message_write_base64    (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gconstpointer"
+>gconstpointer</a> buf,
+                                                         int len);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buf</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id419971"></a><h3>
+<a name="soup-xmlrpc-message-start-struct"></a>soup_xmlrpc_message_start_struct ()</h3>
+<a class="indexterm" name="id419983"></a><pre class="programlisting">void                soup_xmlrpc_message_start_struct    (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id420028"></a><h3>
+<a name="soup-xmlrpc-message-end-struct"></a>soup_xmlrpc_message_end_struct ()</h3>
+<a class="indexterm" name="id420040"></a><pre class="programlisting">void                soup_xmlrpc_message_end_struct      (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id420085"></a><h3>
+<a name="soup-xmlrpc-message-start-member"></a>soup_xmlrpc_message_start_member ()</h3>
+<a class="indexterm" name="id420098"></a><pre class="programlisting">void                soup_xmlrpc_message_start_member    (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg,
+                                                         const char *name);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id420163"></a><h3>
+<a name="soup-xmlrpc-message-end-member"></a>soup_xmlrpc_message_end_member ()</h3>
+<a class="indexterm" name="id420175"></a><pre class="programlisting">void                soup_xmlrpc_message_end_member      (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id420220"></a><h3>
+<a name="soup-xmlrpc-message-start-array"></a>soup_xmlrpc_message_start_array ()</h3>
+<a class="indexterm" name="id420232"></a><pre class="programlisting">void                soup_xmlrpc_message_start_array     (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id420277"></a><h3>
+<a name="soup-xmlrpc-message-end-array"></a>soup_xmlrpc_message_end_array ()</h3>
+<a class="indexterm" name="id420290"></a><pre class="programlisting">void                soup_xmlrpc_message_end_array       (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id420335"></a><h3>
+<a name="soup-xmlrpc-message-to-string"></a>soup_xmlrpc_message_to_string ()</h3>
+<a class="indexterm" name="id420347"></a><pre class="programlisting">xmlChar*            soup_xmlrpc_message_to_string       (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id420403"></a><h3>
+<a name="soup-xmlrpc-message-persist"></a>soup_xmlrpc_message_persist ()</h3>
+<a class="indexterm" name="id420415"></a><pre class="programlisting">void                soup_xmlrpc_message_persist         (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id420460"></a><h3>
+<a name="soup-xmlrpc-message-parse-response"></a>soup_xmlrpc_message_parse_response ()</h3>
+<a class="indexterm" name="id420472"></a><pre class="programlisting"><a class="link" href="SoupXmlrpcResponse.html" title="SoupXmlrpcResponse">SoupXmlrpcResponse</a>* soup_xmlrpc_message_parse_response  (<a class="link" href="SoupXmlrpcMessage.html" title="SoupXmlrpcMessage">SoupXmlrpcMessage</a> *msg);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>

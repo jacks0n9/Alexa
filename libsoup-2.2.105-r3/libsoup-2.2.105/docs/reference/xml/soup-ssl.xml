@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libsoup-soup-ssl">
+<refmeta>
+<refentrytitle role="top_of_page">soup-ssl</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBSOUP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>soup-ssl</refname>
+<refpurpose>SSL/TLS handling</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+extern              gboolean <link linkend="soup-ssl-supported">soup_ssl_supported</link>;
+
+enum                <link linkend="SoupSSLType">SoupSSLType</link>;
+typedef             <link linkend="SoupSSLCredentials">SoupSSLCredentials</link>;
+<link linkend="SoupSSLCredentials">SoupSSLCredentials</link>* <link linkend="soup-ssl-get-client-credentials">soup_ssl_get_client_credentials</link>     (const <link linkend="char">char</link> *ca_file);
+<link linkend="void">void</link>                <link linkend="soup-ssl-free-client-credentials">soup_ssl_free_client_credentials</link>    (<link linkend="SoupSSLCredentials">SoupSSLCredentials</link> *creds);
+<link linkend="SoupSSLCredentials">SoupSSLCredentials</link>* <link linkend="soup-ssl-get-server-credentials">soup_ssl_get_server_credentials</link>     (const <link linkend="char">char</link> *cert_file,
+                                                         const <link linkend="char">char</link> *key_file);
+<link linkend="void">void</link>                <link linkend="soup-ssl-free-server-credentials">soup_ssl_free_server_credentials</link>    (<link linkend="SoupSSLCredentials">SoupSSLCredentials</link> *creds);
+<link linkend="GIOChannel">GIOChannel</link>*         <link linkend="soup-ssl-wrap-iochannel">soup_ssl_wrap_iochannel</link>             (<link linkend="GIOChannel">GIOChannel</link> *sock,
+                                                         <link linkend="SoupSSLType">SoupSSLType</link> type,
+                                                         const <link linkend="char">char</link> *remote_host,
+                                                         <link linkend="SoupSSLCredentials">SoupSSLCredentials</link> *creds);
+#define             <link linkend="SOUP-SSL-ERROR:CAPS">SOUP_SSL_ERROR</link>
+<link linkend="GQuark">GQuark</link>              <link linkend="soup-ssl-error-quark">soup_ssl_error_quark</link>                (void);
+enum                <link linkend="SoupSocketError">SoupSocketError</link>;
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="soup-ssl-supported" role="variable"/>soup_ssl_supported</title>
+<indexterm><primary>soup_ssl_supported</primary></indexterm><programlisting>extern gboolean soup_ssl_supported;
+</programlisting>
+<para>
+Can be used to test if libsoup was compiled with ssl support.</para>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="SoupSSLType" role="enum"/>enum SoupSSLType</title>
+<indexterm><primary>SoupSSLType</primary></indexterm><programlisting>typedef enum {
+	SOUP_SSL_TYPE_CLIENT = 0,
+	SOUP_SSL_TYPE_SERVER
+} SoupSSLType;
+</programlisting>
+<para>
+What kind of SSL connection this is.</para>
+<para>
+
+</para><variablelist role="enum">
+<varlistentry>
+<term><anchor id="SOUP-SSL-TYPE-CLIENT:CAPS" role="constant"/><literal>SOUP_SSL_TYPE_CLIENT</literal></term>
+<listitem><simpara> the client side of an SSL connection
+</simpara></listitem>
+</varlistentry>
+<varlistentry>
+<term><anchor id="SOUP-SSL-TYPE-SERVER:CAPS" role="constant"/><literal>SOUP_SSL_TYPE_SERVER</literal></term>
+<listitem><simpara> the server side of an SSL connection
+</simpara></listitem>
+</varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="SoupSSLCredentials" role="typedef"/>SoupSSLCredentials</title>
+<indexterm><primary>SoupSSLCredentials</primary></indexterm><programlisting>typedef struct SoupSSLCredentials SoupSSLCredentials;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="soup-ssl-get-client-credentials" role="function"/>soup_ssl_get_client_credentials ()</title>
+<indexterm><primary>soup_ssl_get_client_credentials</primary></indexterm><programlisting><link linkend="SoupSSLCredentials">SoupSSLCredentials</link>* soup_ssl_get_client_credentials     (const <link linkend="char">char</link> *ca_file);</programlisting>
+<para>
+Creates an opaque client credentials object which can later be
+passed to <link linkend="soup-ssl-wrap-iochannel"><function>soup_ssl_wrap_iochannel()</function></link>.
+</para>
+<para>
+If <parameter>ca_file</parameter> is non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, any certificate received from a server
+must be signed by one of the CAs in the file, or an error will
+be returned.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>ca_file</parameter>&nbsp;:</term>
+<listitem><simpara> path to a file containing X509-encoded Certificate
+Authority certificates.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the client credentials, which must be freed with
+<link linkend="soup-ssl-free-client-credentials"><function>soup_ssl_free_client_credentials()</function></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-ssl-free-client-credentials" role="function"/>soup_ssl_free_client_credentials ()</title>
+<indexterm><primary>soup_ssl_free_client_credentials</primary></indexterm><programlisting><link linkend="void">void</link>                soup_ssl_free_client_credentials    (<link linkend="SoupSSLCredentials">SoupSSLCredentials</link> *creds);</programlisting>
+<para>
+Frees <parameter>creds</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>creds</parameter>&nbsp;:</term>
+<listitem><simpara> a client credentials structure returned by
+<link linkend="soup-ssl-get-client-credentials"><function>soup_ssl_get_client_credentials()</function></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-ssl-get-server-credentials" role="function"/>soup_ssl_get_server_credentials ()</title>
+<indexterm><primary>soup_ssl_get_server_credentials</primary></indexterm><programlisting><link linkend="SoupSSLCredentials">SoupSSLCredentials</link>* soup_ssl_get_server_credentials     (const <link linkend="char">char</link> *cert_file,
+                                                         const <link linkend="char">char</link> *key_file);</programlisting>
+<para>
+Creates an opaque server credentials object which can later be
+passed to <link linkend="soup-ssl-wrap-iochannel"><function>soup_ssl_wrap_iochannel()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>cert_file</parameter>&nbsp;:</term>
+<listitem><simpara> path to a file containing an X509-encoded server
+certificate
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>key_file</parameter>&nbsp;:</term>
+<listitem><simpara> path to a file containing an X509-encoded key for
+<parameter>cert_file</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the server credentials, which must be freed with
+<link linkend="soup-ssl-free-server-credentials"><function>soup_ssl_free_server_credentials()</function></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-ssl-free-server-credentials" role="function"/>soup_ssl_free_server_credentials ()</title>
+<indexterm><primary>soup_ssl_free_server_credentials</primary></indexterm><programlisting><link linkend="void">void</link>                soup_ssl_free_server_credentials    (<link linkend="SoupSSLCredentials">SoupSSLCredentials</link> *creds);</programlisting>
+<para>
+Frees <parameter>creds</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>creds</parameter>&nbsp;:</term>
+<listitem><simpara> a server credentials structure returned by
+<link linkend="soup-ssl-get-server-credentials"><function>soup_ssl_get_server_credentials()</function></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-ssl-wrap-iochannel" role="function"/>soup_ssl_wrap_iochannel ()</title>
+<indexterm><primary>soup_ssl_wrap_iochannel</primary></indexterm><programlisting><link linkend="GIOChannel">GIOChannel</link>*         soup_ssl_wrap_iochannel             (<link linkend="GIOChannel">GIOChannel</link> *sock,
+                                                         <link linkend="SoupSSLType">SoupSSLType</link> type,
+                                                         const <link linkend="char">char</link> *remote_host,
+                                                         <link linkend="SoupSSLCredentials">SoupSSLCredentials</link> *creds);</programlisting>
+<para>
+This attempts to wrap a new <link linkend="GIOChannel"><type>GIOChannel</type></link> around <parameter>sock</parameter> that
+will SSL-encrypt/decrypt all traffic through it.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>sock</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="GIOChannel"><type>GIOChannel</type></link> wrapping a TCP socket.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>type</parameter>&nbsp;:</term>
+<listitem><simpara> whether this is a client or server socket
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>remote_host</parameter>&nbsp;:</term>
+<listitem><simpara> the hostname of the remote machine
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>creds</parameter>&nbsp;:</term>
+<listitem><simpara> a client or server credentials structure
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> an SSL-encrypting <link linkend="GIOChannel"><type>GIOChannel</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> on
+failure.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="SOUP-SSL-ERROR:CAPS" role="macro"/>SOUP_SSL_ERROR</title>
+<indexterm><primary>SOUP_SSL_ERROR</primary></indexterm><programlisting>#define SOUP_SSL_ERROR soup_ssl_error_quark()
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="soup-ssl-error-quark" role="function"/>soup_ssl_error_quark ()</title>
+<indexterm><primary>soup_ssl_error_quark</primary></indexterm><programlisting><link linkend="GQuark">GQuark</link>              soup_ssl_error_quark                (void);</programlisting>
+<para>
+</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The quark used as <link linkend="SOUP-SSL-ERROR:CAPS"><literal>SOUP_SSL_ERROR</literal></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="SoupSocketError" role="enum"/>enum SoupSocketError</title>
+<indexterm><primary>SoupSocketError</primary></indexterm><programlisting>typedef enum {
+	SOUP_SSL_ERROR_HANDSHAKE_NEEDS_READ,
+	SOUP_SSL_ERROR_HANDSHAKE_NEEDS_WRITE,
+	SOUP_SSL_ERROR_CERTIFICATE,
+} SoupSocketError;
+</programlisting>
+<para>
+
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

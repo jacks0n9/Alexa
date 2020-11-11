@@ -1,0 +1,432 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- 
+ *  Copyright (c) 2011, Texas Instruments Incorporated
+ *  All rights reserved.
+ *
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions
+ *  are met:
+ *
+ *  *  Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *
+ *  *  Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in the
+ *     documentation and/or other materials provided with the distribution.
+ *
+ *  *  Neither the name of Texas Instruments Incorporated nor the names of
+ *     its contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+ *
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ *  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ *  THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ *  PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ *  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ *  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ *  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ *  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ *  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ *  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * 
+-->
+<html>
+<head>
+    <title>Local Power Manager (Linux) 1.24.03.10. Release Notes</title>
+    <!-- For now, we use the doxygen style sheet -->
+    <link type="text/css" rel="stylesheet" href="docs/html/doxygen.css">
+    <!-- doxygen's css .memproto's all have tables for a little extra pad...
+         don't like tables, so give 'em a little extra pad ourselves
+    --->
+    <style type="text/css">
+    .memproto {
+        padding: 3;
+    }
+    </style>
+</head>
+<body>
+<table width="100%">
+  <tbody>
+    <tr>
+      <td bgcolor="black" width="1">
+        <a href="http://www.ti.com">
+          <img border=0 src="docs/html/tilogo.gif" alt="Texas Instruments">
+        </a>
+      </td>
+      <td bgcolor="red">
+        <img src="docs/html/titagline.gif" alt="Technology for Innovators(tm)">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1 align="center">Local Power Manager (Linux) 1.24.03.10. Release Notes</h1>
+<h2 align="center">Tue Jul 12 2011</h2>
+
+<p align="center">
+<a href="#Introduction">Introduction</a>,
+<a href="#Documentation">Documentation</a>,
+<a href="#Whats_New">What's New</a>,
+<a href="#Compatibility">Compatibility Information</a>,
+<a href="#Validation">Validation Info</a>,
+<a href="#Known_Issues">Known Issues</a>,
+<a href="#Version">Version Information</a>,
+<a href="#Support">Technical Support</a>.
+</p>
+
+<hr>
+
+<h2><a name="Introduction">Introduction</a></h2>
+
+<p>
+The Local Power Manager (Linux) release consists of the following packages:
+</p>
+<ul>
+    <li><b><tt>ti.bios.power</tt></b> - Local Power Manager</li>
+    <li><b><tt>ti.bios.power.test</tt></b> - Test programs</li>
+</ul>
+
+<hr>
+
+<h2><a name="Documentation">Documentation</a></h2>
+<p>
+The following documentation is available:
+</p>
+<ul>
+  <li><a href="packages/ti/bios/power/src/doc/overview.txt">General LPM
+  overview</a>
+  <li>LPM API Reference Guide (<a href="docs/html/index.html">HTML</a> | <a
+  href="docs/html/local_power_manager_linux_1_24_03_10_eng.chm">CHM</a>)</li>
+  <li>A description of all the <a href="docs/cdoc/index.html">packages</a>
+  in this product.</li>
+</ul>
+<p>
+Release notes from previous releases are also available in the
+<a href="relnotes_archive">relnotes archive</a> directory.
+</p>
+
+<hr>
+
+<h2><a name="Whats_New">What's New</a></h2>
+
+<div class="memitem">
+<div class="memproto">1.24.03.10.</div>
+<div class="memdoc">
+<ul>
+  <li>General
+    <ul>
+      <li>Removed OPT pre-processor define from source files.
+      </li>
+    </ul>
+  </li>
+  <br />
+  <li>The following defects were resolved:
+    <table width="80%"><colgroup width="20%">
+      <tbody>
+        <tr>
+          <td><b>ID</b></td>
+          <td><b>Headline</b></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </li>
+  <br />
+  <li>The following enhancements were resolved:
+    <table width="80%"><colgroup width="20%">
+      <tbody>
+        <tr>
+          <td><b>ID</b></td>
+          <td><b>Headline</b></td>
+        </tr>
+    <tr>
+      <td>SDOCM00069200</td>
+      <td>Remove 'OPT' usage for DSP Link 1.65 compatibility
+</td>
+    </tr>
+
+      </tbody>
+    </table>
+  </li>
+
+</ul>
+</div>
+</div>
+
+<br />
+
+<div class="memitem">
+<div class="memproto">1.24.01</div>
+<div class="memdoc">
+<ul>
+  <li>General
+    <ul>
+      <li>Removed GPL content from default LPM distribution and
+        created an <i>additional</i> Linux-only distribution with
+        GPL content.
+      </li>
+    </ul>
+  </li>
+  <br />
+  <li>The following defects were resolved:
+    <table width="80%"><colgroup width="20%">
+      <tbody>
+        <tr>
+          <td><b>ID</b></td>
+          <td><b>Headline</b></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </li>
+  <br />
+  <li>The following enhancements were resolved:
+    <table width="80%"><colgroup width="20%">
+      <tbody>
+        <tr>
+          <td><b>ID</b></td>
+          <td><b>Headline</b></td>
+        </tr>
+    <tr>
+      <td>SDOCM00060217</td>
+      <td>Provide a GPL-free release of LPM for non-Linux users
+</td>
+    </tr>
+
+      </tbody>
+    </table>
+  </li>
+</ul>
+</div>
+</div>
+
+<br />
+
+<div class="memitem">
+<div class="memproto">1.24</div>
+
+<div class="memdoc">
+<ul>
+  <li>General
+    <ul>
+      <li>DM6446 device support (advanced power support)</li>
+      <li>OMAP2530 device support (on/off only)</li>
+      <li>OMAP3530 device support (advanced power support)</li>
+      <li>DSP/BIOS 5.33.03</li>
+      <li>DSP Link 1.61.03 (Linux) and DSP Link 1.61.04 (WindowsCE)</li>
+      <li>XDCtools 3.10.05.61</li>
+    </ul>
+  </li>
+  <br />
+  <li>The following defects were resolved:
+    <table width="80%"><colgroup width="20%">
+      <tbody>
+        <tr>
+          <td><b>ID</b></td>
+          <td><b>Headline</b></td>
+        </tr>
+    <tr>
+      <td>SDOCM00046148</td>
+      <td>Invalid target isa check in config.xdt
+</td>
+    </tr>
+    <tr>
+      <td>SDOCM00056022</td>
+      <td>Make lpm_driver.c into a template
+</td>
+    </tr>
+    <tr>
+      <td>SDOCM00056027</td>
+      <td>Install of ocvc driver fails
+</td>
+    </tr>
+    <tr>
+      <td>SDOCM00056217</td>
+      <td>Use standard targets in linux driver makefiles
+</td>
+    </tr>
+    <tr>
+      <td>SDOCM00058043</td>
+      <td>Configuration error in config.xdt
+</td>
+    </tr>
+
+      </tbody>
+    </table>
+  </li>
+  <br />
+  <li>The following enhancements were resolved:
+    <table width="80%"><colgroup width="20%">
+      <tbody>
+        <tr>
+          <td><b>ID</b></td>
+          <td><b>Headline</b></td>
+        </tr>
+    <tr>
+      <td>SDOCM00045996</td>
+      <td>Remove the test build release, add build script to default release
+</td>
+    </tr>
+    <tr>
+      <td>SDOCM00045997</td>
+      <td>Remove dependecy on ti.bios.power.build package
+</td>
+    </tr>
+    <tr>
+      <td>SDOCM00056830</td>
+      <td>Add warning in lpm driver if ocvc is not registered
+</td>
+    </tr>
+    <tr>
+      <td>SDOCM00058209</td>
+      <td>Add check to ensure IVA DPLL is enabled
+</td>
+    </tr>
+
+      </tbody>
+    </table>
+  </li>
+</ul>
+</div>
+</div>
+
+<br />
+
+<hr>
+
+<h2><a name="Compatibility">Compatibility Information</a></h2>
+<ul>
+  <li>
+    <b><tt>ti.bios.power</tt></b> - This package is binary compatible
+    with the previous release.
+  </li>
+</ul>
+
+<h3>Compatibility Key Definitions</h3>
+<p>
+Compatibility keys are intentionally independent of marketing product
+numbers and are intended to:
+<ol>
+  <li>Enable tooling to identify incompatibilities between components,
+  and</li>
+  <li>Convey a level of compatibility between different releases to
+  set end user expectations.</li>
+</ol>
+</p>
+
+<p>
+Compatibility keys are composed of 3 comma-delimited numbers - M,S,R
+- where:
+<ul>
+  <li><b>M = Major</b>. A difference in M indicates a break in
+  compatibility.</li>
+  <li><b>S = Source</b>. A difference in S indicates source
+  compability. That is, the user's source doesn't require change, but
+  <i>does</i> require rebuilding.</li>
+  <li><b>R = Radix</b>. A difference in R indicates an introduction
+  of new features, but compatibility with previous interfaces has not
+  broken. If libraries are provided by the package, an application
+  must re-link with the new libraries, but not rebuild from source.</li>
+</ul>
+</p>
+
+<hr>
+
+<h2><a name="Validation">Validation</a></h2>
+<p>
+This release was built and validated against using the following software
+components:
+</p>
+
+<ul>
+  <li>XDCtools <b>3.10.05.61</b></li>
+  <li>DSP/BIOS Link <b>1.64</b></li>
+  <li>DSP/BIOS <b>5.41.00.06</b></li>
+  <li>MontaVista Linux <b>v5.0</b></li>
+  <li>WinCE <b>6.00</b></li>
+  <li>Pre-built binaries were built with the following toolchains:
+    <ul>
+<!-- autogenerated list -->
+      <li>gnu.targets.UCArm9 - <b>4.2.1</b></li>
+      <li>gnu.targets.arm.GCArmv5T - <b>4.3.3</b></li>
+      <li>microsoft.targets.arm.WinCE - <b>14.01.60511</b></li>
+      <li>ti.targets.C64P - <b>7.2.0</b></li>
+    </ul>
+  </li>
+</ul>
+
+<p>
+This release was validated using the following hardware platforms:
+</p>
+
+  <li>DM6446 EVM:
+    <ul>
+      <li>dual-processor configuration, running MV 5.0 MV Linux (gcclib or
+        uClibc) and C64+ DSP/BIOS</li>
+      <li>dual-processor configuration, running WinCE 6.00 and C64+ DSP/BIOS</li>
+    </ul>
+  </li>
+  <li>OMAP3530 EVM:
+    <ul>
+      <li>dual-processor configuration, running MV 5.0 MV Linux (gcclib or
+        uClibc) and C64+ DSP/BIOS</li>
+      <li>dual-processor configuration, running WinCE 6.0 and C64+ DSP/BIOS</li>
+    </ul>
+  </li>
+</ul>
+
+
+<hr>
+<h2><a name="Known_Issues">Known Issues</a></h2>
+<p>
+None
+</p>
+<p>
+See <a href="http://tiexpressdsp.com/index.php?title=Codec_Engine_Known_Issues">
+the Codec Engine Known Issues wiki article</a> for issues found after these
+release notes were compiled.
+</p>
+
+<hr>
+<h2><a name="Version">Version Information</a></h2>
+<p>
+This product's version follows a version format, <b>M.mm.pp.bb</b>,
+where <b>M</b> is a single digit Major number, <b>mm</b> is 2 digit
+minor number, <b>pp</b> is a 2 digit patch number, and <b>b</b> is an
+unrestricted set of digits used as an incrementing build counter.
+</p>
+
+<p>
+To support multiple side-by-side installations of the product, the
+product version is encoded in the top level directory, for example
+<b>local_power_manager_1_10</b>.
+</p>
+
+<p>
+Subsequent releases of patch upgrades will be identified by the patch number,
+for example LPM 1.10.01 with directory <b>local_power_manager_1_10_01</b>.
+Typically, these patches only include critical bug fixes.
+</p>
+
+<hr>
+<h2><a name="Support">Technical Support</a></h2>
+<p>For technical support, contact <a href="mailto:softwaresupport@ti.com">softwaresupport@ti.com</a></p>
+
+<p>
+Check the following web site for updates: <a href="http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/lpm/index.html">http://software-dl.ti.com/dsps/dsps_public_sw/sdo_sb/targetcontent/lpm/index.html</a>
+</p>
+
+<hr>
+<p>
+Last updated: July 13, 2011
+</p>
+</body>
+</html>
+<!--
+/*
+ * @(#) local_power_manager_linux_1_24_03_10_eng; 1,0,0,1; 7-13-2011 17:58:04; /db/atree/library/trees/power/power-g10x/src/ xlibrary
+
+ */
+-->
+

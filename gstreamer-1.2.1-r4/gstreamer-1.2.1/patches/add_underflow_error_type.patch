@@ -1,0 +1,64 @@
+diff --git a/gst/gsterror.c b/gst/gsterror.c
+index af7a3f8..e77a8ef 100644
+--- a/gst/gsterror.c
++++ b/gst/gsterror.c
+@@ -276,6 +276,7 @@ QUARK_FUNC (core);
+ QUARK_FUNC (library);
+ QUARK_FUNC (resource);
+ QUARK_FUNC (stream);
++QUARK_FUNC (lab126);
+
+ /**
+  * gst_error_get_message:
+diff --git a/gst/gsterror.h b/gst/gsterror.h
+index 96eb20a..ce4f970 100644
+--- a/gst/gsterror.h
++++ b/gst/gsterror.h
+@@ -31,6 +31,7 @@ G_BEGIN_DECLS
+  * GST_LIBRARY_ERROR
+  * GST_RESOURCE_ERROR
+  * GST_STREAM_ERROR
++ * GST_LAB126_ERROR
+  *
+  * Check GError API docs for rationale for naming.
+  */
+@@ -198,6 +199,15 @@ typedef enum
+ } GstStreamError;
+
+ /**
++ * GstLab126Error:
++ * @GST_LAB126_ERROR_UNDERFLOW: Audio data underflow event reported from Pulse Audio
++ */
++typedef enum
++{
++  GST_LAB126_ERROR_UNDERFLOW = 1
++} GstLab126Error;
++
++/**
+  * GST_LIBRARY_ERROR:
+  *
+  * Error domain for library loading. Errors in this domain will
+@@ -229,6 +239,15 @@ typedef enum
+  * See #GError for information on error domains.
+  */
+ #define GST_STREAM_ERROR    gst_stream_error_quark ()
++/**
++ * GST_LAB126_ERROR:
++ *
++ * Domain for events/errors explicitly generated for passing information
++ * into lab126 application code. Errors in this domain will be from the
++ * #GstLab126Error enumeration.
++ * See #GError for information on error domains.
++ */
++#define GST_LAB126_ERROR    gst_lab126_error_quark ()
+
+ /**
+  * GST_ERROR_SYSTEM:
+@@ -243,6 +262,7 @@ GQuark gst_stream_error_quark (void);
+ GQuark gst_core_error_quark (void);
+ GQuark gst_resource_error_quark (void);
+ GQuark gst_library_error_quark (void);
++GQuark gst_lab126_error_quark (void);
+
+ G_END_DECLS
+ #endif /* __GST_ERROR_H__ */

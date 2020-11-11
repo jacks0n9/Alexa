@@ -1,0 +1,3 @@
+-l"ti\pspiom\gpio\lib\OMAPL138\Release\ti.pspiom.gpio.a674"
+-l"ti\pspiom\psc\lib\OMAPL138\Release\ti.pspiom.psc.a674"
+-l"ti\pspiom\platforms\evmOMAPL138\lib\Release\ti.pspiom.platforms.evmOMAPL138.evmInit.a674"

@@ -1,0 +1,1 @@
+upstart-dbus-bridge-depends-on-dbus.patch -p1

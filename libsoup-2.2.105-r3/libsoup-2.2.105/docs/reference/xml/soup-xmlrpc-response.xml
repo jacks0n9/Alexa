@@ -1,0 +1,445 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="SoupXmlrpcResponse">
+<refmeta>
+<refentrytitle role="top_of_page">SoupXmlrpcResponse</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBSOUP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>SoupXmlrpcResponse</refname>
+<refpurpose>An XML-RPC response</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="SoupXmlrpcResponse-struct">SoupXmlrpcResponse</link>;
+<link linkend="SoupXmlrpcResponse">SoupXmlrpcResponse</link>* <link linkend="soup-xmlrpc-response-new">soup_xmlrpc_response_new</link>            (void);
+<link linkend="SoupXmlrpcResponse">SoupXmlrpcResponse</link>* <link linkend="soup-xmlrpc-response-new-from-string">soup_xmlrpc_response_new_from_string</link>
+                                                        (const <link linkend="char">char</link> *xmlstr);
+<link linkend="gboolean">gboolean</link>            <link linkend="soup-xmlrpc-response-from-string">soup_xmlrpc_response_from_string</link>    (<link linkend="SoupXmlrpcResponse">SoupXmlrpcResponse</link> *response,
+                                                         const <link linkend="char">char</link> *xmlstr);
+<link linkend="xmlChar">xmlChar</link>*            <link linkend="soup-xmlrpc-response-to-string">soup_xmlrpc_response_to_string</link>      (<link linkend="SoupXmlrpcResponse">SoupXmlrpcResponse</link> *response);
+
+typedef             <link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link>;
+enum                <link linkend="SoupXmlrpcValueType">SoupXmlrpcValueType</link>;
+<link linkend="gboolean">gboolean</link>            <link linkend="soup-xmlrpc-response-is-fault">soup_xmlrpc_response_is_fault</link>       (<link linkend="SoupXmlrpcResponse">SoupXmlrpcResponse</link> *response);
+<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link>*    <link linkend="soup-xmlrpc-response-get-value">soup_xmlrpc_response_get_value</link>      (<link linkend="SoupXmlrpcResponse">SoupXmlrpcResponse</link> *response);
+
+<link linkend="SoupXmlrpcValueType">SoupXmlrpcValueType</link> <link linkend="soup-xmlrpc-value-get-type">soup_xmlrpc_value_get_type</link>          (<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> *value);
+<link linkend="gboolean">gboolean</link>            <link linkend="soup-xmlrpc-value-get-int">soup_xmlrpc_value_get_int</link>           (<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> *value,
+                                                         <link linkend="long">long</link> *i);
+<link linkend="gboolean">gboolean</link>            <link linkend="soup-xmlrpc-value-get-double">soup_xmlrpc_value_get_double</link>        (<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> *value,
+                                                         <link linkend="double">double</link> *b);
+<link linkend="gboolean">gboolean</link>            <link linkend="soup-xmlrpc-value-get-boolean">soup_xmlrpc_value_get_boolean</link>       (<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> *value,
+                                                         <link linkend="gboolean">gboolean</link> *b);
+<link linkend="gboolean">gboolean</link>            <link linkend="soup-xmlrpc-value-get-string">soup_xmlrpc_value_get_string</link>        (<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> *value,
+                                                         <link linkend="char">char</link> **str);
+<link linkend="gboolean">gboolean</link>            <link linkend="soup-xmlrpc-value-get-datetime">soup_xmlrpc_value_get_datetime</link>      (<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> *value,
+                                                         <link linkend="time-t">time_t</link> *timeval);
+<link linkend="gboolean">gboolean</link>            <link linkend="soup-xmlrpc-value-get-base64">soup_xmlrpc_value_get_base64</link>        (<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> *value,
+                                                         <link linkend="GByteArray">GByteArray</link> **data);
+<link linkend="gboolean">gboolean</link>            <link linkend="soup-xmlrpc-value-get-struct">soup_xmlrpc_value_get_struct</link>        (<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> *value,
+                                                         <link linkend="GHashTable">GHashTable</link> **table);
+
+typedef             <link linkend="SoupXmlrpcValueArrayIterator">SoupXmlrpcValueArrayIterator</link>;
+<link linkend="gboolean">gboolean</link>            <link linkend="soup-xmlrpc-value-array-get-iterator">soup_xmlrpc_value_array_get_iterator</link>
+                                                        (<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> *value,
+                                                         <link linkend="SoupXmlrpcValueArrayIterator">SoupXmlrpcValueArrayIterator</link> **iter);
+<link linkend="SoupXmlrpcValueArrayIterator">SoupXmlrpcValueArrayIterator</link>* <link linkend="soup-xmlrpc-value-array-iterator-prev">soup_xmlrpc_value_array_iterator_prev</link>
+                                                        (<link linkend="SoupXmlrpcValueArrayIterator">SoupXmlrpcValueArrayIterator</link> *iter);
+<link linkend="SoupXmlrpcValueArrayIterator">SoupXmlrpcValueArrayIterator</link>* <link linkend="soup-xmlrpc-value-array-iterator-next">soup_xmlrpc_value_array_iterator_next</link>
+                                                        (<link linkend="SoupXmlrpcValueArrayIterator">SoupXmlrpcValueArrayIterator</link> *iter);
+<link linkend="gboolean">gboolean</link>            <link linkend="soup-xmlrpc-value-array-iterator-get-value">soup_xmlrpc_value_array_iterator_get_value</link>
+                                                        (<link linkend="SoupXmlrpcValueArrayIterator">SoupXmlrpcValueArrayIterator</link> *iter,
+                                                         <link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> **value);
+
+<link linkend="void">void</link>                <link linkend="soup-xmlrpc-value-dump">soup_xmlrpc_value_dump</link>              (<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> *value);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----SoupXmlrpcResponse
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="SoupXmlrpcResponse-struct" role="struct"/>SoupXmlrpcResponse</title>
+<indexterm><primary>SoupXmlrpcResponse</primary></indexterm><programlisting>typedef struct _SoupXmlrpcResponse SoupXmlrpcResponse;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="soup-xmlrpc-response-new" role="function"/>soup_xmlrpc_response_new ()</title>
+<indexterm><primary>soup_xmlrpc_response_new</primary></indexterm><programlisting><link linkend="SoupXmlrpcResponse">SoupXmlrpcResponse</link>* soup_xmlrpc_response_new            (void);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-xmlrpc-response-new-from-string" role="function"/>soup_xmlrpc_response_new_from_string ()</title>
+<indexterm><primary>soup_xmlrpc_response_new_from_string</primary></indexterm><programlisting><link linkend="SoupXmlrpcResponse">SoupXmlrpcResponse</link>* soup_xmlrpc_response_new_from_string
+                                                        (const <link linkend="char">char</link> *xmlstr);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>xmlstr</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-xmlrpc-response-from-string" role="function"/>soup_xmlrpc_response_from_string ()</title>
+<indexterm><primary>soup_xmlrpc_response_from_string</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            soup_xmlrpc_response_from_string    (<link linkend="SoupXmlrpcResponse">SoupXmlrpcResponse</link> *response,
+                                                         const <link linkend="char">char</link> *xmlstr);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>response</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>xmlstr</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-xmlrpc-response-to-string" role="function"/>soup_xmlrpc_response_to_string ()</title>
+<indexterm><primary>soup_xmlrpc_response_to_string</primary></indexterm><programlisting><link linkend="xmlChar">xmlChar</link>*            soup_xmlrpc_response_to_string      (<link linkend="SoupXmlrpcResponse">SoupXmlrpcResponse</link> *response);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>response</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="SoupXmlrpcValue" role="typedef"/>SoupXmlrpcValue</title>
+<indexterm><primary>SoupXmlrpcValue</primary></indexterm><programlisting>typedef xmlNode *SoupXmlrpcValue;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="SoupXmlrpcValueType" role="enum"/>enum SoupXmlrpcValueType</title>
+<indexterm><primary>SoupXmlrpcValueType</primary></indexterm><programlisting>typedef enum {
+	SOUP_XMLRPC_VALUE_TYPE_BAD,
+	SOUP_XMLRPC_VALUE_TYPE_INT,
+	SOUP_XMLRPC_VALUE_TYPE_BOOLEAN,
+	SOUP_XMLRPC_VALUE_TYPE_STRING,
+	SOUP_XMLRPC_VALUE_TYPE_DOUBLE,
+	SOUP_XMLRPC_VALUE_TYPE_DATETIME,
+	SOUP_XMLRPC_VALUE_TYPE_BASE64,
+	SOUP_XMLRPC_VALUE_TYPE_STRUCT,
+	SOUP_XMLRPC_VALUE_TYPE_ARRAY
+} SoupXmlrpcValueType;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="soup-xmlrpc-response-is-fault" role="function"/>soup_xmlrpc_response_is_fault ()</title>
+<indexterm><primary>soup_xmlrpc_response_is_fault</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            soup_xmlrpc_response_is_fault       (<link linkend="SoupXmlrpcResponse">SoupXmlrpcResponse</link> *response);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>response</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-xmlrpc-response-get-value" role="function"/>soup_xmlrpc_response_get_value ()</title>
+<indexterm><primary>soup_xmlrpc_response_get_value</primary></indexterm><programlisting><link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link>*    soup_xmlrpc_response_get_value      (<link linkend="SoupXmlrpcResponse">SoupXmlrpcResponse</link> *response);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>response</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-xmlrpc-value-get-type" role="function"/>soup_xmlrpc_value_get_type ()</title>
+<indexterm><primary>soup_xmlrpc_value_get_type</primary></indexterm><programlisting><link linkend="SoupXmlrpcValueType">SoupXmlrpcValueType</link> soup_xmlrpc_value_get_type          (<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> *value);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-xmlrpc-value-get-int" role="function"/>soup_xmlrpc_value_get_int ()</title>
+<indexterm><primary>soup_xmlrpc_value_get_int</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            soup_xmlrpc_value_get_int           (<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> *value,
+                                                         <link linkend="long">long</link> *i);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>i</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-xmlrpc-value-get-double" role="function"/>soup_xmlrpc_value_get_double ()</title>
+<indexterm><primary>soup_xmlrpc_value_get_double</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            soup_xmlrpc_value_get_double        (<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> *value,
+                                                         <link linkend="double">double</link> *b);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>b</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-xmlrpc-value-get-boolean" role="function"/>soup_xmlrpc_value_get_boolean ()</title>
+<indexterm><primary>soup_xmlrpc_value_get_boolean</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            soup_xmlrpc_value_get_boolean       (<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> *value,
+                                                         <link linkend="gboolean">gboolean</link> *b);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>b</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-xmlrpc-value-get-string" role="function"/>soup_xmlrpc_value_get_string ()</title>
+<indexterm><primary>soup_xmlrpc_value_get_string</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            soup_xmlrpc_value_get_string        (<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> *value,
+                                                         <link linkend="char">char</link> **str);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>str</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-xmlrpc-value-get-datetime" role="function"/>soup_xmlrpc_value_get_datetime ()</title>
+<indexterm><primary>soup_xmlrpc_value_get_datetime</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            soup_xmlrpc_value_get_datetime      (<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> *value,
+                                                         <link linkend="time-t">time_t</link> *timeval);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>timeval</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-xmlrpc-value-get-base64" role="function"/>soup_xmlrpc_value_get_base64 ()</title>
+<indexterm><primary>soup_xmlrpc_value_get_base64</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            soup_xmlrpc_value_get_base64        (<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> *value,
+                                                         <link linkend="GByteArray">GByteArray</link> **data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-xmlrpc-value-get-struct" role="function"/>soup_xmlrpc_value_get_struct ()</title>
+<indexterm><primary>soup_xmlrpc_value_get_struct</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            soup_xmlrpc_value_get_struct        (<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> *value,
+                                                         <link linkend="GHashTable">GHashTable</link> **table);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>table</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="SoupXmlrpcValueArrayIterator" role="typedef"/>SoupXmlrpcValueArrayIterator</title>
+<indexterm><primary>SoupXmlrpcValueArrayIterator</primary></indexterm><programlisting>typedef xmlNodePtr SoupXmlrpcValueArrayIterator;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="soup-xmlrpc-value-array-get-iterator" role="function"/>soup_xmlrpc_value_array_get_iterator ()</title>
+<indexterm><primary>soup_xmlrpc_value_array_get_iterator</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            soup_xmlrpc_value_array_get_iterator
+                                                        (<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> *value,
+                                                         <link linkend="SoupXmlrpcValueArrayIterator">SoupXmlrpcValueArrayIterator</link> **iter);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-xmlrpc-value-array-iterator-prev" role="function"/>soup_xmlrpc_value_array_iterator_prev ()</title>
+<indexterm><primary>soup_xmlrpc_value_array_iterator_prev</primary></indexterm><programlisting><link linkend="SoupXmlrpcValueArrayIterator">SoupXmlrpcValueArrayIterator</link>* soup_xmlrpc_value_array_iterator_prev
+                                                        (<link linkend="SoupXmlrpcValueArrayIterator">SoupXmlrpcValueArrayIterator</link> *iter);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-xmlrpc-value-array-iterator-next" role="function"/>soup_xmlrpc_value_array_iterator_next ()</title>
+<indexterm><primary>soup_xmlrpc_value_array_iterator_next</primary></indexterm><programlisting><link linkend="SoupXmlrpcValueArrayIterator">SoupXmlrpcValueArrayIterator</link>* soup_xmlrpc_value_array_iterator_next
+                                                        (<link linkend="SoupXmlrpcValueArrayIterator">SoupXmlrpcValueArrayIterator</link> *iter);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-xmlrpc-value-array-iterator-get-value" role="function"/>soup_xmlrpc_value_array_iterator_get_value ()</title>
+<indexterm><primary>soup_xmlrpc_value_array_iterator_get_value</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            soup_xmlrpc_value_array_iterator_get_value
+                                                        (<link linkend="SoupXmlrpcValueArrayIterator">SoupXmlrpcValueArrayIterator</link> *iter,
+                                                         <link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> **value);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>iter</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-xmlrpc-value-dump" role="function"/>soup_xmlrpc_value_dump ()</title>
+<indexterm><primary>soup_xmlrpc_value_dump</primary></indexterm><programlisting><link linkend="void">void</link>                soup_xmlrpc_value_dump              (<link linkend="SoupXmlrpcValue">SoupXmlrpcValue</link> *value);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>value</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,12 @@
+[Unit]
+Description=Restore Sound Card State
+DefaultDependencies=no
+After=sysinit.target
+Before=shutdown.target
+Conflicts=shutdown.target
+ConditionPathExists=@localstatedir@/lib/alsa/asound.state
+
+[Service]
+Type=oneshot
+ExecStart=-@sbindir@/alsactl restore
+StandardOutput=syslog

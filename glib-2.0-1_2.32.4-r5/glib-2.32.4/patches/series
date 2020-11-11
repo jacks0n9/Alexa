@@ -1,0 +1,6 @@
+configure-libtool.patch -p1
+nodbus.patch -p1
+allow-single-includes.patch -p1
+g-atexit-not-deprecated.patch -p1
+closure-leak.patch -p1
+python-shebang-line.patch -p1

@@ -1,0 +1,611 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>SoupAddress</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="libsoup Reference Manual">
+<link rel="up" href="ch02.html" title="libsoup API Reference">
+<link rel="prev" href="ch02.html" title="libsoup API Reference">
+<link rel="next" href="SoupAuth.html" title="SoupAuth">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libsoup Tutorial">
+<link rel="chapter" href="ch02.html" title="libsoup API Reference">
+<link rel="chapter" href="ch03.html" title="libsoup internals">
+<link rel="index" href="ix01.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch02.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libsoup Reference Manual</th>
+<td><a accesskey="n" href="SoupAuth.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id360116" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id358556" class="shortcut">Description</a>
+                  &#160;|&#160;
+                  <a href="#id358508" class="shortcut">Object Hierarchy</a>
+                  &#160;|&#160;
+                  <a href="#id358532" class="shortcut">Signals</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="SoupAddress"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id360116"></a><span class="refentrytitle">SoupAddress</span>
+</h2>
+<p>SoupAddress &#8212; Higher-level IP address object</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+struct              <a class="link" href="SoupAddress.html#SoupAddress-struct">SoupAddress</a>;
+enum                <a class="link" href="SoupAddress.html#SoupAddressFamily">SoupAddressFamily</a>;
+#define             <a class="link" href="SoupAddress.html#SOUP-ADDRESS-ANY-PORT:CAPS">SOUP_ADDRESS_ANY_PORT</a>
+<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a>*        <a class="link" href="SoupAddress.html#soup-address-new">soup_address_new</a>                    (const char *name,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> port);
+<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a>*        <a class="link" href="SoupAddress.html#soup-address-new-from-sockaddr">soup_address_new_from_sockaddr</a>      (struct sockaddr *sa,
+                                                         int len);
+<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a>*        <a class="link" href="SoupAddress.html#soup-address-new-any">soup_address_new_any</a>                (<a class="link" href="SoupAddress.html#SoupAddressFamily">SoupAddressFamily</a> family,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> port);
+void                (<a class="link" href="SoupAddress.html#SoupAddressCallback">*SoupAddressCallback</a>)              (<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *addr,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> status,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+void                <a class="link" href="SoupAddress.html#soup-address-resolve-async">soup_address_resolve_async</a>          (<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *addr,
+                                                         <a class="link" href="SoupAddress.html#SoupAddressCallback">SoupAddressCallback</a> callback,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+void                <a class="link" href="SoupAddress.html#soup-address-resolve-async-full">soup_address_resolve_async_full</a>     (<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *addr,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GMainContext"
+>GMainContext</a> *async_context,
+                                                         <a class="link" href="SoupAddress.html#SoupAddressCallback">SoupAddressCallback</a> callback,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>               <a class="link" href="SoupAddress.html#soup-address-resolve-sync">soup_address_resolve_sync</a>           (<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *addr);
+const char*         <a class="link" href="SoupAddress.html#soup-address-get-name">soup_address_get_name</a>               (<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *addr);
+struct sockaddr*    <a class="link" href="SoupAddress.html#soup-address-get-sockaddr">soup_address_get_sockaddr</a>           (<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *addr,
+                                                         int *len);
+const char*         <a class="link" href="SoupAddress.html#soup-address-get-physical">soup_address_get_physical</a>           (<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *addr);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>               <a class="link" href="SoupAddress.html#soup-address-get-port">soup_address_get_port</a>               (<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *addr);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id358508"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----SoupAddress
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id358532"></a><h2>Signals</h2>
+<pre class="synopsis">
+
+  "<a class="link" href="SoupAddress.html#SoupAddress-dns-result">dns-result</a>"                                     : Run First
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id358556"></a><h2>Description</h2>
+<p>
+<a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a> represents the address of a TCP connection endpoint; both
+the IP address and the port. (It is somewhat like an object-oriented
+version of struct <span class="type">sockaddr</span>.)
+</p>
+<p>
+If libsoup was built with IPv6 support, <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a> will allow both
+IPv4 and IPv6 addresses.
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id362525"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id362536"></a><h3>
+<a name="SoupAddress-struct"></a>struct SoupAddress</h3>
+<a class="indexterm" name="id362548"></a><pre class="programlisting">struct SoupAddress;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id362564"></a><h3>
+<a name="SoupAddressFamily"></a>enum SoupAddressFamily</h3>
+<a class="indexterm" name="id362576"></a><pre class="programlisting">typedef enum {
+	SOUP_ADDRESS_FAMILY_IPV4 = AF_INET,
+	SOUP_ADDRESS_FAMILY_IPV6 = AF_INET6
+} SoupAddressFamily;
+</pre>
+<p>
+The supported address families. Note that the
+<a class="link" href="SoupAddress.html#SOUP-ADDRESS-FAMILY-IPV6:CAPS"><code class="literal">SOUP_ADDRESS_FAMILY_IPV6</code></a> constant is available even if libsoup was
+built without IPv6 support, but attempting to create an IPv6
+address will fail in that case.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a name="SOUP-ADDRESS-FAMILY-IPV4:CAPS"></a><code class="literal">SOUP_ADDRESS_FAMILY_IPV4</code></span></p></td>
+<td> an IPv4 address
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="SOUP-ADDRESS-FAMILY-IPV6:CAPS"></a><code class="literal">SOUP_ADDRESS_FAMILY_IPV6</code></span></p></td>
+<td> an IPv6 address
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id362654"></a><h3>
+<a name="SOUP-ADDRESS-ANY-PORT:CAPS"></a>SOUP_ADDRESS_ANY_PORT</h3>
+<a class="indexterm" name="id362667"></a><pre class="programlisting">#define SOUP_ADDRESS_ANY_PORT 0
+</pre>
+<p>
+This can be passed to any <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a> method that expects a port,
+to indicate that you don't care what port is used.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id362693"></a><h3>
+<a name="soup-address-new"></a>soup_address_new ()</h3>
+<a class="indexterm" name="id362705"></a><pre class="programlisting"><a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a>*        soup_address_new                    (const char *name,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> port);</pre>
+<p>
+Creates a <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a> from <em class="parameter"><code>name</code></em> and <em class="parameter"><code>port</code></em>. The <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a>'s IP
+address may not be available right away; the caller can call
+<a class="link" href="SoupAddress.html#soup-address-resolve-async"><code class="function">soup_address_resolve_async()</code></a> or <a class="link" href="SoupAddress.html#soup-address-resolve-sync"><code class="function">soup_address_resolve_sync()</code></a> to
+force a DNS resolution.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></p></td>
+<td> a hostname or physical address
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>port</code></em>&#160;:</span></p></td>
+<td> a port number
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> a <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id362836"></a><h3>
+<a name="soup-address-new-from-sockaddr"></a>soup_address_new_from_sockaddr ()</h3>
+<a class="indexterm" name="id362849"></a><pre class="programlisting"><a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a>*        soup_address_new_from_sockaddr      (struct sockaddr *sa,
+                                                         int len);</pre>
+<p>
+Returns a <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a> equivalent to <em class="parameter"><code>sa</code></em> (or <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a> if <em class="parameter"><code>sa</code></em>'s
+address family isn't supported)</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sa</code></em>&#160;:</span></p></td>
+<td> a pointer to a sockaddr
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em>&#160;:</span></p></td>
+<td> size of <em class="parameter"><code>sa</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the new <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id362970"></a><h3>
+<a name="soup-address-new-any"></a>soup_address_new_any ()</h3>
+<a class="indexterm" name="id362982"></a><pre class="programlisting"><a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a>*        soup_address_new_any                (<a class="link" href="SoupAddress.html#SoupAddressFamily">SoupAddressFamily</a> family,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> port);</pre>
+<p>
+Returns a <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a> corresponding to the "any" address
+for <em class="parameter"><code>family</code></em> (or <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a> if <em class="parameter"><code>family</code></em> isn't supported), suitable for
+passing to <a class="link" href="SoupSocket.html#soup-socket-server-new"><code class="function">soup_socket_server_new()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>family</code></em>&#160;:</span></p></td>
+<td> the address family
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>port</code></em>&#160;:</span></p></td>
+<td> the port number (usually <a class="link" href="SoupAddress.html#SOUP-ADDRESS-ANY-PORT:CAPS"><code class="literal">SOUP_ADDRESS_ANY_PORT</code></a>)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the new <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id363115"></a><h3>
+<a name="SoupAddressCallback"></a>SoupAddressCallback ()</h3>
+<a class="indexterm" name="id363127"></a><pre class="programlisting">void                (*SoupAddressCallback)              (<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *addr,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> status,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+The callback function passed to <a class="link" href="SoupAddress.html#soup-address-resolve-async"><code class="function">soup_address_resolve_async()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>addr</code></em>&#160;:</span></p></td>
+<td> the <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a> that was resolved
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>status</code></em>&#160;:</span></p></td>
+<td> <a class="link" href="libsoup-soup-status.html#SOUP-STATUS-OK:CAPS"><code class="literal">SOUP_STATUS_OK</code></a> or <a class="link" href="libsoup-soup-status.html#SOUP-STATUS-CANT-RESOLVE:CAPS"><code class="literal">SOUP_STATUS_CANT_RESOLVE</code></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></p></td>
+<td> the user data that was passed to
+<a class="link" href="SoupAddress.html#soup-address-resolve-async"><code class="function">soup_address_resolve_async()</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id363261"></a><h3>
+<a name="soup-address-resolve-async"></a>soup_address_resolve_async ()</h3>
+<a class="indexterm" name="id363273"></a><pre class="programlisting">void                soup_address_resolve_async          (<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *addr,
+                                                         <a class="link" href="SoupAddress.html#SoupAddressCallback">SoupAddressCallback</a> callback,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+Asynchronously resolves the missing half of <em class="parameter"><code>addr</code></em>. (Its IP address
+if it was created with <a class="link" href="SoupAddress.html#soup-address-new"><code class="function">soup_address_new()</code></a>, or its hostname if it
+was created with <a class="link" href="SoupAddress.html#soup-address-new-from-sockaddr"><code class="function">soup_address_new_from_sockaddr()</code></a> or
+<a class="link" href="SoupAddress.html#soup-address-new-any"><code class="function">soup_address_new_any()</code></a>.) <em class="parameter"><code>callback</code></em> will be called when the
+resolution finishes (successfully or not).</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>addr</code></em>&#160;:</span></p></td>
+<td> a <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em>&#160;:</span></p></td>
+<td> callback to call with the result
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></p></td>
+<td> data for <em class="parameter"><code>callback</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id363414"></a><h3>
+<a name="soup-address-resolve-async-full"></a>soup_address_resolve_async_full ()</h3>
+<a class="indexterm" name="id363427"></a><pre class="programlisting">void                soup_address_resolve_async_full     (<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *addr,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GMainContext"
+>GMainContext</a> *async_context,
+                                                         <a class="link" href="SoupAddress.html#SoupAddressCallback">SoupAddressCallback</a> callback,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+Like <a class="link" href="SoupAddress.html#soup-address-resolve-async"><code class="function">soup_address_resolve_async()</code></a>, but calls <em class="parameter"><code>callback</code></em> from
+the given <em class="parameter"><code>async_context</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>addr</code></em>&#160;:</span></p></td>
+<td> a <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>async_context</code></em>&#160;:</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GMainContext"
+><span class="type">GMainContext</span></a> to call <em class="parameter"><code>callback</code></em> from
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em>&#160;:</span></p></td>
+<td> callback to call with the result
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></p></td>
+<td> data for <em class="parameter"><code>callback</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id363585"></a><h3>
+<a name="soup-address-resolve-sync"></a>soup_address_resolve_sync ()</h3>
+<a class="indexterm" name="id363597"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>               soup_address_resolve_sync           (<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *addr);</pre>
+<p>
+Synchronously resolves the missing half of <em class="parameter"><code>addr</code></em>, as with
+<a class="link" href="SoupAddress.html#soup-address-resolve-async"><code class="function">soup_address_resolve_async()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>addr</code></em>&#160;:</span></p></td>
+<td> a <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> <a class="link" href="libsoup-soup-status.html#SOUP-STATUS-OK:CAPS"><code class="literal">SOUP_STATUS_OK</code></a> or <a class="link" href="libsoup-soup-status.html#SOUP-STATUS-CANT-RESOLVE:CAPS"><code class="literal">SOUP_STATUS_CANT_RESOLVE</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id363698"></a><h3>
+<a name="soup-address-get-name"></a>soup_address_get_name ()</h3>
+<a class="indexterm" name="id363710"></a><pre class="programlisting">const char*         soup_address_get_name               (<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *addr);</pre>
+<p>
+Returns the hostname associated with <em class="parameter"><code>addr</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>addr</code></em>&#160;:</span></p></td>
+<td> a <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the hostname, or <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a> if it is not known.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id363793"></a><h3>
+<a name="soup-address-get-sockaddr"></a>soup_address_get_sockaddr ()</h3>
+<a class="indexterm" name="id363805"></a><pre class="programlisting">struct sockaddr*    soup_address_get_sockaddr           (<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *addr,
+                                                         int *len);</pre>
+<p>
+Returns the sockaddr associated with <em class="parameter"><code>addr</code></em>, with its length in
+*<em class="parameter"><code>len</code></em>. If the sockaddr is not yet known, returns <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>addr</code></em>&#160;:</span></p></td>
+<td> a <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em>&#160;:</span></p></td>
+<td> return location for sockaddr length
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the sockaddr, or <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id363924"></a><h3>
+<a name="soup-address-get-physical"></a>soup_address_get_physical ()</h3>
+<a class="indexterm" name="id363937"></a><pre class="programlisting">const char*         soup_address_get_physical           (<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *addr);</pre>
+<p>
+Returns the physical address associated with <em class="parameter"><code>addr</code></em> as a string.
+(Eg, "127.0.0.1"). If the address is not yet known, returns <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>addr</code></em>&#160;:</span></p></td>
+<td> a <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the physical address, or <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id364030"></a><h3>
+<a name="soup-address-get-port"></a>soup_address_get_port ()</h3>
+<a class="indexterm" name="id364042"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>               soup_address_get_port               (<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *addr);</pre>
+<p>
+Returns the port associated with <em class="parameter"><code>addr</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>addr</code></em>&#160;:</span></p></td>
+<td> a <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the port
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id364116"></a><h2>Signal Details</h2>
+<div class="refsect2" lang="en">
+<a name="id364126"></a><h3>
+<a name="SoupAddress-dns-result"></a>The "dns-result" signal</h3>
+<a class="indexterm" name="id364135"></a><pre class="programlisting">void                user_function                      (<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *addr,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>         status,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>     user_data)      : Run First</pre>
+<p>
+Emitted when an address resolution completes. (This is used
+internally by <a class="link" href="SoupAddress.html#soup-address-resolve-async"><code class="function">soup_address_resolve_async()</code></a> itself.)</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>addr</code></em>&#160;:</span></p></td>
+<td> the <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>status</code></em>&#160;:</span></p></td>
+<td> the DNS status code
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>

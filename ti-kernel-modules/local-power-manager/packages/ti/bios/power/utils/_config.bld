@@ -1,0 +1,213 @@
+/* 
+ * Copyright (c) 2011, Texas Instruments Incorporated
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * *  Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * *  Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * *  Neither the name of Texas Instruments Incorporated nor the names of
+ *    its contributors may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * 
+ */
+
+/*
+ *  ======== config.bld ========
+ *  This script is run prior to all build scripts.
+ */
+
+// explicit references to global objects
+var Build = xdc.useModule('xdc.bld.BuildEnvironment');
+var Pkg = xdc.useModule('xdc.bld.PackageContents');
+
+// host operating system is defined by RTSC environment
+var hos = environment["xdc.hostOS"];
+
+// all codegen tools and kernels are in vendors
+var vendors = "/db/toolsrc/library/tools/vendors";
+
+// don't build WindowsCE by default, must use XDCARGS="wince=1"
+var doWinCE = false;
+
+// variables passed in as command line arguments override the defaults
+// vendors=<path to your vendors directory>
+// wince=1, build for WindowsCE
+for (x = 0; x < arguments.length; x++) {
+    if (arguments[x].match(/^vendors=/) ) {
+        vendors = arguments[x].split("=")[1];
+    }
+    else if (arguments[x].match(/^wince=/) ) {
+        doWinCE = (arguments[x].split("=")[1] == "1" ? true : false);
+    }
+}
+
+// list of kernels and toolchains used for building Linux drivers
+var kernels = {};
+
+kernels["DM6446:linux_2.6.18"] = {
+
+    // linux kernel: 2.6.18 (Monta Vista)
+    kernelDir: vendors + "/mvl/arm/LSP_20/REL_LSP_02_00_00_100/dm6446/" +
+        "montavista/pro/devkit/lsp/ti-davinci/linux-2.6.18_pro500",
+
+    // tool chain: Monta Vista 4.2.0-3.0.0.0702771 2007-03-10 (GCC 4.2.0)
+    toolPrefix: vendors + "/mvl/arm/mvl5_0_0801921/" +
+        "montavista/pro/devkit/arm/v5t_le/bin/arm_v5t_le-",
+
+    platform: "ti.platforms.evmDM6446"
+};
+
+kernels["OMAP2530:linux_2.6.23"] = {
+
+    // linux kernel: 2.6.23 (Mistral)
+    kernelDir: vendors + "/mistral/arm/omap2530evm-3.0/linux-2.6.23",
+
+    // tool chain: CodeSourcery Sourcery G++ Lite 2007q1 (GCC 4.2.0)
+    toolPrefix: vendors + "/cs/arm/arm-2007q1/bin/arm-none-linux-gnueabi-",
+
+    platform: "ti.platforms.evm2530"
+};
+
+kernels["OMAP3530:linux_2.6.22"] = {
+
+    // linux kernel: 2.6.22 (Monta Vista)
+    kernelDir: vendors +
+        "/mvl/arm/omap3/OMAP35x_SDK_1.0.2/src/linux/kernel_org/2.6_kernel",
+
+    // tool chain: CodeSourcery Sourcery G++ Lite 2007q3-51 (GCC 4.2.1)
+    toolPrefix: vendors + "/cs/arm/arm-2007q3/bin/arm-none-linux-gnueabi-",
+
+    platform: "ti.platforms.evm3530"
+};
+
+kernels["OMAP3530:linux_2.6.29-rc3"] = {
+
+    // linux kernel: 2.6.29-rc3 (PSP OMAP35x EVM Linux 2.01.00.02)
+    kernelDir: vendors +
+        "/kernel_org/arm/KERNEL_02.01.00.02/REL_OMAP35x_02.01.00.02" +
+        "/OMAP35x/linux-02.01.00.02",
+
+    // tool chain: CodeSourcery Sourcery G++ Lite 2008q1-126 (GCC 4.2.3)
+    toolPrefix: vendors + "/cs/arm/arm-2008q1-126/bin/arm-none-linux-gnueabi-",
+
+    platform: "ti.platforms.evm3530"
+};
+
+
+/*
+ *  ======== DSP target ========
+ */
+var C64P = xdc.useModule('ti.targets.C64P');
+C64P.rootDir = vendors + "/ti/c6x/6.1.9/" + hos;
+C64P.ccOpts.prefix += " --mem_model:data=far ";
+C64P.platform = null;
+C64P.platforms = [
+    "ti.platforms.evmDM6446",
+    "ti.platforms.evm2530",
+    "ti.platforms.evm3530"
+];
+
+/* remove profiles we don't use */
+delete C64P.profiles["coverage"];
+delete C64P.profiles["profile"];
+
+Build.targets.$add(C64P);
+
+
+/*
+ *  ======== Arm Target ========
+ */
+var GCArmv5T = xdc.useModule('gnu.targets.arm.GCArmv5T');
+GCArmv5T.LONGNAME = "bin/arm-none-linux-gnueabi-gcc";
+GCArmv5T.rootDir = vendors + "/cs/arm/arm-2007q3";
+GCArmv5T.ccOpts.prefix += " -Wall -fno-strict-aliasing ";
+GCArmv5T.lnkOpts.suffix = GCArmv5T.lnkOpts.suffix.replace("-lstdc++", "");
+GCArmv5T.lnkOpts.suffix += " -lpthread ";
+GCArmv5T.platform = null;
+GCArmv5T.platforms = [
+    "ti.platforms.evmDM6446",
+    "ti.platforms.evm2530",
+    "ti.platforms.evm3530"
+];
+
+/* remove profiles we don't use */
+delete GCArmv5T.profiles["coverage"];
+delete GCArmv5T.profiles["profile"];
+
+Build.targets.$add(GCArmv5T);
+
+
+/*
+ *  ======== Arm9 uC target ========
+ *  GCC toolchain using uClibc runtime library
+ */
+var UCArm9 = xdc.useModule('gnu.targets.UCArm9');
+UCArm9.rootDir = vendors +
+    "/opensource/buildroot/10122007/build_arm/staging_dir/usr";
+UCArm9.lnkOpts.suffix += " -lpthread";
+UCArm9.remoteHost = (hos != "Linux" ? "tarpine" : undefined);
+UCArm9.platform = null;
+UCArm9.platforms = [
+    "ti.platforms.evmDM6446",
+    "ti.platforms.evm2530",
+    "ti.platforms.evm3530"
+];
+
+/* remove profiles we don't use */
+delete UCArm9.profiles["coverage"];
+delete UCArm9.profiles["profile"];
+
+Build.targets.$add(UCArm9);
+
+
+/*
+ *  ======== WinCE Target ========
+ */
+if (doWinCE) {
+
+var WinCE = xdc.useModule('microsoft.targets.arm.WinCE');
+WinCE.rootDir = "C:/WINCE600";
+WinCE.projectRoot =
+    "xlibrary" == java.lang.System.getenv("USER") ?
+    "C:/WINCE600/OSDesigns/OSDesign1/OSDesign1/Wince600/TI_EVM_3530_ARMV4I" :
+    "C:/WINCE600/OSDesigns/EVM_3530/EVM_3530/Wince600/TI_EVM_3530_ARMV4I";
+
+WinCE.execExt = "_wince.exe";
+if (!hos.match(/windows/i)) {
+    WinCE.cmdPrefix = environment["TOOLS"] + "/bin86U/runw32 ";
+    WinCE.remoteInitScript = WinCE.projectRoot + "/PBInitEnv.bat";
+}
+
+WinCE.platform = null;
+WinCE.platforms = [
+    "ti.platforms.evm3530"
+];
+
+Build.targets.$add(WinCE);
+
+}  /* doWinCE */
+/*
+ *  @(#) ti.bios.power.utils; 1, 0, 0,2; 7-13-2011 17:57:00; /db/atree/library/trees/power/power-g10x/src/ xlibrary
+
+ */
+

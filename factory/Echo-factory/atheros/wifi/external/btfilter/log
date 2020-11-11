@@ -1,0 +1,697 @@
+In file included from abtfilt_int.h:38,
+                 from abtfilt_main.c:14:
+include/a_config.h:24:46: error: ../os/linux/include/config_linux.h: No such file or directory
+In file included from abtfilt_int.h:39,
+                 from abtfilt_main.c:14:
+include/a_osapi.h:17:45: error: ../os/linux/include/osapi_linux.h: No such file or directory
+In file included from abtfilt_int.h:41,
+                 from abtfilt_main.c:14:
+include/a_types.h:17:48: error: ../os/linux/include/athtypes_linux.h: No such file or directory
+In file included from abtfilt_int.h:42,
+                 from abtfilt_main.c:14:
+include/a_debug.h:46: error: expected ‘)’ before ‘*’ token
+include/a_debug.h:108: error: expected specifier-qualifier-list before ‘A_UINT32’
+include/a_debug.h:116: error: expected specifier-qualifier-list before ‘A_CHAR’
+include/a_debug.h:170: error: expected ‘)’ before ‘*’ token
+include/a_debug.h:171: error: expected ‘)’ before ‘*’ token
+include/a_debug.h:172: error: expected ‘)’ before ‘*’ token
+In file included from abtfilt_int.h:42,
+                 from abtfilt_main.c:14:
+include/a_debug.h:185:45: error: ../os/linux/include/debug_linux.h: No such file or directory
+In file included from abtfilt_int.h:43,
+                 from abtfilt_main.c:14:
+include/dl_list.h:67: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘PDL_LIST’
+include/dl_list.h:79: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘PDL_LIST’
+include/dl_list.h:92: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘PDL_LIST’
+include/dl_list.h:104: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘PDL_LIST’
+include/dl_list.h:114: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘PDL_LIST’
+include/dl_list.h:125: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘void’
+In file included from abtfilt_int.h:44,
+                 from abtfilt_main.c:14:
+include/athbtfilter.h:54: error: expected specifier-qualifier-list before ‘A_CHAR’
+include/athbtfilter.h:114: error: expected declaration specifiers or ‘...’ before ‘A_UINT32’
+In file included from btfilter_core.h:14,
+                 from abtfilt_int.h:45,
+                 from abtfilt_main.c:14:
+btdefs.h:107: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+btdefs.h:110: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ACL_HEADER’
+btdefs.h:112: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+btdefs.h:115: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘L2CAP_HEADER’
+btdefs.h:117: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+btdefs.h:126: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘L2CAP_CONTROL’
+btdefs.h:128: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+btdefs.h:131: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘AVDTP_HEADER’
+In file included from common/include/wmix.h:33,
+                 from common/include/wmi.h:28,
+                 from btfilter_core.h:17,
+                 from abtfilt_int.h:45,
+                 from abtfilt_main.c:14:
+common/include/dbglog.h:76: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/dbglog.h:85: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/dbglog.h:88: error: conflicting types for ‘POSTPACK’
+common/include/dbglog.h:83: note: previous declaration of ‘POSTPACK’ was here
+common/include/dbglog.h:90: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/dbglog.h:104: error: conflicting types for ‘POSTPACK’
+common/include/dbglog.h:83: note: previous declaration of ‘POSTPACK’ was here
+In file included from common/include/wmi.h:28,
+                 from btfilter_core.h:17,
+                 from abtfilt_int.h:45,
+                 from abtfilt_main.c:14:
+common/include/wmix.h:43: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmix.h:45: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMIX_CMD_HDR’
+common/include/wmix.h:85: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmix.h:90: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMIX_DSETOPENREQ_EVENT’
+common/include/wmix.h:96: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmix.h:98: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMIX_DSETCLOSE_EVENT’
+common/include/wmix.h:104: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmix.h:111: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMIX_DSETDATAREQ_EVENT’
+common/include/wmix.h:113: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmix.h:121: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMIX_DSETOPEN_REPLY_CMD’
+common/include/wmix.h:123: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmix.h:130: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMIX_DSETDATA_REPLY_CMD’
+In file included from common/include/wmi.h:28,
+                 from btfilter_core.h:17,
+                 from abtfilt_int.h:45,
+                 from abtfilt_main.c:14:
+common/include/wmix.h:150: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmix.h:155: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMIX_GPIO_OUTPUT_SET_CMD’
+common/include/wmix.h:162: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmix.h:165: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMIX_GPIO_REGISTER_SET_CMD’
+common/include/wmix.h:168: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmix.h:170: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMIX_GPIO_REGISTER_GET_CMD’
+common/include/wmix.h:177: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmix.h:179: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMIX_GPIO_INTR_ACK_CMD’
+common/include/wmix.h:187: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmix.h:190: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMIX_GPIO_INTR_EVENT’
+common/include/wmix.h:207: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmix.h:210: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMIX_GPIO_DATA_EVENT’
+common/include/wmix.h:220: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmix.h:223: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMIX_HB_CHALLENGE_RESP_CMD’
+common/include/wmix.h:231: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmix.h:233: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMIX_DBGLOG_CFG_MODULE_CMD’
+common/include/wmix.h:239: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmix.h:242: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMIX_PROF_CFG_CMD’
+common/include/wmix.h:244: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmix.h:246: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMIX_PROF_ADDR_SET_CMD’
+common/include/wmix.h:254: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmix.h:257: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMIX_PROF_COUNT_EVENT’
+In file included from common/include/wmi.h:30,
+                 from btfilter_core.h:17,
+                 from abtfilt_int.h:45,
+                 from abtfilt_main.c:14:
+common/include/dfs_common.h:41: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/dfs_common.h:43: error: conflicting types for ‘POSTPACK’
+common/include/dbglog.h:83: note: previous declaration of ‘POSTPACK’ was here
+common/include/dfs_common.h:47: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/dfs_common.h:49: error: conflicting types for ‘POSTPACK’
+common/include/dbglog.h:83: note: previous declaration of ‘POSTPACK’ was here
+common/include/dfs_common.h:54: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/dfs_common.h:65: error: conflicting types for ‘POSTPACK’
+common/include/dbglog.h:83: note: previous declaration of ‘POSTPACK’ was here
+common/include/dfs_common.h:70: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/dfs_common.h:73: error: conflicting types for ‘POSTPACK’
+common/include/dbglog.h:83: note: previous declaration of ‘POSTPACK’ was here
+In file included from btfilter_core.h:17,
+                 from abtfilt_int.h:45,
+                 from abtfilt_main.c:14:
+common/include/wmi.h:63: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:65: error: conflicting types for ‘POSTPACK’
+common/include/dbglog.h:83: note: previous declaration of ‘POSTPACK’ was here
+common/include/wmi.h:70: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:74: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ATH_MAC_HDR’
+common/include/wmi.h:76: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:82: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ATH_LLC_SNAP_HDR’
+In file included from btfilter_core.h:17,
+                 from abtfilt_int.h:45,
+                 from abtfilt_main.c:14:
+common/include/wmi.h:186: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:207: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_DATA_HDR’
+common/include/wmi.h:227: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:230: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_TX_META_V1’
+common/include/wmi.h:235: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:239: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_TX_META_V2’
+common/include/wmi.h:257: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:265: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_TX_RATE_SCHEDULE’
+common/include/wmi.h:274: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:277: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_TX_META_V3’
+common/include/wmi.h:311: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:317: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_RX_META_V1’
+common/include/wmi.h:320: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:324: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_RX_META_V2’
+common/include/wmi.h:346: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:356: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_CMD_HDR’
+common/include/wmi.h:683: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:696: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_CONNECT_CMD’
+common/include/wmi.h:699: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:704: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_DIV_PARAMS_CMD’
+common/include/wmi.h:709: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:712: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_RECONNECT_CMD’
+common/include/wmi.h:718: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:721: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_PMK_CMD’
+common/include/wmi.h:727: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:732: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_PASSPHRASE_CMD’
+common/include/wmi.h:737: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:739: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_EXCESS_TX_RETRY_THRES_CMD’
+common/include/wmi.h:763: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:772: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_ADD_CIPHER_KEY_CMD’
+common/include/wmi.h:777: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:779: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_DELETE_CIPHER_KEY_CMD’
+common/include/wmi.h:785: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:787: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_ADD_KRK_CMD’
+common/include/wmi.h:797: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:799: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_TKIP_COUNTERMEASURES_CMD’
+common/include/wmi.h:812: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:816: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_PMKID_CMD’
+common/include/wmi.h:826: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:834: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_START_SCAN_CMD’
+common/include/wmi.h:867: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:878: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SCAN_PARAMS_CMD’
+common/include/wmi.h:880: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:883: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_RADAR_DETECTED_CMD’
+common/include/wmi.h:899: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:904: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_BSS_FILTER_CMD’
+common/include/wmi.h:917: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:922: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_PROBED_SSID_CMD’
+common/include/wmi.h:933: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:936: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_LISTEN_INT_CMD’
+common/include/wmi.h:941: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:943: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_BEACON_INT_CMD’
+common/include/wmi.h:955: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:958: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_BMISS_TIME_CMD’
+common/include/wmi.h:968: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:970: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_POWER_MODE_CMD’
+common/include/wmi.h:972: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:974: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_PARAMS_REPLY’
+common/include/wmi.h:976: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:980: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_PARAMS_CMD’
+common/include/wmi.h:982: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:984: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_MCAST_FILTER_CMD’
+common/include/wmi.h:986: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:988: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_MCAST_FILTER_CMD’
+common/include/wmi.h:1015: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1022: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_POWER_PARAMS_CMD’
+common/include/wmi.h:1032: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1037: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_IBSS_PM_CAPS_CMD’
+common/include/wmi.h:1045: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1050: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_AP_PS_CMD’
+common/include/wmi.h:1062: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1067: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_POWERSAVE_TIMERS_POLICY_CMD’
+common/include/wmi.h:1072: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1074: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_VOICE_PKT_SIZE_CMD’
+common/include/wmi.h:1086: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1088: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_MAX_SP_LEN_CMD’
+common/include/wmi.h:1093: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1095: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_DISC_TIMEOUT_CMD’
+common/include/wmi.h:1117: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1119: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SYNC_CMD’
+common/include/wmi.h:1124: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1148: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_CREATE_PSTREAM_CMD’
+common/include/wmi.h:1153: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1159: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_DELETE_PSTREAM_CMD’
+common/include/wmi.h:1174: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1180: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_CHANNEL_PARAMS_CMD’
+common/include/wmi.h:1191: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1207: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_RSSI_THRESHOLD_PARAMS_CMD’
+common/include/wmi.h:1214: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1226: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SNR_THRESHOLD_PARAMS_CMD’
+common/include/wmi.h:1231: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1242: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_LQ_THRESHOLD_PARAMS_CMD’
+common/include/wmi.h:1254: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1257: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_LPREAMBLE_CMD’
+common/include/wmi.h:1259: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1261: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_RTS_CMD’
+common/include/wmi.h:1269: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1271: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_TARGET_ERROR_REPORT_BITMASK’
+common/include/wmi.h:1276: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1278: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_TX_PWR_CMD’
+common/include/wmi.h:1291: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1295: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_ASSOC_INFO_CMD’
+common/include/wmi.h:1307: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1310: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_ADD_BAD_AP_CMD’
+common/include/wmi.h:1315: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1317: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_DELETE_BAD_AP_CMD’
+common/include/wmi.h:1328: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1334: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_ACCESS_PARAMS_CMD’
+common/include/wmi.h:1351: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1356: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_RETRY_LIMITS_CMD’
+common/include/wmi.h:1394: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1397: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_BSS_BIAS’
+common/include/wmi.h:1399: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1402: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_BSS_BIAS_INFO’
+common/include/wmi.h:1404: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1410: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_LOWRSSI_SCAN_PARAMS’
+common/include/wmi.h:1412: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1420: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_ROAM_CTRL_CMD’
+common/include/wmi.h:1430: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1432: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_BT_WLAN_CONN_PRECEDENCE’
+common/include/wmi.h:1437: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1439: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_ENABLE_RM_CMD’
+common/include/wmi.h:1444: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1446: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_MAX_OFFHOME_DURATION_CMD’
+common/include/wmi.h:1448: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1451: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_HB_CHALLENGE_RESP_PARAMS_CMD’
+common/include/wmi.h:1460: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1463: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_GET_PKTLOG_CMD’
+common/include/wmi.h:1479: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1486: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_ENABLE_PKTLOG_CMD’
+common/include/wmi.h:1525: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1528: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_BT_STATUS_CMD’
+common/include/wmi.h:1568: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1603: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘BT_PARAMS_SCO’
+common/include/wmi.h:1616: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1637: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘BT_PARAMS_A2DP’
+common/include/wmi.h:1641: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1652: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘BT_PARAMS_ACLCOEX’
+common/include/wmi.h:1654: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1669: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_BT_PARAMS_CMD’
+common/include/wmi.h:1687: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1694: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_BTCOEX_FE_ANT_CMD’
+common/include/wmi.h:1700: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1708: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_BTCOEX_COLOCATED_BT_DEV_CMD’
+common/include/wmi.h:1717: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1732: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_BTCOEX_BTINQUIRY_PAGE_CONFIG_CMD’
+common/include/wmi.h:1748: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1765: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘BTCOEX_SCO_CONFIG’
+common/include/wmi.h:1767: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1786: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘BTCOEX_PSPOLLMODE_SCO_CONFIG’
+common/include/wmi.h:1788: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1816: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘BTCOEX_OPTMODE_SCO_CONFIG’
+common/include/wmi.h:1818: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1821: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘BTCOEX_WLANSCAN_SCO_CONFIG’
+common/include/wmi.h:1823: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1828: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_BTCOEX_SCO_CONFIG_CMD’
+common/include/wmi.h:1847: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1858: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘BTCOEX_A2DP_CONFIG’
+common/include/wmi.h:1860: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1873: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘BTCOEX_PSPOLLMODE_A2DP_CONFIG’
+common/include/wmi.h:1875: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1897: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘BTCOEX_OPTMODE_A2DP_CONFIG’
+common/include/wmi.h:1899: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1903: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_BTCOEX_A2DP_CONFIG_CMD’
+common/include/wmi.h:1922: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1972: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘BTCOEX_ACLCOEX_CONFIG’
+common/include/wmi.h:1974: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1980: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘BTCOEX_PSPOLLMODE_ACLCOEX_CONFIG’
+common/include/wmi.h:1984: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1990: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘BTCOEX_OPTMODE_ACLCOEX_CONFIG’
+common/include/wmi.h:1992: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:1996: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_BTCOEX_ACLCOEX_CONFIG_CMD’
+common/include/wmi.h:2006: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2014: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2025: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2037: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2046: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_BTCOEX_CONFIG_EVENT’
+common/include/wmi.h:2050: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2058: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2066: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2073: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2079: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2093: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2106: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2110: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2120: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2133: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2135: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_TARGET_EVENT_REPORT_CMD’
+common/include/wmi.h:2138: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2141: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_HCI_CMD’
+common/include/wmi.h:2150: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2154: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_CHANNEL_LIST_REPLY’
+common/include/wmi.h:2165: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2171: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_CRE_PRIORITY_STREAM_REPLY’
+common/include/wmi.h:2173: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2179: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_DEL_PRIORITY_STREAM_REPLY’
+common/include/wmi.h:2302: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2305: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_READY_EVENT_1’
+common/include/wmi.h:2307: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2312: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_READY_EVENT_2’
+common/include/wmi.h:2328: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2357: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_CONNECT_EVENT’
+common/include/wmi.h:2361: error: expected specifier-qualifier-list before ‘A_UINT8’
+common/include/wmi.h:2365: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2371: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SEND_ASSOCRES_CMD’
+common/include/wmi.h:2374: error: expected specifier-qualifier-list before ‘A_UINT8’
+common/include/wmi.h:2400: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2406: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_DISCONNECT_EVENT’
+common/include/wmi.h:2426: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2433: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_BSS_INFO_HDR’
+common/include/wmi.h:2443: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2449: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_BSS_INFO_HDR2’
+common/include/wmi.h:2451: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2454: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_WPS_PIN_INFO’
+common/include/wmi.h:2456: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2461: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_GET_WAC_INFO’
+common/include/wmi.h:2464: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2475: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_WAC_BSS_INFO_REPORT’
+common/include/wmi.h:2486: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2489: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_CMD_ERROR_EVENT’
+common/include/wmi.h:2494: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2496: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_REG_DOMAIN_EVENT’
+common/include/wmi.h:2498: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2503: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_PSTREAM_TIMEOUT_EVENT’
+common/include/wmi.h:2520: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2523: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_NEIGHBOR_INFO’
+common/include/wmi.h:2525: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2528: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_NEIGHBOR_REPORT_EVENT’
+common/include/wmi.h:2533: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2536: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_TKIP_MICERR_EVENT’
+common/include/wmi.h:2541: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2543: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SCAN_COMPLETE_EVENT’
+common/include/wmi.h:2545: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2548: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_CCX_RM_STATUS_EVENT’
+common/include/wmi.h:2555: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2557: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_ADHOC_BSSID_CMD’
+common/include/wmi.h:2565: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2571: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_OPT_RX_INFO_HDR’
+common/include/wmi.h:2576: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2595: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘tx_stats_t’
+common/include/wmi.h:2597: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2614: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘rx_stats_t’
+common/include/wmi.h:2616: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2623: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘tkip_ccmp_stats_t’
+common/include/wmi.h:2625: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2631: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘pm_stats_t’
+common/include/wmi.h:2633: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2644: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘cserv_stats_t’
+common/include/wmi.h:2646: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2650: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘wlan_net_stats_t’
+common/include/wmi.h:2652: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2656: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘arp_stats_t’
+common/include/wmi.h:2658: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2663: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘wlan_wow_stats_t’
+common/include/wmi.h:2665: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2673: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_TARGET_STATS’
+common/include/wmi.h:2695: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2698: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_RSSI_THRESHOLD_EVENT’
+common/include/wmi.h:2714: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2716: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_TARGET_ERROR_REPORT_EVENT’
+common/include/wmi.h:2718: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2720: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_TX_RETRY_ERR_EVENT’
+common/include/wmi.h:2733: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2736: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SNR_THRESHOLD_EVENT’
+common/include/wmi.h:2749: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2752: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_LQ_THRESHOLD_EVENT’
+common/include/wmi.h:2758: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2767: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_BSS_ROAM_INFO’
+common/include/wmi.h:2770: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2774: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_TARGET_ROAM_TBL’
+common/include/wmi.h:2779: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2782: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_HCI_EVENT’
+common/include/wmi.h:2796: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2801: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_CAC_EVENT’
+common/include/wmi.h:2811: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2814: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_AP_INFO_V1’
+common/include/wmi.h:2816: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘union’
+common/include/wmi.h:2818: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_AP_INFO’
+common/include/wmi.h:2820: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2824: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_APLIST_EVENT’
+common/include/wmi.h:2915: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2919: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_BIT_RATE_CMD’
+common/include/wmi.h:2922: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2924: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_BIT_RATE_REPLY’
+common/include/wmi.h:2947: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2949: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_FIX_RATES_CMD’
+common/include/wmi.h:2951: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2956: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_FRAME_RATES_CMD’
+common/include/wmi.h:2968: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2970: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_AUTH_MODE_CMD’
+common/include/wmi.h:2982: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2984: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_REASSOC_MODE_CMD’
+common/include/wmi.h:2990: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:2999: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_TARGET_ROAM_TIME’
+common/include/wmi.h:3001: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3006: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_TARGET_ROAM_DATA’
+common/include/wmi.h:3013: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3015: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_WMM_CMD’
+common/include/wmi.h:3017: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3019: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_QOS_SUPP_CMD’
+common/include/wmi.h:3026: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3028: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_WMM_TXOP_CMD’
+common/include/wmi.h:3030: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3032: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_KEEPALIVE_CMD’
+common/include/wmi.h:3034: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3037: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_GET_KEEPALIVE_CMD’
+common/include/wmi.h:3044: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3048: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_APPIE_CMD’
+common/include/wmi.h:3061: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3063: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WHAL_SETCABTO_PARAM’
+common/include/wmi.h:3065: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3068: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WHAL_PARAMCMD’
+common/include/wmi.h:3078: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3085: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WOW_FILTER’
+common/include/wmi.h:3088: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3094: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WOW_FILTER_LIST’
+common/include/wmi.h:3096: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3099: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘MAC_FILTER’
+common/include/wmi.h:3102: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3106: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘MAC_FILTER_LIST’
+common/include/wmi.h:3109: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3111: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_IP_CMD’
+common/include/wmi.h:3113: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3116: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_HOST_SLEEP_MODE_CMD’
+common/include/wmi.h:3122: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3126: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_WOW_MODE_CMD’
+common/include/wmi.h:3128: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3130: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_GET_WOW_LIST_CMD’
+common/include/wmi.h:3135: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3141: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_GET_WOW_LIST_REPLY’
+common/include/wmi.h:3143: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3148: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_ADD_WOW_PATTERN_CMD’
+common/include/wmi.h:3150: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3153: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_DEL_WOW_PATTERN_CMD’
+common/include/wmi.h:3155: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3157: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_MAC_ADDRESS_CMD’
+common/include/wmi.h:3165: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3167: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_AKMP_PARAMS_CMD’
+common/include/wmi.h:3169: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3171: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_PMKID’
+common/include/wmi.h:3178: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3181: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_PMKID_LIST_CMD’
+common/include/wmi.h:3187: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3191: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_PMKID_LIST_REPLY’
+common/include/wmi.h:3193: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3196: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_CHANNEL_CHANGE_EVENT’
+common/include/wmi.h:3198: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3200: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_WLAN_VERSION_EVENT’
+common/include/wmi.h:3204: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3209: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_ADDBA_REQ_EVENT’
+common/include/wmi.h:3212: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3216: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_ADDBA_RESP_EVENT’
+common/include/wmi.h:3222: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3226: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_DELBA_EVENT’
+common/include/wmi.h:3243: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3246: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_ALLOW_AGGR_CMD’
+common/include/wmi.h:3252: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3254: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_ADDBA_REQ_CMD’
+common/include/wmi.h:3260: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3264: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_DELBA_REQ_CMD’
+common/include/wmi.h:3270: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3273: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_PEER_NODE_EVENT’
+common/include/wmi.h:3278: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3280: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_CONFIG_TX_MAC_RULES_CMD’
+common/include/wmi.h:3282: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3284: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_PROMISCUOUS_MODE_CMD’
+common/include/wmi.h:3294: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3298: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_RFKILL_MODE_CMD’
+common/include/wmi.h:3305: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3320: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘TX_COMPLETE_MSG_V1’
+common/include/wmi.h:3322: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3327: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_TX_COMPLETE_EVENT’
+common/include/wmi.h:3371: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3373: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_AP_HIDDEN_SSID_CMD’
+common/include/wmi.h:3382: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3384: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_AP_ACL_POLICY_CMD’
+common/include/wmi.h:3391: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3396: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_AP_ACL_MAC_CMD’
+common/include/wmi.h:3398: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3403: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_AP_ACL’
+common/include/wmi.h:3408: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3410: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_AP_NUM_STA_CMD’
+common/include/wmi.h:3415: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3425: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_AP_SET_MLME_CMD’
+common/include/wmi.h:3427: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3429: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_AP_CONN_INACT_CMD’
+common/include/wmi.h:3431: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3434: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_AP_PROT_SCAN_TIME_CMD’
+common/include/wmi.h:3436: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3440: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_AP_SET_PVB_CMD’
+common/include/wmi.h:3444: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3446: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_AP_SET_COUNTRY_CMD’
+common/include/wmi.h:3448: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3450: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_AP_SET_DTIM_CMD’
+common/include/wmi.h:3452: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3460: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_HT_CAP_CMD’
+common/include/wmi.h:3462: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3464: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_HT_OP_CMD’
+common/include/wmi.h:3466: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3468: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_TX_SELECT_RATES_CMD’
+common/include/wmi.h:3470: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3473: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_TX_SGI_PARAM_CMD’
+common/include/wmi.h:3479: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3486: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_RATE_POLICY_CMD’
+common/include/wmi.h:3488: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3493: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_RX_FRAME_FORMAT_CMD’
+common/include/wmi.h:3496: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3499: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_THIN_MODE_CMD’
+common/include/wmi.h:3502: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3506: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_CHANNEL_CMD’
+common/include/wmi.h:3514: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3517: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_CHANNEL_EVENT’
+common/include/wmi.h:3526: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3529: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_RX_FRAME_FILTER_CMD’
+common/include/wmi.h:3533: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3535: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_PSPOLL_EVENT’
+common/include/wmi.h:3537: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3547: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_PER_STA_STAT’
+common/include/wmi.h:3552: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3555: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_AP_MODE_STAT’
+common/include/wmi.h:3560: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3562: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_AP_SET_11BG_RATESET_CMD’
+common/include/wmi.h:3568: error: expected specifier-qualifier-list before ‘A_UINT8’
+common/include/wmi.h:3576: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3578: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_REPORT_WMM_PARAMS_EVENT’
+common/include/wmi.h:3583: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3590: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_SET_CONFIG_CMD’
+common/include/wmi.h:3592: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3595: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘device_type_tuple’
+common/include/wmi.h:3597: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3607: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_WPS_SET_CONFIG_CMD’
+common/include/wmi.h:3609: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3613: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_SET_REQ_DEV_ATTR_CMD’
+common/include/wmi.h:3615: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3618: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘P2P_SSID’
+common/include/wmi.h:3626: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3629: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_FIND_CMD’
+common/include/wmi.h:3631: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3645: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_GO_NEG_START_CMD’
+common/include/wmi.h:3647: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3650: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_GRP_INIT_CMD’
+common/include/wmi.h:3652: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3655: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_GRP_FORMATION_DONE_CMD’
+common/include/wmi.h:3657: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3659: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_LISTEN_CMD’
+common/include/wmi.h:3661: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3673: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_GO_NEG_REQ_RSP_CMD’
+common/include/wmi.h:3681: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3692: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_INVITE_CMD’
+common/include/wmi.h:3694: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3702: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_INVITE_REQ_RSP_CMD’
+common/include/wmi.h:3704: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3711: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_PROV_DISC_REQ_CMD’
+common/include/wmi.h:3721: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3724: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_LISTEN_CHANNEL’
+common/include/wmi.h:3726: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3728: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_SET_CROSS_CONNECT’
+common/include/wmi.h:3730: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3733: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_SET_SSID_POSTFIX’
+common/include/wmi.h:3735: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3737: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_SET_INTRA_BSS’
+common/include/wmi.h:3739: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3747: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_SET_CMD’
+common/include/wmi.h:3764: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3778: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_SDPD_TX_CMD’
+common/include/wmi.h:3782: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3789: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_GO_NEG_REQ_EVENT’
+common/include/wmi.h:3791: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3803: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_GO_NEG_RESULT_EVENT’
+common/include/wmi.h:3805: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3814: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_INVITE_REQ_EVENT’
+common/include/wmi.h:3816: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3824: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_INVITE_RCVD_RESULT_EVENT’
+common/include/wmi.h:3826: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3830: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_INVITE_SENT_RESULT_EVENT’
+common/include/wmi.h:3832: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3843: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_PROV_DISC_REQ_EVENT’
+common/include/wmi.h:3845: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3848: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_PROV_DISC_RESP_EVENT’
+common/include/wmi.h:3850: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3862: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_P2P_SDPD_RX_EVENT’
+common/include/wmi.h:3864: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3868: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_ACS_EVENT_MSG’
+common/include/wmi.h:3872: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3876: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_ACS_CTRL_MSG’
+common/include/wmi.h:3881: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3885: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_STORERECALL_CONFIGURE_CMD’
+common/include/wmi.h:3887: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3890: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_STORERECALL_RECALL_CMD’
+common/include/wmi.h:3892: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3896: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_STORERECALL_HOST_READY_CMD’
+common/include/wmi.h:3898: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3902: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_STORERECALL_STORE_EVENT’
+common/include/wmi.h:3911: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3913: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_AP_SET_APSD_CMD’
+common/include/wmi.h:3919: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘struct’
+common/include/wmi.h:3923: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘WMI_AP_APSD_BUFFERED_TRAFFIC_CMD’
+In file included from abtfilt_int.h:45,
+                 from abtfilt_main.c:14:
+btfilter_core.h:25: error: expected specifier-qualifier-list before ‘WMI_SET_BT_STATUS_CMD’
+btfilter_core.h:38: error: expected specifier-qualifier-list before ‘A_UINT16’
+btfilter_core.h:58: error: expected specifier-qualifier-list before ‘A_CHAR’
+In file included from abtfilt_int.h:45,
+                 from abtfilt_main.c:14:
+btfilter_core.h:106: error: expected specifier-qualifier-list before ‘A_UCHAR’
+btfilter_core.h:118: error: expected specifier-qualifier-list before ‘A_UINT32’
+btfilter_core.h:125: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘FCore_Init’
+btfilter_core.h:134: error: expected declaration specifiers or ‘...’ before ‘A_UINT8’
+btfilter_core.h:135: error: expected declaration specifiers or ‘...’ before ‘A_UINT8’
+btfilter_core.h:142: error: expected declaration specifiers or ‘...’ before ‘A_UINT8’
+btfilter_core.h:147: error: expected declaration specifiers or ‘...’ before ‘A_UINT8’
+btfilter_core.h:170: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘FCore_GetCurrentBTStateBitMap’
+btfilter_core.h:182: error: expected declaration specifiers or ‘...’ before ‘A_CHAR’
+In file included from abtfilt_main.c:14:
+abtfilt_int.h:46:26: error: athdrv_linux.h: No such file or directory
+In file included from abtfilt_main.c:14:
+abtfilt_int.h:73: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘A_STATUS’
+abtfilt_int.h:75: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘A_STATUS’
+abtfilt_int.h:76: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘void’
+abtfilt_int.h:78: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘A_STATUS’
+abtfilt_int.h:79: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘void’
+abtfilt_int.h:80: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘void’
+abtfilt_int.h:81: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘void’
+abtfilt_int.h:83: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘A_STATUS’
+abtfilt_int.h:84: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘A_STATUS’
+abtfilt_int.h:86: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘void’
+abtfilt_int.h:87: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘void’
+abtfilt_int.h:88: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘A_STATUS’
+abtfilt_int.h:90: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘void’
+abtfilt_int.h:93: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘void’
+abtfilt_int.h:94: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘void’
+abtfilt_int.h:95: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘void’
+abtfilt_int.h:96: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘void’
+abtfilt_int.h:97: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘void’
+abtfilt_int.h:98: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘void’
+abtfilt_int.h:99: error: expected ‘)’ before ‘*’ token
+abtfilt_int.h:150: error: expected specifier-qualifier-list before ‘A_BOOL’
+abtfilt_int.h:165: error: expected specifier-qualifier-list before ‘A_BOOL’
+abtfilt_int.h:175: error: expected specifier-qualifier-list before ‘A_UINT32’
+abtfilt_int.h:212: error: expected specifier-qualifier-list before ‘A_INT32’
+abtfilt_int.h:226: error: expected ‘)’ before ‘*’ token
+abtfilt_int.h:227: error: expected declaration specifiers or ‘...’ before ‘A_UINT32’
+abtfilt_int.h:242: error: expected declaration specifiers or ‘...’ before ‘A_UINT32’
+abtfilt_main.c:17: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘wifname’
+abtfilt_main.c: In function ‘Abf_ShutDown’:
+abtfilt_main.c:41: warning: implicit declaration of function ‘A_INFO’
+abtfilt_main.c: In function ‘main’:
+abtfilt_main.c:68: error: ‘A_UINT32’ undeclared (first use in this function)
+abtfilt_main.c:68: error: (Each undeclared identifier is reported only once
+abtfilt_main.c:68: error: for each function it appears in.)
+abtfilt_main.c:68: error: expected ‘;’ before ‘btfiltFlags’
+abtfilt_main.c:70: warning: implicit declaration of function ‘A_MEMZERO’
+abtfilt_main.c:97: error: ‘btfiltFlags’ undeclared (first use in this function)
+abtfilt_main.c:104: warning: implicit declaration of function ‘A_DEBUG’
+abtfilt_main.c:115: error: ‘wifname’ undeclared (first use in this function)
+abtfilt_main.c:117: error: ‘ATH_BT_FILTER_INSTANCE’ has no member named ‘pWlanAdapterName’
+abtfilt_main.c:117: error: ‘A_CHAR’ undeclared (first use in this function)
+abtfilt_main.c:117: error: expected expression before ‘)’ token
+abtfilt_main.c:135: warning: implicit declaration of function ‘A_DBG_INIT’
+abtfilt_main.c:142: warning: implicit declaration of function ‘A_SET_DEBUG’
+abtfilt_main.c:149: warning: implicit declaration of function ‘A_ERR’
+abtfilt_main.c:162: warning: statement with no effect
+abtfilt_main.c:166: warning: implicit declaration of function ‘Abf_WlanCheckSettings’
+abtfilt_main.c:167: error: too many arguments to function ‘AthBtFilter_Attach’
+abtfilt_main.c:174: error: too many arguments to function ‘Abf_WlanStackNotificationInit’
+abtfilt_main.c:182: error: too many arguments to function ‘Abf_BtStackNotificationInit’
+abtfilt_main.c:191: error: ‘ATH_BT_FILTER_INSTANCE’ has no member named ‘pContext’
+abtfilt_main.c:204: warning: implicit declaration of function ‘AthBtFilter_State_Off’
+abtfilt_main.c:215: warning: implicit declaration of function ‘A_FREE’
+abtfilt_main.c:220: warning: implicit declaration of function ‘A_DBG_DEINIT’
+make: *** [abtfilt_main.o] Error 1

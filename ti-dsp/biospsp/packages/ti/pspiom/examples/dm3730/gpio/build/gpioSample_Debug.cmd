@@ -1,0 +1,3 @@
+-l"ti\pspiom\gpio\lib\OMAPL138\Debug\ti.pspiom.gpio.a674"
+-l"ti\pspiom\psc\lib\OMAPL138\Debug\ti.pspiom.psc.a674"
+-l"ti\pspiom\platforms\evmOMAPL138\lib\Debug\ti.pspiom.platforms.evmOMAPL138.evmInit.a674"

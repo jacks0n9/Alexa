@@ -1,0 +1,129 @@
+/* 
+ *  Copyright 2007
+ *  Texas Instruments Incorporated
+ *
+ *  All rights reserved.  Property of Texas Instruments Incorporated
+ *  Restricted rights to use, duplicate or disclose this code are
+ *  granted through contract.
+ * 
+ */
+/*
+ *  ======== package.bld ========
+ *  Build script for this package.
+ */
+
+/* If you don't want to redistribute your sources, set this to false. */
+Pkg.attrs.exportSrc = true;
+
+/*
+ * Array of files to include in the release.  Libraries must be explicitly
+ * listed when you don't use the XDC Build.  This list is likely files to be
+ * included in all releases.
+ */
+Pkg.otherFiles = [
+    "l16pcmenc_tii.h",  /* public header. */
+    "lib"                 /* release the contents of all the "lib" directory. */
+    /* any release notes or docs can be added here. */
+];
+
+function printUsage()
+{
+  print ("XDCARGS should be set to one or more of the following options");
+  print ("  c64P    - compile for c64+ target");
+  print ("  arm9    - compile for ARM9 target");
+  print ("  armv5t  - compile for ARMv5T target");
+}
+
+
+/*
+ *  Optionally, you may also want to redistribute these source files,
+ *  depending on your customer and delivery scenarios.
+ */
+Pkg.otherFiles.$add("package.bld");             /* XDC build script */
+Pkg.otherFiles.$add("l16pcmenc_tii_priv.h");  /* Internal interface header */
+
+/* Set this to false if you build with .pjts or other build tooling */
+xdcBuild = false;
+targets = [];
+
+/* Requested target architecture, initialized to empty */
+
+/* Get XDC arguments from script (if any) */
+var args_xs = java.lang.System.getenv("ARGS_XS");
+if (args_xs != null) {
+  var getArgs = xdc.loadCapsule(args_xs);
+  getArgs.getPkgArgs(Pkg.name, arguments);
+  getArgs.showPkgArgs(Pkg.name, arguments);
+}
+else {
+  /* Use XDCARGS passed in from build command */
+  print ("NO ARGS SCRIPT ENV VAR SPECIFIED");
+}
+
+/* Parse the arguments supplied to package.bld */
+/* NOTE: the arguments could be supplied in any order */
+  switch (arguments[0]) {
+    case "all":
+      print ("BUILDING FOR ALL SUPPORTED TARGET ARCHITECTURES");
+      targets = [C64P, ARM9, ARMv5T];
+      xdcBuild = true;
+      break;
+    case "c64Ple":
+      print ("BUILDING FOR C64+ ARCHITECTURE");
+      targets = [C64P];
+      xdcBuild = true;
+      break;
+    case "arm9":
+      print ("BUILDING FOR ARM9 ARCHITECTURE");
+      targets = [ARM9];
+      xdcBuild = true;
+      break;
+    case "armv5t":
+      print ("BUILDING FOR ARMv5T ARCHITECTURE");
+      targets = [ARMv5T];
+      xdcBuild = true;
+      break;
+    default:
+      print ("Invalid argument supplied : " + arguments[0]);
+      printUsage();
+      break;
+    } 
+
+
+if (xdcBuild) {
+    /*
+     * Create an array containing the files to include in this
+     * package.  Note that the extension is added by XDC, so it need
+     * not be explicitly specified.
+     */
+    var SRCS = ["l16pcmenc_tii_ialg.c", "l16pcmenc_tii_ialgvt.c" ];
+
+    for (var i = 0; i < targets.length; i++) {
+        var targ = targets[i];
+
+        print("building for target " + targ.name + " ...");
+
+        switch(targ) {
+            
+          case C64P:
+          {
+              Pkg.addLibrary("lib/l16pcmenc", targ).addObjects(SRCS);
+          }
+          break;
+
+          default:
+              print ("NO TARGET SPECIFIED");
+ 
+        }
+    }
+}
+
+/* clean target */
+Pkg.makeEpilogue += "clean::\n\t-$(RMDIR) lib \n";
+Pkg.makeEpilogue += "clean::\n\t-$(RM) -f .xdcenv.mak\n";
+
+
+/*
+ *  @(#) ti.xdais.dm.examples.l16pcmenc; 1,0,0,65; 3-31-2007 20:40:05; /db/wtree/library/trees/dais-h11x/src/
+ */
+

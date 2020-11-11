@@ -1,0 +1,1 @@
+-l"./i2c_testcfg.cmd" "./i2c_testcfg_c.obj" "./i2c_testcfg.obj" "./i2cSample_main.obj" -l"libc.a" -l"ti.pspiom.i2c.a64P" -l"ti.pspiom.prcm.a64P" 

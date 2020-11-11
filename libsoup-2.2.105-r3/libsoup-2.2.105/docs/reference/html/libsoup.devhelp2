@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="libsoup Reference Manual" link="index.html" author="" name="libsoup" version="2">
+  <chapters>
+    <sub name="libsoup Tutorial" link="ch01.html">
+      <sub name="Soup Client Basics" link="libsoup-client-howto.html"/>
+      <sub name="Soup Server Basics" link="libsoup-server-howto.html"/>
+    </sub>
+    <sub name="libsoup API Reference" link="ch02.html">
+      <sub name="SoupAddress" link="SoupAddress.html"/>
+      <sub name="SoupAuth" link="SoupAuth.html"/>
+      <sub name="SoupConnection" link="SoupConnection.html"/>
+      <sub name="SoupConnectionNTLM" link="SoupConnectionNTLM.html"/>
+      <sub name="SoupMessage" link="SoupMessage.html"/>
+      <sub name="SoupMessageFilter" link="libsoup-SoupMessageFilter.html"/>
+      <sub name="SoupServerMessage" link="SoupServerMessage.html"/>
+      <sub name="SoupServer" link="SoupServer.html"/>
+      <sub name="SoupSession" link="SoupSession.html"/>
+      <sub name="SoupSessionAsync" link="SoupSessionAsync.html"/>
+      <sub name="SoupSessionSync" link="SoupSessionSync.html"/>
+      <sub name="SoupSoapMessage" link="SoupSoapMessage.html"/>
+      <sub name="SoupSoapResponse" link="SoupSoapResponse.html"/>
+      <sub name="SoupSocket" link="SoupSocket.html"/>
+      <sub name="soup-status" link="libsoup-soup-status.html"/>
+      <sub name="soup-uri" link="libsoup-SoupUri.html"/>
+      <sub name="SoupXmlrpcMessage" link="SoupXmlrpcMessage.html"/>
+      <sub name="SoupXmlrpcResponse" link="SoupXmlrpcResponse.html"/>
+      <sub name="soup-misc" link="libsoup-Soup-Miscellaneous-Utilities.html"/>
+    </sub>
+    <sub name="libsoup internals" link="ch03.html">
+      <sub name="soup-dns" link="libsoup-soup-dns.html"/>
+      <sub name="soup-ssl" link="libsoup-soup-ssl.html"/>
+    </sub>
+    <sub name="" link="ix01.html"/>
+  </chapters>
+  <functions>
+    <keyword type="" name="Creating a SoupSession" link="libsoup-client-howto.html#id368365"/>
+    <keyword type="" name="Creating and Sending SoupMessages" link="libsoup-client-howto.html#id304221"/>
+    <keyword type="" name="Processing the Response" link="libsoup-client-howto.html#id360291"/>
+    <keyword type="" name="Intermediate/Automatic Processing" link="libsoup-client-howto.html#id360376"/>
+    <keyword type="" name="Handling Authentication" link="libsoup-client-howto.html#id360469"/>
+    <keyword type="" name="Sample Programs" link="libsoup-client-howto.html#id360629"/>
+    <keyword type="" name="Creating a SoupSession" link="libsoup-server-howto.html#id356654"/>
+    <keyword type="" name="Adding Handlers" link="libsoup-server-howto.html#id359527"/>
+    <keyword type="" name="Responding to Requests" link="libsoup-server-howto.html#id366677"/>
+    <keyword type="" name="Handling Authentication" link="libsoup-server-howto.html#id350853"/>
+    <keyword type="struct" name="struct SoupAddress" link="SoupAddress.html#SoupAddress-struct"/>
+    <keyword type="enum" name="enum SoupAddressFamily" link="SoupAddress.html#SoupAddressFamily"/>
+    <keyword type="macro" name="SOUP_ADDRESS_ANY_PORT" link="SoupAddress.html#SOUP-ADDRESS-ANY-PORT:CAPS"/>
+    <keyword type="function" name="soup_address_new ()" link="SoupAddress.html#soup-address-new"/>
+    <keyword type="function" name="soup_address_new_from_sockaddr ()" link="SoupAddress.html#soup-address-new-from-sockaddr"/>
+    <keyword type="function" name="soup_address_new_any ()" link="SoupAddress.html#soup-address-new-any"/>
+    <keyword type="function" name="SoupAddressCallback ()" link="SoupAddress.html#SoupAddressCallback"/>
+    <keyword type="function" name="soup_address_resolve_async ()" link="SoupAddress.html#soup-address-resolve-async"/>
+    <keyword type="function" name="soup_address_resolve_async_full ()" link="SoupAddress.html#soup-address-resolve-async-full"/>
+    <keyword type="function" name="soup_address_resolve_sync ()" link="SoupAddress.html#soup-address-resolve-sync"/>
+    <keyword type="function" name="soup_address_get_name ()" link="SoupAddress.html#soup-address-get-name"/>
+    <keyword type="function" name="soup_address_get_sockaddr ()" link="SoupAddress.html#soup-address-get-sockaddr"/>
+    <keyword type="function" name="soup_address_get_physical ()" link="SoupAddress.html#soup-address-get-physical"/>
+    <keyword type="function" name="soup_address_get_port ()" link="SoupAddress.html#soup-address-get-port"/>
+    <keyword type="" name="The &quot;dns-result&quot; signal" link="SoupAddress.html#SoupAddress-dns-result"/>
+    <keyword type="struct" name="SoupAuth" link="SoupAuth.html#SoupAuth-struct"/>
+    <keyword type="struct" name="SoupAuthBasic" link="SoupAuth.html#SoupAuthBasic-struct"/>
+    <keyword type="struct" name="SoupAuthDigest" link="SoupAuth.html#SoupAuthDigest-struct"/>
+    <keyword type="function" name="soup_auth_new_from_header_list ()" link="SoupAuth.html#soup-auth-new-from-header-list"/>
+    <keyword type="function" name="soup_auth_get_scheme_name ()" link="SoupAuth.html#soup-auth-get-scheme-name"/>
+    <keyword type="function" name="soup_auth_get_realm ()" link="SoupAuth.html#soup-auth-get-realm"/>
+    <keyword type="function" name="soup_auth_authenticate ()" link="SoupAuth.html#soup-auth-authenticate"/>
+    <keyword type="function" name="soup_auth_is_authenticated ()" link="SoupAuth.html#soup-auth-is-authenticated"/>
+    <keyword type="function" name="soup_auth_get_authorization ()" link="SoupAuth.html#soup-auth-get-authorization"/>
+    <keyword type="function" name="soup_auth_get_protection_space ()" link="SoupAuth.html#soup-auth-get-protection-space"/>
+    <keyword type="function" name="soup_auth_free_protection_space ()" link="SoupAuth.html#soup-auth-free-protection-space"/>
+    <keyword type="struct" name="struct SoupConnection" link="SoupConnection.html#SoupConnection-struct"/>
+    <keyword type="function" name="soup_connection_new ()" link="SoupConnection.html#soup-connection-new"/>
+    <keyword type="function" name="SoupConnectionCallback ()" link="SoupConnection.html#SoupConnectionCallback"/>
+    <keyword type="function" name="soup_connection_connect_async ()" link="SoupConnection.html#soup-connection-connect-async"/>
+    <keyword type="function" name="soup_connection_connect_sync ()" link="SoupConnection.html#soup-connection-connect-sync"/>
+    <keyword type="function" name="soup_connection_disconnect ()" link="SoupConnection.html#soup-connection-disconnect"/>
+    <keyword type="function" name="soup_connection_is_in_use ()" link="SoupConnection.html#soup-connection-is-in-use"/>
+    <keyword type="function" name="soup_connection_last_used ()" link="SoupConnection.html#soup-connection-last-used"/>
+    <keyword type="function" name="soup_connection_send_request ()" link="SoupConnection.html#soup-connection-send-request"/>
+    <keyword type="function" name="soup_connection_authenticate ()" link="SoupConnection.html#soup-connection-authenticate"/>
+    <keyword type="function" name="soup_connection_reauthenticate ()" link="SoupConnection.html#soup-connection-reauthenticate"/>
+    <keyword type="function" name="soup_connection_release ()" link="SoupConnection.html#soup-connection-release"/>
+    <keyword type="function" name="soup_connection_reserve ()" link="SoupConnection.html#soup-connection-reserve"/>
+    <keyword type="macro" name="SOUP_CONNECTION_ORIGIN_URI" link="SoupConnection.html#SOUP-CONNECTION-ORIGIN-URI:CAPS"/>
+    <keyword type="macro" name="SOUP_CONNECTION_PROXY_URI" link="SoupConnection.html#SOUP-CONNECTION-PROXY-URI:CAPS"/>
+    <keyword type="macro" name="SOUP_CONNECTION_SSL_CREDENTIALS" link="SoupConnection.html#SOUP-CONNECTION-SSL-CREDENTIALS:CAPS"/>
+    <keyword type="macro" name="SOUP_CONNECTION_MESSAGE_FILTER" link="SoupConnection.html#SOUP-CONNECTION-MESSAGE-FILTER:CAPS"/>
+    <keyword type="macro" name="SOUP_CONNECTION_ASYNC_CONTEXT" link="SoupConnection.html#SOUP-CONNECTION-ASYNC-CONTEXT:CAPS"/>
+    <keyword type="macro" name="SOUP_CONNECTION_TIMEOUT" link="SoupConnection.html#SOUP-CONNECTION-TIMEOUT:CAPS"/>
+    <keyword type="" name="The &quot;async-context&quot; property" link="SoupConnection.html#SoupConnection--async-context"/>
+    <keyword type="" name="The &quot;message-filter&quot; property" link="SoupConnection.html#SoupConnection--message-filter"/>
+    <keyword type="" name="The &quot;origin-uri&quot; property" link="SoupConnection.html#SoupConnection--origin-uri"/>
+    <keyword type="" name="The &quot;proxy-uri&quot; property" link="SoupConnection.html#SoupConnection--proxy-uri"/>
+    <keyword type="" name="The &quot;ssl-creds&quot; property" link="SoupConnection.html#SoupConnection--ssl-creds"/>
+    <keyword type="" name="The &quot;timeout&quot; property" link="SoupConnection.html#SoupConnection--timeout"/>
+    <keyword type="" name="The &quot;authenticate&quot; signal" link="SoupConnection.html#SoupConnection-authenticate"/>
+    <keyword type="" name="The &quot;connect-result&quot; signal" link="SoupConnection.html#SoupConnection-connect-result"/>
+    <keyword type="" name="The &quot;disconnected&quot; signal" link="SoupConnection.html#SoupConnection-disconnected"/>
+    <keyword type="" name="The &quot;reauthenticate&quot; signal" link="SoupConnection.html#SoupConnection-reauthenticate"/>
+    <keyword type="struct" name="SoupConnectionNTLM" link="SoupConnectionNTLM.html#SoupConnectionNTLM-struct"/>
+    <keyword type="struct" name="struct SoupMessage" link="SoupMessage.html#SoupMessage-struct"/>
+    <keyword type="enum" name="enum SoupMessageStatus" link="SoupMessage.html#SoupMessageStatus"/>
+    <keyword type="macro" name="SOUP_MESSAGE_IS_STARTING()" link="SoupMessage.html#SOUP-MESSAGE-IS-STARTING:CAPS"/>
+    <keyword type="enum" name="enum SoupTransferEncoding" link="SoupMessage.html#SoupTransferEncoding"/>
+    <keyword type="enum" name="enum SoupOwnership" link="SoupMessage.html#SoupOwnership"/>
+    <keyword type="struct" name="SoupDataBuffer" link="SoupMessage.html#SoupDataBuffer"/>
+    <keyword type="function" name="SoupMessageCallbackFn ()" link="SoupMessage.html#SoupMessageCallbackFn"/>
+    <keyword type="function" name="soup_message_new ()" link="SoupMessage.html#soup-message-new"/>
+    <keyword type="function" name="soup_message_new_from_uri ()" link="SoupMessage.html#soup-message-new-from-uri"/>
+    <keyword type="function" name="soup_message_set_request ()" link="SoupMessage.html#soup-message-set-request"/>
+    <keyword type="function" name="soup_message_set_response ()" link="SoupMessage.html#soup-message-set-response"/>
+    <keyword type="function" name="soup_message_add_header ()" link="SoupMessage.html#soup-message-add-header"/>
+    <keyword type="function" name="soup_message_get_header ()" link="SoupMessage.html#soup-message-get-header"/>
+    <keyword type="function" name="soup_message_get_header_list ()" link="SoupMessage.html#soup-message-get-header-list"/>
+    <keyword type="function" name="soup_message_foreach_header ()" link="SoupMessage.html#soup-message-foreach-header"/>
+    <keyword type="function" name="soup_message_remove_header ()" link="SoupMessage.html#soup-message-remove-header"/>
+    <keyword type="function" name="soup_message_clear_headers ()" link="SoupMessage.html#soup-message-clear-headers"/>
+    <keyword type="enum" name="enum SoupHttpVersion" link="SoupMessage.html#SoupHttpVersion"/>
+    <keyword type="function" name="soup_message_set_http_version ()" link="SoupMessage.html#soup-message-set-http-version"/>
+    <keyword type="function" name="soup_message_get_http_version ()" link="SoupMessage.html#soup-message-get-http-version"/>
+    <keyword type="function" name="soup_message_get_uri ()" link="SoupMessage.html#soup-message-get-uri"/>
+    <keyword type="function" name="soup_message_set_uri ()" link="SoupMessage.html#soup-message-set-uri"/>
+    <keyword type="enum" name="enum SoupMessageFlags" link="SoupMessage.html#SoupMessageFlags"/>
+    <keyword type="function" name="soup_message_set_flags ()" link="SoupMessage.html#soup-message-set-flags"/>
+    <keyword type="function" name="soup_message_get_flags ()" link="SoupMessage.html#soup-message-get-flags"/>
+    <keyword type="function" name="soup_message_set_status ()" link="SoupMessage.html#soup-message-set-status"/>
+    <keyword type="function" name="soup_message_set_status_full ()" link="SoupMessage.html#soup-message-set-status-full"/>
+    <keyword type="function" name="soup_message_add_chunk ()" link="SoupMessage.html#soup-message-add-chunk"/>
+    <keyword type="function" name="soup_message_add_final_chunk ()" link="SoupMessage.html#soup-message-add-final-chunk"/>
+    <keyword type="function" name="soup_message_pop_chunk ()" link="SoupMessage.html#soup-message-pop-chunk"/>
+    <keyword type="function" name="soup_message_is_keepalive ()" link="SoupMessage.html#soup-message-is-keepalive"/>
+    <keyword type="function" name="soup_message_get_request_encoding ()" link="SoupMessage.html#soup-message-get-request-encoding"/>
+    <keyword type="function" name="soup_message_get_response_encoding ()" link="SoupMessage.html#soup-message-get-response-encoding"/>
+    <keyword type="enum" name="enum SoupHandlerPhase" link="SoupMessage.html#SoupHandlerPhase"/>
+    <keyword type="function" name="soup_message_add_handler ()" link="SoupMessage.html#soup-message-add-handler"/>
+    <keyword type="function" name="soup_message_add_header_handler ()" link="SoupMessage.html#soup-message-add-header-handler"/>
+    <keyword type="function" name="soup_message_add_status_code_handler ()" link="SoupMessage.html#soup-message-add-status-code-handler"/>
+    <keyword type="function" name="soup_message_add_status_class_handler ()" link="SoupMessage.html#soup-message-add-status-class-handler"/>
+    <keyword type="function" name="soup_message_remove_handler ()" link="SoupMessage.html#soup-message-remove-handler"/>
+    <keyword type="function" name="soup_message_send_request ()" link="SoupMessage.html#soup-message-send-request"/>
+    <keyword type="function" name="soup_message_read_request ()" link="SoupMessage.html#soup-message-read-request"/>
+    <keyword type="function" name="soup_message_io_pause ()" link="SoupMessage.html#soup-message-io-pause"/>
+    <keyword type="function" name="soup_message_io_unpause ()" link="SoupMessage.html#soup-message-io-unpause"/>
+    <keyword type="function" name="soup_message_io_stop ()" link="SoupMessage.html#soup-message-io-stop"/>
+    <keyword type="" name="The &quot;finished&quot; signal" link="SoupMessage.html#SoupMessage-finished"/>
+    <keyword type="" name="The &quot;got-body&quot; signal" link="SoupMessage.html#SoupMessage-got-body"/>
+    <keyword type="" name="The &quot;got-chunk&quot; signal" link="SoupMessage.html#SoupMessage-got-chunk"/>
+    <keyword type="" name="The &quot;got-headers&quot; signal" link="SoupMessage.html#SoupMessage-got-headers"/>
+    <keyword type="" name="The &quot;got-informational&quot; signal" link="SoupMessage.html#SoupMessage-got-informational"/>
+    <keyword type="" name="The &quot;restarted&quot; signal" link="SoupMessage.html#SoupMessage-restarted"/>
+    <keyword type="" name="The &quot;wrote-body&quot; signal" link="SoupMessage.html#SoupMessage-wrote-body"/>
+    <keyword type="" name="The &quot;wrote-chunk&quot; signal" link="SoupMessage.html#SoupMessage-wrote-chunk"/>
+    <keyword type="" name="The &quot;wrote-headers&quot; signal" link="SoupMessage.html#SoupMessage-wrote-headers"/>
+    <keyword type="" name="The &quot;wrote-informational&quot; signal" link="SoupMessage.html#SoupMessage-wrote-informational"/>
+    <keyword type="function" name="soup_message_filter_setup_message ()" link="libsoup-SoupMessageFilter.html#soup-message-filter-setup-message"/>
+    <keyword type="struct" name="struct SoupServerMessage" link="SoupServerMessage.html#SoupServerMessage-struct"/>
+    <keyword type="function" name="soup_server_message_new ()" link="SoupServerMessage.html#soup-server-message-new"/>
+    <keyword type="function" name="soup_server_message_get_server ()" link="SoupServerMessage.html#soup-server-message-get-server"/>
+    <keyword type="function" name="soup_server_message_set_encoding ()" link="SoupServerMessage.html#soup-server-message-set-encoding"/>
+    <keyword type="function" name="soup_server_message_get_encoding ()" link="SoupServerMessage.html#soup-server-message-get-encoding"/>
+    <keyword type="function" name="soup_server_message_start ()" link="SoupServerMessage.html#soup-server-message-start"/>
+    <keyword type="function" name="soup_server_message_is_started ()" link="SoupServerMessage.html#soup-server-message-is-started"/>
+    <keyword type="function" name="soup_server_message_finish ()" link="SoupServerMessage.html#soup-server-message-finish"/>
+    <keyword type="function" name="soup_server_message_is_finished ()" link="SoupServerMessage.html#soup-server-message-is-finished"/>
+    <keyword type="struct" name="struct SoupServer" link="SoupServer.html#SoupServer-struct"/>
+    <keyword type="struct" name="SoupServerContext" link="SoupServer.html#SoupServerContext"/>
+    <keyword type="function" name="SoupServerCallbackFn ()" link="SoupServer.html#SoupServerCallbackFn"/>
+    <keyword type="function" name="SoupServerUnregisterFn ()" link="SoupServer.html#SoupServerUnregisterFn"/>
+    <keyword type="function" name="soup_server_new ()" link="SoupServer.html#soup-server-new"/>
+    <keyword type="function" name="soup_server_get_protocol ()" link="SoupServer.html#soup-server-get-protocol"/>
+    <keyword type="function" name="soup_server_get_port ()" link="SoupServer.html#soup-server-get-port"/>
+    <keyword type="function" name="soup_server_get_listener ()" link="SoupServer.html#soup-server-get-listener"/>
+    <keyword type="function" name="soup_server_run ()" link="SoupServer.html#soup-server-run"/>
+    <keyword type="function" name="soup_server_run_async ()" link="SoupServer.html#soup-server-run-async"/>
+    <keyword type="function" name="soup_server_quit ()" link="SoupServer.html#soup-server-quit"/>
+    <keyword type="typedef" name="SoupServerHandler" link="SoupServer.html#SoupServerHandler"/>
+    <keyword type="function" name="soup_server_add_handler ()" link="SoupServer.html#soup-server-add-handler"/>
+    <keyword type="function" name="soup_server_remove_handler ()" link="SoupServer.html#soup-server-remove-handler"/>
+    <keyword type="function" name="soup_server_get_handler ()" link="SoupServer.html#soup-server-get-handler"/>
+    <keyword type="function" name="soup_server_list_handlers ()" link="SoupServer.html#soup-server-list-handlers"/>
+    <keyword type="function" name="soup_server_context_get_client_address ()" link="SoupServer.html#soup-server-context-get-client-address"/>
+    <keyword type="function" name="soup_server_context_get_client_host ()" link="SoupServer.html#soup-server-context-get-client-host"/>
+    <keyword type="macro" name="SOUP_SERVER_PORT" link="SoupServer.html#SOUP-SERVER-PORT:CAPS"/>
+    <keyword type="macro" name="SOUP_SERVER_INTERFACE" link="SoupServer.html#SOUP-SERVER-INTERFACE:CAPS"/>
+    <keyword type="macro" name="SOUP_SERVER_SSL_CERT_FILE" link="SoupServer.html#SOUP-SERVER-SSL-CERT-FILE:CAPS"/>
+    <keyword type="macro" name="SOUP_SERVER_SSL_KEY_FILE" link="SoupServer.html#SOUP-SERVER-SSL-KEY-FILE:CAPS"/>
+    <keyword type="macro" name="SOUP_SERVER_ASYNC_CONTEXT" link="SoupServer.html#SOUP-SERVER-ASYNC-CONTEXT:CAPS"/>
+    <keyword type="" name="The &quot;async-context&quot; property" link="SoupServer.html#SoupServer--async-context"/>
+    <keyword type="" name="The &quot;interface&quot; property" link="SoupServer.html#SoupServer--interface"/>
+    <keyword type="" name="The &quot;port&quot; property" link="SoupServer.html#SoupServer--port"/>
+    <keyword type="" name="The &quot;ssl-cert-file&quot; property" link="SoupServer.html#SoupServer--ssl-cert-file"/>
+    <keyword type="" name="The &quot;ssl-key-file&quot; property" link="SoupServer.html#SoupServer--ssl-key-file"/>
+    <keyword type="struct" name="struct SoupSession" link="SoupSession.html#SoupSession-struct"/>
+    <keyword type="function" name="soup_session_queue_message ()" link="SoupSession.html#soup-session-queue-message"/>
+    <keyword type="function" name="soup_session_requeue_message ()" link="SoupSession.html#soup-session-requeue-message"/>
+    <keyword type="function" name="soup_session_send_message ()" link="SoupSession.html#soup-session-send-message"/>
+    <keyword type="function" name="soup_session_abort ()" link="SoupSession.html#soup-session-abort"/>
+    <keyword type="function" name="soup_session_add_filter ()" link="SoupSession.html#soup-session-add-filter"/>
+    <keyword type="function" name="soup_session_cancel_message ()" link="SoupSession.html#soup-session-cancel-message"/>
+    <keyword type="function" name="soup_session_get_connection ()" link="SoupSession.html#soup-session-get-connection"/>
+    <keyword type="function" name="soup_session_remove_filter ()" link="SoupSession.html#soup-session-remove-filter"/>
+    <keyword type="function" name="soup_session_try_prune_connection ()" link="SoupSession.html#soup-session-try-prune-connection"/>
+    <keyword type="macro" name="SOUP_SESSION_PROXY_URI" link="SoupSession.html#SOUP-SESSION-PROXY-URI:CAPS"/>
+    <keyword type="macro" name="SOUP_SESSION_MAX_CONNS" link="SoupSession.html#SOUP-SESSION-MAX-CONNS:CAPS"/>
+    <keyword type="macro" name="SOUP_SESSION_MAX_CONNS_PER_HOST" link="SoupSession.html#SOUP-SESSION-MAX-CONNS-PER-HOST:CAPS"/>
+    <keyword type="macro" name="SOUP_SESSION_USE_NTLM" link="SoupSession.html#SOUP-SESSION-USE-NTLM:CAPS"/>
+    <keyword type="macro" name="SOUP_SESSION_SSL_CA_FILE" link="SoupSession.html#SOUP-SESSION-SSL-CA-FILE:CAPS"/>
+    <keyword type="macro" name="SOUP_SESSION_ASYNC_CONTEXT" link="SoupSession.html#SOUP-SESSION-ASYNC-CONTEXT:CAPS"/>
+    <keyword type="macro" name="SOUP_SESSION_TIMEOUT" link="SoupSession.html#SOUP-SESSION-TIMEOUT:CAPS"/>
+    <keyword type="" name="The &quot;async-context&quot; property" link="SoupSession.html#SoupSession--async-context"/>
+    <keyword type="" name="The &quot;max-conns&quot; property" link="SoupSession.html#SoupSession--max-conns"/>
+    <keyword type="" name="The &quot;max-conns-per-host&quot; property" link="SoupSession.html#SoupSession--max-conns-per-host"/>
+    <keyword type="" name="The &quot;proxy-uri&quot; property" link="SoupSession.html#SoupSession--proxy-uri"/>
+    <keyword type="" name="The &quot;ssl-ca-file&quot; property" link="SoupSession.html#SoupSession--ssl-ca-file"/>
+    <keyword type="" name="The &quot;timeout&quot; property" link="SoupSession.html#SoupSession--timeout"/>
+    <keyword type="" name="The &quot;use-ntlm&quot; property" link="SoupSession.html#SoupSession--use-ntlm"/>
+    <keyword type="" name="The &quot;authenticate&quot; signal" link="SoupSession.html#SoupSession-authenticate"/>
+    <keyword type="" name="The &quot;reauthenticate&quot; signal" link="SoupSession.html#SoupSession-reauthenticate"/>
+    <keyword type="struct" name="struct SoupSessionAsync" link="SoupSessionAsync.html#SoupSessionAsync-struct"/>
+    <keyword type="function" name="soup_session_async_new ()" link="SoupSessionAsync.html#soup-session-async-new"/>
+    <keyword type="function" name="soup_session_async_new_with_options ()" link="SoupSessionAsync.html#soup-session-async-new-with-options"/>
+    <keyword type="struct" name="struct SoupSessionSync" link="SoupSessionSync.html#SoupSessionSync-struct"/>
+    <keyword type="function" name="soup_session_sync_new ()" link="SoupSessionSync.html#soup-session-sync-new"/>
+    <keyword type="function" name="soup_session_sync_new_with_options ()" link="SoupSessionSync.html#soup-session-sync-new-with-options"/>
+    <keyword type="struct" name="SoupSoapMessage" link="SoupSoapMessage.html#SoupSoapMessage-struct"/>
+    <keyword type="function" name="soup_soap_message_new ()" link="SoupSoapMessage.html#soup-soap-message-new"/>
+    <keyword type="function" name="soup_soap_message_new_from_uri ()" link="SoupSoapMessage.html#soup-soap-message-new-from-uri"/>
+    <keyword type="function" name="soup_soap_message_start_envelope ()" link="SoupSoapMessage.html#soup-soap-message-start-envelope"/>
+    <keyword type="function" name="soup_soap_message_end_envelope ()" link="SoupSoapMessage.html#soup-soap-message-end-envelope"/>
+    <keyword type="function" name="soup_soap_message_start_body ()" link="SoupSoapMessage.html#soup-soap-message-start-body"/>
+    <keyword type="function" name="soup_soap_message_end_body ()" link="SoupSoapMessage.html#soup-soap-message-end-body"/>
+    <keyword type="function" name="soup_soap_message_start_element ()" link="SoupSoapMessage.html#soup-soap-message-start-element"/>
+    <keyword type="function" name="soup_soap_message_end_element ()" link="SoupSoapMessage.html#soup-soap-message-end-element"/>
+    <keyword type="function" name="soup_soap_message_start_fault ()" link="SoupSoapMessage.html#soup-soap-message-start-fault"/>
+    <keyword type="function" name="soup_soap_message_end_fault ()" link="SoupSoapMessage.html#soup-soap-message-end-fault"/>
+    <keyword type="function" name="soup_soap_message_start_fault_detail ()" link="SoupSoapMessage.html#soup-soap-message-start-fault-detail"/>
+    <keyword type="function" name="soup_soap_message_end_fault_detail ()" link="SoupSoapMessage.html#soup-soap-message-end-fault-detail"/>
+    <keyword type="function" name="soup_soap_message_start_header ()" link="SoupSoapMessage.html#soup-soap-message-start-header"/>
+    <keyword type="function" name="soup_soap_message_end_header ()" link="SoupSoapMessage.html#soup-soap-message-end-header"/>
+    <keyword type="function" name="soup_soap_message_start_header_element ()" link="SoupSoapMessage.html#soup-soap-message-start-header-element"/>
+    <keyword type="function" name="soup_soap_message_end_header_element ()" link="SoupSoapMessage.html#soup-soap-message-end-header-element"/>
+    <keyword type="function" name="soup_soap_message_write_int ()" link="SoupSoapMessage.html#soup-soap-message-write-int"/>
+    <keyword type="function" name="soup_soap_message_write_double ()" link="SoupSoapMessage.html#soup-soap-message-write-double"/>
+    <keyword type="function" name="soup_soap_message_write_base64 ()" link="SoupSoapMessage.html#soup-soap-message-write-base64"/>
+    <keyword type="function" name="soup_soap_message_write_time ()" link="SoupSoapMessage.html#soup-soap-message-write-time"/>
+    <keyword type="function" name="soup_soap_message_write_string ()" link="SoupSoapMessage.html#soup-soap-message-write-string"/>
+    <keyword type="function" name="soup_soap_message_write_buffer ()" link="SoupSoapMessage.html#soup-soap-message-write-buffer"/>
+    <keyword type="function" name="soup_soap_message_set_element_type ()" link="SoupSoapMessage.html#soup-soap-message-set-element-type"/>
+    <keyword type="function" name="soup_soap_message_set_null ()" link="SoupSoapMessage.html#soup-soap-message-set-null"/>
+    <keyword type="function" name="soup_soap_message_add_attribute ()" link="SoupSoapMessage.html#soup-soap-message-add-attribute"/>
+    <keyword type="function" name="soup_soap_message_add_namespace ()" link="SoupSoapMessage.html#soup-soap-message-add-namespace"/>
+    <keyword type="function" name="soup_soap_message_set_default_namespace ()" link="SoupSoapMessage.html#soup-soap-message-set-default-namespace"/>
+    <keyword type="function" name="soup_soap_message_set_encoding_style ()" link="SoupSoapMessage.html#soup-soap-message-set-encoding-style"/>
+    <keyword type="function" name="soup_soap_message_reset ()" link="SoupSoapMessage.html#soup-soap-message-reset"/>
+    <keyword type="function" name="soup_soap_message_persist ()" link="SoupSoapMessage.html#soup-soap-message-persist"/>
+    <keyword type="function" name="soup_soap_message_get_namespace_prefix ()" link="SoupSoapMessage.html#soup-soap-message-get-namespace-prefix"/>
+    <keyword type="function" name="soup_soap_message_get_xml_doc ()" link="SoupSoapMessage.html#soup-soap-message-get-xml-doc"/>
+    <keyword type="function" name="soup_soap_message_parse_response ()" link="SoupSoapMessage.html#soup-soap-message-parse-response"/>
+    <keyword type="struct" name="SoupSoapResponse" link="SoupSoapResponse.html#SoupSoapResponse-struct"/>
+    <keyword type="typedef" name="SoupSoapParameter" link="SoupSoapResponse.html#SoupSoapParameter"/>
+    <keyword type="function" name="soup_soap_response_new ()" link="SoupSoapResponse.html#soup-soap-response-new"/>
+    <keyword type="function" name="soup_soap_response_new_from_string ()" link="SoupSoapResponse.html#soup-soap-response-new-from-string"/>
+    <keyword type="function" name="soup_soap_response_set_method_name ()" link="SoupSoapResponse.html#soup-soap-response-set-method-name"/>
+    <keyword type="function" name="soup_soap_parameter_get_first_child ()" link="SoupSoapResponse.html#soup-soap-parameter-get-first-child"/>
+    <keyword type="function" name="soup_soap_parameter_get_first_child_by_name ()" link="SoupSoapResponse.html#soup-soap-parameter-get-first-child-by-name"/>
+    <keyword type="function" name="soup_soap_parameter_get_int_value ()" link="SoupSoapResponse.html#soup-soap-parameter-get-int-value"/>
+    <keyword type="function" name="soup_soap_parameter_get_name ()" link="SoupSoapResponse.html#soup-soap-parameter-get-name"/>
+    <keyword type="function" name="soup_soap_parameter_get_next_child ()" link="SoupSoapResponse.html#soup-soap-parameter-get-next-child"/>
+    <keyword type="function" name="soup_soap_parameter_get_next_child_by_name ()" link="SoupSoapResponse.html#soup-soap-parameter-get-next-child-by-name"/>
+    <keyword type="function" name="soup_soap_parameter_get_property ()" link="SoupSoapResponse.html#soup-soap-parameter-get-property"/>
+    <keyword type="function" name="soup_soap_parameter_get_string_value ()" link="SoupSoapResponse.html#soup-soap-parameter-get-string-value"/>
+    <keyword type="function" name="soup_soap_response_from_string ()" link="SoupSoapResponse.html#soup-soap-response-from-string"/>
+    <keyword type="function" name="soup_soap_response_get_first_parameter ()" link="SoupSoapResponse.html#soup-soap-response-get-first-parameter"/>
+    <keyword type="function" name="soup_soap_response_get_first_parameter_by_name ()" link="SoupSoapResponse.html#soup-soap-response-get-first-parameter-by-name"/>
+    <keyword type="function" name="soup_soap_response_get_method_name ()" link="SoupSoapResponse.html#soup-soap-response-get-method-name"/>
+    <keyword type="function" name="soup_soap_response_get_next_parameter ()" link="SoupSoapResponse.html#soup-soap-response-get-next-parameter"/>
+    <keyword type="function" name="soup_soap_response_get_next_parameter_by_name ()" link="SoupSoapResponse.html#soup-soap-response-get-next-parameter-by-name"/>
+    <keyword type="function" name="soup_soap_response_get_parameters ()" link="SoupSoapResponse.html#soup-soap-response-get-parameters"/>
+    <keyword type="struct" name="struct SoupSocket" link="SoupSocket.html#SoupSocket-struct"/>
+    <keyword type="function" name="soup_socket_new ()" link="SoupSocket.html#soup-socket-new"/>
+    <keyword type="function" name="soup_socket_connect ()" link="SoupSocket.html#soup-socket-connect"/>
+    <keyword type="function" name="soup_socket_listen ()" link="SoupSocket.html#soup-socket-listen"/>
+    <keyword type="function" name="soup_socket_start_ssl ()" link="SoupSocket.html#soup-socket-start-ssl"/>
+    <keyword type="function" name="soup_socket_start_proxy_ssl ()" link="SoupSocket.html#soup-socket-start-proxy-ssl"/>
+    <keyword type="function" name="soup_socket_disconnect ()" link="SoupSocket.html#soup-socket-disconnect"/>
+    <keyword type="function" name="soup_socket_is_connected ()" link="SoupSocket.html#soup-socket-is-connected"/>
+    <keyword type="function" name="SoupSocketCallback ()" link="SoupSocket.html#SoupSocketCallback"/>
+    <keyword type="function" name="SoupSocketListenerCallback ()" link="SoupSocket.html#SoupSocketListenerCallback"/>
+    <keyword type="function" name="soup_socket_client_new_async ()" link="SoupSocket.html#soup-socket-client-new-async"/>
+    <keyword type="function" name="soup_socket_client_new_sync ()" link="SoupSocket.html#soup-socket-client-new-sync"/>
+    <keyword type="function" name="soup_socket_server_new ()" link="SoupSocket.html#soup-socket-server-new"/>
+    <keyword type="function" name="soup_socket_get_local_address ()" link="SoupSocket.html#soup-socket-get-local-address"/>
+    <keyword type="function" name="soup_socket_get_remote_address ()" link="SoupSocket.html#soup-socket-get-remote-address"/>
+    <keyword type="enum" name="enum SoupSocketIOStatus" link="SoupSocket.html#SoupSocketIOStatus"/>
+    <keyword type="function" name="soup_socket_read ()" link="SoupSocket.html#soup-socket-read"/>
+    <keyword type="function" name="soup_socket_read_until ()" link="SoupSocket.html#soup-socket-read-until"/>
+    <keyword type="function" name="soup_socket_write ()" link="SoupSocket.html#soup-socket-write"/>
+    <keyword type="macro" name="SOUP_SOCKET_FLAG_NONBLOCKING" link="SoupSocket.html#SOUP-SOCKET-FLAG-NONBLOCKING:CAPS"/>
+    <keyword type="macro" name="SOUP_SOCKET_FLAG_NODELAY" link="SoupSocket.html#SOUP-SOCKET-FLAG-NODELAY:CAPS"/>
+    <keyword type="macro" name="SOUP_SOCKET_FLAG_REUSEADDR" link="SoupSocket.html#SOUP-SOCKET-FLAG-REUSEADDR:CAPS"/>
+    <keyword type="macro" name="SOUP_SOCKET_FLAG_CLOEXEC" link="SoupSocket.html#SOUP-SOCKET-FLAG-CLOEXEC:CAPS"/>
+    <keyword type="macro" name="SOUP_SOCKET_TIMEOUT" link="SoupSocket.html#SOUP-SOCKET-TIMEOUT:CAPS"/>
+    <keyword type="macro" name="SOUP_SOCKET_IS_SERVER" link="SoupSocket.html#SOUP-SOCKET-IS-SERVER:CAPS"/>
+    <keyword type="macro" name="SOUP_SOCKET_SSL_CREDENTIALS" link="SoupSocket.html#SOUP-SOCKET-SSL-CREDENTIALS:CAPS"/>
+    <keyword type="macro" name="SOUP_SOCKET_ASYNC_CONTEXT" link="SoupSocket.html#SOUP-SOCKET-ASYNC-CONTEXT:CAPS"/>
+    <keyword type="" name="The &quot;async-context&quot; property" link="SoupSocket.html#SoupSocket--async-context"/>
+    <keyword type="" name="The &quot;cloexec&quot; property" link="SoupSocket.html#SoupSocket--cloexec"/>
+    <keyword type="" name="The &quot;is-server&quot; property" link="SoupSocket.html#SoupSocket--is-server"/>
+    <keyword type="" name="The &quot;nodelay&quot; property" link="SoupSocket.html#SoupSocket--nodelay"/>
+    <keyword type="" name="The &quot;non-blocking&quot; property" link="SoupSocket.html#SoupSocket--non-blocking"/>
+    <keyword type="" name="The &quot;reuseaddr&quot; property" link="SoupSocket.html#SoupSocket--reuseaddr"/>
+    <keyword type="" name="The &quot;ssl-creds&quot; property" link="SoupSocket.html#SoupSocket--ssl-creds"/>
+    <keyword type="" name="The &quot;timeout&quot; property" link="SoupSocket.html#SoupSocket--timeout"/>
+    <keyword type="" name="The &quot;connect-result&quot; signal" link="SoupSocket.html#SoupSocket-connect-result"/>
+    <keyword type="" name="The &quot;disconnected&quot; signal" link="SoupSocket.html#SoupSocket-disconnected"/>
+    <keyword type="" name="The &quot;new-connection&quot; signal" link="SoupSocket.html#SoupSocket-new-connection"/>
+    <keyword type="" name="The &quot;readable&quot; signal" link="SoupSocket.html#SoupSocket-readable"/>
+    <keyword type="" name="The &quot;writable&quot; signal" link="SoupSocket.html#SoupSocket-writable"/>
+    <keyword type="enum" name="enum SoupStatusClass" link="libsoup-soup-status.html#SoupStatusClass"/>
+    <keyword type="macro" name="SOUP_STATUS_IS_INFORMATIONAL()" link="libsoup-soup-status.html#SOUP-STATUS-IS-INFORMATIONAL:CAPS"/>
+    <keyword type="macro" name="SOUP_STATUS_IS_SUCCESSFUL()" link="libsoup-soup-status.html#SOUP-STATUS-IS-SUCCESSFUL:CAPS"/>
+    <keyword type="macro" name="SOUP_STATUS_IS_REDIRECTION()" link="libsoup-soup-status.html#SOUP-STATUS-IS-REDIRECTION:CAPS"/>
+    <keyword type="macro" name="SOUP_STATUS_IS_CLIENT_ERROR()" link="libsoup-soup-status.html#SOUP-STATUS-IS-CLIENT-ERROR:CAPS"/>
+    <keyword type="macro" name="SOUP_STATUS_IS_SERVER_ERROR()" link="libsoup-soup-status.html#SOUP-STATUS-IS-SERVER-ERROR:CAPS"/>
+    <keyword type="enum" name="enum SoupKnownStatusCode" link="libsoup-soup-status.html#SoupKnownStatusCode"/>
+    <keyword type="function" name="soup_status_get_phrase ()" link="libsoup-soup-status.html#soup-status-get-phrase"/>
+    <keyword type="struct" name="struct SoupUri" link="libsoup-SoupUri.html#SoupUri"/>
+    <keyword type="typedef" name="SoupProtocol" link="libsoup-SoupUri.html#SoupProtocol"/>
+    <keyword type="macro" name="SOUP_PROTOCOL_HTTP" link="libsoup-SoupUri.html#SOUP-PROTOCOL-HTTP:CAPS"/>
+    <keyword type="macro" name="SOUP_PROTOCOL_HTTPS" link="libsoup-SoupUri.html#SOUP-PROTOCOL-HTTPS:CAPS"/>
+    <keyword type="function" name="soup_uri_new_with_base ()" link="libsoup-SoupUri.html#soup-uri-new-with-base"/>
+    <keyword type="function" name="soup_uri_new ()" link="libsoup-SoupUri.html#soup-uri-new"/>
+    <keyword type="function" name="soup_uri_to_string ()" link="libsoup-SoupUri.html#soup-uri-to-string"/>
+    <keyword type="function" name="soup_uri_copy ()" link="libsoup-SoupUri.html#soup-uri-copy"/>
+    <keyword type="function" name="soup_uri_copy_root ()" link="libsoup-SoupUri.html#soup-uri-copy-root"/>
+    <keyword type="function" name="soup_uri_equal ()" link="libsoup-SoupUri.html#soup-uri-equal"/>
+    <keyword type="function" name="soup_uri_free ()" link="libsoup-SoupUri.html#soup-uri-free"/>
+    <keyword type="function" name="soup_uri_encode ()" link="libsoup-SoupUri.html#soup-uri-encode"/>
+    <keyword type="function" name="soup_uri_decode ()" link="libsoup-SoupUri.html#soup-uri-decode"/>
+    <keyword type="function" name="soup_uri_uses_default_port ()" link="libsoup-SoupUri.html#soup-uri-uses-default-port"/>
+    <keyword type="struct" name="SoupXmlrpcMessage" link="SoupXmlrpcMessage.html#SoupXmlrpcMessage-struct"/>
+    <keyword type="function" name="soup_xmlrpc_message_new ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-new"/>
+    <keyword type="function" name="soup_xmlrpc_message_new_from_uri ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-new-from-uri"/>
+    <keyword type="function" name="soup_xmlrpc_message_from_string ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-from-string"/>
+    <keyword type="function" name="soup_xmlrpc_message_start_call ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-start-call"/>
+    <keyword type="function" name="soup_xmlrpc_message_end_call ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-end-call"/>
+    <keyword type="function" name="soup_xmlrpc_message_start_param ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-start-param"/>
+    <keyword type="function" name="soup_xmlrpc_message_end_param ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-end-param"/>
+    <keyword type="function" name="soup_xmlrpc_message_write_int ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-write-int"/>
+    <keyword type="function" name="soup_xmlrpc_message_write_boolean ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-write-boolean"/>
+    <keyword type="function" name="soup_xmlrpc_message_write_string ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-write-string"/>
+    <keyword type="function" name="soup_xmlrpc_message_write_double ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-write-double"/>
+    <keyword type="function" name="soup_xmlrpc_message_write_datetime ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-write-datetime"/>
+    <keyword type="function" name="soup_xmlrpc_message_write_base64 ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-write-base64"/>
+    <keyword type="function" name="soup_xmlrpc_message_start_struct ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-start-struct"/>
+    <keyword type="function" name="soup_xmlrpc_message_end_struct ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-end-struct"/>
+    <keyword type="function" name="soup_xmlrpc_message_start_member ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-start-member"/>
+    <keyword type="function" name="soup_xmlrpc_message_end_member ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-end-member"/>
+    <keyword type="function" name="soup_xmlrpc_message_start_array ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-start-array"/>
+    <keyword type="function" name="soup_xmlrpc_message_end_array ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-end-array"/>
+    <keyword type="function" name="soup_xmlrpc_message_to_string ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-to-string"/>
+    <keyword type="function" name="soup_xmlrpc_message_persist ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-persist"/>
+    <keyword type="function" name="soup_xmlrpc_message_parse_response ()" link="SoupXmlrpcMessage.html#soup-xmlrpc-message-parse-response"/>
+    <keyword type="struct" name="SoupXmlrpcResponse" link="SoupXmlrpcResponse.html#SoupXmlrpcResponse-struct"/>
+    <keyword type="function" name="soup_xmlrpc_response_new ()" link="SoupXmlrpcResponse.html#soup-xmlrpc-response-new"/>
+    <keyword type="function" name="soup_xmlrpc_response_new_from_string ()" link="SoupXmlrpcResponse.html#soup-xmlrpc-response-new-from-string"/>
+    <keyword type="function" name="soup_xmlrpc_response_from_string ()" link="SoupXmlrpcResponse.html#soup-xmlrpc-response-from-string"/>
+    <keyword type="function" name="soup_xmlrpc_response_to_string ()" link="SoupXmlrpcResponse.html#soup-xmlrpc-response-to-string"/>
+    <keyword type="typedef" name="SoupXmlrpcValue" link="SoupXmlrpcResponse.html#SoupXmlrpcValue"/>
+    <keyword type="enum" name="enum SoupXmlrpcValueType" link="SoupXmlrpcResponse.html#SoupXmlrpcValueType"/>
+    <keyword type="function" name="soup_xmlrpc_response_is_fault ()" link="SoupXmlrpcResponse.html#soup-xmlrpc-response-is-fault"/>
+    <keyword type="function" name="soup_xmlrpc_response_get_value ()" link="SoupXmlrpcResponse.html#soup-xmlrpc-response-get-value"/>
+    <keyword type="function" name="soup_xmlrpc_value_get_type ()" link="SoupXmlrpcResponse.html#soup-xmlrpc-value-get-type"/>
+    <keyword type="function" name="soup_xmlrpc_value_get_int ()" link="SoupXmlrpcResponse.html#soup-xmlrpc-value-get-int"/>
+    <keyword type="function" name="soup_xmlrpc_value_get_double ()" link="SoupXmlrpcResponse.html#soup-xmlrpc-value-get-double"/>
+    <keyword type="function" name="soup_xmlrpc_value_get_boolean ()" link="SoupXmlrpcResponse.html#soup-xmlrpc-value-get-boolean"/>
+    <keyword type="function" name="soup_xmlrpc_value_get_string ()" link="SoupXmlrpcResponse.html#soup-xmlrpc-value-get-string"/>
+    <keyword type="function" name="soup_xmlrpc_value_get_datetime ()" link="SoupXmlrpcResponse.html#soup-xmlrpc-value-get-datetime"/>
+    <keyword type="function" name="soup_xmlrpc_value_get_base64 ()" link="SoupXmlrpcResponse.html#soup-xmlrpc-value-get-base64"/>
+    <keyword type="function" name="soup_xmlrpc_value_get_struct ()" link="SoupXmlrpcResponse.html#soup-xmlrpc-value-get-struct"/>
+    <keyword type="typedef" name="SoupXmlrpcValueArrayIterator" link="SoupXmlrpcResponse.html#SoupXmlrpcValueArrayIterator"/>
+    <keyword type="function" name="soup_xmlrpc_value_array_get_iterator ()" link="SoupXmlrpcResponse.html#soup-xmlrpc-value-array-get-iterator"/>
+    <keyword type="function" name="soup_xmlrpc_value_array_iterator_prev ()" link="SoupXmlrpcResponse.html#soup-xmlrpc-value-array-iterator-prev"/>
+    <keyword type="function" name="soup_xmlrpc_value_array_iterator_next ()" link="SoupXmlrpcResponse.html#soup-xmlrpc-value-array-iterator-next"/>
+    <keyword type="function" name="soup_xmlrpc_value_array_iterator_get_value ()" link="SoupXmlrpcResponse.html#soup-xmlrpc-value-array-iterator-get-value"/>
+    <keyword type="function" name="soup_xmlrpc_value_dump ()" link="SoupXmlrpcResponse.html#soup-xmlrpc-value-dump"/>
+    <keyword type="function" name="soup_base64_decode ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-base64-decode"/>
+    <keyword type="function" name="soup_base64_encode ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-base64-encode"/>
+    <keyword type="function" name="soup_base64_decode_step ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-base64-decode-step"/>
+    <keyword type="function" name="soup_base64_encode_step ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-base64-encode-step"/>
+    <keyword type="function" name="soup_base64_encode_close ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-base64-encode-close"/>
+    <keyword type="function" name="soup_add_idle ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-add-idle"/>
+    <keyword type="function" name="soup_add_io_watch ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-add-io-watch"/>
+    <keyword type="function" name="soup_add_timeout ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-add-timeout"/>
+    <keyword type="function" name="soup_signal_connect_once ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-signal-connect-once"/>
+    <keyword type="function" name="soup_date_parse ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-date-parse"/>
+    <keyword type="function" name="soup_date_iso8601_parse ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-date-iso8601-parse"/>
+    <keyword type="function" name="soup_date_generate ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-date-generate"/>
+    <keyword type="function" name="soup_gmtime ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-gmtime"/>
+    <keyword type="function" name="soup_mktime_utc ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-mktime-utc"/>
+    <keyword type="function" name="soup_header_param_copy_token ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-header-param-copy-token"/>
+    <keyword type="function" name="soup_header_param_decode_token ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-header-param-decode-token"/>
+    <keyword type="function" name="soup_header_param_destroy_hash ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-header-param-destroy-hash"/>
+    <keyword type="function" name="soup_header_param_parse_list ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-header-param-parse-list"/>
+    <keyword type="function" name="soup_headers_parse_request ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-headers-parse-request"/>
+    <keyword type="function" name="soup_headers_parse_response ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-headers-parse-response"/>
+    <keyword type="function" name="soup_headers_parse_status_line ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-headers-parse-status-line"/>
+    <keyword type="function" name="soup_str_case_equal ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-str-case-equal"/>
+    <keyword type="function" name="soup_str_case_hash ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-str-case-hash"/>
+    <keyword type="function" name="soup_xml_real_node ()" link="libsoup-Soup-Miscellaneous-Utilities.html#soup-xml-real-node"/>
+    <keyword type="function" name="soup_dns_init ()" link="libsoup-soup-dns.html#soup-dns-init"/>
+    <keyword type="function" name="soup_dns_ntop ()" link="libsoup-soup-dns.html#soup-dns-ntop"/>
+    <keyword type="typedef" name="SoupDNSLookup" link="libsoup-soup-dns.html#SoupDNSLookup"/>
+    <keyword type="function" name="soup_dns_lookup_name ()" link="libsoup-soup-dns.html#soup-dns-lookup-name"/>
+    <keyword type="function" name="soup_dns_lookup_address ()" link="libsoup-soup-dns.html#soup-dns-lookup-address"/>
+    <keyword type="function" name="soup_dns_lookup_resolve ()" link="libsoup-soup-dns.html#soup-dns-lookup-resolve"/>
+    <keyword type="function" name="SoupDNSCallback ()" link="libsoup-soup-dns.html#SoupDNSCallback"/>
+    <keyword type="function" name="soup_dns_lookup_resolve_async ()" link="libsoup-soup-dns.html#soup-dns-lookup-resolve-async"/>
+    <keyword type="function" name="soup_dns_lookup_cancel ()" link="libsoup-soup-dns.html#soup-dns-lookup-cancel"/>
+    <keyword type="function" name="soup_dns_lookup_get_hostname ()" link="libsoup-soup-dns.html#soup-dns-lookup-get-hostname"/>
+    <keyword type="function" name="soup_dns_lookup_get_address ()" link="libsoup-soup-dns.html#soup-dns-lookup-get-address"/>
+    <keyword type="function" name="soup_dns_lookup_free ()" link="libsoup-soup-dns.html#soup-dns-lookup-free"/>
+    <keyword type="variable" name="soup_ssl_supported" link="libsoup-soup-ssl.html#soup-ssl-supported"/>
+    <keyword type="enum" name="enum SoupSSLType" link="libsoup-soup-ssl.html#SoupSSLType"/>
+    <keyword type="typedef" name="SoupSSLCredentials" link="libsoup-soup-ssl.html#SoupSSLCredentials"/>
+    <keyword type="function" name="soup_ssl_get_client_credentials ()" link="libsoup-soup-ssl.html#soup-ssl-get-client-credentials"/>
+    <keyword type="function" name="soup_ssl_free_client_credentials ()" link="libsoup-soup-ssl.html#soup-ssl-free-client-credentials"/>
+    <keyword type="function" name="soup_ssl_get_server_credentials ()" link="libsoup-soup-ssl.html#soup-ssl-get-server-credentials"/>
+    <keyword type="function" name="soup_ssl_free_server_credentials ()" link="libsoup-soup-ssl.html#soup-ssl-free-server-credentials"/>
+    <keyword type="function" name="soup_ssl_wrap_iochannel ()" link="libsoup-soup-ssl.html#soup-ssl-wrap-iochannel"/>
+    <keyword type="macro" name="SOUP_SSL_ERROR" link="libsoup-soup-ssl.html#SOUP-SSL-ERROR:CAPS"/>
+    <keyword type="function" name="soup_ssl_error_quark ()" link="libsoup-soup-ssl.html#soup-ssl-error-quark"/>
+    <keyword type="enum" name="enum SoupSocketError" link="libsoup-soup-ssl.html#SoupSocketError"/>
+  </functions>
+</book>

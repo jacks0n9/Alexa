@@ -1,0 +1,13 @@
+diff --git a/libs/gst/base/gstbaseparse.c b/libs/gst/base/gstbaseparse.c
+index 19034f8..6a1a0a7 100644
+--- a/libs/gst/base/gstbaseparse.c
++++ b/libs/gst/base/gstbaseparse.c
+@@ -769,7 +769,7 @@ gst_base_parse_frame_update (GstBaseParse * parse, GstBaseParseFrame * frame,
+     parse->flags |= GST_BASE_PARSE_FLAG_DRAINING;
+ 
+   /* losing sync is pretty much a discont (and vice versa), no ? */
+-  if (G_UNLIKELY (parse->priv->discont))
++  if (G_UNLIKELY (GST_BUFFER_FLAG_IS_SET (buf, GST_BUFFER_FLAG_DISCONT)))
+     parse->flags |= GST_BASE_PARSE_FLAG_LOST_SYNC;
+ }
+ 

@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>SoupServerMessage</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="libsoup Reference Manual">
+<link rel="up" href="ch02.html" title="libsoup API Reference">
+<link rel="prev" href="libsoup-SoupMessageFilter.html" title="SoupMessageFilter">
+<link rel="next" href="SoupServer.html" title="SoupServer">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libsoup Tutorial">
+<link rel="chapter" href="ch02.html" title="libsoup API Reference">
+<link rel="chapter" href="ch03.html" title="libsoup internals">
+<link rel="index" href="ix01.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libsoup-SoupMessageFilter.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libsoup Reference Manual</th>
+<td><a accesskey="n" href="SoupServer.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id381559" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id375113" class="shortcut">Description</a>
+                  &#160;|&#160;
+                  <a href="#id375083" class="shortcut">Object Hierarchy</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="SoupServerMessage"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id381559"></a><span class="refentrytitle">SoupServerMessage</span>
+</h2>
+<p>SoupServerMessage &#8212; Server-side <a class="link" href="SoupMessage.html" title="SoupMessage"><span class="type">SoupMessage</span></a></p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+struct              <a class="link" href="SoupServerMessage.html#SoupServerMessage-struct">SoupServerMessage</a>;
+<a class="link" href="SoupServerMessage.html" title="SoupServerMessage">SoupServerMessage</a>*  <a class="link" href="SoupServerMessage.html#soup-server-message-new">soup_server_message_new</a>             (<a class="link" href="SoupServer.html" title="SoupServer">SoupServer</a> *server);
+<a class="link" href="SoupServer.html" title="SoupServer">SoupServer</a>*         <a class="link" href="SoupServerMessage.html#soup-server-message-get-server">soup_server_message_get_server</a>      (<a class="link" href="SoupServerMessage.html" title="SoupServerMessage">SoupServerMessage</a> *smsg);
+void                <a class="link" href="SoupServerMessage.html#soup-server-message-set-encoding">soup_server_message_set_encoding</a>    (<a class="link" href="SoupServerMessage.html" title="SoupServerMessage">SoupServerMessage</a> *smsg,
+                                                         <a class="link" href="SoupMessage.html#SoupTransferEncoding">SoupTransferEncoding</a> encoding);
+<a class="link" href="SoupMessage.html#SoupTransferEncoding">SoupTransferEncoding</a> <a class="link" href="SoupServerMessage.html#soup-server-message-get-encoding">soup_server_message_get_encoding</a>   (<a class="link" href="SoupServerMessage.html" title="SoupServerMessage">SoupServerMessage</a> *smsg);
+void                <a class="link" href="SoupServerMessage.html#soup-server-message-start">soup_server_message_start</a>           (<a class="link" href="SoupServerMessage.html" title="SoupServerMessage">SoupServerMessage</a> *smsg);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="SoupServerMessage.html#soup-server-message-is-started">soup_server_message_is_started</a>      (<a class="link" href="SoupServerMessage.html" title="SoupServerMessage">SoupServerMessage</a> *smsg);
+void                <a class="link" href="SoupServerMessage.html#soup-server-message-finish">soup_server_message_finish</a>          (<a class="link" href="SoupServerMessage.html" title="SoupServerMessage">SoupServerMessage</a> *smsg);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="SoupServerMessage.html#soup-server-message-is-finished">soup_server_message_is_finished</a>     (<a class="link" href="SoupServerMessage.html" title="SoupServerMessage">SoupServerMessage</a> *smsg);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id375083"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a class="link" href="SoupMessage.html" title="SoupMessage">SoupMessage</a>
+         +----SoupServerMessage
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id375113"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id375129"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id355228"></a><h3>
+<a name="SoupServerMessage-struct"></a>struct SoupServerMessage</h3>
+<a class="indexterm" name="id355241"></a><pre class="programlisting">struct SoupServerMessage;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id355256"></a><h3>
+<a name="soup-server-message-new"></a>soup_server_message_new ()</h3>
+<a class="indexterm" name="id355268"></a><pre class="programlisting"><a class="link" href="SoupServerMessage.html" title="SoupServerMessage">SoupServerMessage</a>*  soup_server_message_new             (<a class="link" href="SoupServer.html" title="SoupServer">SoupServer</a> *server);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id355324"></a><h3>
+<a name="soup-server-message-get-server"></a>soup_server_message_get_server ()</h3>
+<a class="indexterm" name="id355336"></a><pre class="programlisting"><a class="link" href="SoupServer.html" title="SoupServer">SoupServer</a>*         soup_server_message_get_server      (<a class="link" href="SoupServerMessage.html" title="SoupServerMessage">SoupServerMessage</a> *smsg);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>smsg</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id389786"></a><h3>
+<a name="soup-server-message-set-encoding"></a>soup_server_message_set_encoding ()</h3>
+<a class="indexterm" name="id389798"></a><pre class="programlisting">void                soup_server_message_set_encoding    (<a class="link" href="SoupServerMessage.html" title="SoupServerMessage">SoupServerMessage</a> *smsg,
+                                                         <a class="link" href="SoupMessage.html#SoupTransferEncoding">SoupTransferEncoding</a> encoding);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>smsg</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>encoding</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id389863"></a><h3>
+<a name="soup-server-message-get-encoding"></a>soup_server_message_get_encoding ()</h3>
+<a class="indexterm" name="id389876"></a><pre class="programlisting"><a class="link" href="SoupMessage.html#SoupTransferEncoding">SoupTransferEncoding</a> soup_server_message_get_encoding   (<a class="link" href="SoupServerMessage.html" title="SoupServerMessage">SoupServerMessage</a> *smsg);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>smsg</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id389932"></a><h3>
+<a name="soup-server-message-start"></a>soup_server_message_start ()</h3>
+<a class="indexterm" name="id389944"></a><pre class="programlisting">void                soup_server_message_start           (<a class="link" href="SoupServerMessage.html" title="SoupServerMessage">SoupServerMessage</a> *smsg);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>smsg</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id389989"></a><h3>
+<a name="soup-server-message-is-started"></a>soup_server_message_is_started ()</h3>
+<a class="indexterm" name="id390001"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            soup_server_message_is_started      (<a class="link" href="SoupServerMessage.html" title="SoupServerMessage">SoupServerMessage</a> *smsg);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>smsg</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id390057"></a><h3>
+<a name="soup-server-message-finish"></a>soup_server_message_finish ()</h3>
+<a class="indexterm" name="id390069"></a><pre class="programlisting">void                soup_server_message_finish          (<a class="link" href="SoupServerMessage.html" title="SoupServerMessage">SoupServerMessage</a> *smsg);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>smsg</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id390114"></a><h3>
+<a name="soup-server-message-is-finished"></a>soup_server_message_is_finished ()</h3>
+<a class="indexterm" name="id390127"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            soup_server_message_is_finished     (<a class="link" href="SoupServerMessage.html" title="SoupServerMessage">SoupServerMessage</a> *smsg);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>smsg</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>

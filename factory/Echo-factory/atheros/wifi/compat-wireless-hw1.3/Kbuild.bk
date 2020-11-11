@@ -1,0 +1,1 @@
+obj-y := compat/ net/wireless/ drivers/net/wireless/ath/ath6kl/

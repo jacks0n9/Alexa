@@ -1,0 +1,8 @@
+udhcpscript.patch -p1
+udhcpc-fix-nfsroot.patch -p1
+B921600.patch -p1
+get_header_tar.patch -p1
+busybox-appletlib-dependency.patch -p1
+run-parts.in.usr-bin.patch -p1
+watch.in.usr-bin.patch -p1
+busybox-udhcpc-no_deconfig.patch -p1

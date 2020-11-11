@@ -1,0 +1,698 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>SoupSoapResponse</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="libsoup Reference Manual">
+<link rel="up" href="ch02.html" title="libsoup API Reference">
+<link rel="prev" href="SoupSoapMessage.html" title="SoupSoapMessage">
+<link rel="next" href="SoupSocket.html" title="SoupSocket">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libsoup Tutorial">
+<link rel="chapter" href="ch02.html" title="libsoup API Reference">
+<link rel="chapter" href="ch03.html" title="libsoup internals">
+<link rel="index" href="ix01.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="SoupSoapMessage.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libsoup Reference Manual</th>
+<td><a accesskey="n" href="SoupSocket.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id368838" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id405644" class="shortcut">Description</a>
+                  &#160;|&#160;
+                  <a href="#id405620" class="shortcut">Object Hierarchy</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="SoupSoapResponse"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id368838"></a><span class="refentrytitle">SoupSoapResponse</span>
+</h2>
+<p>SoupSoapResponse &#8212; A SOAP response</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+                    <a class="link" href="SoupSoapResponse.html#SoupSoapResponse-struct">SoupSoapResponse</a>;
+typedef             <a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a>;
+<a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse">SoupSoapResponse</a>*   <a class="link" href="SoupSoapResponse.html#soup-soap-response-new">soup_soap_response_new</a>              (void);
+<a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse">SoupSoapResponse</a>*   <a class="link" href="SoupSoapResponse.html#soup-soap-response-new-from-string">soup_soap_response_new_from_string</a>  (const char *xmlstr);
+void                <a class="link" href="SoupSoapResponse.html#soup-soap-response-set-method-name">soup_soap_response_set_method_name</a>  (<a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse">SoupSoapResponse</a> *response,
+                                                         const char *method_name);
+<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a>*  <a class="link" href="SoupSoapResponse.html#soup-soap-parameter-get-first-child">soup_soap_parameter_get_first_child</a> (<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a> *param);
+<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a>*  <a class="link" href="SoupSoapResponse.html#soup-soap-parameter-get-first-child-by-name">soup_soap_parameter_get_first_child_by_name</a>
+                                                        (<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a> *param,
+                                                         const char *name);
+int                 <a class="link" href="SoupSoapResponse.html#soup-soap-parameter-get-int-value">soup_soap_parameter_get_int_value</a>   (<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a> *param);
+const char*         <a class="link" href="SoupSoapResponse.html#soup-soap-parameter-get-name">soup_soap_parameter_get_name</a>        (<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a> *param);
+<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a>*  <a class="link" href="SoupSoapResponse.html#soup-soap-parameter-get-next-child">soup_soap_parameter_get_next_child</a>  (<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a> *param);
+<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a>*  <a class="link" href="SoupSoapResponse.html#soup-soap-parameter-get-next-child-by-name">soup_soap_parameter_get_next_child_by_name</a>
+                                                        (<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a> *param,
+                                                         const char *name);
+char*               <a class="link" href="SoupSoapResponse.html#soup-soap-parameter-get-property">soup_soap_parameter_get_property</a>    (<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a> *param,
+                                                         const char *prop_name);
+char*               <a class="link" href="SoupSoapResponse.html#soup-soap-parameter-get-string-value">soup_soap_parameter_get_string_value</a>
+                                                        (<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a> *param);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="SoupSoapResponse.html#soup-soap-response-from-string">soup_soap_response_from_string</a>      (<a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse">SoupSoapResponse</a> *response,
+                                                         const char *xmlstr);
+<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a>*  <a class="link" href="SoupSoapResponse.html#soup-soap-response-get-first-parameter">soup_soap_response_get_first_parameter</a>
+                                                        (<a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse">SoupSoapResponse</a> *response);
+<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a>*  <a class="link" href="SoupSoapResponse.html#soup-soap-response-get-first-parameter-by-name">soup_soap_response_get_first_parameter_by_name</a>
+                                                        (<a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse">SoupSoapResponse</a> *response,
+                                                         const char *name);
+const char*         <a class="link" href="SoupSoapResponse.html#soup-soap-response-get-method-name">soup_soap_response_get_method_name</a>  (<a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse">SoupSoapResponse</a> *response);
+<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a>*  <a class="link" href="SoupSoapResponse.html#soup-soap-response-get-next-parameter">soup_soap_response_get_next_parameter</a>
+                                                        (<a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse">SoupSoapResponse</a> *response,
+                                                         <a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a> *from);
+<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a>*  <a class="link" href="SoupSoapResponse.html#soup-soap-response-get-next-parameter-by-name">soup_soap_response_get_next_parameter_by_name</a>
+                                                        (<a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse">SoupSoapResponse</a> *response,
+                                                         <a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a> *from,
+                                                         const char *name);
+const <a
+href="/usr/share/gtk-doc/html/glib/glib-Doubly-Linked-Lists.html#GList"
+>GList</a>*        <a class="link" href="SoupSoapResponse.html#soup-soap-response-get-parameters">soup_soap_response_get_parameters</a>   (<a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse">SoupSoapResponse</a> *response);
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id405620"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----SoupSoapResponse
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id405644"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id405659"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id405670"></a><h3>
+<a name="SoupSoapResponse-struct"></a>SoupSoapResponse</h3>
+<a class="indexterm" name="id405682"></a><pre class="programlisting">typedef struct _SoupSoapResponse SoupSoapResponse;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id405697"></a><h3>
+<a name="SoupSoapParameter"></a>SoupSoapParameter</h3>
+<a class="indexterm" name="id405709"></a><pre class="programlisting">typedef xmlNode SoupSoapParameter;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id405725"></a><h3>
+<a name="soup-soap-response-new"></a>soup_soap_response_new ()</h3>
+<a class="indexterm" name="id405737"></a><pre class="programlisting"><a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse">SoupSoapResponse</a>*   soup_soap_response_new              (void);</pre>
+<p>
+Create a new empty <a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse"><span class="type">SoupSoapResponse</span></a> object, which can be modified
+with the accessor functions provided with this class.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the new <a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse"><span class="type">SoupSoapResponse</span></a> (or <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a> if there was an
+error).
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id405799"></a><h3>
+<a name="soup-soap-response-new-from-string"></a>soup_soap_response_new_from_string ()</h3>
+<a class="indexterm" name="id405812"></a><pre class="programlisting"><a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse">SoupSoapResponse</a>*   soup_soap_response_new_from_string  (const char *xmlstr);</pre>
+<p>
+Create a new <a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse"><span class="type">SoupSoapResponse</span></a> object from the XML string contained
+in <em class="parameter"><code>xmlstr</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xmlstr</code></em>&#160;:</span></p></td>
+<td> the XML string to parse.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the new <a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse"><span class="type">SoupSoapResponse</span></a> (or <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a> if there was an
+error).
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id405900"></a><h3>
+<a name="soup-soap-response-set-method-name"></a>soup_soap_response_set_method_name ()</h3>
+<a class="indexterm" name="id405913"></a><pre class="programlisting">void                soup_soap_response_set_method_name  (<a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse">SoupSoapResponse</a> *response,
+                                                         const char *method_name);</pre>
+<p>
+Sets the method name on the given <a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse"><span class="type">SoupSoapResponse</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>response</code></em>&#160;:</span></p></td>
+<td> the <a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse"><span class="type">SoupSoapResponse</span></a> object.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>method_name</code></em>&#160;:</span></p></td>
+<td> the method name to set.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id405997"></a><h3>
+<a name="soup-soap-parameter-get-first-child"></a>soup_soap_parameter_get_first_child ()</h3>
+<a class="indexterm" name="id406009"></a><pre class="programlisting"><a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a>*  soup_soap_parameter_get_first_child (<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a> *param);</pre>
+<p>
+Gets the first child of the given <a class="link" href="SoupSoapResponse.html#SoupSoapParameter"><span class="type">SoupSoapParameter</span></a>. This is used
+for compound data types, which can contain several parameters
+themselves.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>param</code></em>&#160;:</span></p></td>
+<td> A <a class="link" href="SoupSoapResponse.html#SoupSoapParameter"><span class="type">SoupSoapParameter</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the first child or <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a> if there are no children.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id406093"></a><h3>
+<a name="soup-soap-parameter-get-first-child-by-name"></a>soup_soap_parameter_get_first_child_by_name ()</h3>
+<a class="indexterm" name="id406104"></a><pre class="programlisting"><a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a>*  soup_soap_parameter_get_first_child_by_name
+                                                        (<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a> *param,
+                                                         const char *name);</pre>
+<p>
+Gets the first child of the given <a class="link" href="SoupSoapResponse.html#SoupSoapParameter"><span class="type">SoupSoapParameter</span></a> whose name is
+<em class="parameter"><code>name</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>param</code></em>&#160;:</span></p></td>
+<td> A <a class="link" href="SoupSoapResponse.html#SoupSoapParameter"><span class="type">SoupSoapParameter</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></p></td>
+<td> The name of the child parameter to look for.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the first child with the given name or <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a> if there
+are no children.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id406214"></a><h3>
+<a name="soup-soap-parameter-get-int-value"></a>soup_soap_parameter_get_int_value ()</h3>
+<a class="indexterm" name="id406226"></a><pre class="programlisting">int                 soup_soap_parameter_get_int_value   (<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a> *param);</pre>
+<p>
+Returns the parameter's (integer) value.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>param</code></em>&#160;:</span></p></td>
+<td> the parameter
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the parameter value as an integer
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id406286"></a><h3>
+<a name="soup-soap-parameter-get-name"></a>soup_soap_parameter_get_name ()</h3>
+<a class="indexterm" name="id406298"></a><pre class="programlisting">const char*         soup_soap_parameter_get_name        (<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a> *param);</pre>
+<p>
+Returns the parameter name.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>param</code></em>&#160;:</span></p></td>
+<td> the parameter
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the parameter name.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id406359"></a><h3>
+<a name="soup-soap-parameter-get-next-child"></a>soup_soap_parameter_get_next_child ()</h3>
+<a class="indexterm" name="id406371"></a><pre class="programlisting"><a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a>*  soup_soap_parameter_get_next_child  (<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a> *param);</pre>
+<p>
+Gets the next sibling of the given <a class="link" href="SoupSoapResponse.html#SoupSoapParameter"><span class="type">SoupSoapParameter</span></a>. This is used
+for compound data types, which can contain several parameters
+themselves.
+</p>
+<p>
+FIXME: the name of this method is wrong</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>param</code></em>&#160;:</span></p></td>
+<td> A <a class="link" href="SoupSoapResponse.html#SoupSoapParameter"><span class="type">SoupSoapParameter</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the next sibling, or <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a> if there are no more
+siblings.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id406458"></a><h3>
+<a name="soup-soap-parameter-get-next-child-by-name"></a>soup_soap_parameter_get_next_child_by_name ()</h3>
+<a class="indexterm" name="id406470"></a><pre class="programlisting"><a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a>*  soup_soap_parameter_get_next_child_by_name
+                                                        (<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a> *param,
+                                                         const char *name);</pre>
+<p>
+Gets the next sibling of the given <a class="link" href="SoupSoapResponse.html#SoupSoapParameter"><span class="type">SoupSoapParameter</span></a> whose name is
+<em class="parameter"><code>name</code></em>.
+</p>
+<p>
+FIXME: the name of this method is wrong</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>param</code></em>&#160;:</span></p></td>
+<td> A <a class="link" href="SoupSoapResponse.html#SoupSoapParameter"><span class="type">SoupSoapParameter</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></p></td>
+<td> The name of the sibling parameter to look for.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the next sibling with the given name, or <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id406583"></a><h3>
+<a name="soup-soap-parameter-get-property"></a>soup_soap_parameter_get_property ()</h3>
+<a class="indexterm" name="id406595"></a><pre class="programlisting">char*               soup_soap_parameter_get_property    (<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a> *param,
+                                                         const char *prop_name);</pre>
+<p>
+Returns the named property of <em class="parameter"><code>param</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>param</code></em>&#160;:</span></p></td>
+<td> the parameter
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>prop_name</code></em>&#160;:</span></p></td>
+<td> Name of the property to retrieve.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the property, which must be freed by the caller.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id406681"></a><h3>
+<a name="soup-soap-parameter-get-string-value"></a>soup_soap_parameter_get_string_value ()</h3>
+<a class="indexterm" name="id406694"></a><pre class="programlisting">char*               soup_soap_parameter_get_string_value
+                                                        (<a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a> *param);</pre>
+<p>
+Returns the parameter's value.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>param</code></em>&#160;:</span></p></td>
+<td> the parameter
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the parameter value as a string, which must be freed
+by the caller.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id406754"></a><h3>
+<a name="soup-soap-response-from-string"></a>soup_soap_response_from_string ()</h3>
+<a class="indexterm" name="id406766"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            soup_soap_response_from_string      (<a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse">SoupSoapResponse</a> *response,
+                                                         const char *xmlstr);</pre>
+<p>
+Parses the string contained in <em class="parameter"><code>xmlstr</code></em> and sets all properties from
+it in the <em class="parameter"><code>response</code></em> object.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>response</code></em>&#160;:</span></p></td>
+<td> the <a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse"><span class="type">SoupSoapResponse</span></a> object.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xmlstr</code></em>&#160;:</span></p></td>
+<td> XML string to parse.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS"
+><code class="literal">TRUE</code></a> if successful, <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS"
+><code class="literal">FALSE</code></a> otherwise.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id406884"></a><h3>
+<a name="soup-soap-response-get-first-parameter"></a>soup_soap_response_get_first_parameter ()</h3>
+<a class="indexterm" name="id406897"></a><pre class="programlisting"><a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a>*  soup_soap_response_get_first_parameter
+                                                        (<a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse">SoupSoapResponse</a> *response);</pre>
+<p>
+Retrieves the first parameter contained in the SOAP response.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>response</code></em>&#160;:</span></p></td>
+<td> the <a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse"><span class="type">SoupSoapResponse</span></a> object.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> a <a class="link" href="SoupSoapResponse.html#SoupSoapParameter"><span class="type">SoupSoapParameter</span></a> representing the first
+parameter, or <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a> if there are no parameters.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id406980"></a><h3>
+<a name="soup-soap-response-get-first-parameter-by-name"></a>soup_soap_response_get_first_parameter_by_name ()</h3>
+<a class="indexterm" name="id406991"></a><pre class="programlisting"><a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a>*  soup_soap_response_get_first_parameter_by_name
+                                                        (<a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse">SoupSoapResponse</a> *response,
+                                                         const char *name);</pre>
+<p>
+Retrieves the first parameter contained in the SOAP response whose
+name is <em class="parameter"><code>name</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>response</code></em>&#160;:</span></p></td>
+<td> the <a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse"><span class="type">SoupSoapResponse</span></a> object.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></p></td>
+<td> the name of the parameter to look for.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> a <a class="link" href="SoupSoapResponse.html#SoupSoapParameter"><span class="type">SoupSoapParameter</span></a> representing the first parameter
+with the given name, or <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id407101"></a><h3>
+<a name="soup-soap-response-get-method-name"></a>soup_soap_response_get_method_name ()</h3>
+<a class="indexterm" name="id407114"></a><pre class="programlisting">const char*         soup_soap_response_get_method_name  (<a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse">SoupSoapResponse</a> *response);</pre>
+<p>
+Gets the method name from the SOAP response.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>response</code></em>&#160;:</span></p></td>
+<td> the <a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse"><span class="type">SoupSoapResponse</span></a> object.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the method name.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id407181"></a><h3>
+<a name="soup-soap-response-get-next-parameter"></a>soup_soap_response_get_next_parameter ()</h3>
+<a class="indexterm" name="id407194"></a><pre class="programlisting"><a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a>*  soup_soap_response_get_next_parameter
+                                                        (<a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse">SoupSoapResponse</a> *response,
+                                                         <a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a> *from);</pre>
+<p>
+Retrieves the parameter following <em class="parameter"><code>from</code></em> in the <a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse"><span class="type">SoupSoapResponse</span></a>
+object.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>response</code></em>&#160;:</span></p></td>
+<td> the <a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse"><span class="type">SoupSoapResponse</span></a> object.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>from</code></em>&#160;:</span></p></td>
+<td> the parameter to start from.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> a <a class="link" href="SoupSoapResponse.html#SoupSoapParameter"><span class="type">SoupSoapParameter</span></a> representing the parameter.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id407301"></a><h3>
+<a name="soup-soap-response-get-next-parameter-by-name"></a>soup_soap_response_get_next_parameter_by_name ()</h3>
+<a class="indexterm" name="id407312"></a><pre class="programlisting"><a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a>*  soup_soap_response_get_next_parameter_by_name
+                                                        (<a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse">SoupSoapResponse</a> *response,
+                                                         <a class="link" href="SoupSoapResponse.html#SoupSoapParameter">SoupSoapParameter</a> *from,
+                                                         const char *name);</pre>
+<p>
+Retrieves the first parameter following <em class="parameter"><code>from</code></em> in the
+<a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse"><span class="type">SoupSoapResponse</span></a> object whose name matches <em class="parameter"><code>name</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>response</code></em>&#160;:</span></p></td>
+<td> the <a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse"><span class="type">SoupSoapResponse</span></a> object.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>from</code></em>&#160;:</span></p></td>
+<td> the parameter to start from.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></p></td>
+<td> the name of the parameter to look for.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> a <a class="link" href="SoupSoapResponse.html#SoupSoapParameter"><span class="type">SoupSoapParameter</span></a> representing the parameter.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id407445"></a><h3>
+<a name="soup-soap-response-get-parameters"></a>soup_soap_response_get_parameters ()</h3>
+<a class="indexterm" name="id407458"></a><pre class="programlisting">const <a
+href="/usr/share/gtk-doc/html/glib/glib-Doubly-Linked-Lists.html#GList"
+>GList</a>*        soup_soap_response_get_parameters   (<a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse">SoupSoapResponse</a> *response);</pre>
+<p>
+Returns the list of parameters received in the SOAP response.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>response</code></em>&#160;:</span></p></td>
+<td> the <a class="link" href="SoupSoapResponse.html" title="SoupSoapResponse"><span class="type">SoupSoapResponse</span></a> object.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> a list of <a class="link" href="SoupSoapResponse.html#SoupSoapParameter"><span class="type">SoupSoapParameter</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>

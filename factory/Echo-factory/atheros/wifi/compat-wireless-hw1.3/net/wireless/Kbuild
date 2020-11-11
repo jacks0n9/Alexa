@@ -1,0 +1,39 @@
+ifeq ($(ATH6KL_ANDROID_BLD), 1)
+NOSTDINC_FLAGS := \
+ -include ${ATH_DRIVER_TOPDIR}/compat-wireless/include/linux/compat-2.6.h \
+ -I${ATH_DRIVER_TOPDIR}/compat-wireless/include/ $(ATH_LOCAL_CFLAGS)
+endif
+
+#obj-m += cfg80211.o
+
+
+#cfg80211-y += core.o sysfs.o radiotap.o util.o reg.o scan.o nl80211.o
+#cfg80211-y += mlme.o ibss.o sme.o chan.o ethtool.o mesh.o
+#cfg80211-$(CONFIG_CFG80211_DEBUGFS) += debugfs.o
+#cfg80211-y += wext-compat.o wext-sme.o
+#cfg80211-$(CONFIG_CFG80211_INTERNAL_REGDB) += regdb.o
+
+#ccflags-y += -D__CHECK_ENDIAN__
+
+ifeq ($(CONFIG_WIRELESS_EXT), y)
+CONFIG_CFG80211_WEXT=y
+endif
+
+obj-$(CONFIG_CFG80211) += ath6kl_cfg80211.o
+
+ath6kl_cfg80211-y += core.o sysfs.o radiotap.o util.o reg.o scan.o nl80211.o
+ath6kl_cfg80211-y += mlme.o ibss.o sme.o chan.o ethtool.o mesh.o
+ath6kl_cfg80211-$(CONFIG_CFG80211_DEBUGFS) += debugfs.o
+ath6kl_cfg80211-$(CONFIG_CFG80211_WEXT) += wext-compat.o wext-sme.o
+#cfg80211-$(CONFIG_CFG80211_INTERNAL_REGDB) += regdb.o
+ath6kl_cfg80211-y += regdb.o
+
+ccflags-y += -D__CHECK_ENDIAN__
+ccflags-$(CONFIG_CFG80211_WEXT) += -DCONFIG_CFG80211_WEXT
+ccflags-y += -DCONFIG_CFG80211_INTERNAL_REGDB
+
+#$(obj)/regdb.c: $(src)/db.txt $(src)/genregdb.awk
+#	@$(AWK) -f $(src)/genregdb.awk < $< > $@
+
+#clean-files := regdb.c
+

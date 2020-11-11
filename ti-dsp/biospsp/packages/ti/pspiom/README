@@ -1,0 +1,28 @@
+Contained in this README are the quickstart step to build the biospsp framework
+
+
+Modules Available 
+=================
+
+i2c       - driver to communicate over i2c bus
+prcm      - driver to control PRCM module for peripheral clock enable/disable
+mcbsp     - mcbsp driver
+platforms - platform specific libraries
+mcbsp_sample_master - example mcbsp application (master mode)
+mcbsp_sample_master - example mcbsp application (slave mode)
+
+
+Note: This package depends on software components in the DVSDK.  Please install the dvsdk before attempting to
+build the biospsp framework (http://www.ti.com/tool/linuxdvsdk-dm37x)
+
+
+1) Modify the following variable in the file Rules.make
+     DVSDK_INSTALL_DIR  - specify the root path of DVSDK  (i.e. DVSDK_INSTALL_DIR = <root path>/ti-dvsdk_dm3730-evm_04_03_00_06 
+     MY_INSTALL_ROOT    - specify the root path of dsp software  (i.e. MY_INSTALL_ROOT = <dsp root path>/dsp
+
+2) make clean
+3) make all
+
+The sample application binary should be created.  This image can be loaded onto the DSP using CCS5 and executed.
+
+./examples/dm3730/mcbsp/build/ccs4/bin/Debug/mcbspSampleMaster.out

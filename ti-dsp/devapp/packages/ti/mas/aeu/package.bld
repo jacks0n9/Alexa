@@ -1,0 +1,299 @@
+/******************************************************************************
+ * FILE PURPOSE:  Build description for package ti.mas.aeu
+ ******************************************************************************
+ * FILE NAME:     package.bld
+ *
+ * DESCRIPTION:   This file contains attributes to build and create releases
+ *                for ti.mas.aeu package
+ *
+ * Copyright (c) 2009, Texas Instruments, Inc.
+ ******************************************************************************/
+
+/* List of XDC files to be delivered as part of source/object release */
+var aeu_src_xdc_files = [
+  "package.bld",
+  "Makedocs.mk"
+];
+
+var aeu_obj_xdc_files = [
+  "docs/doxygen/tifooter.htm",
+  "docs/doxygen/tiheader.htm",
+  "docs/doxygen/tilogo.gif",
+  "docs/doxygen/titagline.gif"
+];
+
+/* List of documents to be delivered as part of object release */
+var aeu_obj_docs_files = "docs/doxygen/html";
+
+/* List of documents to be delivered as part of source release */
+var aeu_src_docs_files = [
+  "docs/doxygen/APIDoxyfile",
+  "docs/doxygen/Doxyfile",
+  "docs/doxygen/doxygen.h",
+  "docs/doxygen/tifooter.htm",
+  "docs/doxygen/tiheader.htm",
+  "docs/doxygen/tilogo.gif",
+  "docs/doxygen/titagline.gif"
+];
+
+/*
+ * List of AEU header files to be delivered as part of source delivery,
+ * other than AEU module headers
+ * TODO: Separate target specific files
+ */
+var aeu_h_files = [
+  "src/aeu_priv.h"
+];
+
+/* List of AEU C source files */
+/* TODO: Separate target specific files */
+var aeu_c_files = [
+  "src/aeu_ialg.c"
+];
+
+/* List of AEU assembly/linear assembly files */
+var aeu_asm_files = [
+];
+
+/*
+ * List of AEU interface and module header files 
+ * to be delivered as part of any delivery,
+ */
+var aeu_iface_files = [
+  "aeu.h",
+];
+
+/*******************************************************************************
+  The main package.bld routine starts here 
+*******************************************************************************/
+
+/* Set up version numbers for this package */
+var version = [1,0,0,0];
+
+/* generate version.xdc based on the version array above */
+var tplt = xdc.loadTemplate('ti/mas/swtools/Version.xdt');
+tplt.genFile('Version.xdc', Pkg, version);
+Pkg.generatedFiles = ["Version.xdc"];
+
+/* Include custom makefile to generate doxygen documents */
+Pkg.makePrologue = "include Makedocs.mk";
+
+/* AEU supports following target architectures */
+targets = [C64P];
+
+/* Requested target architecture, initialized to empty */
+targs = [];
+
+/* Release tarball target extension */
+var ext = "";
+
+/* Delivery whether source or object: default is object */
+var delivery = "obj";
+
+/* Release type: debug or release default is release */
+var reltype = "release";
+
+/* Exit flag */
+var exitflag = 0;
+
+/* Get XDC arguments */
+var args_xs = java.lang.System.getenv("ARGS_XS");
+if (args_xs != null) {
+  var getArgs = xdc.loadCapsule(args_xs);
+  getArgs.getPkgArgs(Pkg.name, arguments);
+  getArgs.showPkgArgs(Pkg.name, arguments);
+}
+else {
+  /* Use XDCARGS passed in from build command */
+  print ("NO ARGS SCRIPT ENV VAR SPECIFIED");
+}
+
+/*
+ * Function to create release based on the option supplied
+ */
+function createRelease (targets, delivery, ext, reltype)
+{
+  var i = 0, j = 0;
+  var releaseName = "ti_mas_aeu_" + delivery + "_" + ext + "_" + version[0] +
+                    "_" + version[1] + "_" + version[2] + "_" + version[3];
+  var fileArray = [];
+
+  for (i = 0; i < targets.length; i++) {
+    var targ = targets[i];
+    switch (targ) {
+      case C64P:
+      {
+        var debugLibAttr = {
+          copts: " -g --no_compress -q -pdr -pdv -pden -ml3 " + 
+                 " --disable:sploop ",
+          aopts: " -g -ea.s -c -k -mi200 -ml3 -mv64+ -pm ",
+          defs:  " -DDBGLEV=1 "
+        }
+      
+        var releaseLibAttr = {
+          copts: " -c -k -q --mem_model:data=far -al -pds1111 " +
+                 " -pds827 -pds824 -pds837 -pds1037 -pds195 -pdsw225 " +
+                 " -pdsw994 -pdsw262 -pds77 -pden --consultant -mt " +
+                 " -mw -os -o3 --optimize_with_debug -g -mh1023 " +
+                 " -mi10000 -as -ss ",
+          aopts: " -g -ea.s -c -k -mi200 -ml3 -mv64+ -pm ",
+          defs:  ""
+        }
+
+        var dstDir = "c" + targ.suffix;
+        var srcDir = "c" + targ.suffix;
+        if (reltype == "debug") {
+          var clib = Pkg.addLibrary (dstDir + "/aeu_c", targ, debugLibAttr);
+        }
+        else {
+          var clib = Pkg.addLibrary (dstDir + "/aeu_c", targ, releaseLibAttr);
+        }
+        
+        /* Add C source code to be compiled and build */
+        clib.addObjects (aeu_c_files);
+
+        /* Add assembly code to be compiled and build */
+        clib.addObjects (aeu_asm_files);
+                       
+        /* Add library created */
+        fileArray[i] = "c" + targ.suffix + "/aeu_c.a" + targ.suffix;
+      }
+      break;
+      default:
+        print ("NO TARGET SPECIFIED");
+    }
+  }
+
+  /* Add common files to source and object delivery to fileArray */
+  var j = targets.length;
+  for (i = 0; i < aeu_obj_xdc_files.length; i++, j++) {
+    fileArray[j] = aeu_obj_xdc_files[i];
+  }
+
+  /* Add AFE iface files to be included for obj delivery */
+  for (i = 0; i < aeu_iface_files.length; i++, j++) {
+    fileArray[j] = aeu_iface_files[i];
+  }
+
+
+  if (delivery == "obj") {
+    var obj = Pkg.addRelease(releaseName,{compress: false, archiver: "zip"});
+    fileArray[j++] = aeu_obj_docs_files;
+    obj.otherFiles = fileArray;
+    Pkg.defaultRelease = obj;
+  }
+
+  if (delivery == "src") {
+
+    fileArray[j++] = aeu_obj_docs_files;
+
+    var n = fileArray.length, m = 0;
+
+    /* Add AEU h files to be included for src delivery */
+    for (m = 0; m < aeu_h_files.length; m++, n++) {
+      fileArray[n] = aeu_h_files[m];
+    }
+
+    /* Add AEU c files to be included for src delivery */
+    for (m = 0; m < aeu_c_files.length; m++, n++) {
+      fileArray[n] = aeu_c_files[m];
+    }
+
+    /* Add AEU asm files to be included for src delivery */
+    for (m = 0; m < aeu_asm_files.length; m++, n++) {
+      fileArray[n] = aeu_asm_files[m];
+    }
+
+    /* Add AEU src docs files to be included for src delivery */
+    for (m = 0; m < aeu_src_docs_files.length; m++, n++) {
+      fileArray[n] = aeu_src_docs_files[m];
+    }
+
+    /* Add AEU src xdc files to be included for src delivery */
+    for (m = 0; m < aeu_src_xdc_files.length; m++, n++) {
+      fileArray[n] = aeu_src_xdc_files[m];
+    }
+
+    var obj = Pkg.addRelease(releaseName,{compress: false, archiver: "zip"});
+    obj.otherFiles = fileArray;
+    Pkg.defaultRelease = obj;
+  }
+}
+
+/*
+ * Function to print the usage string for XDCARGS of AEU's package.bld file
+ */
+function printUsage()
+{
+  print ("xdc XDCARGS=\"<options>\" [gendocs] [genapidocs] [release]");
+  print ("  Where the <options> are as follows:");
+  print ("    [mandatory] c64P         - compile AEU for c64x+ target");
+  print ("    [optional]  obj or src   - Used only when release is specified");
+  print ("                               obj generates object tarball");
+  print ("                               src generates source tarball");
+  print ("                               default is src");
+  print ("    [optional]  debug        - compile AEU for debugging");
+  print ("  release     - generates source/object tarball for release with documentation");
+  print ("  gendocs     - generates AEU implementation and API documentation");
+  print ("                in aeu\docs\doxygen\AEU.chm");
+  print ("  genapidocs  - generate AEU's API documenation in aeu\docs\doxygen\AEUAPI.chm");
+  print ("  ");
+  print ("By default AEU library is compiled for full optimization");
+  print ("     e.g., 'xdc XDCARGS=\"c64P\"' will generate: ");
+  print ("            (a) c64P\\aeu_c.a64P library");
+  print ("  ");
+}
+
+/* Parse the arguments supplied to package.bld */
+/* NOTE: the arguments could be supplied in any order */
+for (var k = 0; k < arguments.length; k++) {
+  switch (arguments[k]) {
+    case "all":
+      print ("AEU WILL BE BUILD FOR ALL SUPPORTED TARGET ARCHITECTURES");
+      targs = [C64P];
+      break;
+    case "c64Ple":
+      print ("AEU WILL BE BUILD FOR C64+ ARCHITECTURE");
+      targs = [C64P];
+      ext = "c64P"
+      break;
+    case "obj":
+      print ("IF THIS IS RELEASE: OBJECT RELEASE WILL BE CREATED");
+      delivery = "obj";
+      break;
+    case "src":
+      print ("IF THIS IS RELEASE: SOURCE RELEASE WILL BE CREATED");
+      delivery = "src";
+      break;
+    case "debug":
+      print ("AEU WILL BE COMPILED FOR DEBUGGING");
+      reltype = "debug";
+      break;
+    case "help":
+      printUsage();
+      break;
+    default:
+      print ("Invalid argument supplied : " + arguments[k]);
+      printUsage();
+      exitflag = 1;
+      break;
+  }
+}
+
+if (arguments.length == 0) {
+  printUsage();
+  exitflag = 1;
+}
+
+if (exitflag == 0) {
+  createRelease (targs, delivery, ext, reltype);
+}
+
+/* clean target */
+Pkg.makeEpilogue += "clean::\n\t-$(RM) -f ti_mas_aeu_*.tar\n";
+Pkg.makeEpilogue += "clean::\n\t-$(RM) Version.xdc\n";
+Pkg.makeEpilogue += "clean::\n\t-$(RM) -f .xdcenv.mak\n";
+Pkg.makeEpilogue += "clean::\n\t-$(RMDIR) c64P\n";
+
+/* nothing past this point */
+

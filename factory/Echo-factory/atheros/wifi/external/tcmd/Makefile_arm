@@ -1,0 +1,15 @@
+CC=arm-arago-linux-gnueabi-gcc
+CFLAGS = -Wall -g
+#NLLIBDIR = /root/libnl-1.1
+#NLLIBNAME = libnl-1
+LIBTCMD_DIR := ../libtcmd
+
+LDLIBS += $(shell pkg-config --libs $(NLLIBNAME)) -lrt -ltcmd -lnl 
+CFLAGS += $(shell pkg-config --cflags $(NLLIBNAME)) -I$(LIBTCMD_DIR) -L$(LIBTCMD_DIR) -L$(NLLIBDIR)/lib -I$(NLLIBDIR)/include
+
+athtestcmd: athtestcmd.c athtestcmd.h testcmd.h
+	$(MAKE) -C $(LIBTCMD_DIR)
+	$(CC) $(CFLAGS) -o $@ $^ $(LDLIBS)
+
+clean:
+	rm -f athtestcmd

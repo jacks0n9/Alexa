@@ -1,0 +1,7 @@
+cvs-20040608.patch -p1
+add-system.patch -p1
+adduser-empty_pwd.patch -p1
+remove-index.patch -p1
+use_O2_option.patch -p1
+passwd_rotate_check.patch -p1
+avoid_static.patch -p1
