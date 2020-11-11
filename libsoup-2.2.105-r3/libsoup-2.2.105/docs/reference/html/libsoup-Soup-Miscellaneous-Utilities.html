@@ -1,0 +1,1287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>soup-misc</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="libsoup Reference Manual">
+<link rel="up" href="ch02.html" title="libsoup API Reference">
+<link rel="prev" href="SoupXmlrpcResponse.html" title="SoupXmlrpcResponse">
+<link rel="next" href="ch03.html" title="libsoup internals">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libsoup Tutorial">
+<link rel="chapter" href="ch02.html" title="libsoup API Reference">
+<link rel="chapter" href="ch03.html" title="libsoup internals">
+<link rel="index" href="ix01.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="SoupXmlrpcResponse.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libsoup Reference Manual</th>
+<td><a accesskey="n" href="ch03.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id349387" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id423441" class="shortcut">Description</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="libsoup-Soup-Miscellaneous-Utilities"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id349387"></a><span class="refentrytitle">soup-misc</span>
+</h2>
+<p>soup-misc &#8212; Miscellaneous functions</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+char*               <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-base64-decode">soup_base64_decode</a>                  (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *text,
+                                                         int *out_len);
+char*               <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-base64-encode">soup_base64_encode</a>                  (const char *text,
+                                                         int len);
+int                 <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-base64-decode-step">soup_base64_decode_step</a>             (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guchar"
+>guchar</a> *in,
+                                                         int len,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guchar"
+>guchar</a> *out,
+                                                         int *state,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> *save);
+int                 <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-base64-encode-step">soup_base64_encode_step</a>             (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guchar"
+>guchar</a> *in,
+                                                         int len,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> break_lines,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guchar"
+>guchar</a> *out,
+                                                         int *state,
+                                                         int *save);
+int                 <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-base64-encode-close">soup_base64_encode_close</a>            (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guchar"
+>guchar</a> *in,
+                                                         int inlen,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> break_lines,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guchar"
+>guchar</a> *out,
+                                                         int *state,
+                                                         int *save);
+
+<a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GSource"
+>GSource</a>*            <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-add-idle">soup_add_idle</a>                       (<a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GMainContext"
+>GMainContext</a> *async_context,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GSourceFunc"
+>GSourceFunc</a> function,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GSource"
+>GSource</a>*            <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-add-io-watch">soup_add_io_watch</a>                   (<a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GMainContext"
+>GMainContext</a> *async_context,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-IO-Channels.html#GIOChannel"
+>GIOChannel</a> *chan,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-IO-Channels.html#GIOCondition"
+>GIOCondition</a> condition,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-IO-Channels.html#GIOFunc"
+>GIOFunc</a> function,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GSource"
+>GSource</a>*            <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-add-timeout">soup_add_timeout</a>                    (<a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GMainContext"
+>GMainContext</a> *async_context,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> interval,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GSourceFunc"
+>GSourceFunc</a> function,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>               <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-signal-connect-once">soup_signal_connect_once</a>            (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> instance,
+                                                         const char *detailed_signal,
+                                                         <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GCallback"
+>GCallback</a> c_handler,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);
+
+time_t              <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-date-parse">soup_date_parse</a>                     (const char *timestamp);
+time_t              <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-date-iso8601-parse">soup_date_iso8601_parse</a>             (const char *timestamp);
+char*               <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-date-generate">soup_date_generate</a>                  (time_t when);
+void                <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-gmtime">soup_gmtime</a>                         (const time_t *when,
+                                                         struct tm *tm);
+time_t              <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-mktime-utc">soup_mktime_utc</a>                     (struct tm *tm);
+
+char*               <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-header-param-copy-token">soup_header_param_copy_token</a>        (<a
+href="/usr/share/gtk-doc/html/glib/glib-Hash-Tables.html#GHashTable"
+>GHashTable</a> *tokens,
+                                                         char *t);
+char*               <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-header-param-decode-token">soup_header_param_decode_token</a>      (char **in);
+void                <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-header-param-destroy-hash">soup_header_param_destroy_hash</a>      (<a
+href="/usr/share/gtk-doc/html/glib/glib-Hash-Tables.html#GHashTable"
+>GHashTable</a> *table);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Hash-Tables.html#GHashTable"
+>GHashTable</a>*         <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-header-param-parse-list">soup_header_param_parse_list</a>        (const char *header);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-headers-parse-request">soup_headers_parse_request</a>          (const char *str,
+                                                         int len,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Hash-Tables.html#GHashTable"
+>GHashTable</a> *dest,
+                                                         char **req_method,
+                                                         char **req_path,
+                                                         <a class="link" href="SoupMessage.html#SoupHttpVersion">SoupHttpVersion</a> *ver);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-headers-parse-response">soup_headers_parse_response</a>         (const char *str,
+                                                         int len,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Hash-Tables.html#GHashTable"
+>GHashTable</a> *dest,
+                                                         <a class="link" href="SoupMessage.html#SoupHttpVersion">SoupHttpVersion</a> *ver,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> *status_code,
+                                                         char **reason_phrase);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-headers-parse-status-line">soup_headers_parse_status_line</a>      (const char *status_line,
+                                                         <a class="link" href="SoupMessage.html#SoupHttpVersion">SoupHttpVersion</a> *ver,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> *status_code,
+                                                         char **reason_phrase);
+
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-str-case-equal">soup_str_case_equal</a>                 (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gconstpointer"
+>gconstpointer</a> v1,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gconstpointer"
+>gconstpointer</a> v2);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>               <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-str-case-hash">soup_str_case_hash</a>                  (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gconstpointer"
+>gconstpointer</a> key);
+
+xmlNode*            <a class="link" href="libsoup-Soup-Miscellaneous-Utilities.html#soup-xml-real-node">soup_xml_real_node</a>                  (xmlNode *node);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id423441"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id423456"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id423467"></a><h3>
+<a name="soup-base64-decode"></a>soup_base64_decode ()</h3>
+<a class="indexterm" name="id423479"></a><pre class="programlisting">char*               soup_base64_decode                  (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gchar"
+>gchar</a> *text,
+                                                         int *out_len);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out_len</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id423556"></a><h3>
+<a name="soup-base64-encode"></a>soup_base64_encode ()</h3>
+<a class="indexterm" name="id423568"></a><pre class="programlisting">char*               soup_base64_encode                  (const char *text,
+                                                         int len);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>text</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id423645"></a><h3>
+<a name="soup-base64-decode-step"></a>soup_base64_decode_step ()</h3>
+<a class="indexterm" name="id423657"></a><pre class="programlisting">int                 soup_base64_decode_step             (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guchar"
+>guchar</a> *in,
+                                                         int len,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guchar"
+>guchar</a> *out,
+                                                         int *state,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> *save);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>in</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>state</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>save</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id423796"></a><h3>
+<a name="soup-base64-encode-step"></a>soup_base64_encode_step ()</h3>
+<a class="indexterm" name="id423808"></a><pre class="programlisting">int                 soup_base64_encode_step             (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guchar"
+>guchar</a> *in,
+                                                         int len,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> break_lines,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guchar"
+>guchar</a> *out,
+                                                         int *state,
+                                                         int *save);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>in</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>break_lines</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>state</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>save</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id423967"></a><h3>
+<a name="soup-base64-encode-close"></a>soup_base64_encode_close ()</h3>
+<a class="indexterm" name="id423980"></a><pre class="programlisting">int                 soup_base64_encode_close            (const <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guchar"
+>guchar</a> *in,
+                                                         int inlen,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> break_lines,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guchar"
+>guchar</a> *out,
+                                                         int *state,
+                                                         int *save);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>in</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>inlen</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>break_lines</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>state</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>save</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id424139"></a><h3>
+<a name="soup-add-idle"></a>soup_add_idle ()</h3>
+<a class="indexterm" name="id424151"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GSource"
+>GSource</a>*            soup_add_idle                       (<a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GMainContext"
+>GMainContext</a> *async_context,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GSourceFunc"
+>GSourceFunc</a> function,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Adds an idle event as with <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#g-idle-add"
+><code class="function">g_idle_add()</code></a>, but using the given
+<em class="parameter"><code>async_context</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>async_context</code></em>&#160;:</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GMainContext"
+><span class="type">GMainContext</span></a> to dispatch the idle event in, or
+<a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a> for the default context
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>function</code></em>&#160;:</span></p></td>
+<td> the callback to invoke at idle time
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></p></td>
+<td> user data to pass to <em class="parameter"><code>function</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> a <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GSource"
+><span class="type">GSource</span></a>, which can be removed from <em class="parameter"><code>async_context</code></em>
+with <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#g-source-destroy"
+><code class="function">g_source_destroy()</code></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id424313"></a><h3>
+<a name="soup-add-io-watch"></a>soup_add_io_watch ()</h3>
+<a class="indexterm" name="id424325"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GSource"
+>GSource</a>*            soup_add_io_watch                   (<a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GMainContext"
+>GMainContext</a> *async_context,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-IO-Channels.html#GIOChannel"
+>GIOChannel</a> *chan,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-IO-Channels.html#GIOCondition"
+>GIOCondition</a> condition,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-IO-Channels.html#GIOFunc"
+>GIOFunc</a> function,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Adds an I/O watch as with <a
+href="/usr/share/gtk-doc/html/glib/glib-IO-Channels.html#g-io-add-watch"
+><code class="function">g_io_add_watch()</code></a>, but using the given
+<em class="parameter"><code>async_context</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>async_context</code></em>&#160;:</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GMainContext"
+><span class="type">GMainContext</span></a> to dispatch the I/O watch in, or
+<a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a> for the default context
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chan</code></em>&#160;:</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/glib/glib-IO-Channels.html#GIOChannel"
+><span class="type">GIOChannel</span></a> to watch
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>condition</code></em>&#160;:</span></p></td>
+<td> the condition to watch for
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>function</code></em>&#160;:</span></p></td>
+<td> the callback to invoke when <em class="parameter"><code>condition</code></em> occurs
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></p></td>
+<td> user data to pass to <em class="parameter"><code>function</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> a <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GSource"
+><span class="type">GSource</span></a>, which can be removed from <em class="parameter"><code>async_context</code></em>
+with <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#g-source-destroy"
+><code class="function">g_source_destroy()</code></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id424541"></a><h3>
+<a name="soup-add-timeout"></a>soup_add_timeout ()</h3>
+<a class="indexterm" name="id424553"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GSource"
+>GSource</a>*            soup_add_timeout                    (<a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GMainContext"
+>GMainContext</a> *async_context,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> interval,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GSourceFunc"
+>GSourceFunc</a> function,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Adds a timeout as with <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#g-timeout-add"
+><code class="function">g_timeout_add()</code></a>, but using the given
+<em class="parameter"><code>async_context</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>async_context</code></em>&#160;:</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GMainContext"
+><span class="type">GMainContext</span></a> to dispatch the timeout in, or
+<a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a> for the default context
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>interval</code></em>&#160;:</span></p></td>
+<td> the timeout interval, in milliseconds
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>function</code></em>&#160;:</span></p></td>
+<td> the callback to invoke at timeout time
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></p></td>
+<td> user data to pass to <em class="parameter"><code>function</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> a <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GSource"
+><span class="type">GSource</span></a>, which can be removed from <em class="parameter"><code>async_context</code></em>
+with <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#g-source-destroy"
+><code class="function">g_source_destroy()</code></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id424734"></a><h3>
+<a name="soup-signal-connect-once"></a>soup_signal_connect_once ()</h3>
+<a class="indexterm" name="id424747"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>               soup_signal_connect_once            (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> instance,
+                                                         const char *detailed_signal,
+                                                         <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GCallback"
+>GCallback</a> c_handler,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> data);</pre>
+<p>
+Connects a <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GCallback"
+><span class="type">GCallback</span></a> function to a signal as with
+<a
+href="/usr/share/gtk-doc/html/gobject/gobject-Signals.html#g-signal-connect"
+><code class="function">g_signal_connect()</code></a>, but automatically removes the signal handler
+after its first invocation.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>instance</code></em>&#160;:</span></p></td>
+<td> an object
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>detailed_signal</code></em>&#160;:</span></p></td>
+<td> "signal-name" or "signal-name::detail" to connect to
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c_handler</code></em>&#160;:</span></p></td>
+<td> the <a
+href="/usr/share/gtk-doc/html/gobject/gobject-Closures.html#GCallback"
+><span class="type">GCallback</span></a> to connect
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em>&#160;:</span></p></td>
+<td> data to pass to <em class="parameter"><code>c_handler</code></em> calls
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the signal handler id
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id424898"></a><h3>
+<a name="soup-date-parse"></a>soup_date_parse ()</h3>
+<a class="indexterm" name="id424910"></a><pre class="programlisting">time_t              soup_date_parse                     (const char *timestamp);</pre>
+<p>
+Parses <em class="parameter"><code>timestamp</code></em> and returns its value as a <span class="type">time_t</span>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>timestamp</code></em>&#160;:</span></p></td>
+<td> a timestamp, in any of the allowed HTTP 1.1 formats
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the <span class="type">time_t</span> corresponding to <em class="parameter"><code>timestamp</code></em>, or -1 if
+<em class="parameter"><code>timestamp</code></em> couldn't be parsed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id425002"></a><h3>
+<a name="soup-date-iso8601-parse"></a>soup_date_iso8601_parse ()</h3>
+<a class="indexterm" name="id425014"></a><pre class="programlisting">time_t              soup_date_iso8601_parse             (const char *timestamp);</pre>
+<p>
+Converts <em class="parameter"><code>timestamp</code></em> to a <code class="literal">time_t</code> value. <em class="parameter"><code>timestamp</code></em> can be in any of the
+iso8601 formats that specify both a date and a time.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>timestamp</code></em>&#160;:</span></p></td>
+<td> an ISO8601 timestamp
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the <code class="literal">time_t</code> corresponding to <em class="parameter"><code>timestamp</code></em>, or -1 on error.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id425111"></a><h3>
+<a name="soup-date-generate"></a>soup_date_generate ()</h3>
+<a class="indexterm" name="id425123"></a><pre class="programlisting">char*               soup_date_generate                  (time_t when);</pre>
+<p>
+Generates an HTTP 1.1 Date header corresponding to <em class="parameter"><code>when</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>when</code></em>&#160;:</span></p></td>
+<td> the time to generate a timestamp for
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the timestamp, which the caller must free.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id428086"></a><h3>
+<a name="soup-gmtime"></a>soup_gmtime ()</h3>
+<a class="indexterm" name="id428096"></a><pre class="programlisting">void                soup_gmtime                         (const time_t *when,
+                                                         struct tm *tm);</pre>
+<p>
+Expands <em class="parameter"><code>when</code></em> into <em class="parameter"><code>tm</code></em> (as a UTC time). This is just a wrapper
+around <code class="function">gmtime_r()</code> (or <code class="function">gmtime()</code> on lame platforms). (The Microsoft C
+library on Windows doesn't have <code class="function">gmtime_r()</code>, but its <code class="function">gmtime()</code> is in
+fact thread-safe as it uses a per-thread buffer, so it's not
+totally lame ;-)</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>when</code></em>&#160;:</span></p></td>
+<td> a <span class="type">time_t</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tm</code></em>&#160;:</span></p></td>
+<td> a struct tm to be filled in with the expansion of <em class="parameter"><code>when</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id428215"></a><h3>
+<a name="soup-mktime-utc"></a>soup_mktime_utc ()</h3>
+<a class="indexterm" name="id428225"></a><pre class="programlisting">time_t              soup_mktime_utc                     (struct tm *tm);</pre>
+<p>
+Converts <em class="parameter"><code>tm</code></em> to a <span class="type">time_t</span>. Unlike with <code class="function">mktime()</code>, <em class="parameter"><code>tm</code></em> is interpreted
+as being a UTC time.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tm</code></em>&#160;:</span></p></td>
+<td> the UTC time
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> <em class="parameter"><code>tm</code></em> as a <span class="type">time_t</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id428314"></a><h3>
+<a name="soup-header-param-copy-token"></a>soup_header_param_copy_token ()</h3>
+<a class="indexterm" name="id428325"></a><pre class="programlisting">char*               soup_header_param_copy_token        (<a
+href="/usr/share/gtk-doc/html/glib/glib-Hash-Tables.html#GHashTable"
+>GHashTable</a> *tokens,
+                                                         char *t);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tokens</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>t</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id428393"></a><h3>
+<a name="soup-header-param-decode-token"></a>soup_header_param_decode_token ()</h3>
+<a class="indexterm" name="id428403"></a><pre class="programlisting">char*               soup_header_param_decode_token      (char **in);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>in</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id428452"></a><h3>
+<a name="soup-header-param-destroy-hash"></a>soup_header_param_destroy_hash ()</h3>
+<a class="indexterm" name="id428463"></a><pre class="programlisting">void                soup_header_param_destroy_hash      (<a
+href="/usr/share/gtk-doc/html/glib/glib-Hash-Tables.html#GHashTable"
+>GHashTable</a> *table);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>table</code></em>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id428502"></a><h3>
+<a name="soup-header-param-parse-list"></a>soup_header_param_parse_list ()</h3>
+<a class="indexterm" name="id428513"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Hash-Tables.html#GHashTable"
+>GHashTable</a>*         soup_header_param_parse_list        (const char *header);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>header</code></em>&#160;:</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id428562"></a><h3>
+<a name="soup-headers-parse-request"></a>soup_headers_parse_request ()</h3>
+<a class="indexterm" name="id428573"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            soup_headers_parse_request          (const char *str,
+                                                         int len,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Hash-Tables.html#GHashTable"
+>GHashTable</a> *dest,
+                                                         char **req_method,
+                                                         char **req_path,
+                                                         <a class="link" href="SoupMessage.html#SoupHttpVersion">SoupHttpVersion</a> *ver);</pre>
+<p>
+Parses the headers of an HTTP request in <em class="parameter"><code>str</code></em> and stores the
+results in <em class="parameter"><code>req_method</code></em>, <em class="parameter"><code>req_path</code></em>, <em class="parameter"><code>ver</code></em>, and <em class="parameter"><code>dest</code></em>.
+</p>
+<p>
+Beware that <em class="parameter"><code>dest</code></em> may be modified even on failure.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em>&#160;:</span></p></td>
+<td> the header string (including the trailing blank line)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em>&#160;:</span></p></td>
+<td> length of <em class="parameter"><code>str</code></em> up to (but not including) the terminating blank line.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest</code></em>&#160;:</span></p></td>
+<td> <a
+href="/usr/share/gtk-doc/html/glib/glib-Hash-Tables.html#GHashTable"
+><span class="type">GHashTable</span></a> to store the header values in
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>req_method</code></em>&#160;:</span></p></td>
+<td> if non-<a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a>, will be filled in with the request method
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>req_path</code></em>&#160;:</span></p></td>
+<td> if non-<a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a>, will be filled in with the request path
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ver</code></em>&#160;:</span></p></td>
+<td> if non-<a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a>, will be filled in with the HTTP version
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> success or failure.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id428789"></a><h3>
+<a name="soup-headers-parse-response"></a>soup_headers_parse_response ()</h3>
+<a class="indexterm" name="id428799"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            soup_headers_parse_response         (const char *str,
+                                                         int len,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Hash-Tables.html#GHashTable"
+>GHashTable</a> *dest,
+                                                         <a class="link" href="SoupMessage.html#SoupHttpVersion">SoupHttpVersion</a> *ver,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> *status_code,
+                                                         char **reason_phrase);</pre>
+<p>
+Parses the headers of an HTTP response in <em class="parameter"><code>str</code></em> and stores the
+results in <em class="parameter"><code>ver</code></em>, <em class="parameter"><code>status_code</code></em>, <em class="parameter"><code>reason_phrase</code></em>, and <em class="parameter"><code>dest</code></em>.
+</p>
+<p>
+Beware that <em class="parameter"><code>dest</code></em> may be modified even on failure.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em>&#160;:</span></p></td>
+<td> the header string (including the trailing blank line)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em>&#160;:</span></p></td>
+<td> length of <em class="parameter"><code>str</code></em> up to (but not including) the terminating blank line.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest</code></em>&#160;:</span></p></td>
+<td> <a
+href="/usr/share/gtk-doc/html/glib/glib-Hash-Tables.html#GHashTable"
+><span class="type">GHashTable</span></a> to store the header values in
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ver</code></em>&#160;:</span></p></td>
+<td> if non-<a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a>, will be filled in with the HTTP version
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>status_code</code></em>&#160;:</span></p></td>
+<td> if non-<a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a>, will be filled in with the status code
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>reason_phrase</code></em>&#160;:</span></p></td>
+<td> if non-<a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a>, will be filled in with the reason
+phrase
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> success or failure.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id429015"></a><h3>
+<a name="soup-headers-parse-status-line"></a>soup_headers_parse_status_line ()</h3>
+<a class="indexterm" name="id429025"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            soup_headers_parse_status_line      (const char *status_line,
+                                                         <a class="link" href="SoupMessage.html#SoupHttpVersion">SoupHttpVersion</a> *ver,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> *status_code,
+                                                         char **reason_phrase);</pre>
+<p>
+Parses the HTTP Status-Line string in <em class="parameter"><code>status_line</code></em> into <em class="parameter"><code>ver</code></em>,
+<em class="parameter"><code>status_code</code></em>, and <em class="parameter"><code>reason_phrase</code></em>. <em class="parameter"><code>status_line</code></em> must be terminated by
+either "\0" or "\r\n".</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>status_line</code></em>&#160;:</span></p></td>
+<td> an HTTP Status-Line
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ver</code></em>&#160;:</span></p></td>
+<td> if non-<a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a>, will be filled in with the HTTP version
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>status_code</code></em>&#160;:</span></p></td>
+<td> if non-<a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a>, will be filled in with the status code
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>reason_phrase</code></em>&#160;:</span></p></td>
+<td> if non-<a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a>, will be filled in with the reason
+phrase
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS"
+><code class="literal">TRUE</code></a> if <em class="parameter"><code>status_line</code></em> was parsed successfully.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id429198"></a><h3>
+<a name="soup-str-case-equal"></a>soup_str_case_equal ()</h3>
+<a class="indexterm" name="id429208"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            soup_str_case_equal                 (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gconstpointer"
+>gconstpointer</a> v1,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gconstpointer"
+>gconstpointer</a> v2);</pre>
+<p>
+Compares <em class="parameter"><code>v1</code></em> and <em class="parameter"><code>v2</code></em> in a case-insensitive manner</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>v1</code></em>&#160;:</span></p></td>
+<td> an ASCII string
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>v2</code></em>&#160;:</span></p></td>
+<td> another ASCII string
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS"
+><code class="literal">TRUE</code></a> if they are equal (modulo case)
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id429298"></a><h3>
+<a name="soup-str-case-hash"></a>soup_str_case_hash ()</h3>
+<a class="indexterm" name="id429309"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>               soup_str_case_hash                  (<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gconstpointer"
+>gconstpointer</a> key);</pre>
+<p>
+Hashes <em class="parameter"><code>key</code></em> in a case-insensitive manner.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em>&#160;:</span></p></td>
+<td> ASCII string to hash
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the hash code.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id429366"></a><h3>
+<a name="soup-xml-real-node"></a>soup_xml_real_node ()</h3>
+<a class="indexterm" name="id429377"></a><pre class="programlisting">xmlNode*            soup_xml_real_node                  (xmlNode *node);</pre>
+<p>
+Finds the first "real" node (ie, not a comment or whitespace) at or
+after <em class="parameter"><code>node</code></em> at its level in the tree.
+</p>
+<p>
+Return: a node, or <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a></p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>node</code></em>&#160;:</span></p></td>
+<td> an <code class="literal">xmlNodePtr</code>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>

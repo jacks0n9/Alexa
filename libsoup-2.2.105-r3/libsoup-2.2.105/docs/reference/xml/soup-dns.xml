@@ -1,0 +1,253 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libsoup-soup-dns">
+<refmeta>
+<refentrytitle role="top_of_page">soup-dns</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBSOUP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>soup-dns</refname>
+<refpurpose>Low-level DNS routines</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="void">void</link>                <link linkend="soup-dns-init">soup_dns_init</link>                       (void);
+<link linkend="char">char</link>*               <link linkend="soup-dns-ntop">soup_dns_ntop</link>                       (<link linkend="struct-sockaddr">struct sockaddr</link> *sa);
+typedef             <link linkend="SoupDNSLookup">SoupDNSLookup</link>;
+<link linkend="SoupDNSLookup">SoupDNSLookup</link>*      <link linkend="soup-dns-lookup-name">soup_dns_lookup_name</link>                (const <link linkend="char">char</link> *name);
+<link linkend="SoupDNSLookup">SoupDNSLookup</link>*      <link linkend="soup-dns-lookup-address">soup_dns_lookup_address</link>             (<link linkend="struct-sockaddr">struct sockaddr</link> *sockaddr);
+<link linkend="gboolean">gboolean</link>            <link linkend="soup-dns-lookup-resolve">soup_dns_lookup_resolve</link>             (<link linkend="SoupDNSLookup">SoupDNSLookup</link> *lookup);
+<link linkend="void">void</link>                (<link linkend="SoupDNSCallback">*SoupDNSCallback</link>)                  (<link linkend="SoupDNSLookup">SoupDNSLookup</link> *lookup,
+                                                         <link linkend="gboolean">gboolean</link> success,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+<link linkend="void">void</link>                <link linkend="soup-dns-lookup-resolve-async">soup_dns_lookup_resolve_async</link>       (<link linkend="SoupDNSLookup">SoupDNSLookup</link> *lookup,
+                                                         <link linkend="GMainContext">GMainContext</link> *async_context,
+                                                         <link linkend="SoupDNSCallback">SoupDNSCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+<link linkend="void">void</link>                <link linkend="soup-dns-lookup-cancel">soup_dns_lookup_cancel</link>              (<link linkend="SoupDNSLookup">SoupDNSLookup</link> *lookup);
+<link linkend="char">char</link>*               <link linkend="soup-dns-lookup-get-hostname">soup_dns_lookup_get_hostname</link>        (<link linkend="SoupDNSLookup">SoupDNSLookup</link> *lookup);
+struct <link linkend="sockaddr">sockaddr</link>*    <link linkend="soup-dns-lookup-get-address">soup_dns_lookup_get_address</link>         (<link linkend="SoupDNSLookup">SoupDNSLookup</link> *lookup);
+<link linkend="void">void</link>                <link linkend="soup-dns-lookup-free">soup_dns_lookup_free</link>                (<link linkend="SoupDNSLookup">SoupDNSLookup</link> *lookup);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="soup-dns-init" role="function"/>soup_dns_init ()</title>
+<indexterm><primary>soup_dns_init</primary></indexterm><programlisting><link linkend="void">void</link>                soup_dns_init                       (void);</programlisting>
+<para>
+Initializes the libsoup DNS system. Must be called before any other
+soup_dns method is called. Normally this gets called automatically
+by <link linkend="SoupAddress"><type>SoupAddress</type></link>'s class_init function.</para>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="soup-dns-ntop" role="function"/>soup_dns_ntop ()</title>
+<indexterm><primary>soup_dns_ntop</primary></indexterm><programlisting><link linkend="char">char</link>*               soup_dns_ntop                       (<link linkend="struct-sockaddr">struct sockaddr</link> *sa);</programlisting>
+<para>
+Converts <parameter>sa</parameter>'s address into textual form (eg, "141.213.8.59"), like
+the standard library function <link linkend="inet-ntop"><function>inet_ntop()</function></link>, except that the returned
+string must be freed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>sa</parameter>&nbsp;:</term>
+<listitem><simpara> pointer to a <link linkend="sockaddr"><type>sockaddr</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the text form or <parameter>sa</parameter>, which must be freed.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="SoupDNSLookup" role="typedef"/>SoupDNSLookup</title>
+<indexterm><primary>SoupDNSLookup</primary></indexterm><programlisting>typedef struct SoupDNSLookup SoupDNSLookup;
+</programlisting>
+<para>
+An opaque type that represents a DNS lookup operation.</para>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="soup-dns-lookup-name" role="function"/>soup_dns_lookup_name ()</title>
+<indexterm><primary>soup_dns_lookup_name</primary></indexterm><programlisting><link linkend="SoupDNSLookup">SoupDNSLookup</link>*      soup_dns_lookup_name                (const <link linkend="char">char</link> *name);</programlisting>
+<para>
+Creates a <link linkend="SoupDNSLookup"><type>SoupDNSLookup</type></link> for <parameter>name</parameter>. This should be passed to
+<link linkend="soup-dns-lookup-resolve"><function>soup_dns_lookup_resolve()</function></link> or <link linkend="soup-dns-lookup-resolve-async"><function>soup_dns_lookup_resolve_async()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> a hostname (eg, "www.gnome.org") or physical address
+(eg, "12.107.209.247").
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a <link linkend="SoupDNSLookup"><type>SoupDNSLookup</type></link>, which should eventually be freed with
+<link linkend="soup-dns-lookup-free"><function>soup_dns_lookup_free()</function></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-dns-lookup-address" role="function"/>soup_dns_lookup_address ()</title>
+<indexterm><primary>soup_dns_lookup_address</primary></indexterm><programlisting><link linkend="SoupDNSLookup">SoupDNSLookup</link>*      soup_dns_lookup_address             (<link linkend="struct-sockaddr">struct sockaddr</link> *sockaddr);</programlisting>
+<para>
+Creates a <link linkend="SoupDNSLookup"><type>SoupDNSLookup</type></link> for <parameter>sockaddr</parameter>. This should be passed to
+<link linkend="soup-dns-lookup-resolve"><function>soup_dns_lookup_resolve()</function></link> or <link linkend="soup-dns-lookup-resolve-async"><function>soup_dns_lookup_resolve_async()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>sockaddr</parameter>&nbsp;:</term>
+<listitem><simpara> pointer to a <link linkend="sockaddr"><type>sockaddr</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a <link linkend="SoupDNSLookup"><type>SoupDNSLookup</type></link>, which should eventually be freed with
+<link linkend="soup-dns-lookup-free"><function>soup_dns_lookup_free()</function></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-dns-lookup-resolve" role="function"/>soup_dns_lookup_resolve ()</title>
+<indexterm><primary>soup_dns_lookup_resolve</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            soup_dns_lookup_resolve             (<link linkend="SoupDNSLookup">SoupDNSLookup</link> *lookup);</programlisting>
+<para>
+Synchronously resolves <parameter>lookup</parameter>. You can cancel a pending resolution
+using <link linkend="soup-dns-lookup-cancel"><function>soup_dns_lookup_cancel()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>lookup</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupDNSLookup"><type>SoupDNSLookup</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> success or failure.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="SoupDNSCallback" role="function"/>SoupDNSCallback ()</title>
+<indexterm><primary>SoupDNSCallback</primary></indexterm><programlisting><link linkend="void">void</link>                (*SoupDNSCallback)                  (<link linkend="SoupDNSLookup">SoupDNSLookup</link> *lookup,
+                                                         <link linkend="gboolean">gboolean</link> success,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<para>
+The callback function passed to <link linkend="soup-dns-lookup-resolve-async"><function>soup_dns_lookup_resolve_async()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>lookup</parameter>&nbsp;:</term>
+<listitem><simpara> the completed lookup
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>success</parameter>&nbsp;:</term>
+<listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>lookup</parameter> completed successfully, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if it failed
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara> the data passed to <link linkend="soup-dns-lookup-resolve-async"><function>soup_dns_lookup_resolve_async()</function></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-dns-lookup-resolve-async" role="function"/>soup_dns_lookup_resolve_async ()</title>
+<indexterm><primary>soup_dns_lookup_resolve_async</primary></indexterm><programlisting><link linkend="void">void</link>                soup_dns_lookup_resolve_async       (<link linkend="SoupDNSLookup">SoupDNSLookup</link> *lookup,
+                                                         <link linkend="GMainContext">GMainContext</link> *async_context,
+                                                         <link linkend="SoupDNSCallback">SoupDNSCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<para>
+Tries to asynchronously resolve <parameter>lookup</parameter>. Invokes <parameter>callback</parameter> when it
+has succeeded or failed. You can cancel a pending resolution using
+<link linkend="soup-dns-lookup-cancel"><function>soup_dns_lookup_cancel()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>lookup</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupDNSLookup"><type>SoupDNSLookup</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>async_context</parameter>&nbsp;:</term>
+<listitem><simpara> <link linkend="GMainContext"><type>GMainContext</type></link> to call <parameter>callback</parameter> in
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara> callback to call when <parameter>lookup</parameter> is resolved
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara> data to pass to <parameter>callback</parameter>;
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-dns-lookup-cancel" role="function"/>soup_dns_lookup_cancel ()</title>
+<indexterm><primary>soup_dns_lookup_cancel</primary></indexterm><programlisting><link linkend="void">void</link>                soup_dns_lookup_cancel              (<link linkend="SoupDNSLookup">SoupDNSLookup</link> *lookup);</programlisting>
+<para>
+Cancels <parameter>lookup</parameter>. If <parameter>lookup</parameter> was running synchronously in another
+thread, it will immediately return <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>. If <parameter>lookup</parameter> was running
+asynchronously, its callback function will not be called.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>lookup</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupDNSLookup"><type>SoupDNSLookup</type></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-dns-lookup-get-hostname" role="function"/>soup_dns_lookup_get_hostname ()</title>
+<indexterm><primary>soup_dns_lookup_get_hostname</primary></indexterm><programlisting><link linkend="char">char</link>*               soup_dns_lookup_get_hostname        (<link linkend="SoupDNSLookup">SoupDNSLookup</link> *lookup);</programlisting>
+<para>
+Gets the hostname of <parameter>lookup</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>lookup</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupDNSLookup"><type>SoupDNSLookup</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the hostname, which the caller owns and must free, or
+<link linkend="NULL:CAPS"><literal>NULL</literal></link> if <parameter>lookup</parameter> has not been completely resolved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-dns-lookup-get-address" role="function"/>soup_dns_lookup_get_address ()</title>
+<indexterm><primary>soup_dns_lookup_get_address</primary></indexterm><programlisting>struct <link linkend="sockaddr">sockaddr</link>*    soup_dns_lookup_get_address         (<link linkend="SoupDNSLookup">SoupDNSLookup</link> *lookup);</programlisting>
+<para>
+Gets the address of <parameter>lookup</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>lookup</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupDNSLookup"><type>SoupDNSLookup</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the address, which the caller owns and must free, or
+<link linkend="NULL:CAPS"><literal>NULL</literal></link> if <parameter>lookup</parameter> has not been completely resolved.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-dns-lookup-free" role="function"/>soup_dns_lookup_free ()</title>
+<indexterm><primary>soup_dns_lookup_free</primary></indexterm><programlisting><link linkend="void">void</link>                soup_dns_lookup_free                (<link linkend="SoupDNSLookup">SoupDNSLookup</link> *lookup);</programlisting>
+<para>
+Frees <parameter>lookup</parameter>. If <parameter>lookup</parameter> is still running, it will be canceled
+first.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>lookup</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupDNSLookup"><type>SoupDNSLookup</type></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

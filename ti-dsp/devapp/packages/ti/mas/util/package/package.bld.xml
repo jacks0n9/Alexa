@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.mas.util" version="4, 0, 8, 0" producerId="undefined">
+    <units>
+        <module name="Version"/>
+    </units>
+    <sources>
+    </sources>
+    <configurations>
+    </configurations>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="package/rel/ti_mas_util_obj_all_4_7_2_0.zip.dep" src="package/rel/ti_mas_util_obj_all_4_7_2_0.xdc.inc"/>
+    </makefiles>
+    <targets>
+    </targets>
+    <libraries>
+    </libraries>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti_mas_util_obj_all_4_7_2_0"
+        pname="ti_mas_util_obj_all_4_7_2_0.zip"
+        label="default"
+    >
+        <file name="package/package.rel.dot"/>
+        <file name="docs//doxygen//doxyfile.xdt"/>
+        <file name="src/c64/utilNumPort.h"/>
+        <file name="c64e/util_a.a64e_size.txt"/>
+        <file name="c64/util_cm.a64_size.txt"/>
+        <file name="./util_4_7_2_0_release_notes.html"/>
+        <file name="c64Pe/util_a.a64Pe_size.txt"/>
+        <file name="./wng.h"/>
+        <file name="./ecomem.h"/>
+        <file name="c64P/util_cm.a64P_size.txt"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="c64/util_c.a64_size.txt"/>
+        <file name="c64Pe/util_c.a64Pe_size.txt"/>
+        <file name="c64e/util_c.a64e"/>
+        <file name="./debug.h"/>
+        <file name="./png.h"/>
+        <file name="c64e/util_a.a64e"/>
+        <file name="c64Pe/util_c.a64Pe"/>
+        <file name="c64Pe/util_a.a64Pe"/>
+        <file name="src/pkt_m.h"/>
+        <file name="c64/util_a.a64"/>
+        <file name="c64e/util_cm.a64e"/>
+        <file name="src/utilNumPort.h"/>
+        <file name="src/c64/cga.h"/>
+        <file name="c64P/util_cm.a64P"/>
+        <file name="src/arm/cga.h"/>
+        <file name="src/c64/pkt_m.h"/>
+        <file name="./ecoxdaisxlat.h"/>
+        <file name="c64e/util_cm.a64e_size.txt"/>
+        <file name="c64P/util_c.a64P_size.txt"/>
+        <file name="c64/util_a.a64_size.txt"/>
+        <file name="package/package.cfg.xdc.inc"/>
+        <file name="src/arm/pkt_m.h"/>
+        <file name="c64P/util_c.a64P"/>
+        <file name="./utl.h"/>
+        <file name="c64P/util_a.a64P"/>
+        <file name="docs/relnotes_archive"/>
+        <file name="c64P/util_a.a64P_size.txt"/>
+        <file name="./mua.h"/>
+        <file name="c64/util_c.a64"/>
+        <file name="./cga.h"/>
+        <file name="package/package.bld.xml"/>
+        <file name="c64e/util_c.a64e_size.txt"/>
+        <file name="c64Pe/util_cm.a64Pe"/>
+        <file name="./pkt.h"/>
+        <file name="c64Pe/util_cm.a64Pe_size.txt"/>
+        <file name="package/build.cfg"/>
+        <file name="./cb.h"/>
+        <file name="c64/util_cm.a64"/>
+        <file name="./Version.h"/>
+        <file name="gcarmv7a/util_c.av7A"/>
+        <file name="package/package.ext.xml"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

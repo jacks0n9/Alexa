@@ -1,0 +1,246 @@
+
+Overview for ARM side code
+==========================
+The package ti.bios.power contains a module named LPM (Local Power Manager).
+Use this module to turn power ON and OFF to the DSP and IMCOP on the DaVinci
+chip.
+
+
+
+Installation
+============
+This package must be accessible to your build tools. In this document, we
+refer to the package installation directory as PKG where
+
+     BASE = <install-dir>
+
+Once the ti.bios.power package has been installed in $BASE, the contents will
+be available in the folder
+
+    PKG = $BASE/ti/bios/power
+
+All paths given in this document are relative to the $PKG folder. The package
+ti.bios.power will be included in the Codec Engine bundle, so the actual
+installation will be done when installing Codec Engine.
+
+
+
+Components
+==========
+To use this module, you must include the lpm.h header file:
+
+    #include <ti/bios/power/lpm.h>
+
+and link with the appropriate user mode library:
+
+    lpm.a470MV      ($PKG/lib/MVLinux/release/lpm.a470MV) Monta Vista Linux
+    lpm.a470uC      ($PKG/lib/MVLinux/release/lpm.a470uC) MicroC runtime
+
+The make system provided with Codec Engine will automatically provide the
+appropriate library.
+
+On Linux, you must also insmod the kernel mode LPM driver:
+
+    lpm.ko          ($PKG/lib/MVLinux/release/link/lpm.ko)
+
+To completely turn off the power to the DSP, a board specific driver must
+also be written and installed which can turn off the external power supply
+to the DSP. An example of such a driver is available in
+
+    $PKG/test/gpp/src/driver/MVLinux
+
+This code will build the driver ocvc.ko (Off-Chip Voltage Control) which 
+runs on the DaVinciEVM board.
+
+The lpm.ko driver depends on the DSP/LINK driver. You must insmod the DSP/LINK
+driver (dsplinkk.ko) before installing the lpm.ko driver.
+
+
+
+LPM API
+=======
+Use the following API calls to control the DSP power state. See
+$PKG/ti/bios/power/lpm.h and $PKG/ti/bios/power/lpm_base.h for details.
+
+    LPM_init() - initialize the module
+    LPM_exit() - finalize the module
+    LPM_open() - acquire a handle to the DSP device
+    LPM_close() - release the handle to the DSP device
+    LPM_setPowerState() - change the DSP power state
+    LPM_resume() - wake and resume the DSP from hibernate
+
+There are additional API calls which will be made from the Codec Engine.
+They are listed here only for completeness; they do not need to be made from
+the application.
+
+    LPM_on() - turn the power ON
+    LPM_off() - turn the power OFF
+    LPM_connect() - connect to the transport layer
+    LPM_disconnect() - disconnect from the transport layer
+
+
+
+Application Call Sequence
+=========================
+The following gives a sample call sequence made from the application. It is
+important to note that LPM_setPowerState() and LPM_resume() can only be called
+between Engine_open() and Engine_close() calls.
+
+Nota Bene. The DSP device name is "/dev/lpm0". This device file is created by
+the driver when it is installed, and deleted when the driver is removed. Do
+not use the mknod command to create this device file.
+
+
+    #include <ti/bios/power/lpm.h>
+
+    LPM_Status  lpmStat;
+    LPM_Handle  hLPM;
+
+
+    /* setup LPM */
+    LPM_init();
+
+
+    /* acquire an LPM handle */
+    lpmStat = LPM_open("/dev/lpm0", &hLPM);
+
+
+    /* open a Codec Engine */
+    Engine_open();
+
+
+    /* process loop */
+    while (work to be done) {
+
+        /* do some work */
+        ...
+
+        /* now we can rest for a while */
+
+        /* hibernate the DSP */
+        lpmStat = LPM_setPowerState(hLPM, LPM_HIBERNATE);
+
+        /* DSP is now OFF (with context saved) */
+        /* time passes ...                     */
+
+        /* wake (resume) the DSP */
+        lpmStat = LPM_resume(hLPM);
+    }
+
+
+    /* close the Codec Engine */
+    Engine_close();
+
+
+    /* finalize LPM module */
+    lpmStat = LPM_close(hLPM);
+    LPM_exit();
+
+
+Multiple Codec Engine open/close calls can be made without the need to call
+LPM open/close each time. Conversely, it is also okay to call LPM open/close
+inside the Codec Engine open/close calls. The only requirement is that the 
+application has called LPM_open() and Engine_open(), in either order, before
+calling LPM setPowerState/resume.
+
+
+
+Building the LPM driver
+=======================
+The LPM driver (lpm.ko) source files and GNU makefile are provided in
+
+    $PKG/src/lpm/MVLinux/debug
+    $PKG/src/lpm/MVLinux/release
+
+The contents of these two folders are the same; only their build options
+differ. This folder includes a GNU makefile suitable for rebuilding the driver
+against your Linux kernel installation. You will need to edit this makefile
+and set the following macros to define your installation paths.
+
+    KERNEL_DIR - your Linux installation root directory
+    TI_POWER - set this to $PKG if you have moved this folder to a new location
+    MAKE_OPTS - set this to match your Linux build environment
+    BIN_DIR - set this to your compiler/linker tools
+
+To build the driver, run the "make" command in this folder. This will build a
+new lpm.ko driver.
+
+The file lpm_driver.c contains the Linux driver code. This file should not
+need any modifications, but if there are some kernel related changes required,
+this is the file to modify.
+
+The following files should be treated as read-only; do not modify these files.
+
+   lpm_base.h - LPM data types common to both the driver and user library
+   lpm_dev.h - the abstract LPM driver model (i.e. non-OS), the OS driver
+               (lpm_driver.c) provides the connection between LPM_Device and
+               the current OS (Linux in this case)
+   lpm_DaVinci_pp.c - the LPM driver implementation for DaVinci
+   tal_gpp_pp.c - the Transport Adaptation Layer for DSP/LINK
+
+These files contain the DaVinci hardware specific code for turning power on
+and off, and signaling code with the DSP/LINK transport layer. They do not
+contain any Linux header files or data structures. They have been pre-processed
+by the C preprocessor and should be self-contained build units. They are
+provided only for the purpose of rebuilding the Linux driver (lpm.ko) using
+your tool-chain and kernel configuration.
+
+You can enable trace output in the driver by using a module parameter when
+installing the driver.
+
+    insmod lpm.ko trace=1
+
+The driver disables trace by default.
+
+
+
+Off-Chip Voltage Control
+========================
+A driver must be supplied that handles the specific details of turning on/off
+the external voltage supply to the DSP. A sample driver is include in
+
+    $PKG/test/gpp/src/driver/MVLinux
+
+This folder includes a GNU makefile suitable for rebuilding the driver against
+your Linux kernel installation. You will need to edit this makefile and set
+the following macros to define your installation paths.
+
+    KERNEL_DIR - your Linux installation root directory
+    TI_POWER - set this to $PKG if you have moved this folder to a new location
+    MAKE_OPTS - set this to match your Linux build environment
+    BIN_DIR - set this to your compiler/linker tools
+
+To build the driver, run the "make" command in this folder. This will build a
+new ocvc.ko driver.
+
+The file ocvc.c includes the file lpm_driver.h as follows:
+
+    #include <ti/bios/power/lpm_driver.h>
+
+This header file defines the function type for the ON and OFF functions, as
+well as the exported functions from the lpm.ko driver used to
+register/unregister your local on/off functions. You must include this header
+file in you driver.
+
+The on/off functions are registered in the driver's init function and
+unregistered in the exit function. Be sure to use the same device name
+("/dev/lpm0") in these calls as you used in the LPM_open() open call in your
+application.
+
+You may pass a pointer to your private data when registering your functions.
+This pointer will be supplied to your function when it is invoked by the
+lpm.ko driver. 
+
+To unregister your functions, pass NULL as your function pointer to the 
+register function.
+
+You can enable trace output in the driver by using a module parameter when
+installing the driver.
+
+    insmod ocvc.ko trace=1
+
+The driver disables trace by default.
+
+This driver uses the ic2 bus interface for controlling the external power
+switch. This implementation is specific to the Spectrum Digital DaVinciEVM
+board. Your implementation will most likely be different.

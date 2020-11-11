@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>libsoup Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="libsoup Reference Manual">
+<link rel="next" href="ch01.html" title="libsoup Tutorial">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libsoup Tutorial">
+<link rel="chapter" href="ch02.html" title="libsoup API Reference">
+<link rel="chapter" href="ch03.html" title="libsoup internals">
+<link rel="index" href="ix01.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="book" lang="en">
+<div class="titlepage">
+<div><div><table class="navigation" id="top" width="100%" cellpadding="2" cellspacing="0"><tr><th valign="middle"><p class="title">libsoup Reference Manual</p></th></tr></table></div></div>
+<hr>
+</div>
+<div class="toc"><dl>
+<dt><span class="chapter"><a href="ch01.html">libsoup Tutorial</a></span></dt>
+<dd><dl>
+<dt>
+<span class="refentrytitle"><a href="libsoup-client-howto.html">Soup Client Basics</a></span><span class="refpurpose"> &#8212; Client-side tutorial</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libsoup-server-howto.html">Soup Server Basics</a></span><span class="refpurpose"> &#8212; Server-side tutorial</span>
+</dt>
+</dl></dd>
+<dt><span class="chapter"><a href="ch02.html">libsoup API Reference</a></span></dt>
+<dd><dl>
+<dt>
+<span class="refentrytitle"><a href="SoupAddress.html">SoupAddress</a></span><span class="refpurpose"> &#8212; Higher-level IP address object</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="SoupAuth.html">SoupAuth</a></span><span class="refpurpose"> &#8212; HTTP Authentication support</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="SoupConnection.html">SoupConnection</a></span><span class="refpurpose"> &#8212; a single possibly-persistent HTTP connection</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="SoupConnectionNTLM.html">SoupConnectionNTLM</a></span><span class="refpurpose"> &#8212; NTLM-authenticated connection</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="SoupMessage.html">SoupMessage</a></span><span class="refpurpose"> &#8212; An HTTP request and response.</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libsoup-SoupMessageFilter.html">SoupMessageFilter</a></span><span class="refpurpose"> &#8212; Automatic message processing</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="SoupServerMessage.html">SoupServerMessage</a></span><span class="refpurpose"> &#8212; Server-side <a class="link" href="SoupMessage.html" title="SoupMessage"><span class="type">SoupMessage</span></a></span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="SoupServer.html">SoupServer</a></span><span class="refpurpose"> &#8212; HTTP server</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="SoupSession.html">SoupSession</a></span><span class="refpurpose"> &#8212; Soup session state object</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="SoupSessionAsync.html">SoupSessionAsync</a></span><span class="refpurpose"> &#8212; Soup session for asynchronous (main-loop-based) I/O.</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="SoupSessionSync.html">SoupSessionSync</a></span><span class="refpurpose"> &#8212; Soup session for blocking I/O in multithreaded programs.</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="SoupSoapMessage.html">SoupSoapMessage</a></span><span class="refpurpose"> &#8212; A SOAP request</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="SoupSoapResponse.html">SoupSoapResponse</a></span><span class="refpurpose"> &#8212; A SOAP response</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="SoupSocket.html">SoupSocket</a></span><span class="refpurpose"> &#8212; a network socket</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libsoup-soup-status.html">soup-status</a></span><span class="refpurpose"> &#8212; HTTP and Soup status codes</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libsoup-SoupUri.html">soup-uri</a></span><span class="refpurpose"> &#8212; URIs</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="SoupXmlrpcMessage.html">SoupXmlrpcMessage</a></span><span class="refpurpose"> &#8212; An XML-RPC Message</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="SoupXmlrpcResponse.html">SoupXmlrpcResponse</a></span><span class="refpurpose"> &#8212; An XML-RPC response</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libsoup-Soup-Miscellaneous-Utilities.html">soup-misc</a></span><span class="refpurpose"> &#8212; Miscellaneous functions</span>
+</dt>
+</dl></dd>
+<dt><span class="chapter"><a href="ch03.html">libsoup internals</a></span></dt>
+<dd><dl>
+<dt>
+<span class="refentrytitle"><a href="libsoup-soup-dns.html">soup-dns</a></span><span class="refpurpose"> &#8212; Low-level DNS routines</span>
+</dt>
+<dt>
+<span class="refentrytitle"><a href="libsoup-soup-ssl.html">soup-ssl</a></span><span class="refpurpose"> &#8212; SSL/TLS handling</span>
+</dt>
+</dl></dd>
+<dt><span class="index"><a href="ix01.html">Index</a></span></dt>
+</dl></div>
+</div></body>
+</html>

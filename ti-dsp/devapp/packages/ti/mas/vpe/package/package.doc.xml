@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package kind='package' name='ti.mas.vpe' nodoc='0' root='../../../' summary='VPE+package'>
+    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Erequires%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fmas%2Ftypes%2Fpackage.html%22+title%3D%22ti.mas.types%22%3Eti.mas.types%3C%2Fa%3E%5B5%2C+0%2C+0%2C+0%5D%3B'/>
+    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Erequires%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fmas%2Ffract%2Fpackage.html%22+title%3D%22ti.mas.fract%22%3Eti.mas.fract%3C%2Fa%3E%5B2%2C+0%2C+0%2C+0%5D%3B'/>
+    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Erequires%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fmas%2Futil%2Fpackage.html%22+title%3D%22ti.mas.util%22%3Eti.mas.util%3C%2Fa%3E%5B4%2C+0%2C+0%2C+0%5D%3B'/>
+    <line blank='1' always='0'/>
+    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Epackage%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eti.mas.vpe%3C%2Fspan%3E%3C%2Fgo%3E+%5B2%2C+0%2C+3%2C+0%5D+%7B'/>
+    <line tab='0' content='%7D'/>
+    <unit name='Version' kind='module' nodoc='0' metaonly='1' summary='Version+for+the+ti.mas.vpe+package' inherits='ti.mas.swtools.IVersion'>
+        <synopSpec>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Epackage%3C%2Fspan%3E+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fmas%2Fvpe%2Fpackage.html%22+title%3D%22ti.mas.vpe%22%3Eti.mas.vpe%3C%2Fa%3E%3B'/>
+            <line blank='1' always='0'/>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Emodule%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EVersion%3C%2Fspan%3E%3C%2Fgo%3E%3Cspan+class%3D%22xdoc-kw1%22%3E+inherits+%3C%2Fspan%3E%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fmas%2Fswtools%2FIVersion.html%22+title%3D%22ti.mas.swtools.IVersion%22%3EIVersion%3C%2Fa%3E+%7B'/>
+            <line tab='0' content='%7D'/>
+        </synopSpec>
+        <specInfo>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Emetaonly+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Emodule%3C%2Fspan%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EVersion%3C%2Fspan%3E%3C%2Fgo%3E+%7B%3Cb%3E%26nbsp%3B%26nbsp%3B...%3C%2Fb%3E'/>
+            <line tab='0' comment='inherits+%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fmas%2Fswtools%2FIVersion.html%22+title%3D%22ti.mas.swtools.IVersion%22%3Eti.mas.swtools.IVersion%3C%2Fa%3E'/>
+        </specInfo>
+        <synopMeta>
+            <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Evar%3C%2Fspan%3E+Version+%3D+%3Cspan+class%3D%22xdoc-kw3%22%3Exdc.useModule%3C%2Fspan%3E%28%3Cspan+class%3D%22xdoc-id%22%3E%27ti.mas.vpe.Version%27%3C%2Fspan%3E%29%3B'/>
+        </synopMeta>
+        <group name='module-wide constants &amp; types'>
+            <decl kind='const' name='MAJOR' anchor='.M.A.J.O.R' altext='ti.mas.vpe.Version.MAJOR' nodoc='0' external='1' overrides='1' readonly='0' instance='0' summary='Major+version+number+of+ti.mas.vpe' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fmas%2Fswtools%2FIVersion.html%23.M.A.J.O.R%22+title%3D%22ti.mas.swtools.IVersion.MAJOR%22%3EIVersion%3C%2Fa%3E'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Eoverride+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EUInt16%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EMAJOR%3C%2Fspan%3E%3C%2Fgo%3E+%3D+3%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3EVersion.%3Cspan+class%3D%22xdoc-id%22%3EMAJOR%3C%2Fspan%3E%3C%2Fgo%3E+%3D+3%3B'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='This+number+should+be+changed+when+major+changes+in+the+package+%0A++occur.+Examples+include+adding+new+modules%2C+adding+substantial+new+%0A++features+to+the+algorithm%28s%29.'/>
+                </docSect>
+            </decl>
+            <decl kind='const' name='MINOR' anchor='.M.I.N.O.R' altext='ti.mas.vpe.Version.MINOR' nodoc='0' external='1' overrides='1' readonly='0' instance='0' summary='Minor+version+number+of+ti.mas.vpe' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fmas%2Fswtools%2FIVersion.html%23.M.I.N.O.R%22+title%3D%22ti.mas.swtools.IVersion.MINOR%22%3EIVersion%3C%2Fa%3E'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Eoverride+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EUInt16%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EMINOR%3C%2Fspan%3E%3C%2Fgo%3E+%3D+2%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3EVersion.%3Cspan+class%3D%22xdoc-id%22%3EMINOR%3C%2Fspan%3E%3C%2Fgo%3E+%3D+2%3B'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='This+number+should+be+changed+when+minor+changes+in+the+package+%0A++occur.+Examples+include+minor+changes+to+the+existing+APIs%2C+%0A++adding+minor+features+to+the+algorithms%28s%29+including+expanding+the+%0A++configuration+options.'/>
+                </docSect>
+            </decl>
+            <decl kind='const' name='PATCH' anchor='.P.A.T.C.H' altext='ti.mas.vpe.Version.PATCH' nodoc='0' external='1' overrides='1' readonly='0' instance='0' summary='Patch+level+of+ti.mas.vpe' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fmas%2Fswtools%2FIVersion.html%23.P.A.T.C.H%22+title%3D%22ti.mas.swtools.IVersion.PATCH%22%3EIVersion%3C%2Fa%3E'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Eoverride+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EUInt16%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EPATCH%3C%2Fspan%3E%3C%2Fgo%3E+%3D+1%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3EVersion.%3Cspan+class%3D%22xdoc-id%22%3EPATCH%3C%2Fspan%3E%3C%2Fgo%3E+%3D+1%3B'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='This+number+should+be+changed+when+bug+fixes+or+performance+%0A++improvements+are+introduced.+There+should+be+no+changes+in+the+APIs+%0A++in+this+case.'/>
+                </docSect>
+            </decl>
+            <decl kind='const' name='PKGSTD' anchor='.P.K.G.S.T.D' altext='ti.mas.vpe.Version.PKGSTD' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary=''>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EUInt16%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EPKGSTD%3C%2Fspan%3E%3C%2Fgo%3E+%3D+1%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3EVersion.%3Cspan+class%3D%22xdoc-id%22%3EPKGSTD%3C%2Fspan%3E%3C%2Fgo%3E+%3D+1%3B'/>
+                </synopMeta>
+            </decl>
+            <decl kind='const' name='WIDTH' anchor='.W.I.D.T.H' altext='ti.mas.vpe.Version.WIDTH' nodoc='0' external='1' overrides='1' readonly='0' instance='0' summary='Minimum+width+of+print+fields' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fmas%2Fswtools%2FIVersion.html%23.W.I.D.T.H%22+title%3D%22ti.mas.swtools.IVersion.WIDTH%22%3EIVersion%3C%2Fa%3E'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Eoverride+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EUInt16%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EWIDTH%3C%2Fspan%3E%3C%2Fgo%3E+%3D+4%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3EVersion.%3Cspan+class%3D%22xdoc-id%22%3EWIDTH%3C%2Fspan%3E%3C%2Fgo%3E+%3D+4%3B'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='When+denoting+version+numbers+using+%27.%27+to+separate+fields+%0A++there+is+a+danger+of+confusing+version+%226.1%22+and+version+%226.10%22%3B+%0A++because%2C+in+decimal+notation+6.1+%3D%3D+6.10.++To+avoid+%0A++this+confusion%2C+it+is+common+practice+to+adopt+a+fixed+minimum+field+%0A++width+that%27s+when+printing+version+dimensions+%28other+than+MAJOR%29%3B+%0A++e.g.%2C+rather+than+printing+%226.1%22%2C+if+WIDTH+%3D%3D+2+then+the+version+would+%0A++be+displayed+as+%226.01%22.'/>
+                </docSect>
+            </decl>
+            <decl kind='const' name='XVERTICAL' anchor='.X.V.E.R.T.I.C.A.L' altext='ti.mas.vpe.Version.XVERTICAL' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Xvertical+number+of+ti.mas.vpe'>
+                <synopSpec>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cspan+class%3D%22xdoc-kw2%22%3EUInt16%3C%2Fspan%3E%26nbsp%3B%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3EXVERTICAL%3C%2Fspan%3E%3C%2Fgo%3E+%3D+0%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cspan+class%3D%22xdoc-kw1%22%3Econst%3C%2Fspan%3E+%3Cgo%3EVersion.%3Cspan+class%3D%22xdoc-id%22%3EXVERTICAL%3C%2Fspan%3E%3C%2Fgo%3E+%3D+0%3B'/>
+                </synopMeta>
+            </decl>
+            <decl spacer='1'/>
+        </group>
+        <group name='module-wide config parameters'>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+            <decl spacer='1'/>
+        </group>
+        <group name='module-wide functions'>
+            <decl spacer='1'/>
+            <decl kind='fxn' name='getString' anchor='get.String' altext='ti.mas.vpe.Version.getString' nodoc='0' external='1' overrides='0' readonly='0' instance='0' summary='Returns+a+string+representation+of+the+version' origin='%3Ca+class%3D%22xdoc-link%22+href%3D%22..%2F..%2F..%2Fti%2Fmas%2Fswtools%2FIVersion.html%23get.String%22+title%3D%22ti.mas.swtools.IVersion.getString%22%3EIVersion%3C%2Fa%3E'>
+                <synopSpec>
+                    <line tab='0' content='%3Cgo%3E%3Cspan+class%3D%22xdoc-kw1%22%3Efunction+%3C%2Fspan%3E%3Cspan+class%3D%22xdoc-id%22%3EgetString%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eseparator%3C%2Fspan%3E%3C%2Fgo%3E+%29%3B'/>
+                </synopSpec>
+                <synopMeta>
+                    <line tab='0' content='%3Cgo%3EVersion.%3Cspan+class%3D%22xdoc-id%22%3EgetString%3C%2Fspan%3E%3C%2Fgo%3E%28+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%3C%2Fi%3E+%3Cgo%3E%3Cspan+class%3D%22xdoc-id%22%3Eseparator%3C%2Fspan%3E%3C%2Fgo%3E+%29+%3Ci%3Ereturns%3C%2Fi%3E+%3Ci%3E%3Cspan+class%3D%22xdoc-kw2%22%3EAny%3C%2Fspan%3E%3C%2Fi%3E'/>
+                </synopMeta>
+                <docSect name='details'>
+                    <docPara content='This+method+return+a+string+of+the+form%3A'/>
+                    <docPara content='%3CPRE+class%3D%22Example%22%3E++++++MAJOR%26lt%3Bsep%26gt%3BMINOR%26lt%3Bsep%26gt%3BPATCH+%0A%3C%2FPRE%3E'/>
+                    <docPara content='where+%3Ctt%3EMAJOR%3C%2Ftt%3E%2C+%3Ctt%3EMINOR%3C%2Ftt%3E%2C+and+%3Ctt%3EPATCH%3C%2Ftt%3E+are+%0A++the+values+sepcified+in+this+interface+and+%3Ctt%3E%26lt%3Bsep%26gt%3B%3C%2Ftt%3E+is+the+%28optional%29+%0A++argument+to+this+method.++If+%3Ctt%3Eseparator%3C%2Ftt%3E+is+not+supplied+%28or+is+%0A++%3Ctt%3Enull%3C%2Ftt%3E%29%2C+%3Ctt%3E%26lt%3Bsep%26gt%3B%3C%2Ftt%3E+defaults+to+%3Ctt%3E%27.%27%3C%2Ftt%3E.'/>
+                </docSect>
+            </decl>
+        </group>
+    </unit>
+    <docSect name='NAME'>
+        <docPara content='%3Ctt%3Eti.mas.vpe%3C%2Ftt%3E'/>
+    </docSect>
+    <docSect name='DESCRIPTION'>
+        <docPara content=''/>
+        <docPara content='This+package+creates+the+VPE+package.+It+depends+on+the+following+packages%3A'/>
+        <docPara content='%3CDL%3E%3CDT%3E+%3Ctt%3Eti.mas.types%3C%2Ftt%3E+%3C%2FDT%3E%3CDD%3E%0A%3C%2FDD%3E%3CDT%3E+%3Ctt%3Eti.mas.fract%3C%2Ftt%3E+%3C%2FDT%3E%3CDD%3E%0A%3C%2FDD%3E%3CDT%3E+%3Ctt%3Eti.mas.util%3C%2Ftt%3E+%3C%2FDT%3E%3CDD%3E%0A+%0A%3C%2FDD%3E%3C%2FDL%3E'/>
+    </docSect>
+    <docSect name='CONTENTS'>
+        <docPara content=''/>
+        <docPara content='%3CDL%3E%3CDT%3E+%27hlc%27+module+%3C%2FDT%3E%3CDD%3E%0A++++++provides+high+level+compensation+functionality+%0A%3C%2FDD%3E%3CDT%3E+%27slm%27+module+%3C%2FDT%3E%3CDD%3E%0A++++++provides+signal+limitation+functionality+%0A%3C%2FDD%3E%3CDT%3E+%3Ctt%3EVersion%3C%2Ftt%3E+module+%3C%2FDT%3E%3CDD%3E%0A++++++provides+version+numbering+for+VPE+package+and+is+described+in+%0A++++++%3Ctt%3EVersion.xdc%3C%2Ftt%3E.+Note+that+%3Ctt%3EVersion.xdc%3C%2Ftt%3E+is+generated+from+the+template+file++%0A++++++%3Ctt%3EVersion.xdt%3C%2Ftt%3E.+%0A%3C%2FDD%3E%3C%2FDL%3E'/>
+    </docSect>
+    <docSect name='TARGETS'>
+        <docPara content='The+following+architecture+targets+are+supported%3A'/>
+        <docPara content='%3CDL%3E%3CDT%3E+%3Ctt%3EC55%3C%2Ftt%3E+%3C%2FDT%3E%3CDD%3E%0A%3C%2FDD%3E%3CDT%3E+%3Ctt%3EC55_large%3C%2Ftt%3E+%3C%2FDT%3E%3CDD%3E%0A%3C%2FDD%3E%3CDT%3E+%3Ctt%3EC64%3C%2Ftt%3E+%3C%2FDT%3E%3CDD%3E%0A%3C%2FDD%3E%3CDT%3E+%3Ctt%3EC64Plus%3C%2Ftt%3E+%3C%2FDT%3E%3CDD%3E%0A%3C%2FDD%3E%3C%2FDL%3E'/>
+    </docSect>
+    <docSect name='BUILD'>
+        <docPara content='The+build+options+are+implemented+in+the+file+%3Ctt%3Epackage.bld%3C%2Ftt%3E.'/>
+        <docPara content='Build+command%3A+%3Ctt%3Exdc+XDCARGS%3D%22option%22%3C%2Ftt%3E.+%0A+option1+%3D+%5Bc55s%2C+c55l%2C+c64le%2C+c64be%2C+c64Ple%2C+c64Pbe%2C+all%5D+%0A+option2+%3D+%5Bobj%2C+src%2C+docs%5D+%0A+option3+%3D+%5B%5D+%0A+If+any+other+option+other+than+above+is+used+then+the+package+is+not+built+correctly+%0A+and+will+crash+when+used+in+conjunction+with+other+packages.'/>
+        <docPara content='Generated+files%3A'/>
+        <docPara content='%3CDL%3E%3CDT%3E++%3Ctt%3EVersion.h%3C%2Ftt%3E+%3C%2FDT%3E%3CDD%3E%0A%3C%2FDD%3E%3C%2FDL%3E'/>
+        <docPara content='Command+to+clean%3A+%3Ctt%3Exdc+clean%3C%2Ftt%3E'/>
+    </docSect>
+    <docSect name='Online API documentation'>
+        <docPara content=''/>
+        <docPara content='%3Ctt%3Exdc+XDCARGS%3D%22option%22+gendocs%3C%2Ftt%3E'/>
+    </docSect>
+    <docSect name='RELEASES'>
+        <docPara content=''/>
+        <docPara content='Release+creation%3A+%3Ctt%3Exdc+XDCARGS%3D%22option1+option2%22+%5Bgendocs%5D+release%3C%2Ftt%3E+%0A+option1+%3D+%5Bc55s%2C+c55l%2C+c64le%2C+c64be%2C+c64Ple%2C+c64Pbe%5D+%0A+option2+%3D+%5Bobj%2C+src%2C+docs%5D+%0A+option3+%3D+%5B%5D'/>
+        <docPara content='Using+the+option1+as+given+and+option2%3D%22obj%22+creates+the+released+tar+file+containing+object+code+only%3A+%0A+%3Ctt%3Eti_mas_vpe_%26lt%3Barch%26gt%3B_src_%26lt%3Bv%26gt%3B_%26lt%3Br%26gt%3B_%26lt%3Bx%26gt%3B_%26lt%3Bp%26gt%3B.tar%3C%2Ftt%3E+%3F%3F%3F%3F+src+or+obj+%3F%3F%3F'/>
+        <docPara content='Using+the+option1+as+given+and+option2%3D%22src%22+creates+the+released+tar+file+containing+source+with+object+code%3A+%0A+%3Ctt%3Eti_mas_vpe_%26lt%3Barch%26gt%3B_src_%26lt%3Bv%26gt%3B_%26lt%3Br%26gt%3B_%26lt%3Bx%26gt%3B_%26lt%3Bp%26gt%3B.tar%3C%2Ftt%3E'/>
+        <docPara content='To+generate+document+only+the+following+should+be+used%3A+%0A+%3Ctt%3Exdc+XDCARGS%3D%22docs%22+release%3C%2Ftt%3E+or+%3Ctt%3Exdc+XDCARGS%3D%22option1%2Cdocs%22%3C%2Ftt%3E+%0A+and+%3Ctt%3Eti_mas_vpe_docs_%26lt%3Bv%26gt%3B_%26lt%3Br%26gt%3B_%26lt%3Bx%26gt%3B_%26lt%3Bp%26gt%3B.tar%3C%2Ftt%3E+is+created'/>
+        <docPara content='If+any+other+option+other+than+the+ones+listed+above+is+used%2C+no+release+is+created.'/>
+    </docSect>
+    <docSect name='Copyright'>
+        <docPara content=''/>
+        <docPara content='%26%23169%3B+2008+Texas+Instruments%2C+Inc.'/>
+    </docSect>
+</package>

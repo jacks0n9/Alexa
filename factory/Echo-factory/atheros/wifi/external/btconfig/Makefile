@@ -1,0 +1,23 @@
+ # Copyright (c) 2008-2009 Atheros Corporation. All rights reserved.
+ # 
+ # This program is free software; you can redistribute it and/or modify
+ # it under the terms of the GNU General Public License version 2 as
+ # published by the Free Software Foundation;
+ #
+ # Software distributed under the License is distributed on an "AS
+ # IS" basis, WITHOUT WARRANTY OF ANY KIND, either express or
+ # implied. See the License for the specific language governing
+ # rights and limitations under the License.
+ 
+
+CC := gcc
+LDFLAGS=-lbluetooth
+
+all: btconfig
+
+btconfig: btconfig.c
+	$(CC) -Wall -g btconfig.c $(LDFLAGS)  -o btconfig
+	cp btconfig /usr/bin
+clean:
+	rm btconfig  
+	rm /usr/bin/btconfig

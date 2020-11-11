@@ -1,0 +1,18 @@
+#CC = arm-linux-gnueabi-gcc
+CC = arm-arago-linux-gnueabi-gcc
+CFLAGS = -Wall -g
+
+LIBS = -lnl
+#LFLAGS = -L/root/libnl-1.1/lib
+LFLAGS = -L$(NLLIBDIR)/lib
+LIBTCMD_DIR := ../libtcmd
+
+LDLIBS += $(shell pkg-config --libs $(NLLIBNAME)) -lrt -ltcmd
+CFLAGS += $(shell pkg-config --cflags $(NLLIBNAME)) -I$(LIBTCMD_DIR) -L$(LIBTCMD_DIR)
+
+artserialagent: artserialagent.c artserialagent.h
+	$(MAKE) -C $(LIBTCMD_DIR)
+	$(CC) $(CFLAGS) -o $@ $^ $(LDLIBS) $(LFLAGS) $(LIBS)
+
+clean:
+	rm -f artserialagent

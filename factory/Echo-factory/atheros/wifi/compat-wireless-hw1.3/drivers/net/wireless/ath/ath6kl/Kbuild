@@ -1,0 +1,125 @@
+#------------------------------------------------------------------------------
+# Copyright (c) 2004-2010 Atheros Communications Inc.
+# All rights reserved.
+#
+#
+#
+# Permission to use, copy, modify, and/or distribute this software for any
+# purpose with or without fee is hereby granted, provided that the above
+# copyright notice and this permission notice appear in all copies.
+#
+# THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+# WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+# ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+# WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+# ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+# OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+#
+#
+#
+# Author(s): ="Atheros"
+#------------------------------------------------------------------------------
+ifeq ($(ATH6KL_ANDROID_BLD), 1)
+NOSTDINC_FLAGS := \
+  -include ${ATH_DRIVER_TOPDIR}/compat-wireless/include/linux/compat-2.6.h \
+  -I${ATH_DRIVER_TOPDIR}/compat-wireless/drivers/net/wireless/ath/ath6kl   \
+  -I${ATH_DRIVER_TOPDIR}/compat-wireless/include/ $(ATH_LOCAL_CFLAGS)
+
+#KBUILD_EXTRA_SYMBOLS := ../../compat-wireless/Module.symvers
+
+obj-m		+= ath6kl_usb.o
+
+ath6kl_usb-y += debug.o
+ath6kl_usb-y += htc_pipe.o
+ath6kl_usb-y += bmi.o
+ath6kl_usb-y += cfg80211.o
+ath6kl_usb-y += cfg80211_btcoex.o
+ath6kl_usb-y += init.o
+ath6kl_usb-y += main.o
+ath6kl_usb-y += txrx.o
+ath6kl_usb-y += wmi.o
+ath6kl_usb-y += wmi_btcoex.o
+ath6kl_usb-y += usb.o
+ath6kl_usb-$(CONFIG_NL80211_TESTMODE) += testmode.o
+ath6kl_usb-y += rttm.o
+ath6kl_usb-y += diag.o
+ath6kl_usb-y += ath_netlink.o
+ath6kl_usb-y += pm.o
+ath6kl_usb-y += p2p.o
+ath6kl_usb-y += ap.o
+
+obj-m += ath6kl_sdio.o
+ath6kl_sdio-y += debug.o
+ath6kl_sdio-y += hif.o
+ath6kl_sdio-y += htc.o
+ath6kl_sdio-y += bmi.o
+ath6kl_sdio-y += cfg80211.o
+ath6kl_sdio-y += cfg80211_btcoex.o
+ath6kl_sdio-y += init.o
+ath6kl_sdio-y += main.o
+ath6kl_sdio-y += txrx.o
+ath6kl_sdio-y += wmi.o
+ath6kl_sdio-y += wmi_btcoex.o
+ath6kl_sdio-y += msm.o
+ath6kl_sdio-y += sdio.o
+ath6kl_sdio-y += testmode.o
+ath6kl_sdio-y += rttm.o
+ath6kl_sdio-y += diag.o
+ath6kl_sdio-y += htcoex.o
+ath6kl_sdio-y += ath_netlink.o
+ath6kl_sdio-y += pm.o
+ath6kl_sdio-y += p2p.o
+ath6kl_sdio-y += ap.o
+
+ccflags-y += -D__CHECK_ENDIAN__
+ccflags-y += -DCONFIG_BTCOEX_OLCA_3_5
+else
+obj-$(CONFIG_ATH6KL_SDIO) := ath6kl_sdio.o
+ath6kl_sdio-y += debug.o
+ath6kl_sdio-y += hif.o
+ath6kl_sdio-y += htc.o
+ath6kl_sdio-y += bmi.o
+ath6kl_sdio-y += cfg80211.o
+ath6kl_sdio-y += cfg80211_btcoex.o
+ath6kl_sdio-y += init.o
+ath6kl_sdio-y += main.o
+ath6kl_sdio-y += txrx.o
+ath6kl_sdio-y += wmi.o
+ath6kl_sdio-y += wmi_btcoex.o
+ath6kl_sdio-y += msm.o
+ath6kl_sdio-y += sdio.o
+ath6kl_sdio-$(CONFIG_NL80211_TESTMODE) += testmode.o
+ath6kl_sdio-y += rttm.o
+ath6kl_sdio-y += diag.o
+ath6kl_sdio-y += htcoex.o
+ath6kl_sdio-y += ath_netlink.o
+ath6kl_sdio-y += pm.o
+ath6kl_sdio-y += p2p.o
+ath6kl_sdio-y += ap.o
+
+obj-$(CONFIG_ATH6KL_USB) += ath6kl_usb.o
+ath6kl_usb-y += debug.o
+ath6kl_usb-y += htc_pipe.o
+ath6kl_usb-y += bmi.o
+ath6kl_usb-y += cfg80211.o
+ath6kl_usb-y += cfg80211_btcoex.o
+ath6kl_usb-y += init.o
+ath6kl_usb-y += main.o
+ath6kl_usb-y += txrx.o
+ath6kl_usb-y += wmi.o
+ath6kl_usb-y += wmi_btcoex.o
+ath6kl_usb-y += usb.o
+ath6kl_usb-$(CONFIG_NL80211_TESTMODE) += testmode.o
+ath6kl_usb-y += rttm.o
+ath6kl_usb-y += diag.o
+ath6kl_usb-y += htcoex.o
+ath6kl_usb-y += ath_netlink.o
+ath6kl_usb-y += pm.o
+ath6kl_usb-y += p2p.o
+ath6kl_usb-y += ap.o
+
+ccflags-y += -D__CHECK_ENDIAN__
+
+EXTRA_CFLAGS += -I${KBUILDPATH}/drivers/net/wireless/ath/ath6kl
+endif

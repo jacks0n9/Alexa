@@ -1,0 +1,539 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="SoupConnection">
+<refmeta>
+<refentrytitle role="top_of_page">SoupConnection</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBSOUP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>SoupConnection</refname>
+<refpurpose>a single possibly-persistent HTTP connection</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+struct              <link linkend="SoupConnection-struct">SoupConnection</link>;
+<link linkend="SoupConnection">SoupConnection</link>*     <link linkend="soup-connection-new">soup_connection_new</link>                 (const <link linkend="char">char</link> *propname1,
+                                                         ...);
+<link linkend="void">void</link>                (<link linkend="SoupConnectionCallback">*SoupConnectionCallback</link>)           (<link linkend="SoupConnection">SoupConnection</link> *conn,
+                                                         <link linkend="guint">guint</link> status,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>                <link linkend="soup-connection-connect-async">soup_connection_connect_async</link>       (<link linkend="SoupConnection">SoupConnection</link> *conn,
+                                                         <link linkend="SoupConnectionCallback">SoupConnectionCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+<link linkend="guint">guint</link>               <link linkend="soup-connection-connect-sync">soup_connection_connect_sync</link>        (<link linkend="SoupConnection">SoupConnection</link> *conn);
+<link linkend="void">void</link>                <link linkend="soup-connection-disconnect">soup_connection_disconnect</link>          (<link linkend="SoupConnection">SoupConnection</link> *conn);
+<link linkend="gboolean">gboolean</link>            <link linkend="soup-connection-is-in-use">soup_connection_is_in_use</link>           (<link linkend="SoupConnection">SoupConnection</link> *conn);
+<link linkend="time-t">time_t</link>              <link linkend="soup-connection-last-used">soup_connection_last_used</link>           (<link linkend="SoupConnection">SoupConnection</link> *conn);
+<link linkend="void">void</link>                <link linkend="soup-connection-send-request">soup_connection_send_request</link>        (<link linkend="SoupConnection">SoupConnection</link> *conn,
+                                                         <link linkend="SoupMessage">SoupMessage</link> *req);
+<link linkend="void">void</link>                <link linkend="soup-connection-authenticate">soup_connection_authenticate</link>        (<link linkend="SoupConnection">SoupConnection</link> *conn,
+                                                         <link linkend="SoupMessage">SoupMessage</link> *msg,
+                                                         const <link linkend="char">char</link> *auth_type,
+                                                         const <link linkend="char">char</link> *auth_realm,
+                                                         <link linkend="char">char</link> **username,
+                                                         <link linkend="char">char</link> **password);
+<link linkend="void">void</link>                <link linkend="soup-connection-reauthenticate">soup_connection_reauthenticate</link>      (<link linkend="SoupConnection">SoupConnection</link> *conn,
+                                                         <link linkend="SoupMessage">SoupMessage</link> *msg,
+                                                         const <link linkend="char">char</link> *auth_type,
+                                                         const <link linkend="char">char</link> *auth_realm,
+                                                         <link linkend="char">char</link> **username,
+                                                         <link linkend="char">char</link> **password);
+<link linkend="void">void</link>                <link linkend="soup-connection-release">soup_connection_release</link>             (<link linkend="SoupConnection">SoupConnection</link> *conn);
+<link linkend="void">void</link>                <link linkend="soup-connection-reserve">soup_connection_reserve</link>             (<link linkend="SoupConnection">SoupConnection</link> *conn);
+#define             <link linkend="SOUP-CONNECTION-ORIGIN-URI:CAPS">SOUP_CONNECTION_ORIGIN_URI</link>
+#define             <link linkend="SOUP-CONNECTION-PROXY-URI:CAPS">SOUP_CONNECTION_PROXY_URI</link>
+#define             <link linkend="SOUP-CONNECTION-SSL-CREDENTIALS:CAPS">SOUP_CONNECTION_SSL_CREDENTIALS</link>
+#define             <link linkend="SOUP-CONNECTION-MESSAGE-FILTER:CAPS">SOUP_CONNECTION_MESSAGE_FILTER</link>
+#define             <link linkend="SOUP-CONNECTION-ASYNC-CONTEXT:CAPS">SOUP_CONNECTION_ASYNC_CONTEXT</link>
+#define             <link linkend="SOUP-CONNECTION-TIMEOUT:CAPS">SOUP_CONNECTION_TIMEOUT</link>
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----SoupConnection
+         +----<link linkend="SoupConnectionNTLM">SoupConnectionNTLM</link>
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+<refsect1 role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+
+  &quot;<link linkend="SoupConnection--async-context">async-context</link>&quot;            <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only
+  &quot;<link linkend="SoupConnection--message-filter">message-filter</link>&quot;           <link linkend="gpointer">gpointer</link>              : Read / Write
+  &quot;<link linkend="SoupConnection--origin-uri">origin-uri</link>&quot;               <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only
+  &quot;<link linkend="SoupConnection--proxy-uri">proxy-uri</link>&quot;                <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only
+  &quot;<link linkend="SoupConnection--ssl-creds">ssl-creds</link>&quot;                <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only
+  &quot;<link linkend="SoupConnection--timeout">timeout</link>&quot;                  <link linkend="guint">guint</link>                 : Read / Write
+</synopsis>
+</refsect1>
+
+<refsect1 role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+
+  &quot;<link linkend="SoupConnection-authenticate">authenticate</link>&quot;                                   : Run First
+  &quot;<link linkend="SoupConnection-connect-result">connect-result</link>&quot;                                 : Run First
+  &quot;<link linkend="SoupConnection-disconnected">disconnected</link>&quot;                                   : Run First
+  &quot;<link linkend="SoupConnection-reauthenticate">reauthenticate</link>&quot;                                 : Run First
+</synopsis>
+</refsect1>
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+<link linkend="SoupConnection"><type>SoupConnection</type></link> represents a single connection to an HTTP server
+(possibly via a proxy). Connection objects are created and destroyed
+automatically by <link linkend="SoupSession"><type>SoupSession</type></link>.
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="SoupConnection-struct" role="struct"/>struct SoupConnection</title>
+<indexterm><primary>SoupConnection</primary></indexterm><programlisting>struct SoupConnection;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="soup-connection-new" role="function"/>soup_connection_new ()</title>
+<indexterm><primary>soup_connection_new</primary></indexterm><programlisting><link linkend="SoupConnection">SoupConnection</link>*     soup_connection_new                 (const <link linkend="char">char</link> *propname1,
+                                                         ...);</programlisting>
+<para>
+Creates an HTTP connection. You must set at least one of
+<link linkend="SOUP-CONNECTION-ORIGIN-URI:CAPS"><literal>SOUP_CONNECTION_ORIGIN_URI</literal></link> or <link linkend="SOUP-CONNECTION-PROXY-URI:CAPS"><literal>SOUP_CONNECTION_PROXY_URI</literal></link>. If you
+set an origin server URI but no proxy URI, this will be a direct
+connection. If you set a proxy URI and an https origin server URI,
+this will be a tunnel. Otherwise it will be an http proxy
+connection.
+</para>
+<para>
+You must call <link linkend="soup-connection-connect-async"><function>soup_connection_connect_async()</function></link> or
+<link linkend="soup-connection-connect-sync"><function>soup_connection_connect_sync()</function></link> to connect it after creating it.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>propname1</parameter>&nbsp;:</term>
+<listitem><simpara> name of first property to set
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara> value of <parameter>propname1</parameter>, followed by additional property/value pairs
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the new connection (not yet ready for use).
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="SoupConnectionCallback" role="function"/>SoupConnectionCallback ()</title>
+<indexterm><primary>SoupConnectionCallback</primary></indexterm><programlisting><link linkend="void">void</link>                (*SoupConnectionCallback)           (<link linkend="SoupConnection">SoupConnection</link> *conn,
+                                                         <link linkend="guint">guint</link> status,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+The callback function passed to <link linkend="soup-connection-connect-async"><function>soup_connection_connect_async()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="SoupConnection"><type>SoupConnection</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>status</parameter>&nbsp;:</term>
+<listitem><simpara> an HTTP status code indicating success or failure
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> the data passed to <link linkend="soup-connection-connect-async"><function>soup_connection_connect_async()</function></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-connection-connect-async" role="function"/>soup_connection_connect_async ()</title>
+<indexterm><primary>soup_connection_connect_async</primary></indexterm><programlisting><link linkend="void">void</link>                soup_connection_connect_async       (<link linkend="SoupConnection">SoupConnection</link> *conn,
+                                                         <link linkend="SoupConnectionCallback">SoupConnectionCallback</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<para>
+Asynchronously connects <parameter>conn</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> the connection
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara> callback to call when the connection succeeds or fails
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara> data for <parameter>callback</parameter>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-connection-connect-sync" role="function"/>soup_connection_connect_sync ()</title>
+<indexterm><primary>soup_connection_connect_sync</primary></indexterm><programlisting><link linkend="guint">guint</link>               soup_connection_connect_sync        (<link linkend="SoupConnection">SoupConnection</link> *conn);</programlisting>
+<para>
+Synchronously connects <parameter>conn</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> the connection
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the soup status
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-connection-disconnect" role="function"/>soup_connection_disconnect ()</title>
+<indexterm><primary>soup_connection_disconnect</primary></indexterm><programlisting><link linkend="void">void</link>                soup_connection_disconnect          (<link linkend="SoupConnection">SoupConnection</link> *conn);</programlisting>
+<para>
+Disconnects <parameter>conn</parameter>'s socket and emits a <link linkend="disconnected"><literal>disconnected</literal></link> signal.
+After calling this, <parameter>conn</parameter> will be essentially useless.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> a connection
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-connection-is-in-use" role="function"/>soup_connection_is_in_use ()</title>
+<indexterm><primary>soup_connection_is_in_use</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            soup_connection_is_in_use           (<link linkend="SoupConnection">SoupConnection</link> *conn);</programlisting>
+<para>
+Tests whether or not <parameter>conn</parameter> is in use.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> a connection
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if there is currently a request being processed
+on <parameter>conn</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-connection-last-used" role="function"/>soup_connection_last_used ()</title>
+<indexterm><primary>soup_connection_last_used</primary></indexterm><programlisting><link linkend="time-t">time_t</link>              soup_connection_last_used           (<link linkend="SoupConnection">SoupConnection</link> *conn);</programlisting>
+<para>
+Returns the last time a response was received on <parameter>conn</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupConnection"><type>SoupConnection</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the last time a response was received on <parameter>conn</parameter>, or 0
+if <parameter>conn</parameter> has not been used yet.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-connection-send-request" role="function"/>soup_connection_send_request ()</title>
+<indexterm><primary>soup_connection_send_request</primary></indexterm><programlisting><link linkend="void">void</link>                soup_connection_send_request        (<link linkend="SoupConnection">SoupConnection</link> *conn,
+                                                         <link linkend="SoupMessage">SoupMessage</link> *req);</programlisting>
+<para>
+Sends <parameter>req</parameter> on <parameter>conn</parameter>. This is a low-level function, intended for use
+by <link linkend="SoupSession"><type>SoupSession</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupConnection"><type>SoupConnection</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>req</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupMessage"><type>SoupMessage</type></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-connection-authenticate" role="function"/>soup_connection_authenticate ()</title>
+<indexterm><primary>soup_connection_authenticate</primary></indexterm><programlisting><link linkend="void">void</link>                soup_connection_authenticate        (<link linkend="SoupConnection">SoupConnection</link> *conn,
+                                                         <link linkend="SoupMessage">SoupMessage</link> *msg,
+                                                         const <link linkend="char">char</link> *auth_type,
+                                                         const <link linkend="char">char</link> *auth_realm,
+                                                         <link linkend="char">char</link> **username,
+                                                         <link linkend="char">char</link> **password);</programlisting>
+<para>
+Emits the <link linkend="authenticate"><literal>authenticate</literal></link> signal on <parameter>conn</parameter>. For use by <link linkend="SoupConnection"><type>SoupConnection</type></link>
+subclasses.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupConnection"><type>SoupConnection</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>msg</parameter>&nbsp;:</term>
+<listitem><simpara> the message to authenticate
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>auth_type</parameter>&nbsp;:</term>
+<listitem><simpara> type of authentication to use
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>auth_realm</parameter>&nbsp;:</term>
+<listitem><simpara> authentication realm
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>username</parameter>&nbsp;:</term>
+<listitem><simpara> on successful return, will contain the username to
+authenticate with
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>password</parameter>&nbsp;:</term>
+<listitem><simpara> on successful return, will contain the password to
+authenticate with
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-connection-reauthenticate" role="function"/>soup_connection_reauthenticate ()</title>
+<indexterm><primary>soup_connection_reauthenticate</primary></indexterm><programlisting><link linkend="void">void</link>                soup_connection_reauthenticate      (<link linkend="SoupConnection">SoupConnection</link> *conn,
+                                                         <link linkend="SoupMessage">SoupMessage</link> *msg,
+                                                         const <link linkend="char">char</link> *auth_type,
+                                                         const <link linkend="char">char</link> *auth_realm,
+                                                         <link linkend="char">char</link> **username,
+                                                         <link linkend="char">char</link> **password);</programlisting>
+<para>
+Emits the <link linkend="reauthenticate"><literal>reauthenticate</literal></link> signal on <parameter>conn</parameter>. For use by
+<link linkend="SoupConnection"><type>SoupConnection</type></link> subclasses.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupConnection"><type>SoupConnection</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>msg</parameter>&nbsp;:</term>
+<listitem><simpara> the message to authenticate
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>auth_type</parameter>&nbsp;:</term>
+<listitem><simpara> type of authentication to use
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>auth_realm</parameter>&nbsp;:</term>
+<listitem><simpara> authentication realm
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>username</parameter>&nbsp;:</term>
+<listitem><simpara> on successful return, will contain the username to
+authenticate with
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>password</parameter>&nbsp;:</term>
+<listitem><simpara> on successful return, will contain the password to
+authenticate with
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-connection-release" role="function"/>soup_connection_release ()</title>
+<indexterm><primary>soup_connection_release</primary></indexterm><programlisting><link linkend="void">void</link>                soup_connection_release             (<link linkend="SoupConnection">SoupConnection</link> *conn);</programlisting>
+<para>
+Marks <parameter>conn</parameter> as not "in use". This can be used to cancel the effect
+of a <link linkend="soup-connection-reserve"><function>soup_connection_reserve()</function></link>. It is not necessary to call this
+after <link linkend="soup-connection-send-request"><function>soup_connection_send_request()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupConnection"><type>SoupConnection</type></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-connection-reserve" role="function"/>soup_connection_reserve ()</title>
+<indexterm><primary>soup_connection_reserve</primary></indexterm><programlisting><link linkend="void">void</link>                soup_connection_reserve             (<link linkend="SoupConnection">SoupConnection</link> *conn);</programlisting>
+<para>
+Marks <parameter>conn</parameter> as "in use" despite not actually having a message on
+it. This is used by <link linkend="SoupSession"><type>SoupSession</type></link> to keep it from accidentally
+trying to queue two messages on the same connection from different
+threads at the same time.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupConnection"><type>SoupConnection</type></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="SOUP-CONNECTION-ORIGIN-URI:CAPS" role="macro"/>SOUP_CONNECTION_ORIGIN_URI</title>
+<indexterm><primary>SOUP_CONNECTION_ORIGIN_URI</primary></indexterm><programlisting>#define SOUP_CONNECTION_ORIGIN_URI      "origin-uri"
+</programlisting>
+<para>
+An alias for the "origin-uri" property.
+</para></refsect2>
+<refsect2>
+<title><anchor id="SOUP-CONNECTION-PROXY-URI:CAPS" role="macro"/>SOUP_CONNECTION_PROXY_URI</title>
+<indexterm><primary>SOUP_CONNECTION_PROXY_URI</primary></indexterm><programlisting>#define SOUP_CONNECTION_PROXY_URI       "proxy-uri"
+</programlisting>
+<para>
+An alias for the "proxy-uri" property.
+</para></refsect2>
+<refsect2>
+<title><anchor id="SOUP-CONNECTION-SSL-CREDENTIALS:CAPS" role="macro"/>SOUP_CONNECTION_SSL_CREDENTIALS</title>
+<indexterm><primary>SOUP_CONNECTION_SSL_CREDENTIALS</primary></indexterm><programlisting>#define SOUP_CONNECTION_SSL_CREDENTIALS "ssl-creds"
+</programlisting>
+<para>
+An alias for the "ssl-creds" property.
+</para></refsect2>
+<refsect2>
+<title><anchor id="SOUP-CONNECTION-MESSAGE-FILTER:CAPS" role="macro"/>SOUP_CONNECTION_MESSAGE_FILTER</title>
+<indexterm><primary>SOUP_CONNECTION_MESSAGE_FILTER</primary></indexterm><programlisting>#define SOUP_CONNECTION_MESSAGE_FILTER  "message-filter"
+</programlisting>
+<para>
+An alias for the "message-filter" property.
+</para></refsect2>
+<refsect2>
+<title><anchor id="SOUP-CONNECTION-ASYNC-CONTEXT:CAPS" role="macro"/>SOUP_CONNECTION_ASYNC_CONTEXT</title>
+<indexterm><primary>SOUP_CONNECTION_ASYNC_CONTEXT</primary></indexterm><programlisting>#define SOUP_CONNECTION_ASYNC_CONTEXT   "async-context"
+</programlisting>
+<para>
+An alias for the "async-context" property.
+</para></refsect2>
+<refsect2>
+<title><anchor id="SOUP-CONNECTION-TIMEOUT:CAPS" role="macro"/>SOUP_CONNECTION_TIMEOUT</title>
+<indexterm><primary>SOUP_CONNECTION_TIMEOUT</primary></indexterm><programlisting>#define SOUP_CONNECTION_TIMEOUT		"timeout"
+</programlisting>
+<para>
+An alias for the "timeout" property.
+</para></refsect2>
+
+</refsect1>
+<refsect1 role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2><title><anchor id="SoupConnection--async-context"/>The &quot;<literal>async-context</literal>&quot; property</title>
+<indexterm><primary>SoupConnection:async-context</primary></indexterm><programlisting>  &quot;async-context&quot;            <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only</programlisting>
+<para>GMainContext to dispatch this connection's async I/O in.</para></refsect2>
+<refsect2><title><anchor id="SoupConnection--message-filter"/>The &quot;<literal>message-filter</literal>&quot; property</title>
+<indexterm><primary>SoupConnection:message-filter</primary></indexterm><programlisting>  &quot;message-filter&quot;           <link linkend="gpointer">gpointer</link>              : Read / Write</programlisting>
+<para>Message filter object for this connection.</para></refsect2>
+<refsect2><title><anchor id="SoupConnection--origin-uri"/>The &quot;<literal>origin-uri</literal>&quot; property</title>
+<indexterm><primary>SoupConnection:origin-uri</primary></indexterm><programlisting>  &quot;origin-uri&quot;               <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only</programlisting>
+<para>The HTTP origin server to use for this connection.</para></refsect2>
+<refsect2><title><anchor id="SoupConnection--proxy-uri"/>The &quot;<literal>proxy-uri</literal>&quot; property</title>
+<indexterm><primary>SoupConnection:proxy-uri</primary></indexterm><programlisting>  &quot;proxy-uri&quot;                <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only</programlisting>
+<para>The HTTP Proxy to use for this connection.</para></refsect2>
+<refsect2><title><anchor id="SoupConnection--ssl-creds"/>The &quot;<literal>ssl-creds</literal>&quot; property</title>
+<indexterm><primary>SoupConnection:ssl-creds</primary></indexterm><programlisting>  &quot;ssl-creds&quot;                <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only</programlisting>
+<para>Opaque SSL credentials for this connection.</para></refsect2>
+<refsect2><title><anchor id="SoupConnection--timeout"/>The &quot;<literal>timeout</literal>&quot; property</title>
+<indexterm><primary>SoupConnection:timeout</primary></indexterm><programlisting>  &quot;timeout&quot;                  <link linkend="guint">guint</link>                 : Read / Write</programlisting>
+<para>Value in seconds to timeout a blocking I/O.</para><para>Default value: 0</para>
+</refsect2>
+
+</refsect1>
+
+<refsect1 role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2><title><anchor id="SoupConnection-authenticate"/>The &quot;authenticate&quot; signal</title>
+<indexterm><primary>SoupConnection::authenticate</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="SoupConnection">SoupConnection</link> *conn,
+                                                        <link linkend="SoupMessage">SoupMessage</link>    *msg,
+                                                        <link linkend="gchar">gchar</link>          *auth_type,
+                                                        <link linkend="gchar">gchar</link>          *auth_realm,
+                                                        <link linkend="gpointer">gpointer</link>        username,
+                                                        <link linkend="gpointer">gpointer</link>        password,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)       : Run First</programlisting>
+<para>
+Emitted when the connection requires authentication.
+(<link linkend="SoupConnectionNTLM"><type>SoupConnectionNTLM</type></link> makes use of this.)</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> the connection
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>msg</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="SoupMessage"><type>SoupMessage</type></link> being sent
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>auth_type</parameter>&nbsp;:</term>
+<listitem><simpara> the authentication type
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>auth_realm</parameter>&nbsp;:</term>
+<listitem><simpara> the realm being authenticated to
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>username</parameter>&nbsp;:</term>
+<listitem><simpara> the signal handler should set this to point to
+the provided username
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>password</parameter>&nbsp;:</term>
+<listitem><simpara> the signal handler should set this to point to
+the provided password
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2><title><anchor id="SoupConnection-connect-result"/>The &quot;connect-result&quot; signal</title>
+<indexterm><primary>SoupConnection::connect-result</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="SoupConnection">SoupConnection</link> *conn,
+                                                        <link linkend="gint">gint</link>            status,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)      : Run First</programlisting>
+<para>
+Emitted when a connection attempt succeeds or fails. This
+is used internally by <link linkend="soup-connection-connect-async"><function>soup_connection_connect_async()</function></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> the connection
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>status</parameter>&nbsp;:</term>
+<listitem><simpara> the status
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2><title><anchor id="SoupConnection-disconnected"/>The &quot;disconnected&quot; signal</title>
+<indexterm><primary>SoupConnection::disconnected</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="SoupConnection">SoupConnection</link> *conn,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)      : Run First</programlisting>
+<para>
+Emitted when the connection's socket is disconnected, for
+whatever reason.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> the connection
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2><title><anchor id="SoupConnection-reauthenticate"/>The &quot;reauthenticate&quot; signal</title>
+<indexterm><primary>SoupConnection::reauthenticate</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="SoupConnection">SoupConnection</link> *conn,
+                                                        <link linkend="SoupMessage">SoupMessage</link>    *msg,
+                                                        <link linkend="gchar">gchar</link>          *auth_type,
+                                                        <link linkend="gchar">gchar</link>          *auth_realm,
+                                                        <link linkend="gpointer">gpointer</link>        username,
+                                                        <link linkend="gpointer">gpointer</link>        password,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)       : Run First</programlisting>
+<para>
+Emitted when the authentication data acquired by a previous
+<link linkend="authenticate"><literal>authenticate</literal></link> or <link linkend="reauthenticate"><literal>reauthenticate</literal></link> signal fails.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>conn</parameter>&nbsp;:</term>
+<listitem><simpara> the connection
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>msg</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="SoupMessage"><type>SoupMessage</type></link> being sent
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>auth_type</parameter>&nbsp;:</term>
+<listitem><simpara> the authentication type
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>auth_realm</parameter>&nbsp;:</term>
+<listitem><simpara> the realm being authenticated to
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>username</parameter>&nbsp;:</term>
+<listitem><simpara> the signal handler should set this to point to
+the provided username
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>password</parameter>&nbsp;:</term>
+<listitem><simpara> the signal handler should set this to point to
+the provided password
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

@@ -1,0 +1,2 @@
+configure-fix.patch -p1
+fix-redundant-rpath.patch -p1

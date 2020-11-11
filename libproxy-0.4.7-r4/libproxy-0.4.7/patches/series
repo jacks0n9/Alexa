@@ -1,0 +1,2 @@
+g++-namepace.patch -p1
+libproxy_fix_for_gcc4.7.patch -p1

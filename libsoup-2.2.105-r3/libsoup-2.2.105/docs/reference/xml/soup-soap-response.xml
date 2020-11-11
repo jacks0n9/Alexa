@@ -1,0 +1,424 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="SoupSoapResponse">
+<refmeta>
+<refentrytitle role="top_of_page">SoupSoapResponse</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBSOUP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>SoupSoapResponse</refname>
+<refpurpose>A SOAP response</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+                    <link linkend="SoupSoapResponse-struct">SoupSoapResponse</link>;
+typedef             <link linkend="SoupSoapParameter">SoupSoapParameter</link>;
+<link linkend="SoupSoapResponse">SoupSoapResponse</link>*   <link linkend="soup-soap-response-new">soup_soap_response_new</link>              (void);
+<link linkend="SoupSoapResponse">SoupSoapResponse</link>*   <link linkend="soup-soap-response-new-from-string">soup_soap_response_new_from_string</link>  (const <link linkend="char">char</link> *xmlstr);
+<link linkend="void">void</link>                <link linkend="soup-soap-response-set-method-name">soup_soap_response_set_method_name</link>  (<link linkend="SoupSoapResponse">SoupSoapResponse</link> *response,
+                                                         const <link linkend="char">char</link> *method_name);
+<link linkend="SoupSoapParameter">SoupSoapParameter</link>*  <link linkend="soup-soap-parameter-get-first-child">soup_soap_parameter_get_first_child</link> (<link linkend="SoupSoapParameter">SoupSoapParameter</link> *param);
+<link linkend="SoupSoapParameter">SoupSoapParameter</link>*  <link linkend="soup-soap-parameter-get-first-child-by-name">soup_soap_parameter_get_first_child_by_name</link>
+                                                        (<link linkend="SoupSoapParameter">SoupSoapParameter</link> *param,
+                                                         const <link linkend="char">char</link> *name);
+<link linkend="int">int</link>                 <link linkend="soup-soap-parameter-get-int-value">soup_soap_parameter_get_int_value</link>   (<link linkend="SoupSoapParameter">SoupSoapParameter</link> *param);
+const <link linkend="char">char</link>*         <link linkend="soup-soap-parameter-get-name">soup_soap_parameter_get_name</link>        (<link linkend="SoupSoapParameter">SoupSoapParameter</link> *param);
+<link linkend="SoupSoapParameter">SoupSoapParameter</link>*  <link linkend="soup-soap-parameter-get-next-child">soup_soap_parameter_get_next_child</link>  (<link linkend="SoupSoapParameter">SoupSoapParameter</link> *param);
+<link linkend="SoupSoapParameter">SoupSoapParameter</link>*  <link linkend="soup-soap-parameter-get-next-child-by-name">soup_soap_parameter_get_next_child_by_name</link>
+                                                        (<link linkend="SoupSoapParameter">SoupSoapParameter</link> *param,
+                                                         const <link linkend="char">char</link> *name);
+<link linkend="char">char</link>*               <link linkend="soup-soap-parameter-get-property">soup_soap_parameter_get_property</link>    (<link linkend="SoupSoapParameter">SoupSoapParameter</link> *param,
+                                                         const <link linkend="char">char</link> *prop_name);
+<link linkend="char">char</link>*               <link linkend="soup-soap-parameter-get-string-value">soup_soap_parameter_get_string_value</link>
+                                                        (<link linkend="SoupSoapParameter">SoupSoapParameter</link> *param);
+<link linkend="gboolean">gboolean</link>            <link linkend="soup-soap-response-from-string">soup_soap_response_from_string</link>      (<link linkend="SoupSoapResponse">SoupSoapResponse</link> *response,
+                                                         const <link linkend="char">char</link> *xmlstr);
+<link linkend="SoupSoapParameter">SoupSoapParameter</link>*  <link linkend="soup-soap-response-get-first-parameter">soup_soap_response_get_first_parameter</link>
+                                                        (<link linkend="SoupSoapResponse">SoupSoapResponse</link> *response);
+<link linkend="SoupSoapParameter">SoupSoapParameter</link>*  <link linkend="soup-soap-response-get-first-parameter-by-name">soup_soap_response_get_first_parameter_by_name</link>
+                                                        (<link linkend="SoupSoapResponse">SoupSoapResponse</link> *response,
+                                                         const <link linkend="char">char</link> *name);
+const <link linkend="char">char</link>*         <link linkend="soup-soap-response-get-method-name">soup_soap_response_get_method_name</link>  (<link linkend="SoupSoapResponse">SoupSoapResponse</link> *response);
+<link linkend="SoupSoapParameter">SoupSoapParameter</link>*  <link linkend="soup-soap-response-get-next-parameter">soup_soap_response_get_next_parameter</link>
+                                                        (<link linkend="SoupSoapResponse">SoupSoapResponse</link> *response,
+                                                         <link linkend="SoupSoapParameter">SoupSoapParameter</link> *from);
+<link linkend="SoupSoapParameter">SoupSoapParameter</link>*  <link linkend="soup-soap-response-get-next-parameter-by-name">soup_soap_response_get_next_parameter_by_name</link>
+                                                        (<link linkend="SoupSoapResponse">SoupSoapResponse</link> *response,
+                                                         <link linkend="SoupSoapParameter">SoupSoapParameter</link> *from,
+                                                         const <link linkend="char">char</link> *name);
+const <link linkend="GList">GList</link>*        <link linkend="soup-soap-response-get-parameters">soup_soap_response_get_parameters</link>   (<link linkend="SoupSoapResponse">SoupSoapResponse</link> *response);
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----SoupSoapResponse
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="SoupSoapResponse-struct" role="struct"/>SoupSoapResponse</title>
+<indexterm><primary>SoupSoapResponse</primary></indexterm><programlisting>typedef struct _SoupSoapResponse SoupSoapResponse;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="SoupSoapParameter" role="typedef"/>SoupSoapParameter</title>
+<indexterm><primary>SoupSoapParameter</primary></indexterm><programlisting>typedef xmlNode SoupSoapParameter;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="soup-soap-response-new" role="function"/>soup_soap_response_new ()</title>
+<indexterm><primary>soup_soap_response_new</primary></indexterm><programlisting><link linkend="SoupSoapResponse">SoupSoapResponse</link>*   soup_soap_response_new              (void);</programlisting>
+<para>
+Create a new empty <link linkend="SoupSoapResponse"><type>SoupSoapResponse</type></link> object, which can be modified
+with the accessor functions provided with this class.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the new <link linkend="SoupSoapResponse"><type>SoupSoapResponse</type></link> (or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if there was an
+error).
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-soap-response-new-from-string" role="function"/>soup_soap_response_new_from_string ()</title>
+<indexterm><primary>soup_soap_response_new_from_string</primary></indexterm><programlisting><link linkend="SoupSoapResponse">SoupSoapResponse</link>*   soup_soap_response_new_from_string  (const <link linkend="char">char</link> *xmlstr);</programlisting>
+<para>
+Create a new <link linkend="SoupSoapResponse"><type>SoupSoapResponse</type></link> object from the XML string contained
+in <parameter>xmlstr</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>xmlstr</parameter>&nbsp;:</term>
+<listitem><simpara> the XML string to parse.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the new <link linkend="SoupSoapResponse"><type>SoupSoapResponse</type></link> (or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if there was an
+error).
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-soap-response-set-method-name" role="function"/>soup_soap_response_set_method_name ()</title>
+<indexterm><primary>soup_soap_response_set_method_name</primary></indexterm><programlisting><link linkend="void">void</link>                soup_soap_response_set_method_name  (<link linkend="SoupSoapResponse">SoupSoapResponse</link> *response,
+                                                         const <link linkend="char">char</link> *method_name);</programlisting>
+<para>
+Sets the method name on the given <link linkend="SoupSoapResponse"><type>SoupSoapResponse</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>response</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="SoupSoapResponse"><type>SoupSoapResponse</type></link> object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>method_name</parameter>&nbsp;:</term>
+<listitem><simpara> the method name to set.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-soap-parameter-get-first-child" role="function"/>soup_soap_parameter_get_first_child ()</title>
+<indexterm><primary>soup_soap_parameter_get_first_child</primary></indexterm><programlisting><link linkend="SoupSoapParameter">SoupSoapParameter</link>*  soup_soap_parameter_get_first_child (<link linkend="SoupSoapParameter">SoupSoapParameter</link> *param);</programlisting>
+<para>
+Gets the first child of the given <link linkend="SoupSoapParameter"><type>SoupSoapParameter</type></link>. This is used
+for compound data types, which can contain several parameters
+themselves.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>param</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="SoupSoapParameter"><type>SoupSoapParameter</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the first child or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if there are no children.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-soap-parameter-get-first-child-by-name" role="function"/>soup_soap_parameter_get_first_child_by_name ()</title>
+<indexterm><primary>soup_soap_parameter_get_first_child_by_name</primary></indexterm><programlisting><link linkend="SoupSoapParameter">SoupSoapParameter</link>*  soup_soap_parameter_get_first_child_by_name
+                                                        (<link linkend="SoupSoapParameter">SoupSoapParameter</link> *param,
+                                                         const <link linkend="char">char</link> *name);</programlisting>
+<para>
+Gets the first child of the given <link linkend="SoupSoapParameter"><type>SoupSoapParameter</type></link> whose name is
+<parameter>name</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>param</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="SoupSoapParameter"><type>SoupSoapParameter</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the child parameter to look for.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the first child with the given name or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if there
+are no children.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-soap-parameter-get-int-value" role="function"/>soup_soap_parameter_get_int_value ()</title>
+<indexterm><primary>soup_soap_parameter_get_int_value</primary></indexterm><programlisting><link linkend="int">int</link>                 soup_soap_parameter_get_int_value   (<link linkend="SoupSoapParameter">SoupSoapParameter</link> *param);</programlisting>
+<para>
+Returns the parameter's (integer) value.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>param</parameter>&nbsp;:</term>
+<listitem><simpara> the parameter
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the parameter value as an integer
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-soap-parameter-get-name" role="function"/>soup_soap_parameter_get_name ()</title>
+<indexterm><primary>soup_soap_parameter_get_name</primary></indexterm><programlisting>const <link linkend="char">char</link>*         soup_soap_parameter_get_name        (<link linkend="SoupSoapParameter">SoupSoapParameter</link> *param);</programlisting>
+<para>
+Returns the parameter name.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>param</parameter>&nbsp;:</term>
+<listitem><simpara> the parameter
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the parameter name.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-soap-parameter-get-next-child" role="function"/>soup_soap_parameter_get_next_child ()</title>
+<indexterm><primary>soup_soap_parameter_get_next_child</primary></indexterm><programlisting><link linkend="SoupSoapParameter">SoupSoapParameter</link>*  soup_soap_parameter_get_next_child  (<link linkend="SoupSoapParameter">SoupSoapParameter</link> *param);</programlisting>
+<para>
+Gets the next sibling of the given <link linkend="SoupSoapParameter"><type>SoupSoapParameter</type></link>. This is used
+for compound data types, which can contain several parameters
+themselves.
+</para>
+<para>
+FIXME: the name of this method is wrong</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>param</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="SoupSoapParameter"><type>SoupSoapParameter</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the next sibling, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if there are no more
+siblings.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-soap-parameter-get-next-child-by-name" role="function"/>soup_soap_parameter_get_next_child_by_name ()</title>
+<indexterm><primary>soup_soap_parameter_get_next_child_by_name</primary></indexterm><programlisting><link linkend="SoupSoapParameter">SoupSoapParameter</link>*  soup_soap_parameter_get_next_child_by_name
+                                                        (<link linkend="SoupSoapParameter">SoupSoapParameter</link> *param,
+                                                         const <link linkend="char">char</link> *name);</programlisting>
+<para>
+Gets the next sibling of the given <link linkend="SoupSoapParameter"><type>SoupSoapParameter</type></link> whose name is
+<parameter>name</parameter>.
+</para>
+<para>
+FIXME: the name of this method is wrong</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>param</parameter>&nbsp;:</term>
+<listitem><simpara> A <link linkend="SoupSoapParameter"><type>SoupSoapParameter</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> The name of the sibling parameter to look for.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the next sibling with the given name, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-soap-parameter-get-property" role="function"/>soup_soap_parameter_get_property ()</title>
+<indexterm><primary>soup_soap_parameter_get_property</primary></indexterm><programlisting><link linkend="char">char</link>*               soup_soap_parameter_get_property    (<link linkend="SoupSoapParameter">SoupSoapParameter</link> *param,
+                                                         const <link linkend="char">char</link> *prop_name);</programlisting>
+<para>
+Returns the named property of <parameter>param</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>param</parameter>&nbsp;:</term>
+<listitem><simpara> the parameter
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>prop_name</parameter>&nbsp;:</term>
+<listitem><simpara> Name of the property to retrieve.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the property, which must be freed by the caller.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-soap-parameter-get-string-value" role="function"/>soup_soap_parameter_get_string_value ()</title>
+<indexterm><primary>soup_soap_parameter_get_string_value</primary></indexterm><programlisting><link linkend="char">char</link>*               soup_soap_parameter_get_string_value
+                                                        (<link linkend="SoupSoapParameter">SoupSoapParameter</link> *param);</programlisting>
+<para>
+Returns the parameter's value.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>param</parameter>&nbsp;:</term>
+<listitem><simpara> the parameter
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the parameter value as a string, which must be freed
+by the caller.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-soap-response-from-string" role="function"/>soup_soap_response_from_string ()</title>
+<indexterm><primary>soup_soap_response_from_string</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            soup_soap_response_from_string      (<link linkend="SoupSoapResponse">SoupSoapResponse</link> *response,
+                                                         const <link linkend="char">char</link> *xmlstr);</programlisting>
+<para>
+Parses the string contained in <parameter>xmlstr</parameter> and sets all properties from
+it in the <parameter>response</parameter> object.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>response</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="SoupSoapResponse"><type>SoupSoapResponse</type></link> object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>xmlstr</parameter>&nbsp;:</term>
+<listitem><simpara> XML string to parse.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if successful, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> otherwise.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-soap-response-get-first-parameter" role="function"/>soup_soap_response_get_first_parameter ()</title>
+<indexterm><primary>soup_soap_response_get_first_parameter</primary></indexterm><programlisting><link linkend="SoupSoapParameter">SoupSoapParameter</link>*  soup_soap_response_get_first_parameter
+                                                        (<link linkend="SoupSoapResponse">SoupSoapResponse</link> *response);</programlisting>
+<para>
+Retrieves the first parameter contained in the SOAP response.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>response</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="SoupSoapResponse"><type>SoupSoapResponse</type></link> object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a <link linkend="SoupSoapParameter"><type>SoupSoapParameter</type></link> representing the first
+parameter, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> if there are no parameters.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-soap-response-get-first-parameter-by-name" role="function"/>soup_soap_response_get_first_parameter_by_name ()</title>
+<indexterm><primary>soup_soap_response_get_first_parameter_by_name</primary></indexterm><programlisting><link linkend="SoupSoapParameter">SoupSoapParameter</link>*  soup_soap_response_get_first_parameter_by_name
+                                                        (<link linkend="SoupSoapResponse">SoupSoapResponse</link> *response,
+                                                         const <link linkend="char">char</link> *name);</programlisting>
+<para>
+Retrieves the first parameter contained in the SOAP response whose
+name is <parameter>name</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>response</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="SoupSoapResponse"><type>SoupSoapResponse</type></link> object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> the name of the parameter to look for.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a <link linkend="SoupSoapParameter"><type>SoupSoapParameter</type></link> representing the first parameter
+with the given name, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-soap-response-get-method-name" role="function"/>soup_soap_response_get_method_name ()</title>
+<indexterm><primary>soup_soap_response_get_method_name</primary></indexterm><programlisting>const <link linkend="char">char</link>*         soup_soap_response_get_method_name  (<link linkend="SoupSoapResponse">SoupSoapResponse</link> *response);</programlisting>
+<para>
+Gets the method name from the SOAP response.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>response</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="SoupSoapResponse"><type>SoupSoapResponse</type></link> object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the method name.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-soap-response-get-next-parameter" role="function"/>soup_soap_response_get_next_parameter ()</title>
+<indexterm><primary>soup_soap_response_get_next_parameter</primary></indexterm><programlisting><link linkend="SoupSoapParameter">SoupSoapParameter</link>*  soup_soap_response_get_next_parameter
+                                                        (<link linkend="SoupSoapResponse">SoupSoapResponse</link> *response,
+                                                         <link linkend="SoupSoapParameter">SoupSoapParameter</link> *from);</programlisting>
+<para>
+Retrieves the parameter following <parameter>from</parameter> in the <link linkend="SoupSoapResponse"><type>SoupSoapResponse</type></link>
+object.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>response</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="SoupSoapResponse"><type>SoupSoapResponse</type></link> object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>from</parameter>&nbsp;:</term>
+<listitem><simpara> the parameter to start from.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a <link linkend="SoupSoapParameter"><type>SoupSoapParameter</type></link> representing the parameter.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-soap-response-get-next-parameter-by-name" role="function"/>soup_soap_response_get_next_parameter_by_name ()</title>
+<indexterm><primary>soup_soap_response_get_next_parameter_by_name</primary></indexterm><programlisting><link linkend="SoupSoapParameter">SoupSoapParameter</link>*  soup_soap_response_get_next_parameter_by_name
+                                                        (<link linkend="SoupSoapResponse">SoupSoapResponse</link> *response,
+                                                         <link linkend="SoupSoapParameter">SoupSoapParameter</link> *from,
+                                                         const <link linkend="char">char</link> *name);</programlisting>
+<para>
+Retrieves the first parameter following <parameter>from</parameter> in the
+<link linkend="SoupSoapResponse"><type>SoupSoapResponse</type></link> object whose name matches <parameter>name</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>response</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="SoupSoapResponse"><type>SoupSoapResponse</type></link> object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>from</parameter>&nbsp;:</term>
+<listitem><simpara> the parameter to start from.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>name</parameter>&nbsp;:</term>
+<listitem><simpara> the name of the parameter to look for.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a <link linkend="SoupSoapParameter"><type>SoupSoapParameter</type></link> representing the parameter.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-soap-response-get-parameters" role="function"/>soup_soap_response_get_parameters ()</title>
+<indexterm><primary>soup_soap_response_get_parameters</primary></indexterm><programlisting>const <link linkend="GList">GList</link>*        soup_soap_response_get_parameters   (<link linkend="SoupSoapResponse">SoupSoapResponse</link> *response);</programlisting>
+<para>
+Returns the list of parameters received in the SOAP response.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>response</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="SoupSoapResponse"><type>SoupSoapResponse</type></link> object.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a list of <link linkend="SoupSoapParameter"><type>SoupSoapParameter</type></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

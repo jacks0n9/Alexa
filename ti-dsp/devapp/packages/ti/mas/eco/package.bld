@@ -1,0 +1,393 @@
+/******************************************************************************
+ * FILE PURPOSE:  Build description for package ti.mas.eco.
+ ******************************************************************************
+ * FILE NAME:     package.bld
+ *
+ * DESCRIPTION:   This file contains attributes to build and create releases
+ *                for ti.mas.eco package
+ *
+ * Copyright (c) 2009, Texas Instruments, Inc.
+ ******************************************************************************/
+/* List of XDC files to be delivered as part of source/object release */
+var eco_src_xdc_files = [
+  "package.bld",
+  "Makedocs.mk"
+];
+
+var eco_obj_xdc_files = [
+  "package.xdc",
+  "package.xs"
+];
+
+/* List of documents to be delivered as part of object release */
+var eco_obj_docs_files = "docs/doxygen/html";
+
+/* List of documents to be delivered as part of source release */
+var eco_src_docs_files = [
+  "docs/doxygen/APIDoxyfile",
+  "docs/doxygen/Doxyfile",
+  "docs/doxygen/doxygen.h",
+  "docs/doxygen/tifooter.htm",
+  "docs/doxygen/tiheader.htm",
+  "docs/doxygen/tilogo.gif",
+  "docs/doxygen/titagline.gif"
+];
+
+/*
+ * List of header files to be delivered as part of source delivery,
+ * other than  module headers
+ */
+var eco_h_files = [
+  "_eco.h"
+];
+
+/* List of eco C source files */
+var eco_c_files = [
+  "eco_skel.c",
+  "eco_stub.c",
+  "eco.c"
+];
+
+/* List of eco assembly/linear assembly files */
+var eco_asm_files = [
+];
+
+/*
+ * List of eco interface and module header files 
+ * to be delivered as part of any delivery,
+ */
+var eco_iface_files = [
+  "eco.h",
+  "ieco.h"
+];
+
+/*******************************************************************************
+  The main package.bld routine starts here 
+*******************************************************************************/
+var Pkg = xdc.useModule('xdc.bld.PackageContents');
+
+/* Set up version numbers for this package */
+var version = [1,0,0,0];
+
+/* generate version.xdc based on the version array above */
+var tplt = xdc.loadTemplate('ti/mas/swtools/Version.xdt');
+tplt.genFile('Version.xdc', Pkg, version);
+Pkg.generatedFiles = ["Version.xdc"];
+
+/* Include custom makefile to generate doxygen documents */
+Pkg.makePrologue = "include Makedocs.mk";
+
+/* AFE supports following target architectures */
+targets = [C64P, MVArm9, GCArmv6, GCArmv7A];
+
+/* Requested target architecture, initialized to empty */
+targs = [];
+
+/* Release tarball target extension */
+var ext = "";
+
+/* Delivery whether source or object: default is object */
+var delivery = "obj";
+
+/* Release type: debug or release default is release */
+var reltype = "release";
+
+/* Exit flag */
+var exitflag = 0;
+
+/* platform type */
+var platformtype = "evmTNETV107X";
+
+
+var args_xs = java.lang.System.getenv("ARGS_XS");
+if (args_xs != null) {
+  var getArgs = xdc.loadCapsule(args_xs);
+  getArgs.getPkgArgs(Pkg.name, arguments);
+  getArgs.showPkgArgs(Pkg.name, arguments);
+}
+else {
+  /* Use XDCARGS passed in from build command */
+  print ("NO ARGS SCRIPT ENV VAR SPECIFIED");
+}
+
+/*
+ * Function to create release based on the option supplied
+ */
+function createRelease (targets, delivery, ext, reltype)
+{
+  var i = 0, j = 0;
+  var releaseName = "ti_mas_eco_" + delivery + "_" + ext + "_" + version[0] +
+                    "_" + version[1] + "_" + version[2] + "_" + version[3];
+  var fileArray = [];
+  for (i = 0; i < targets.length; i++) {
+    var targ = targets[i];
+    switch (targ) {
+      case C64P:
+      {
+        var debugLibAttr = {
+          copts: " -g --no_compress -q -pdr -pdv -pden -ml3 " + 
+                 " --disable:sploop ",
+          aopts: " -g -ea.s -c -k -mi200 -ml3 -mv64+ -pm ",
+          defs:  " "
+        }
+      
+        var releaseLibAttr = {
+          copts: " -c -k -q --mem_model:data=far -al -pds1111 " +
+                 " -pds827 -pds824 -pds837 -pds1037 -pds195 -pdsw225 " +
+                 " -pdsw994 -pdsw262 -pds77 -pden --consultant -mt " +
+                 " -mw -os -o3 --optimize_with_debug -g -mh1023 " +
+                 " -mi10000 -as -ss ",
+          aopts: " -g -ea.s -c -k -mi200 -ml3 -mv64+ -pm ",
+          defs:  " "
+        }
+
+        var dstDir = "c" + targ.suffix;
+        var srcDir = "c" + targ.suffix;
+        if (reltype == "debug") {
+          var clib = Pkg.addLibrary (dstDir + "/eco_c", targ, debugLibAttr);
+        }
+        else {
+          var clib = Pkg.addLibrary (dstDir + "/eco_c", targ, releaseLibAttr);
+        }
+
+        /* Add C source code to be compiled and build */
+        clib.addObjects (eco_c_files);
+
+        /* Add assembly code to be compiled and build */
+        clib.addObjects (eco_asm_files);
+                
+        /* Add library created */
+        fileArray[i] = "c" + targ.suffix + "/eco_c.a" + targ.suffix;
+
+        break;
+      }
+      case MVArm9:
+      case GCArmv6:
+      case GCArmv7A:
+      {
+      	if (xdc.om['xdc.bld'].BuildEnvironment.hostOSName == "Windows")
+        {
+        	print("target " + targ + " not supported on Host " + xdc.om['xdc.bld'].BuildEnvironment.hostOSName);           	
+        	fileArray[i] = "";
+			break;
+        }
+        var debugLibAttr = {
+          copts: " -c -g -ggdb -O0",
+        }
+        var releaseLibAttr = {
+          copts: " -c -g -ggdb -O0",
+        }
+        var dstDir = "a" + targ.suffix;
+        var srcDir = "a" + targ.suffix;
+        if (reltype == "debug") {
+          var clib = Pkg.addLibrary (dstDir + "/eco_a", targ, debugLibAttr);
+        }
+        else {
+          var clib = Pkg.addLibrary (dstDir + "/eco_a", targ, releaseLibAttr);
+        }
+
+        /* Add C source code to be compiled and build */
+        clib.addObjects (eco_c_files);
+
+        /* Add assembly code to be compiled and build */
+        clib.addObjects (eco_asm_files);
+                
+        /* Add library created */
+        fileArray[i] = "a" + targ.suffix + "/eco_a.a" + targ.suffix;
+
+        break;
+      }
+      case WinCE:
+      {
+      	if (xdc.om['xdc.bld'].BuildEnvironment.hostOSName == "Linux")
+		{
+			print("target " + targ + " not supported on Host " + xdc.om['xdc.bld'].BuildEnvironment.hostOSName);   
+			fileArray[i] = "";
+			break;
+		}
+		var incpaths =  " -I" + WinCE.rootDir + "\\PUBLIC\\COMMON\\DDK\\INC -I" + WinCE.rootDir + "\\PUBLIC\\COMMON\\SDK\\INC -I" + WinCE.rootDir + "\\PUBLIC\\COMMON\\OAK\\INC "; 
+		incpaths    += " -I$(_TARGETPLATROOT)\\SRC\\INC "
+		
+        var debugLibAttr = {
+          copts: incpaths,
+        }
+        var releaseLibAttr = {
+          copts: incpaths,
+        }
+        var dstDir = "a" + targ.suffix;
+        var srcDir = "a" + targ.suffix;
+        if (reltype == "debug") {
+          var clib = Pkg.addLibrary (dstDir + "/eco_a", targ, debugLibAttr);
+        }
+        else {
+          var clib = Pkg.addLibrary (dstDir + "/eco_a", targ, releaseLibAttr);
+        }
+
+        /* Add C source code to be compiled and build */
+        clib.addObjects (eco_c_files);
+
+        /* Add assembly code to be compiled and build */
+        clib.addObjects (eco_asm_files);
+                
+        /* Add library created */
+        fileArray[i] = "a" + targ.suffix + "/eco_a.a" + targ.suffix;
+
+        break;
+      }
+      default:
+        print ("NO TARGET SPECIFIED");
+        break;
+    }
+  }
+
+  /* Add common files to source and object delivery to fileArray */
+  var j = targets.length;
+  for (i = 0; i < eco_obj_xdc_files.length; i++, j++) {
+    fileArray[j] = eco_obj_xdc_files[i];
+  }
+
+  /* Add AIU iface files to be included for obj delivery */
+  for (i = 0; i < eco_iface_files.length; i++, j++) {
+    fileArray[j] = eco_iface_files[i];
+  }
+
+  if (delivery == "obj") {
+    var obj = Pkg.addRelease(releaseName,{compress: false, archiver: "zip"});
+    fileArray[j++] = eco_obj_docs_files;
+    obj.otherFiles = fileArray;
+    Pkg.defaultRelease = obj;
+  }
+
+  if (delivery == "src") {
+
+    fileArray[j++] = eco_obj_docs_files;
+
+    var n = fileArray.length, m = 0;
+
+    /* Add ECO h files to be included for src delivery */
+    for (m = 0; m < eco_h_files.length; m++, n++) {
+      fileArray[n] = eco_h_files[m];
+    }
+
+    /* Add ECO c files to be included for src delivery */
+    for (m = 0; m < eco_c_files.length; m++, n++) {
+      fileArray[n] = eco_c_files[m];
+    }
+
+    /* Add ECO asm files to be included for src delivery */
+    for (m = 0; m < eco_asm_files.length; m++, n++) {
+      fileArray[n] = eco_asm_files[m];
+    }
+
+    /* Add ECO src docs files to be included for src delivery */
+    for (m = 0; m < eco_src_docs_files.length; m++, n++) {
+      fileArray[n] = eco_src_docs_files[m];
+    }
+
+    /* Add ECO src xdc files to be included for src delivery */
+    for (m = 0; m < eco_src_xdc_files.length; m++, n++) {
+      fileArray[n] = eco_src_xdc_files[m];
+    }
+
+    var obj = Pkg.addRelease(releaseName,{compress: false, archiver: "zip"});
+    obj.otherFiles = fileArray;
+    Pkg.defaultRelease = obj;
+  }
+}
+
+/* Parse the arguments supplied to package.bld */
+/* NOTE: the arguments could be supplied in any order */
+
+var t = 0;
+var add_targ = null;
+
+for (var k = 0; k < arguments.length; k++) {
+  switch (arguments[k]) {
+    case "all":
+      print ("ECO WILL BE BUILD FOR ALL SUPPORTED TARGET");
+      targs = [C64P, MVArm9, GCArmv6, GCArmv7A, WinCE];
+      break;
+    case "c64Ple":
+      print ("ECO WILL BE BUILD FOR C64+ TARGET");
+      add_targ = C64P;
+      break;
+    case "MVArm9":
+    case "mvarm9":
+      print ("ECO WILL BE BUILD FOR MV ARM9 TARGET");
+      add_targ = MVArm9;
+      break;
+    case "GCArmv6":
+    case "gcarmv6":
+      print ("ECO WILL BE BUILD FOR GCArmv6 TARGET");
+      add_targ = GCArmv6;
+      break;
+    case "GCArmv7A":
+    case "gcarmv7a":
+      print ("ECO WILL BE BUILD FOR GCArmv7A TARGET");
+      add_targ = GCArmv7A;
+      break;
+    case "WinCE":
+    case "wince":
+      print ("ECO WILL BE BUILD FOR WinCE TARGET");
+      add_targ = WinCE;
+      break;
+    case "obj":
+      print ("IF THIS IS RELEASE: OBJECT RELEASE WILL BE CREATED");
+      delivery = "obj";
+      break;
+    case "src":
+      print ("IF THIS IS RELEASE: SOURCE RELEASE WILL BE CREATED");
+      delivery = "src";
+      break;
+    case "debug":
+      print ("ECO WILL BE COMPILED FOR DEBUGGING");
+      reltype = "debug";
+      break;
+    case "dm6446":
+      print ("APP WILL BE BUILD FOR DaVinci PLATFORM");
+      platformtype = "evmDM6446";
+      break;
+    default:
+      print ("Invalid argument supplied : " + arguments[k]);
+      exitflag = 1;
+      break;
+  }
+
+  if (add_targ != null) {
+
+      /* check if target is already added */
+      for (var nn= 0; nn < targs.length; nn++) {
+          if (targs[nn] == add_targ) {
+              print ("*** " + add_targ + " already added");
+              break;
+          }
+      }
+
+      if (nn >= targs.length) {
+          /* Target not yet added. Add it. */
+          targs[t++] = add_targ;
+      }
+
+      add_targ = null;
+  }
+}
+
+if (arguments.length == 0) {
+  exitflag = 1;
+}
+
+if (exitflag == 0) {
+  createRelease (targs, delivery, ext, reltype);
+}
+
+/* clean target */
+Pkg.makeEpilogue += "clean::\n\t-$(RM) -f ti_mas_eco_*.tar\n";
+Pkg.makeEpilogue += "clean::\n\t-$(RM) Version.xdc\n";
+Pkg.makeEpilogue += "clean::\n\t-$(RM) -f .xdcenv.mak\n";
+Pkg.makeEpilogue += "clean::\n\t-$(RMDIR) c64P\n";
+Pkg.makeEpilogue += "clean::\n\t-$(RMDIR) a470MV\n";
+Pkg.makeEpilogue += "clean::\n\t-$(RMDIR) av4TCE\n";
+Pkg.makeEpilogue += "clean::\n\t-$(RMDIR) av6\n";
+Pkg.makeEpilogue += "clean::\n\t-$(RMDIR) av5T\n";
+
+/* nothing past this point */

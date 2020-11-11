@@ -1,0 +1,7 @@
+ltrace_0.5.3-2.1.diff -p1
+add-sysdep.patch -p1
+ltrace-compile.patch -p1
+ltrace-mips-remove-CP.patch -p1
+ltrace-mips.patch -p1
+ltrace-ppc.patch -p1
+ltrace-fix-sysdep_h-dependency.patch -p1

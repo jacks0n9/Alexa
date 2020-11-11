@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.bios.power" version="1, 1, 1">
+    <units>
+        <interface name="ITMS320CDM644x"/>
+        <module name="TMS320CDM6441GPP"/>
+        <module name="TMS320CDM6441DSP"/>
+        <module name="TMS320CDM6446GPP"/>
+        <module name="TMS320CDM6446DSP"/>
+        <module name="TMS320C3430GPP"/>
+        <module name="TMS320C3430DSP"/>
+        <module name="OMAP2530GPP"/>
+        <module name="OMAP2530DSP"/>
+        <module name="OMAP3530GPP"/>
+        <module name="OMAP3530DSP"/>
+    </units>
+    <sources>
+        <srcFile name="src/pwrm/_pwrm_savL1pDM420.s64P"/>
+        <srcFile name="src/pwrm/_pwrm_resL1pDM420.s64P"/>
+        <srcFile name="src/pwrm/pwrm_urg.c"/>
+        <srcFile name="package/package_ti.bios.power.c"/>
+        <srcFile name="src/lpm/lpm_api.c"/>
+        <srcFile name="src/pwrm/_pwrm_zeroJimDM420.s64P"/>
+        <srcFile name="src/pwrm/_pwrm_edma3DM420.s64P"/>
+        <srcFile name="src/pwrm/_pwrm_savImcopDM420.s64P"/>
+        <srcFile name="src/pwrm/pwrm_idleFxnDM420.c"/>
+        <srcFile name="src/pwrm/_pwrm_savJimPdDM420.s64P"/>
+        <srcFile name="src/pwrm/_pwrm_savL1dDM420.s64P"/>
+        <srcFile name="src/tal/tal_dsplink_dsp.c"/>
+        <srcFile name="src/pwrm/_pwrm_resL1dDM420.s64P"/>
+        <srcFile name="src/pwrm/_pwrm_edma3ZeroDM420.s64P"/>
+        <srcFile name="src/pwrm/_pwrm_resJouleDM420.s64P"/>
+        <srcFile name="src/pwrm/_pwrm_cacheDM420.s64P"/>
+        <srcFile name="src/pwrm/_pwrm_dataDM420.s64P"/>
+        <srcFile name="src/pwrm/_pwrm_resImcopDM420.s64P"/>
+        <srcFile name="src/tal/lpm_tal_idle_dsp_omap3530.c"/>
+        <srcFile name="src/pwrm/_pwrm_resL2DM420.s64P"/>
+        <srcFile name="src/pwrm/pwrm_ntf.c"/>
+        <srcFile name="src/pwrm/_pwrm_resJimDM420.s64P"/>
+        <srcFile name="src/tal/lpm_tal_idle_dsp_omap2530.c"/>
+        <srcFile name="src/pwrm/_pwrm_powerDownDM420.s64P"/>
+        <srcFile name="src/pwrm/_pwrm_signalDM420.s64P"/>
+        <srcFile name="src/pwrm/pwrm_cap.c"/>
+        <srcFile name="src/pwrm/pwrm_slpDM420.c"/>
+        <srcFile name="src/pwrm/pwrm.c"/>
+        <srcFile name="src/pwrm/pwrm_reg.c"/>
+        <srcFile name="src/pwrm/pwrm_str.c"/>
+        <srcFile name="src/pwrm/_pwrm_savDspDM420.s64P"/>
+        <srcFile name="src/pwrm/pwrm_ini.c"/>
+        <srcFile name="src/pwrm/_pwrm_resDspDM420.s64P"/>
+        <srcFile name="src/pwrm/_pwrm_savJouleDM420.s64P"/>
+        <srcFile name="src/pwrm/_pwrm_savL2DM420.s64P"/>
+    </sources>
+    <configurations>
+    </configurations>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="lib/release/lpm.av5T.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/lpm/src/lpm/lpm_api.ov5T.dep" src="src/lpm/lpm_api.c"/>
+        <srcFile name="package/lib/lib/release/lpm/package/package_ti.bios.power.ov5T.dep" src="package/package_ti.bios.power.c"/>
+        <srcFile name="lib/debug/lpm.av4TCE.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/lpm/src/lpm/lpm_api.ov4TCE.dep" src="src/lpm/lpm_api.c"/>
+        <srcFile name="package/lib/lib/debug/lpm/package/package_ti.bios.power.ov4TCE.dep" src="package/package_ti.bios.power.c"/>
+        <srcFile name="lib/debug/pwrm_DaVinci.a64P.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/pwrm_ini.o64P.dep" src="src/pwrm/pwrm_ini.c"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_resJimDM420.o64P.dep" src="src/pwrm/_pwrm_resJimDM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_savL1pDM420.o64P.dep" src="src/pwrm/_pwrm_savL1pDM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/pwrm_reg.o64P.dep" src="src/pwrm/pwrm_reg.c"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_powerDownDM420.o64P.dep" src="src/pwrm/_pwrm_powerDownDM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_resL1dDM420.o64P.dep" src="src/pwrm/_pwrm_resL1dDM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/pwrm_idleFxnDM420.o64P.dep" src="src/pwrm/pwrm_idleFxnDM420.c"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/pwrm_ntf.o64P.dep" src="src/pwrm/pwrm_ntf.c"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_zeroJimDM420.o64P.dep" src="src/pwrm/_pwrm_zeroJimDM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_savL2DM420.o64P.dep" src="src/pwrm/_pwrm_savL2DM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_edma3DM420.o64P.dep" src="src/pwrm/_pwrm_edma3DM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_resL2DM420.o64P.dep" src="src/pwrm/_pwrm_resL2DM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_resDspDM420.o64P.dep" src="src/pwrm/_pwrm_resDspDM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_savJimPdDM420.o64P.dep" src="src/pwrm/_pwrm_savJimPdDM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/pwrm.o64P.dep" src="src/pwrm/pwrm.c"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_dataDM420.o64P.dep" src="src/pwrm/_pwrm_dataDM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_resL1pDM420.o64P.dep" src="src/pwrm/_pwrm_resL1pDM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_savL1dDM420.o64P.dep" src="src/pwrm/_pwrm_savL1dDM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_signalDM420.o64P.dep" src="src/pwrm/_pwrm_signalDM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/package/package_ti.bios.power.o64P.dep" src="package/package_ti.bios.power.c"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/pwrm_str.o64P.dep" src="src/pwrm/pwrm_str.c"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_edma3ZeroDM420.o64P.dep" src="src/pwrm/_pwrm_edma3ZeroDM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_savJouleDM420.o64P.dep" src="src/pwrm/_pwrm_savJouleDM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_cacheDM420.o64P.dep" src="src/pwrm/_pwrm_cacheDM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_resJouleDM420.o64P.dep" src="src/pwrm/_pwrm_resJouleDM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_savImcopDM420.o64P.dep" src="src/pwrm/_pwrm_savImcopDM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_savDspDM420.o64P.dep" src="src/pwrm/_pwrm_savDspDM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/_pwrm_resImcopDM420.o64P.dep" src="src/pwrm/_pwrm_resImcopDM420.s64P"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/pwrm_slpDM420.o64P.dep" src="src/pwrm/pwrm_slpDM420.c"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/pwrm_cap.o64P.dep" src="src/pwrm/pwrm_cap.c"/>
+        <srcFile name="package/lib/lib/debug/pwrm_DaVinci/src/pwrm/pwrm_urg.o64P.dep" src="src/pwrm/pwrm_urg.c"/>
+        <srcFile name="lib/release/pwrm_DaVinci.a64P.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/pwrm_ini.o64P.dep" src="src/pwrm/pwrm_ini.c"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_resJimDM420.o64P.dep" src="src/pwrm/_pwrm_resJimDM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_savL1pDM420.o64P.dep" src="src/pwrm/_pwrm_savL1pDM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/pwrm_reg.o64P.dep" src="src/pwrm/pwrm_reg.c"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_powerDownDM420.o64P.dep" src="src/pwrm/_pwrm_powerDownDM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_resL1dDM420.o64P.dep" src="src/pwrm/_pwrm_resL1dDM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/pwrm_idleFxnDM420.o64P.dep" src="src/pwrm/pwrm_idleFxnDM420.c"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/pwrm_ntf.o64P.dep" src="src/pwrm/pwrm_ntf.c"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_zeroJimDM420.o64P.dep" src="src/pwrm/_pwrm_zeroJimDM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_savL2DM420.o64P.dep" src="src/pwrm/_pwrm_savL2DM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_edma3DM420.o64P.dep" src="src/pwrm/_pwrm_edma3DM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_resL2DM420.o64P.dep" src="src/pwrm/_pwrm_resL2DM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_resDspDM420.o64P.dep" src="src/pwrm/_pwrm_resDspDM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_savJimPdDM420.o64P.dep" src="src/pwrm/_pwrm_savJimPdDM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/pwrm.o64P.dep" src="src/pwrm/pwrm.c"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_dataDM420.o64P.dep" src="src/pwrm/_pwrm_dataDM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_resL1pDM420.o64P.dep" src="src/pwrm/_pwrm_resL1pDM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_savL1dDM420.o64P.dep" src="src/pwrm/_pwrm_savL1dDM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_signalDM420.o64P.dep" src="src/pwrm/_pwrm_signalDM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/package/package_ti.bios.power.o64P.dep" src="package/package_ti.bios.power.c"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/pwrm_str.o64P.dep" src="src/pwrm/pwrm_str.c"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_edma3ZeroDM420.o64P.dep" src="src/pwrm/_pwrm_edma3ZeroDM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_savJouleDM420.o64P.dep" src="src/pwrm/_pwrm_savJouleDM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_cacheDM420.o64P.dep" src="src/pwrm/_pwrm_cacheDM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_resJouleDM420.o64P.dep" src="src/pwrm/_pwrm_resJouleDM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_savImcopDM420.o64P.dep" src="src/pwrm/_pwrm_savImcopDM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_savDspDM420.o64P.dep" src="src/pwrm/_pwrm_savDspDM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/_pwrm_resImcopDM420.o64P.dep" src="src/pwrm/_pwrm_resImcopDM420.s64P"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/pwrm_slpDM420.o64P.dep" src="src/pwrm/pwrm_slpDM420.c"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/pwrm_cap.o64P.dep" src="src/pwrm/pwrm_cap.c"/>
+        <srcFile name="package/lib/lib/release/pwrm_DaVinci/src/pwrm/pwrm_urg.o64P.dep" src="src/pwrm/pwrm_urg.c"/>
+        <srcFile name="lib/debug/lpm.a470uC.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/lpm/src/lpm/lpm_api.o470uC.dep" src="src/lpm/lpm_api.c"/>
+        <srcFile name="package/lib/lib/debug/lpm/package/package_ti.bios.power.o470uC.dep" src="package/package_ti.bios.power.c"/>
+        <srcFile name="lib/release/tal_dsplink_bios_2530.a64P.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/tal_dsplink_bios_2530/src/tal/tal_dsplink_dsp.o64P.dep" src="src/tal/tal_dsplink_dsp.c"/>
+        <srcFile name="package/lib/lib/release/tal_dsplink_bios_2530/package/package_ti.bios.power.o64P.dep" src="package/package_ti.bios.power.c"/>
+        <srcFile name="package/lib/lib/release/tal_dsplink_bios_2530/src/tal/lpm_tal_idle_dsp_omap2530.o64P.dep" src="src/tal/lpm_tal_idle_dsp_omap2530.c"/>
+        <srcFile name="lib/debug/tal_dsplink_bios_3530.a64P.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/tal_dsplink_bios_3530/src/tal/tal_dsplink_dsp.o64P.dep" src="src/tal/tal_dsplink_dsp.c"/>
+        <srcFile name="package/lib/lib/debug/tal_dsplink_bios_3530/package/package_ti.bios.power.o64P.dep" src="package/package_ti.bios.power.c"/>
+        <srcFile name="package/lib/lib/debug/tal_dsplink_bios_3530/src/tal/lpm_tal_idle_dsp_omap3530.o64P.dep" src="src/tal/lpm_tal_idle_dsp_omap3530.c"/>
+        <srcFile name="lib/release/lpm.av4TCE.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/lpm/src/lpm/lpm_api.ov4TCE.dep" src="src/lpm/lpm_api.c"/>
+        <srcFile name="package/lib/lib/release/lpm/package/package_ti.bios.power.ov4TCE.dep" src="package/package_ti.bios.power.c"/>
+        <srcFile name="lib/debug/lpm.av5T.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/lpm/src/lpm/lpm_api.ov5T.dep" src="src/lpm/lpm_api.c"/>
+        <srcFile name="package/lib/lib/debug/lpm/package/package_ti.bios.power.ov5T.dep" src="package/package_ti.bios.power.c"/>
+        <srcFile name="lib/debug/tal_dsplink_bios_dm6446.a64P.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/tal_dsplink_bios_dm6446/src/tal/tal_dsplink_dsp.o64P.dep" src="src/tal/tal_dsplink_dsp.c"/>
+        <srcFile name="package/lib/lib/debug/tal_dsplink_bios_dm6446/package/package_ti.bios.power.o64P.dep" src="package/package_ti.bios.power.c"/>
+        <srcFile name="lib/release/lpm.a470uC.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/lpm/src/lpm/lpm_api.o470uC.dep" src="src/lpm/lpm_api.c"/>
+        <srcFile name="package/lib/lib/release/lpm/package/package_ti.bios.power.o470uC.dep" src="package/package_ti.bios.power.c"/>
+        <srcFile name="lib/debug/tal_dsplink_bios_2530.a64P.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/debug/tal_dsplink_bios_2530/src/tal/tal_dsplink_dsp.o64P.dep" src="src/tal/tal_dsplink_dsp.c"/>
+        <srcFile name="package/lib/lib/debug/tal_dsplink_bios_2530/package/package_ti.bios.power.o64P.dep" src="package/package_ti.bios.power.c"/>
+        <srcFile name="package/lib/lib/debug/tal_dsplink_bios_2530/src/tal/lpm_tal_idle_dsp_omap2530.o64P.dep" src="src/tal/lpm_tal_idle_dsp_omap2530.c"/>
+        <srcFile name="lib/release/tal_dsplink_bios_3530.a64P.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/tal_dsplink_bios_3530/src/tal/tal_dsplink_dsp.o64P.dep" src="src/tal/tal_dsplink_dsp.c"/>
+        <srcFile name="package/lib/lib/release/tal_dsplink_bios_3530/package/package_ti.bios.power.o64P.dep" src="package/package_ti.bios.power.c"/>
+        <srcFile name="package/lib/lib/release/tal_dsplink_bios_3530/src/tal/lpm_tal_idle_dsp_omap3530.o64P.dep" src="src/tal/lpm_tal_idle_dsp_omap3530.c"/>
+        <srcFile name="lib/release/tal_dsplink_bios_dm6446.a64P.mak" src="package.bld"/>
+        <srcFile name="package/lib/lib/release/tal_dsplink_bios_dm6446/src/tal/tal_dsplink_dsp.o64P.dep" src="src/tal/tal_dsplink_dsp.c"/>
+        <srcFile name="package/lib/lib/release/tal_dsplink_bios_dm6446/package/package_ti.bios.power.o64P.dep" src="package/package_ti.bios.power.c"/>
+        <srcFile name="package/rel/ti_bios_power,linux.tar.dep" src="package/rel/ti_bios_power,linux.xdc.inc"/>
+        <srcFile name="package/rel/ti_bios_power.tar.dep" src="package/rel/ti_bios_power.xdc.inc"/>
+    </makefiles>
+    <targets>
+        <target name="ti.targets.C64P"
+            version="ti.targets.C64P{1,0,7.2,0,2"
+            platform="ti.platforms.evmDM6446"
+            isa="64P"
+            suffix="64P"
+            rootDir="/db/toolsrc/library/tools/vendors/ti/c6x/7.2.0B2/Linux"
+            os="undefined"
+            rts="ti.targets.rts6000">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+        <target name="microsoft.targets.arm.WinCE"
+            version="microsoft.targets.arm.WinCE{1,0,14.01,60511"
+            platform="ti.platforms.evm3530"
+            isa="v4T"
+            suffix="v4TCE"
+            rootDir="C:/WINCE600"
+            os="WindowsCE"
+            rts="microsoft.targets.arm.rts">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+        <target name="gnu.targets.arm.GCArmv5T"
+            version="gnu.targets.arm.GCArmv5T{1,0,4.3,3"
+            platform="ti.platforms.evmDM6446"
+            isa="v5T"
+            suffix="v5T"
+            rootDir="/db/toolsrc/library/tools/vendors/cs/arm/arm-2009q1-203"
+            os="Linux"
+            rts="gnu.targets.arm.rtsv5T">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+        <target name="gnu.targets.UCArm9"
+            version="gnu.targets.UCArm9{1,0,4.2,1"
+            platform="ti.platforms.evmDM6446"
+            isa="v5T"
+            suffix="470uC"
+            rootDir="/db/toolsrc/library/tools/vendors/opensource/buildroot/10122007/build_arm/staging_dir/usr"
+            os="Linux"
+            rts="gnu.targets.rts470uC">
+            <model endian="little"
+                codeModel="undefined"
+                dataModel="undefined"/>
+        </target>
+    </targets>
+    <libraries>
+    <library name="lib/release/lpm"
+        pname="lib/release/lpm.av5T"
+        profile="release"
+        target="gnu.targets.arm.GCArmv5T"/>
+    <library name="lib/debug/lpm"
+        pname="lib/debug/lpm.av4TCE"
+        profile="debug"
+        target="microsoft.targets.arm.WinCE"/>
+    <library name="lib/debug/pwrm_DaVinci"
+        pname="lib/debug/pwrm_DaVinci.a64P"
+        profile="debug"
+        target="ti.targets.C64P"/>
+    <library name="lib/release/pwrm_DaVinci"
+        pname="lib/release/pwrm_DaVinci.a64P"
+        profile="release"
+        target="ti.targets.C64P"/>
+    <library name="lib/debug/lpm"
+        pname="lib/debug/lpm.a470uC"
+        profile="debug"
+        target="gnu.targets.UCArm9"/>
+    <library name="lib/release/tal_dsplink_bios_2530"
+        pname="lib/release/tal_dsplink_bios_2530.a64P"
+        profile="release"
+        target="ti.targets.C64P"/>
+    <library name="lib/debug/tal_dsplink_bios_3530"
+        pname="lib/debug/tal_dsplink_bios_3530.a64P"
+        profile="debug"
+        target="ti.targets.C64P"/>
+    <library name="lib/release/lpm"
+        pname="lib/release/lpm.av4TCE"
+        profile="release"
+        target="microsoft.targets.arm.WinCE"/>
+    <library name="lib/debug/lpm"
+        pname="lib/debug/lpm.av5T"
+        profile="debug"
+        target="gnu.targets.arm.GCArmv5T"/>
+    <library name="lib/debug/tal_dsplink_bios_dm6446"
+        pname="lib/debug/tal_dsplink_bios_dm6446.a64P"
+        profile="debug"
+        target="ti.targets.C64P"/>
+    <library name="lib/release/lpm"
+        pname="lib/release/lpm.a470uC"
+        profile="release"
+        target="gnu.targets.UCArm9"/>
+    <library name="lib/debug/tal_dsplink_bios_2530"
+        pname="lib/debug/tal_dsplink_bios_2530.a64P"
+        profile="debug"
+        target="ti.targets.C64P"/>
+    <library name="lib/release/tal_dsplink_bios_3530"
+        pname="lib/release/tal_dsplink_bios_3530.a64P"
+        profile="release"
+        target="ti.targets.C64P"/>
+    <library name="lib/release/tal_dsplink_bios_dm6446"
+        pname="lib/release/tal_dsplink_bios_dm6446.a64P"
+        profile="release"
+        target="ti.targets.C64P"/>
+    </libraries>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti_bios_power,linux"
+        pname="ti_bios_power,linux.tar"
+        label="Linux"
+        relScript="/db/toolsrc/library/toolsD19/packages/tisb/release/filters/copyright.rel">
+        <file name="package/package.rel.dot"/>
+        <file name="modules/dm6446/lpm/Makefile"/>
+        <file name="modules/dm6446/unloadmodules.sh"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="modules/omap2530/lpm/pwrm_sh.h"/>
+        <file name="modules/omap2530/loadmodules.sh"/>
+        <file name="src/lpm/lpm_api.c"/>
+        <file name="lib/debug/tal_dsplink_bios_2530.a64P"/>
+        <file name="modules/omap2530/lpm/lpm_base.h"/>
+        <file name="lpm.h"/>
+        <file name="lib/release/pwrm_DaVinci.a64P"/>
+        <file name="modules/dm6446/lpm/pwrm_sh.h"/>
+        <file name="lib/debug/lpm.a470uC"/>
+        <file name="modules/omap3530/lpm/tal_gpp.h"/>
+        <file name="modules/omap3530/unloadmodules.sh"/>
+        <file name="modules/omap2530/lpm/lpm_driver.c"/>
+        <file name="lib/debug/pwrm_DaVinci.a64P"/>
+        <file name="modules/omap2530/lpm/lpm_dev.h"/>
+        <file name="modules/omap2530/lpm/tal_dsplink_gpp.c"/>
+        <file name="modules/omap2530/lpm/lpm_omap.c"/>
+        <file name="modules/omap2530/lpm/lpm_driver.h"/>
+        <file name="modules/dm6446/ocvc/ocvc_DaVinci.c"/>
+        <file name="src/doc/overview.txt"/>
+        <file name="modules/dm6446/lpm/lpm_driver.c"/>
+        <file name="lib/release/tal_dsplink_bios_3530.a64P"/>
+        <file name="modules/dm6446/lpm/lpm_driver.h"/>
+        <file name="modules/dm6446/lpm/lpm_DaVinci.c"/>
+        <file name="lib/debug/tal_dsplink_bios_dm6446.a64P"/>
+        <file name="modules/dm6446/lpm/lpm_dev.h"/>
+        <file name="modules/dm6446/ocvc/lpm_driver.h"/>
+        <file name="package/package.cfg.xdc.inc"/>
+        <file name="lib/debug/lpm.av5T"/>
+        <file name="lib/release/tal_dsplink_bios_dm6446.a64P"/>
+        <file name="modules/omap3530/loadmodules.sh"/>
+        <file name="lpm_base.h"/>
+        <file name="link.xdt"/>
+        <file name="lib/release/lpm.av5T"/>
+        <file name="modules/omap3530/lpm/lpm_base.h"/>
+        <file name="modules/omap2530/lpm/Makefile"/>
+        <file name="modules/omap3530/lpm/tal_dsplink_gpp.c"/>
+        <file name="modules/omap3530/lpm/pwrm_sh.h"/>
+        <file name="package/package.bld.xml"/>
+        <file name="modules/omap2530/lpm/tal_gpp.h"/>
+        <file name="modules/omap3530/lpm/lpm_driver.c"/>
+        <file name="lib/release/lpm.a470uC"/>
+        <file name="lib/debug/tal_dsplink_bios_3530.a64P"/>
+        <file name="modules/dm6446/loadmodules.sh"/>
+        <file name="modules/dm6446/ocvc/Makefile"/>
+        <file name="modules/omap3530/lpm/lpm_driver.h"/>
+        <file name="modules/dm6446/lpm/lpm_base.h"/>
+        <file name="modules/omap3530/lpm/lpm_omap.c"/>
+        <file name="modules/omap2530/unloadmodules.sh"/>
+        <file name="package/build.cfg"/>
+        <file name="modules/dm6446/lpm/tal_gpp.h"/>
+        <file name="modules/omap3530/lpm/Makefile"/>
+        <file name="lib/release/tal_dsplink_bios_2530.a64P"/>
+        <file name="modules/omap3530/lpm/lpm_dev.h"/>
+        <file name="package/package.ext.xml"/>
+        <file name="modules/dm6446/lpm/tal_dsplink_gpp.c"/>
+    </release>
+    <release name="ti_bios_power"
+        pname="ti_bios_power.tar"
+        label="Default"
+        relScript="/db/toolsrc/library/toolsD19/packages/tisb/release/filters/copyright.rel">
+        <file name="lib/release/lpm.av4TCE"/>
+        <file name="package/package.rel.dot"/>
+        <file name="drivers/wince/omap3530/lpm/lpm_dev.h"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="drivers/wince/omap3530/lpm/lpmdrv.def"/>
+        <file name="lib/debug/tal_dsplink_bios_2530.a64P"/>
+        <file name="src/lpm/lpm_api.c"/>
+        <file name="lib/release/pwrm_DaVinci.a64P"/>
+        <file name="lpm.h"/>
+        <file name="lib/debug/lpm.a470uC"/>
+        <file name="lib/debug/pwrm_DaVinci.a64P"/>
+        <file name="drivers/wince/omap3530/lpm/tal_gpp.h"/>
+        <file name="drivers/wince/omap3530/lpm/SOURCES"/>
+        <file name="drivers/wince/omap3530/lpm/Makefile"/>
+        <file name="lib/debug/lpm.av4TCE"/>
+        <file name="drivers/wince/omap3530/lpm/lpm_base.h"/>
+        <file name="drivers/wince/omap3530/lpm/tal_dsplink_gpp_x.c"/>
+        <file name="lib/release/tal_dsplink_bios_3530.a64P"/>
+        <file name="drivers/wince/omap3530/lpm/obj/"/>
+        <file name="lib/debug/tal_dsplink_bios_dm6446.a64P"/>
+        <file name="package/package.cfg.xdc.inc"/>
+        <file name="lib/debug/lpm.av5T"/>
+        <file name="lib/release/tal_dsplink_bios_dm6446.a64P"/>
+        <file name="drivers/wince/omap3530/lpm/lpm_driver.c"/>
+        <file name="lpm_base.h"/>
+        <file name="link.xdt"/>
+        <file name="drivers/wince/omap3530/lpm/lpm_omap.c"/>
+        <file name="lib/release/lpm.av5T"/>
+        <file name="drivers/wince/omap3530/lpm/lpm_driver.h"/>
+        <file name="drivers/wince/omap3530/lpm/lpmdrv.reg"/>
+        <file name="package/package.bld.xml"/>
+        <file name="lib/release/lpm.a470uC"/>
+        <file name="lib/debug/tal_dsplink_bios_3530.a64P"/>
+        <file name="drivers/wince/omap3530/lpm/pwrm_sh.h"/>
+        <file name="package/build.cfg"/>
+        <file name="lib/release/tal_dsplink_bios_2530.a64P"/>
+        <file name="package/package.ext.xml"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

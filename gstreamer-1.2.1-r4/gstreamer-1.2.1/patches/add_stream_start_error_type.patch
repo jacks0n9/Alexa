@@ -1,0 +1,18 @@
+diff --git a/gst/gsterror.h b/gst/gsterror.h
+index 57f4e9b..1c2314a 100644
+--- a/gst/gsterror.h
++++ b/gst/gsterror.h
+@@ -208,10 +208,12 @@ typedef enum
+ /**
+  * GstLab126Error:
+  * @GST_LAB126_ERROR_UNDERFLOW: Audio data underflow event reported from Pulse Audio
++ * @GST_LAB126_ERROR_PA_STREAM_START: Data flow starts into the ShmQ between PulseAudio & AudioProxyD
+  */
+ typedef enum
+ {
+-  GST_LAB126_ERROR_UNDERFLOW = 1
++  GST_LAB126_ERROR_UNDERFLOW = 1,
++  GST_LAB126_ERROR_PA_STREAM_START
+ } GstLab126Error;
+ 
+ /**

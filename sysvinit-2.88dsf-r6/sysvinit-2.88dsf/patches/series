@@ -1,0 +1,2 @@
+install.patch -p1
+crypt-lib.patch -p1

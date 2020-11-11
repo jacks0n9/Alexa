@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  This file conforms to the DTD xdc/bld/release.dtd -->
+<release name="" label="" date="" buildCount="">
+<package name="ti.bios.power"
+    version="1, 1, 1"/>
+<imports>
+</imports>
+<references>
+    <package name="microsoft.targets.arm"
+        version="1, 0, 0, 0">
+        <file name="WinCE.xs"/>
+        <file name="package/microsoft.targets.arm.sch"/>
+        <file name="std.h"/>
+    </package>
+    <package name="xdc.services.global"
+        version="1, 0, 0">
+        <file name="Clock.xs"/>
+        <file name="java/package.jar"/>
+        <file name="package/xdc.services.global.sch"/>
+    </package>
+    <package name="xdc.services.intern.gen"
+        version="1, 0, 0, 0">
+        <file name="java/package.jar"/>
+        <file name="package/xdc.services.intern.gen.sch"/>
+    </package>
+    <package name="dsplink.dsp"
+        version="1, 4, 0">
+        <file name="Global.xs"/>
+        <file name="export/INCLUDE/DspBios/DAVINCI/internal/ips.h"/>
+        <file name="export/INCLUDE/DspBios/OMAP2530/internal/ips.h"/>
+        <file name="export/INCLUDE/DspBios/OMAP3530/internal/ips.h"/>
+        <file name="inc/C64XX/c64xxdefs.h"/>
+        <file name="inc/DspBios/5.XX/DM6446GEM/platform.h"/>
+        <file name="inc/DspBios/5.XX/OMAP2530/platform.h"/>
+        <file name="inc/DspBios/5.XX/OMAP3530/platform.h"/>
+        <file name="inc/dsplink.h"/>
+        <file name="inc/version.h"/>
+        <file name="package.xs"/>
+        <file name="package/dsplink.dsp.sch"/>
+    </package>
+    <targetRoot base="/db/toolsrc/library/vendors2005/cs/arm/arm-2009q1-203/"
+        trgs="gnu.targets.arm.GCArmv5T">
+        <file name="arm-none-linux-gnueabi/libc/usr/include/_G_config.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/alloca.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/asm-generic/ioctl.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/asm/ioctl.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/asm/ioctls.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/bits/confname.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/bits/endian.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/bits/fcntl.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/bits/ioctl-types.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/bits/ioctls.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/bits/posix_opt.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/bits/predefs.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/bits/pthreadtypes.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/bits/select.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/bits/sigset.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/bits/stat.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/bits/stdio.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/bits/stdio_lim.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/bits/sys_errlist.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/bits/time.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/bits/types.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/bits/typesizes.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/bits/wordsize.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/endian.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/fcntl.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/features.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/getopt.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/gnu/stubs.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/libio.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/stdio.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/stdlib.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/sys/cdefs.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/sys/ioctl.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/sys/select.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/sys/stat.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/sys/sysmacros.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/sys/ttydefaults.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/sys/types.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/time.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/unistd.h"/>
+        <file name="arm-none-linux-gnueabi/libc/usr/include/wchar.h"/>
+        <file name="lib/gcc/arm-none-linux-gnueabi/4.3.3/include/stdarg.h"/>
+        <file name="lib/gcc/arm-none-linux-gnueabi/4.3.3/include/stddef.h"/>
+    </targetRoot>
+    <package name="gnu.targets"
+        version="1, 0, 1">
+        <file name="ITarget.xs"/>
+        <file name="Linux86.xs"/>
+        <file name="MVArm9.xs"/>
+        <file name="Mingw.xs"/>
+        <file name="UCArm9.h"/>
+        <file name="UCArm9.xs"/>
+        <file name="package.xs"/>
+        <file name="package/gnu.targets.sch"/>
+        <file name="std.h"/>
+    </package>
+    <package name="ti.rtdx"
+        version="2, 0, 0, 5">
+        <file name="Settings.xs"/>
+        <file name="package.xs"/>
+        <file name="package/ti.rtdx.sch"/>
+    </package>
+    <package name="ti.pscl"
+        version="1, 0, 0, 0">
+        <file name="package.xs"/>
+        <file name="package/ti.pscl.sch"/>
+    </package>
+    <package name="xdc.services.spec"
+        version="1, 0, 0, 0">
+        <file name="java/package.jar"/>
+        <file name="package/xdc.services.spec.sch"/>
+    </package>
+    <package name="xdc.services.intern.xsr"
+        version="1, 0, 0">
+        <file name="java/package.jar"/>
+        <file name="package/xdc.services.intern.xsr.sch"/>
+    </package>
+    <package name="ti.psl"
+        version="5, 0, 0, 0">
+        <file name="package.xs"/>
+        <file name="package/ti.psl.sch"/>
+    </package>
+    <package name="xdc"
+        version="1, 1, 1, 0">
+        <file name="IPackage.xdc"/>
+        <file name="IPackage.xs"/>
+        <file name="om2.xs"/>
+        <file name="package.xs"/>
+        <file name="package/xdc.sch"/>
+        <file name="recap.xs"/>
+        <file name="std.h"/>
+        <file name="template.xs"/>
+        <file name="xdc.tci"/>
+        <file name="xmlgen.xs"/>
+        <file name="xmlgen2.xs"/>
+    </package>
+    <package name="ti.bios"
+        version="5, 2, 5, 19">
+        <file name="Build.xs"/>
+        <file name="include/_log.h"/>
+        <file name="include/atm.h"/>
+        <file name="include/bcache.h"/>
+        <file name="include/c6x.h62"/>
+        <file name="include/chk.h62"/>
+        <file name="include/clk.h"/>
+        <file name="include/fxn.h"/>
+        <file name="include/gbl.h"/>
+        <file name="include/gbl.h62"/>
+        <file name="include/hwi.h"/>
+        <file name="include/log.h"/>
+        <file name="include/mem.h"/>
+        <file name="include/msgq.h"/>
+        <file name="include/obj.h62"/>
+        <file name="include/pool.h"/>
+        <file name="include/pwrm.h"/>
+        <file name="include/pwrm3430.h"/>
+        <file name="include/que.h"/>
+        <file name="include/std.h"/>
+        <file name="include/std.h62"/>
+        <file name="include/sts.h"/>
+        <file name="include/swi.h"/>
+        <file name="include/sys.h"/>
+        <file name="include/tistdtypes.h"/>
+        <file name="include/trc.h"/>
+        <file name="include/trc.h62"/>
+        <file name="package.xs"/>
+        <file name="package/ti.bios.sch"/>
+    </package>
+    <targetRoot base="/db/toolsrc/library/vendors2005/ti/c6x/7.2.0B2/Linux/"
+        trgs="ti.targets.C64P">
+        <file name="include/stdarg.h"/>
+        <file name="include/stddef.h"/>
+        <file name="include/stdint.h"/>
+    </targetRoot>
+    <package name="ti.targets"
+        version="1, 0, 2, 0">
+        <file name="ITarget.xs"/>
+        <file name="package.xs"/>
+        <file name="package/ti.targets.sch"/>
+        <file name="std.h"/>
+    </package>
+    <package name="xdc.shelf"
+        version="1, 0, 0, 0">
+        <file name="java/antlr.jar"/>
+        <file name="java/js.jar"/>
+        <file name="java/junit.jar"/>
+        <file name="java/tar.jar"/>
+        <file name="java/xbean.jar"/>
+        <file name="package/xdc.shelf.sch"/>
+    </package>
+    <package name="ti.bios.power"
+        version="1, 1, 1">
+        <file name="lpm.h"/>
+        <file name="lpm_base.h"/>
+    </package>
+    <package name="xdc.services.intern.cmd"
+        version="1, 0, 0, 0">
+        <file name="java/package.jar"/>
+        <file name="package/xdc.services.intern.cmd.sch"/>
+    </package>
+    <package name="gnu.targets.arm"
+        version="1, 0, 0, 0">
+        <file name="GCArmv5T.h"/>
+        <file name="GCArmv6.xs"/>
+        <file name="GCArmv7A.xs"/>
+        <file name="package/gnu.targets.arm.sch"/>
+        <file name="std.h"/>
+    </package>
+    <package name="xdc.corevers"
+        version="16, 0, 1, 0">
+        <file name="package/xdc.corevers.sch"/>
+    </package>
+    <package name="ti.pmi"
+        version="1, 0, 0, 0">
+        <file name="package.xs"/>
+        <file name="package/ti.pmi.sch"/>
+    </package>
+    <targetRoot base="/db/toolsrc/library/vendors2005/opensource/buildroot/10122007/build_arm/staging_dir/usr/"
+        trgs="gnu.targets.UCArm9">
+        <file name="include/alloca.h"/>
+        <file name="include/asm-generic/ioctl.h"/>
+        <file name="include/asm/ioctl.h"/>
+        <file name="include/asm/ioctls.h"/>
+        <file name="include/bits/confname.h"/>
+        <file name="include/bits/endian.h"/>
+        <file name="include/bits/fcntl.h"/>
+        <file name="include/bits/getopt.h"/>
+        <file name="include/bits/initspin.h"/>
+        <file name="include/bits/ioctl-types.h"/>
+        <file name="include/bits/ioctls.h"/>
+        <file name="include/bits/kernel_types.h"/>
+        <file name="include/bits/posix_opt.h"/>
+        <file name="include/bits/pthreadtypes.h"/>
+        <file name="include/bits/sched.h"/>
+        <file name="include/bits/select.h"/>
+        <file name="include/bits/sigset.h"/>
+        <file name="include/bits/sigthread.h"/>
+        <file name="include/bits/stat.h"/>
+        <file name="include/bits/stdio_lim.h"/>
+        <file name="include/bits/time.h"/>
+        <file name="include/bits/types.h"/>
+        <file name="include/bits/typesizes.h"/>
+        <file name="include/bits/uClibc_arch_features.h"/>
+        <file name="include/bits/uClibc_clk_tck.h"/>
+        <file name="include/bits/uClibc_config.h"/>
+        <file name="include/bits/uClibc_mutex.h"/>
+        <file name="include/bits/uClibc_pthread.h"/>
+        <file name="include/bits/uClibc_stdio.h"/>
+        <file name="include/bits/wordsize.h"/>
+        <file name="include/endian.h"/>
+        <file name="include/fcntl.h"/>
+        <file name="include/features.h"/>
+        <file name="include/pthread.h"/>
+        <file name="include/sched.h"/>
+        <file name="include/signal.h"/>
+        <file name="include/stdio.h"/>
+        <file name="include/stdlib.h"/>
+        <file name="include/sys/cdefs.h"/>
+        <file name="include/sys/ioctl.h"/>
+        <file name="include/sys/select.h"/>
+        <file name="include/sys/stat.h"/>
+        <file name="include/sys/sysmacros.h"/>
+        <file name="include/sys/ttydefaults.h"/>
+        <file name="include/sys/types.h"/>
+        <file name="include/time.h"/>
+        <file name="include/unistd.h"/>
+        <file name="lib/gcc/arm-linux-uclibcgnueabi/4.2.1/include/stdarg.h"/>
+        <file name="lib/gcc/arm-linux-uclibcgnueabi/4.2.1/include/stddef.h"/>
+    </targetRoot>
+    <package name="xdc.bld"
+        version="1, 0, 1">
+        <file name="BuildEnvironment.xs"/>
+        <file name="Executable.xs"/>
+        <file name="ITarget.xs"/>
+        <file name="ITargetFilter.xs"/>
+        <file name="Library.xs"/>
+        <file name="PackageContents.xs"/>
+        <file name="Repository.xs"/>
+        <file name="Script.xs"/>
+        <file name="Utils.xs"/>
+        <file name="_gen.xs"/>
+        <file name="package.xs"/>
+        <file name="package/xdc.bld.sch"/>
+    </package>
+    <package name="microsoft.targets"
+        version="1, 0, 2, 0">
+        <file name="ITarget.xs"/>
+        <file name="Win32.xs"/>
+        <file name="_utils.xs"/>
+        <file name="package.xs"/>
+        <file name="package/microsoft.targets.sch"/>
+        <file name="std.h"/>
+    </package>
+    <xdcRoot base="/db/rtree/install/trees/products/xdcprod/xdcprod-j61/product/Linux/xdctools_3_10_05_61/">
+        <file name="/packages/xdc/package.xdc"/>
+        <file name="include/utils.tci"/>
+    </xdcRoot>
+</references>
+<orphans>
+    <file name="/db/atree/library/trees/power/power-g10x/src/config.bld"/>
+</orphans>
+</release>

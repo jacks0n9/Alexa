@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.mas.types" version="5, 0, 7, 0" producerId="undefined">
+    <units>
+        <module name="Version"/>
+    </units>
+    <sources>
+    </sources>
+    <configurations>
+    </configurations>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="package/rel/ti_mas_types_obj_all_5_5_2_0.zip.dep" src="package/rel/ti_mas_types_obj_all_5_5_2_0.xdc.inc"/>
+    </makefiles>
+    <targets>
+    </targets>
+    <libraries>
+    </libraries>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti_mas_types_obj_all_5_5_2_0"
+        pname="ti_mas_types_obj_all_5_5_2_0.zip"
+        label="default"
+    >
+        <file name="gcarmv7a/types.h"/>
+        <file name="c64/types.h"/>
+        <file name="package/package.cfg.xdc.inc"/>
+        <file name="./Version.h"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="package/package.rel.dot"/>
+        <file name="c64Pe/types.h"/>
+        <file name="c64P/types.h"/>
+        <file name="c64e/types.h"/>
+        <file name="package/package.bld.xml"/>
+        <file name="./types_5_5_2_0_release_notes.html"/>
+        <file name="docs//doxygen//doxyfile.xdt"/>
+        <file name="./const.h"/>
+        <file name="docs/relnotes_archive"/>
+        <file name="package/package.ext.xml"/>
+        <file name="package/build.cfg"/>
+        <file name="./types.h"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

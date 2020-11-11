@@ -1,0 +1,3 @@
+ncursesfix.patch -p1
+uclibc-exp10-replacement.patch -p1
+0001-alsactl-don-t-let-systemd-unit-restore-the-volume-wh.patch -p1

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  This file conforms to the DTD xdc/bld/build.dtd -->
+<package name="ti.mas.vpe" version="2, 0, 3, 0" producerId="undefined">
+    <units>
+        <module name="Version"/>
+    </units>
+    <sources>
+    </sources>
+    <configurations>
+    </configurations>
+    <makefiles>
+        <srcFile name="package.mak" src="package.bld"/>
+        <srcFile name="package/package.xdc.dep" src="package.xdc"/>
+        <srcFile name="package/package.cfg.dep" src="package.xdc"/>
+        <srcFile name="package/rel/ti_mas_vpe_obj_c64Ple_3_2_0_1.zip.dep" src="package/rel/ti_mas_vpe_obj_c64Ple_3_2_0_1.xdc.inc"/>
+    </makefiles>
+    <targets>
+    </targets>
+    <libraries>
+    </libraries>
+    <executables>
+    </executables>
+    <tests>
+    </tests>
+    <releases relDir="package/rel/">
+    <release name="ti_mas_vpe_obj_c64Ple_3_2_0_1"
+        pname="ti_mas_vpe_obj_c64Ple_3_2_0_1.zip"
+        label="default"
+    >
+        <file name="package/package.cfg.xdc.inc"/>
+        <file name="./Version.h"/>
+        <file name="package/package.xdc.inc"/>
+        <file name="package/package.rel.dot"/>
+        <file name="./svd.h"/>
+        <file name="./snl.h"/>
+        <file name="package/package.bld.xml"/>
+        <file name="c64P/vpe_cm.a64P_size.txt"/>
+        <file name="c64P/vpe_c.a64P_size.txt"/>
+        <file name="c64P/vpe_c.a64P"/>
+        <file name="c64P/vpe_cm.a64P"/>
+        <file name="./slm.h"/>
+        <file name="package/package.ext.xml"/>
+        <file name="package/build.cfg"/>
+        <file name="./hlc.h"/>
+    </release>
+    </releases>
+    <repositories>
+    </repositories>
+</package>

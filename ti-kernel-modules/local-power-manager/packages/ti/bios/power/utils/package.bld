@@ -1,0 +1,234 @@
+/* 
+ * Copyright (c) 2011, Texas Instruments Incorporated
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * *  Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * *  Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * *  Neither the name of Texas Instruments Incorporated nor the names of
+ *    its contributors may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * 
+ */
+
+/*
+ *  ======== package.bld ========
+ *
+ */
+
+
+// explicit references to global objects
+var Build = xdc.useModule('xdc.bld.BuildEnvironment');
+var Pkg = xdc.useModule('xdc.bld.PackageContents');
+
+// set defaults
+var doDrivers = false;
+
+// variables passed in as command line arguments override the defaults
+// drivers=1, build the drivers
+for (x = 0; x < arguments.length; x++) {
+    if (arguments[x].match(/^drivers=/) ) {
+        doDrivers = (arguments[x].split("=")[1] == "1" ? true : false);
+    }
+}
+
+// generate makefiles to build linux drivers
+if (doDrivers) {
+    var mkpkgMain = xdc.useModule('xdc.tools.mkpkg.Main'); 
+
+    for (var k in kernels) {  // kernels from config.bld
+        var device = k.match(/^(.*):.*$/)[1];
+        var linux = k.match(/^.*:(linux_.*)$/)[1];
+        var platform = kernels[k].platform.replace(/\./g, "_");
+        var kernelDir = kernels[k].kernelDir;
+        var toolPrefix = kernels[k].toolPrefix;
+        var output = "module_" + k.replace(":", "_") + ".mak";
+        mkpkgMain.mkpkg("./module.xdt.mak", output, device, platform, linux,
+            "module.xdt.mak", kernelDir, toolPrefix);
+        Pkg.generatedFiles.$add(output);
+        Pkg.makePrologue += "include " + output + "\n";
+    }
+}
+
+// manage release files
+Pkg.generatedFiles.$add("bin/");
+Pkg.otherFiles = [
+    "_config.bld",
+    "package.bld",
+    "module.xdt.mak",
+    "src/onoff/lpmOFF.c",
+    "src/onoff/lpmOFF.cfg",
+    "src/onoff/lpmON.c",
+    "src/onoff/lpmON.cfg",
+    "bin/"
+];
+
+// list of programs to build
+var progArray = new Array();
+
+progArray.push(
+    {   
+        name: "linux/lpmON",
+        icw: [ "v5T" ],
+        sources: [ "src/onoff/lpmON.c" ],
+        execAttrs: {
+            cfgScript: "src/onoff/lpmON.cfg",
+        }
+    }
+);
+
+progArray.push(
+    {   
+        name: "wince/lpmON",
+        icw: [ "v4T" ],
+        sources: [ "src/onoff/lpmON.c" ],
+        execAttrs: {
+            cfgScript: "src/onoff/lpmON.cfg",
+        }
+    }
+);
+
+progArray.push(
+    {
+        name: "linux/lpmOFF",
+        icw: [ "v5T" ],
+        sources: [ "src/onoff/lpmOFF.c" ],
+        execAttrs: {
+            cfgScript: "src/onoff/lpmOFF.cfg",
+        }
+    }
+);
+
+progArray.push(
+    {
+        name: "wince/lpmOFF",
+        icw: [ "v4T" ],
+        sources: [ "src/onoff/lpmOFF.c" ],
+        execAttrs: {
+            cfgScript: "src/onoff/lpmOFF.cfg",
+        }
+    }
+);
+
+
+makeExecutables(progArray, arguments);
+
+
+/*
+ *  ======== makeExecutables ========
+ */
+function makeExecutables(progArray, xdcArgs) 
+{
+    // check if profile specified in XDCARGS
+    // XDCARGS="... profile=debug ..."
+    var cmdlProf = (" " + xdcArgs.join(" ") + " ").match(/ profile=([^ ]+) /);
+    cmdlProf = cmdlProf != null ? cmdlProf[1] : null;
+
+    // check if platform specified in XDCARGS
+    // XDCARGS="... platform=ti.platforms.evm3530 ..."
+    var cmdlPlat = (" " + xdcArgs.join(" ") + " ").match(/ platform=([^ ]+) /);
+    cmdlPlat = cmdlPlat != null ? cmdlPlat[1] : null;
+
+
+    // ==== loop over array of programs ====
+    for (var i = 0; i < progArray.length; i++) {
+        var prog = progArray[i];
+
+        // ==== loop over all targets in build array ====
+        for (var j = 0; j < Build.targets.length; j++) {
+            var targ = Build.targets[j];
+            
+            // skip target if not compatible with source code
+            if ("icw" in prog) {
+                var skipTarget = true;
+                var targIsaChain = "/" + targ.getISAChain().join("/") + "/";
+                for (var k = 0; k < prog.icw.length; k++) {
+                    if (targIsaChain.match("/" + prog.icw[k] + "/")) {
+                        skipTarget = false;
+                        break;
+                    }
+                }
+                if (skipTarget) continue;
+            }
+
+            // skip target if it does not generate code for the given isa
+            if ("isas" in prog) {
+                var skipTarget = true;
+                var list = "/" + prog.isas.join("/") + "/";
+                if (list.match("/" + targ.isa + "/")) {
+                    skipTarget = false;
+                }
+                if (skipTarget) continue;
+            }
+
+            // use platforms from the program or the target
+            var platAry = ("platforms" in prog)
+                ? prog.platforms : targ.platforms;
+
+            // ==== loop over all platform ====
+            for (var k = 0; k < platAry.length; k++) {
+                var platName = platAry[k];
+
+                // skip platform if different from that specified on cmd line
+                if ((cmdlPlat != null) && (cmdlPlat != platName)) {
+                    continue;
+                }
+
+                // ==== loop over all profiles ====
+                for (var profile in targ.profiles) {
+
+                    // skip profile if different than specified on command line
+                    if ((cmdlProf != null) && (profile != cmdlProf)) {
+                        continue;
+                    }
+
+                    // match only before ':', replace '.' with '_'
+                    var platDir =
+                            platName.match(/^[^:]+/)[0].replace(/\./g, "_");
+
+                    // name = bin/platform/extra/profile/name
+                    var name = "bin/" + platDir + "/"
+                        // insert profile as last directory (just before name)
+                        + prog.name.replace(/([^\/]+)$/, profile + "/" + "$1");
+
+                    // pass along executable attributes
+                    var execAttrs = "execAttrs" in prog ? prog.execAttrs : {};
+
+                    // must set profile explicitly
+                    execAttrs.profile = profile;
+
+                    // build the program
+                    var pgm = Pkg.addExecutable(name,targ,platName,execAttrs);
+
+                    /* add the source files */
+                    pgm.addObjects(prog.sources);
+                }
+            }
+        }
+    }
+}
+/*
+ *  @(#) ti.bios.power.utils; 1, 0, 0,2; 7-13-2011 17:57:00; /db/atree/library/trees/power/power-g10x/src/ xlibrary
+
+ */
+

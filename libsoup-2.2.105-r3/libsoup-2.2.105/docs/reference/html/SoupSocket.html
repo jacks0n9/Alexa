@@ -1,0 +1,1341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>SoupSocket</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="libsoup Reference Manual">
+<link rel="up" href="ch02.html" title="libsoup API Reference">
+<link rel="prev" href="SoupSoapResponse.html" title="SoupSoapResponse">
+<link rel="next" href="libsoup-soup-status.html" title="soup-status">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libsoup Tutorial">
+<link rel="chapter" href="ch02.html" title="libsoup API Reference">
+<link rel="chapter" href="ch03.html" title="libsoup internals">
+<link rel="index" href="ix01.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="SoupSoapResponse.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libsoup Reference Manual</th>
+<td><a accesskey="n" href="libsoup-soup-status.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id361807" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id410516" class="shortcut">Description</a>
+                  &#160;|&#160;
+                  <a href="#id410331" class="shortcut">Object Hierarchy</a>
+                  &#160;|&#160;
+                  <a href="#id410355" class="shortcut">Properties</a>
+                  &#160;|&#160;
+                  <a href="#id410470" class="shortcut">Signals</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="SoupSocket"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id361807"></a><span class="refentrytitle">SoupSocket</span>
+</h2>
+<p>SoupSocket &#8212; a network socket</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+struct              <a class="link" href="SoupSocket.html#SoupSocket-struct">SoupSocket</a>;
+<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a>*         <a class="link" href="SoupSocket.html#soup-socket-new">soup_socket_new</a>                     (const char *optname1,
+                                                         ...);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>               <a class="link" href="SoupSocket.html#soup-socket-connect">soup_socket_connect</a>                 (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                         <a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *remote_addr);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="SoupSocket.html#soup-socket-listen">soup_socket_listen</a>                  (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                         <a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *local_addr);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="SoupSocket.html#soup-socket-start-ssl">soup_socket_start_ssl</a>               (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="SoupSocket.html#soup-socket-start-proxy-ssl">soup_socket_start_proxy_ssl</a>         (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                         const char *ssl_host);
+void                <a class="link" href="SoupSocket.html#soup-socket-disconnect">soup_socket_disconnect</a>              (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="SoupSocket.html#soup-socket-is-connected">soup_socket_is_connected</a>            (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock);
+void                (<a class="link" href="SoupSocket.html#SoupSocketCallback">*SoupSocketCallback</a>)               (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> status,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+void                (<a class="link" href="SoupSocket.html#SoupSocketListenerCallback">*SoupSocketListenerCallback</a>)       (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *listener,
+                                                         <a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a>*         <a class="link" href="SoupSocket.html#soup-socket-client-new-async">soup_socket_client_new_async</a>        (const char *hostname,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> port,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> ssl_creds,
+                                                         <a class="link" href="SoupSocket.html#SoupSocketCallback">SoupSocketCallback</a> callback,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a>*         <a class="link" href="SoupSocket.html#soup-socket-client-new-sync">soup_socket_client_new_sync</a>         (const char *hostname,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> port,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> ssl_creds,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> *status_ret);
+<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a>*         <a class="link" href="SoupSocket.html#soup-socket-server-new">soup_socket_server_new</a>              (<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *local_addr,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> ssl_creds,
+                                                         <a class="link" href="SoupSocket.html#SoupSocketListenerCallback">SoupSocketListenerCallback</a> callback,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a>*        <a class="link" href="SoupSocket.html#soup-socket-get-local-address">soup_socket_get_local_address</a>       (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock);
+<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a>*        <a class="link" href="SoupSocket.html#soup-socket-get-remote-address">soup_socket_get_remote_address</a>      (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock);
+enum                <a class="link" href="SoupSocket.html#SoupSocketIOStatus">SoupSocketIOStatus</a>;
+<a class="link" href="SoupSocket.html#SoupSocketIOStatus">SoupSocketIOStatus</a>  <a class="link" href="SoupSocket.html#soup-socket-read">soup_socket_read</a>                    (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> buffer,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a> len,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a> *nread);
+<a class="link" href="SoupSocket.html#SoupSocketIOStatus">SoupSocketIOStatus</a>  <a class="link" href="SoupSocket.html#soup-socket-read-until">soup_socket_read_until</a>              (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> buffer,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a> len,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gconstpointer"
+>gconstpointer</a> boundary,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a> boundary_len,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a> *nread,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> *got_boundary);
+<a class="link" href="SoupSocket.html#SoupSocketIOStatus">SoupSocketIOStatus</a>  <a class="link" href="SoupSocket.html#soup-socket-write">soup_socket_write</a>                   (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gconstpointer"
+>gconstpointer</a> buffer,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a> len,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a> *nwrote);
+#define             <a class="link" href="SoupSocket.html#SOUP-SOCKET-FLAG-NONBLOCKING:CAPS">SOUP_SOCKET_FLAG_NONBLOCKING</a>
+#define             <a class="link" href="SoupSocket.html#SOUP-SOCKET-FLAG-NODELAY:CAPS">SOUP_SOCKET_FLAG_NODELAY</a>
+#define             <a class="link" href="SoupSocket.html#SOUP-SOCKET-FLAG-REUSEADDR:CAPS">SOUP_SOCKET_FLAG_REUSEADDR</a>
+#define             <a class="link" href="SoupSocket.html#SOUP-SOCKET-FLAG-CLOEXEC:CAPS">SOUP_SOCKET_FLAG_CLOEXEC</a>
+#define             <a class="link" href="SoupSocket.html#SOUP-SOCKET-TIMEOUT:CAPS">SOUP_SOCKET_TIMEOUT</a>
+#define             <a class="link" href="SoupSocket.html#SOUP-SOCKET-IS-SERVER:CAPS">SOUP_SOCKET_IS_SERVER</a>
+#define             <a class="link" href="SoupSocket.html#SOUP-SOCKET-SSL-CREDENTIALS:CAPS">SOUP_SOCKET_SSL_CREDENTIALS</a>
+#define             <a class="link" href="SoupSocket.html#SOUP-SOCKET-ASYNC-CONTEXT:CAPS">SOUP_SOCKET_ASYNC_CONTEXT</a>
+
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id410331"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+
+  <a
+href="/usr/share/gtk-doc/html/gobject/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----SoupSocket
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id410355"></a><h2>Properties</h2>
+<pre class="synopsis">
+
+  "<a class="link" href="SoupSocket.html#SoupSocket--async-context">async-context</a>"            <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>              : Read / Write / Construct Only
+  "<a class="link" href="SoupSocket.html#SoupSocket--cloexec">cloexec</a>"                  <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+  "<a class="link" href="SoupSocket.html#SoupSocket--is-server">is-server</a>"                <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read
+  "<a class="link" href="SoupSocket.html#SoupSocket--nodelay">nodelay</a>"                  <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+  "<a class="link" href="SoupSocket.html#SoupSocket--non-blocking">non-blocking</a>"             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+  "<a class="link" href="SoupSocket.html#SoupSocket--reuseaddr">reuseaddr</a>"                <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+  "<a class="link" href="SoupSocket.html#SoupSocket--ssl-creds">ssl-creds</a>"                <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>              : Read / Write
+  "<a class="link" href="SoupSocket.html#SoupSocket--timeout">timeout</a>"                  <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>                 : Read / Write
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id410470"></a><h2>Signals</h2>
+<pre class="synopsis">
+
+  "<a class="link" href="SoupSocket.html#SoupSocket-connect-result">connect-result</a>"                                 : Run First
+  "<a class="link" href="SoupSocket.html#SoupSocket-disconnected">disconnected</a>"                                   : Run Last
+  "<a class="link" href="SoupSocket.html#SoupSocket-new-connection">new-connection</a>"                                 : Run First
+  "<a class="link" href="SoupSocket.html#SoupSocket-readable">readable</a>"                                       : Run Last
+  "<a class="link" href="SoupSocket.html#SoupSocket-writable">writable</a>"                                       : Run Last
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id410516"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id410532"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id410543"></a><h3>
+<a name="SoupSocket-struct"></a>struct SoupSocket</h3>
+<a class="indexterm" name="id410555"></a><pre class="programlisting">struct SoupSocket;</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id410570"></a><h3>
+<a name="soup-socket-new"></a>soup_socket_new ()</h3>
+<a class="indexterm" name="id410582"></a><pre class="programlisting"><a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a>*         soup_socket_new                     (const char *optname1,
+                                                         ...);</pre>
+<p>
+Creates a new (disconnected) socket</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>optname1</code></em>&#160;:</span></p></td>
+<td> name of first property to set (or <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a>)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em>&#160;:</span></p></td>
+<td> value of <em class="parameter"><code>optname1</code></em>, followed by additional property/value pairs
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the new socket
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id410671"></a><h3>
+<a name="soup-socket-connect"></a>soup_socket_connect ()</h3>
+<a class="indexterm" name="id410683"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>               soup_socket_connect                 (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                         <a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *remote_addr);</pre>
+<p>
+If <a class="link" href="SoupSocket.html#SOUP-SOCKET-FLAG-NONBLOCKING:CAPS"><code class="literal">SOUP_SOCKET_FLAG_NONBLOCKING</code></a> has been set on the socket, this
+begins asynchronously connecting to the given address. The socket
+will emit <code class="literal">connect_result</code> when it succeeds or fails (but not before
+returning from this function).
+</p>
+<p>
+If <a class="link" href="SoupSocket.html#SOUP-SOCKET-FLAG-NONBLOCKING:CAPS"><code class="literal">SOUP_SOCKET_FLAG_NONBLOCKING</code></a> has not been set, this will
+attempt to synchronously connect.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sock</code></em>&#160;:</span></p></td>
+<td> a client <a class="link" href="SoupSocket.html" title="SoupSocket"><span class="type">SoupSocket</span></a> (which must not already be connected)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>remote_addr</code></em>&#160;:</span></p></td>
+<td> address to connect to
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> <a class="link" href="libsoup-soup-status.html#SOUP-STATUS-CONTINUE:CAPS"><code class="literal">SOUP_STATUS_CONTINUE</code></a> if connecting asynchronously,
+otherwise a success or failure code.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id410813"></a><h3>
+<a name="soup-socket-listen"></a>soup_socket_listen ()</h3>
+<a class="indexterm" name="id410825"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            soup_socket_listen                  (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                         <a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *local_addr);</pre>
+<p>
+Makes <em class="parameter"><code>sock</code></em> start listening on the given interface and port. When
+connections come in, <em class="parameter"><code>sock</code></em> will emit <code class="literal">new_connection</code>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sock</code></em>&#160;:</span></p></td>
+<td> a server <a class="link" href="SoupSocket.html" title="SoupSocket"><span class="type">SoupSocket</span></a> (which must not already be connected or
+listening)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>local_addr</code></em>&#160;:</span></p></td>
+<td> Local address to bind to.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> whether or not <em class="parameter"><code>sock</code></em> is now listening.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id410939"></a><h3>
+<a name="soup-socket-start-ssl"></a>soup_socket_start_ssl ()</h3>
+<a class="indexterm" name="id410951"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            soup_socket_start_ssl               (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock);</pre>
+<p>
+Starts using SSL on <em class="parameter"><code>socket</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sock</code></em>&#160;:</span></p></td>
+<td> the socket
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> success or failure
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id411016"></a><h3>
+<a name="soup-socket-start-proxy-ssl"></a>soup_socket_start_proxy_ssl ()</h3>
+<a class="indexterm" name="id411029"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            soup_socket_start_proxy_ssl         (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                         const char *ssl_host);</pre>
+<p>
+Starts using SSL on <em class="parameter"><code>socket</code></em>, expecting to find a host named
+<em class="parameter"><code>ssl_host</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sock</code></em>&#160;:</span></p></td>
+<td> the socket
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ssl_host</code></em>&#160;:</span></p></td>
+<td> hostname of the SSL server
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> success or failure
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id411121"></a><h3>
+<a name="soup-socket-disconnect"></a>soup_socket_disconnect ()</h3>
+<a class="indexterm" name="id411133"></a><pre class="programlisting">void                soup_socket_disconnect              (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock);</pre>
+<p>
+Disconnects <em class="parameter"><code>sock</code></em>. Any further read or write attempts on it will
+fail.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>sock</code></em>&#160;:</span></p></td>
+<td> a <a class="link" href="SoupSocket.html" title="SoupSocket"><span class="type">SoupSocket</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id411194"></a><h3>
+<a name="soup-socket-is-connected"></a>soup_socket_is_connected ()</h3>
+<a class="indexterm" name="id411207"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            soup_socket_is_connected            (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock);</pre>
+<p>
+Tests if <em class="parameter"><code>sock</code></em> is connected to another host</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sock</code></em>&#160;:</span></p></td>
+<td> a <a class="link" href="SoupSocket.html" title="SoupSocket"><span class="type">SoupSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS"
+><code class="literal">TRUE</code></a> or <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS"
+><code class="literal">FALSE</code></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id411298"></a><h3>
+<a name="SoupSocketCallback"></a>SoupSocketCallback ()</h3>
+<a class="indexterm" name="id411310"></a><pre class="programlisting">void                (*SoupSocketCallback)               (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> status,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+The callback function passed to <a class="link" href="SoupSocket.html#soup-socket-client-new-async"><code class="function">soup_socket_client_new_async()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sock</code></em>&#160;:</span></p></td>
+<td> the <a class="link" href="SoupSocket.html" title="SoupSocket"><span class="type">SoupSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>status</code></em>&#160;:</span></p></td>
+<td> an HTTP status code indicating success or failure
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></p></td>
+<td> the data passed to <a class="link" href="SoupSocket.html#soup-socket-client-new-async"><code class="function">soup_socket_client_new_async()</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id411426"></a><h3>
+<a name="SoupSocketListenerCallback"></a>SoupSocketListenerCallback ()</h3>
+<a class="indexterm" name="id411438"></a><pre class="programlisting">void                (*SoupSocketListenerCallback)       (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *listener,
+                                                         <a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+The callback function passed to <a class="link" href="SoupSocket.html#soup-socket-server-new"><code class="function">soup_socket_server_new()</code></a>, which
+receives new connections.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>listener</code></em>&#160;:</span></p></td>
+<td> the listening <a class="link" href="SoupSocket.html" title="SoupSocket"><span class="type">SoupSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sock</code></em>&#160;:</span></p></td>
+<td> the newly-received <a class="link" href="SoupSocket.html" title="SoupSocket"><span class="type">SoupSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></p></td>
+<td> the data passed to <a class="link" href="SoupSocket.html#soup-socket-server-new"><code class="function">soup_socket_server_new()</code></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id411562"></a><h3>
+<a name="soup-socket-client-new-async"></a>soup_socket_client_new_async ()</h3>
+<a class="indexterm" name="id411574"></a><pre class="programlisting"><a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a>*         soup_socket_client_new_async        (const char *hostname,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> port,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> ssl_creds,
+                                                         <a class="link" href="SoupSocket.html#SoupSocketCallback">SoupSocketCallback</a> callback,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+Creates a connection to <em class="parameter"><code>hostname</code></em> and <em class="parameter"><code>port</code></em>. <em class="parameter"><code>callback</code></em> will be
+called when the connection completes (or fails).
+</p>
+<p>
+Uses the default <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GMainContext"
+><span class="type">GMainContext</span></a>. If you need to use an alternate
+context, use <a class="link" href="SoupSocket.html#soup-socket-new"><code class="function">soup_socket_new()</code></a> and <a class="link" href="SoupSocket.html#soup-socket-connect"><code class="function">soup_socket_connect()</code></a> directly.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hostname</code></em>&#160;:</span></p></td>
+<td> remote machine to connect to
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>port</code></em>&#160;:</span></p></td>
+<td> remote port to connect to
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ssl_creds</code></em>&#160;:</span></p></td>
+<td> SSL credentials structure, or <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a> if not SSL
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em>&#160;:</span></p></td>
+<td> callback to call when the socket is connected
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></p></td>
+<td> data for <em class="parameter"><code>callback</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the new socket (not yet ready for use).
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id411779"></a><h3>
+<a name="soup-socket-client-new-sync"></a>soup_socket_client_new_sync ()</h3>
+<a class="indexterm" name="id411791"></a><pre class="programlisting"><a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a>*         soup_socket_client_new_sync         (const char *hostname,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> port,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> ssl_creds,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a> *status_ret);</pre>
+<p>
+Creates a connection to <em class="parameter"><code>hostname</code></em> and <em class="parameter"><code>port</code></em>. If <em class="parameter"><code>status_ret</code></em> is not
+<a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a>, it will contain a status code on return.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hostname</code></em>&#160;:</span></p></td>
+<td> remote machine to connect to
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>port</code></em>&#160;:</span></p></td>
+<td> remote port to connect to
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ssl_creds</code></em>&#160;:</span></p></td>
+<td> SSL credentials structure, or <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a> if not SSL
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>status_ret</code></em>&#160;:</span></p></td>
+<td> pointer to return the soup status in
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the new socket, or <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a> if it could not connect.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id411959"></a><h3>
+<a name="soup-socket-server-new"></a>soup_socket_server_new ()</h3>
+<a class="indexterm" name="id411971"></a><pre class="programlisting"><a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a>*         soup_socket_server_new              (<a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a> *local_addr,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> ssl_creds,
+                                                         <a class="link" href="SoupSocket.html#SoupSocketListenerCallback">SoupSocketListenerCallback</a> callback,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+Create and open a new <a class="link" href="SoupSocket.html" title="SoupSocket"><span class="type">SoupSocket</span></a> listening on the specified
+address. <em class="parameter"><code>callback</code></em> will be called each time a client connects,
+with a new <a class="link" href="SoupSocket.html" title="SoupSocket"><span class="type">SoupSocket</span></a>.
+</p>
+<p>
+Uses the default <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GMainContext"
+><span class="type">GMainContext</span></a>. If you need to use an alternate
+context, use <a class="link" href="SoupSocket.html#soup-socket-new"><code class="function">soup_socket_new()</code></a> and <a class="link" href="SoupSocket.html#soup-socket-listen"><code class="function">soup_socket_listen()</code></a> directly.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>local_addr</code></em>&#160;:</span></p></td>
+<td> Local address to bind to. (Use <code class="function">soup_address_any_new()</code> to
+accept connections on any local address)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ssl_creds</code></em>&#160;:</span></p></td>
+<td> SSL credentials, or <a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a> if this is not an SSL server
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em>&#160;:</span></p></td>
+<td> Callback to call when a client connects
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></p></td>
+<td> data to pass to <em class="parameter"><code>callback</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> a new <a class="link" href="SoupSocket.html" title="SoupSocket"><span class="type">SoupSocket</span></a>, or NULL if there was a failure.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id415430"></a><h3>
+<a name="soup-socket-get-local-address"></a>soup_socket_get_local_address ()</h3>
+<a class="indexterm" name="id415440"></a><pre class="programlisting"><a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a>*        soup_socket_get_local_address       (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock);</pre>
+<p>
+Returns the <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a> corresponding to the local end of <em class="parameter"><code>sock</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sock</code></em>&#160;:</span></p></td>
+<td> a <a class="link" href="SoupSocket.html" title="SoupSocket"><span class="type">SoupSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id415517"></a><h3>
+<a name="soup-socket-get-remote-address"></a>soup_socket_get_remote_address ()</h3>
+<a class="indexterm" name="id415527"></a><pre class="programlisting"><a class="link" href="SoupAddress.html" title="SoupAddress">SoupAddress</a>*        soup_socket_get_remote_address      (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock);</pre>
+<p>
+Returns the <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a> corresponding to the remote end of <em class="parameter"><code>sock</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sock</code></em>&#160;:</span></p></td>
+<td> a <a class="link" href="SoupSocket.html" title="SoupSocket"><span class="type">SoupSocket</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id415604"></a><h3>
+<a name="SoupSocketIOStatus"></a>enum SoupSocketIOStatus</h3>
+<a class="indexterm" name="id415614"></a><pre class="programlisting">typedef enum {
+	SOUP_SOCKET_OK,
+	SOUP_SOCKET_WOULD_BLOCK,
+	SOUP_SOCKET_EOF,
+	SOUP_SOCKET_ERROR
+} SoupSocketIOStatus;
+</pre>
+<p>
+Return value from the <a class="link" href="SoupSocket.html" title="SoupSocket"><span class="type">SoupSocket</span></a> IO methods.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a name="SOUP-SOCKET-OK:CAPS"></a><code class="literal">SOUP_SOCKET_OK</code></span></p></td>
+<td> Success
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="SOUP-SOCKET-WOULD-BLOCK:CAPS"></a><code class="literal">SOUP_SOCKET_WOULD_BLOCK</code></span></p></td>
+<td> Cannot read/write any more at this time
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="SOUP-SOCKET-EOF:CAPS"></a><code class="literal">SOUP_SOCKET_EOF</code></span></p></td>
+<td> End of file
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a name="SOUP-SOCKET-ERROR:CAPS"></a><code class="literal">SOUP_SOCKET_ERROR</code></span></p></td>
+<td> Other error
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id415718"></a><h3>
+<a name="soup-socket-read"></a>soup_socket_read ()</h3>
+<a class="indexterm" name="id415728"></a><pre class="programlisting"><a class="link" href="SoupSocket.html#SoupSocketIOStatus">SoupSocketIOStatus</a>  soup_socket_read                    (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> buffer,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a> len,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a> *nread);</pre>
+<p>
+Attempts to read up to <em class="parameter"><code>len</code></em> bytes from <em class="parameter"><code>sock</code></em> into <em class="parameter"><code>buffer</code></em>. If some
+data is successfully read, <a class="link" href="SoupSocket.html#soup-socket-read"><code class="function">soup_socket_read()</code></a> will return
+<a class="link" href="SoupSocket.html#SOUP-SOCKET-OK:CAPS"><code class="literal">SOUP_SOCKET_OK</code></a>, and *<em class="parameter"><code>nread</code></em> will contain the number of bytes
+actually read.
+</p>
+<p>
+If <em class="parameter"><code>sock</code></em> is non-blocking, and no data is available, the return
+value will be <a class="link" href="SoupSocket.html#SOUP-SOCKET-WOULD-BLOCK:CAPS"><code class="literal">SOUP_SOCKET_WOULD_BLOCK</code></a>. In this case, the caller
+can connect to the <code class="literal">readable</code> signal to know when there is more data
+to read. (NB: You MUST read all available data off the socket
+first. The <code class="literal">readable</code> signal will only be emitted after
+<a class="link" href="SoupSocket.html#soup-socket-read"><code class="function">soup_socket_read()</code></a> has returned <a class="link" href="SoupSocket.html#SOUP-SOCKET-WOULD-BLOCK:CAPS"><code class="literal">SOUP_SOCKET_WOULD_BLOCK</code></a>.)</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sock</code></em>&#160;:</span></p></td>
+<td> the socket
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer</code></em>&#160;:</span></p></td>
+<td> buffer to read into
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em>&#160;:</span></p></td>
+<td> size of <em class="parameter"><code>buffer</code></em> in bytes
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>nread</code></em>&#160;:</span></p></td>
+<td> on return, the number of bytes read into <em class="parameter"><code>buffer</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> a <a class="link" href="SoupSocket.html#SoupSocketIOStatus"><span class="type">SoupSocketIOStatus</span></a>, as described above (or
+<a class="link" href="SoupSocket.html#SOUP-SOCKET-EOF:CAPS"><code class="literal">SOUP_SOCKET_EOF</code></a> if the socket is no longer connected, or
+<a class="link" href="SoupSocket.html#SOUP-SOCKET-ERROR:CAPS"><code class="literal">SOUP_SOCKET_ERROR</code></a> on any other error).
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id415958"></a><h3>
+<a name="soup-socket-read-until"></a>soup_socket_read_until ()</h3>
+<a class="indexterm" name="id415969"></a><pre class="programlisting"><a class="link" href="SoupSocket.html#SoupSocketIOStatus">SoupSocketIOStatus</a>  soup_socket_read_until              (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> buffer,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a> len,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gconstpointer"
+>gconstpointer</a> boundary,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a> boundary_len,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a> *nread,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> *got_boundary);</pre>
+<p>
+Like <a class="link" href="SoupSocket.html#soup-socket-read"><code class="function">soup_socket_read()</code></a>, but reads no further than the first
+occurrence of <em class="parameter"><code>boundary</code></em>. (If the boundary is found, it will be
+included in the returned data, and *<em class="parameter"><code>got_boundary</code></em> will be set to
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS"
+><code class="literal">TRUE</code></a>.) Any data after the boundary will returned in future reads.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sock</code></em>&#160;:</span></p></td>
+<td> the socket
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer</code></em>&#160;:</span></p></td>
+<td> buffer to read into
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em>&#160;:</span></p></td>
+<td> size of <em class="parameter"><code>buffer</code></em> in bytes
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>boundary</code></em>&#160;:</span></p></td>
+<td> boundary to read until
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>boundary_len</code></em>&#160;:</span></p></td>
+<td> length of <em class="parameter"><code>boundary</code></em> in bytes
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>nread</code></em>&#160;:</span></p></td>
+<td> on return, the number of bytes read into <em class="parameter"><code>buffer</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>got_boundary</code></em>&#160;:</span></p></td>
+<td> on return, whether or not the data in <em class="parameter"><code>buffer</code></em>
+ends with the boundary string
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> as for <a class="link" href="SoupSocket.html#soup-socket-read"><code class="function">soup_socket_read()</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id416190"></a><h3>
+<a name="soup-socket-write"></a>soup_socket_write ()</h3>
+<a class="indexterm" name="id416200"></a><pre class="programlisting"><a class="link" href="SoupSocket.html#SoupSocketIOStatus">SoupSocketIOStatus</a>  soup_socket_write                   (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gconstpointer"
+>gconstpointer</a> buffer,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a> len,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gsize"
+>gsize</a> *nwrote);</pre>
+<p>
+Attempts to write <em class="parameter"><code>len</code></em> bytes from <em class="parameter"><code>buffer</code></em> to <em class="parameter"><code>sock</code></em>. If some data is
+successfully written, the resturn status will be
+<code class="literal">SOUP_SOCKET_SUCCESS</code>, and *<em class="parameter"><code>nwrote</code></em> will contain the number of bytes
+actually written.
+</p>
+<p>
+If <em class="parameter"><code>sock</code></em> is non-blocking, and no data could be written right away,
+the return value will be <a class="link" href="SoupSocket.html#SOUP-SOCKET-WOULD-BLOCK:CAPS"><code class="literal">SOUP_SOCKET_WOULD_BLOCK</code></a>. In this case,
+the caller can connect to the <code class="literal">writable</code> signal to know when more
+data can be written. (NB: <code class="literal">writable</code> is only emitted after a
+<a class="link" href="SoupSocket.html#SOUP-SOCKET-WOULD-BLOCK:CAPS"><code class="literal">SOUP_SOCKET_WOULD_BLOCK</code></a>.)</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sock</code></em>&#160;:</span></p></td>
+<td> the socket
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buffer</code></em>&#160;:</span></p></td>
+<td> data to write
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em>&#160;:</span></p></td>
+<td> size of <em class="parameter"><code>buffer</code></em>, in bytes
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>nwrote</code></em>&#160;:</span></p></td>
+<td> on return, number of bytes written
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> a <a class="link" href="SoupSocket.html#SoupSocketIOStatus"><span class="type">SoupSocketIOStatus</span></a>, as described above (or
+<a class="link" href="SoupSocket.html#SOUP-SOCKET-EOF:CAPS"><code class="literal">SOUP_SOCKET_EOF</code></a> or <a class="link" href="SoupSocket.html#SOUP-SOCKET-ERROR:CAPS"><code class="literal">SOUP_SOCKET_ERROR</code></a>).
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id416408"></a><h3>
+<a name="SOUP-SOCKET-FLAG-NONBLOCKING:CAPS"></a>SOUP_SOCKET_FLAG_NONBLOCKING</h3>
+<a class="indexterm" name="id416419"></a><pre class="programlisting">#define SOUP_SOCKET_FLAG_NONBLOCKING "non-blocking"
+</pre>
+<p>
+An alias for the "non-blocking" property.
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id416432"></a><h3>
+<a name="SOUP-SOCKET-FLAG-NODELAY:CAPS"></a>SOUP_SOCKET_FLAG_NODELAY</h3>
+<a class="indexterm" name="id416443"></a><pre class="programlisting">#define SOUP_SOCKET_FLAG_NODELAY     "nodelay"
+</pre>
+<p>
+An alias for the "nodelay" property.
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id416456"></a><h3>
+<a name="SOUP-SOCKET-FLAG-REUSEADDR:CAPS"></a>SOUP_SOCKET_FLAG_REUSEADDR</h3>
+<a class="indexterm" name="id416467"></a><pre class="programlisting">#define SOUP_SOCKET_FLAG_REUSEADDR   "reuseaddr"
+</pre>
+<p>
+An alias for the "reuseaddr" property.
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id416480"></a><h3>
+<a name="SOUP-SOCKET-FLAG-CLOEXEC:CAPS"></a>SOUP_SOCKET_FLAG_CLOEXEC</h3>
+<a class="indexterm" name="id416491"></a><pre class="programlisting">#define SOUP_SOCKET_FLAG_CLOEXEC     "cloexec"
+</pre>
+<p>
+An alias for the "cloexec" property.
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id416504"></a><h3>
+<a name="SOUP-SOCKET-TIMEOUT:CAPS"></a>SOUP_SOCKET_TIMEOUT</h3>
+<a class="indexterm" name="id416515"></a><pre class="programlisting">#define SOUP_SOCKET_TIMEOUT	     "timeout"
+</pre>
+<p>
+An alias for the "timeout" property.
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id416528"></a><h3>
+<a name="SOUP-SOCKET-IS-SERVER:CAPS"></a>SOUP_SOCKET_IS_SERVER</h3>
+<a class="indexterm" name="id416539"></a><pre class="programlisting">#define SOUP_SOCKET_IS_SERVER        "is-server"
+</pre>
+<p>
+An alias for the "is-server" property.
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id416552"></a><h3>
+<a name="SOUP-SOCKET-SSL-CREDENTIALS:CAPS"></a>SOUP_SOCKET_SSL_CREDENTIALS</h3>
+<a class="indexterm" name="id416563"></a><pre class="programlisting">#define SOUP_SOCKET_SSL_CREDENTIALS  "ssl-creds"
+</pre>
+<p>
+An alias for the "ssl-creds" property.
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id416576"></a><h3>
+<a name="SOUP-SOCKET-ASYNC-CONTEXT:CAPS"></a>SOUP_SOCKET_ASYNC_CONTEXT</h3>
+<a class="indexterm" name="id416587"></a><pre class="programlisting">#define SOUP_SOCKET_ASYNC_CONTEXT    "async-context"
+</pre>
+<p>
+An alias for the "async-context" property.
+</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id416602"></a><h2>Property Details</h2>
+<div class="refsect2" lang="en">
+<a name="id416611"></a><h3>
+<a name="SoupSocket--async-context"></a>The "<code class="literal">async-context</code>" property</h3>
+<a class="indexterm" name="id416623"></a><pre class="programlisting">  "async-context"            <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>              : Read / Write / Construct Only</pre>
+<p>The GMainContext to dispatch this socket's async I/O in.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id416643"></a><h3>
+<a name="SoupSocket--cloexec"></a>The "<code class="literal">cloexec</code>" property</h3>
+<a class="indexterm" name="id416655"></a><pre class="programlisting">  "cloexec"                  <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p>Whether or not the socket will be closed automatically on exec().</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id416678"></a><h3>
+<a name="SoupSocket--is-server"></a>The "<code class="literal">is-server</code>" property</h3>
+<a class="indexterm" name="id416691"></a><pre class="programlisting">  "is-server"                <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read</pre>
+<p>Whether or not the socket is a server socket.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id416713"></a><h3>
+<a name="SoupSocket--nodelay"></a>The "<code class="literal">nodelay</code>" property</h3>
+<a class="indexterm" name="id416725"></a><pre class="programlisting">  "nodelay"                  <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p>Whether or not the socket uses TCP NODELAY.</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id416747"></a><h3>
+<a name="SoupSocket--non-blocking"></a>The "<code class="literal">non-blocking</code>" property</h3>
+<a class="indexterm" name="id416760"></a><pre class="programlisting">  "non-blocking"             <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p>Whether or not the socket uses non-blocking I/O.</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id416782"></a><h3>
+<a name="SoupSocket--reuseaddr"></a>The "<code class="literal">reuseaddr</code>" property</h3>
+<a class="indexterm" name="id416794"></a><pre class="programlisting">  "reuseaddr"                <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p>Whether or not the socket uses the TCP REUSEADDR flag.</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id416816"></a><h3>
+<a name="SoupSocket--ssl-creds"></a>The "<code class="literal">ssl-creds</code>" property</h3>
+<a class="indexterm" name="id416829"></a><pre class="programlisting">  "ssl-creds"                <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>              : Read / Write</pre>
+<p>SSL credential information, passed from the session to the SSL implementation.</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id416848"></a><h3>
+<a name="SoupSocket--timeout"></a>The "<code class="literal">timeout</code>" property</h3>
+<a class="indexterm" name="id416861"></a><pre class="programlisting">  "timeout"                  <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#guint"
+>guint</a>                 : Read / Write</pre>
+<p>Value in seconds to timeout a blocking I/O.</p>
+<p>Default value: 0</p>
+</div>
+</div>
+<div class="refsect1" lang="en">
+<a name="id416884"></a><h2>Signal Details</h2>
+<div class="refsect2" lang="en">
+<a name="id416893"></a><h3>
+<a name="SoupSocket-connect-result"></a>The "connect-result" signal</h3>
+<a class="indexterm" name="id416901"></a><pre class="programlisting">void                user_function                      (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gint"
+>gint</a>        status,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>    user_data)      : Run First</pre>
+<p>
+Emitted when a connection attempt succeeds or fails. This
+is used internally by <a class="link" href="SoupSocket.html#soup-socket-client-new-async"><code class="function">soup_socket_client_new_async()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sock</code></em>&#160;:</span></p></td>
+<td> the socket
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>status</code></em>&#160;:</span></p></td>
+<td> the status
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id416989"></a><h3>
+<a name="SoupSocket-disconnected"></a>The "disconnected" signal</h3>
+<a class="indexterm" name="id416996"></a><pre class="programlisting">void                user_function                      (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>    user_data)      : Run Last</pre>
+<p>
+Emitted when the socket is disconnected, for whatever
+reason.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sock</code></em>&#160;:</span></p></td>
+<td> the socket
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id417057"></a><h3>
+<a name="SoupSocket-new-connection"></a>The "new-connection" signal</h3>
+<a class="indexterm" name="id417064"></a><pre class="programlisting">void                user_function                      (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                        <a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *new,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>    user_data)      : Run First</pre>
+<p>
+Emitted when a listening socket (set up with
+<a class="link" href="SoupSocket.html#soup-socket-listen"><code class="function">soup_socket_listen()</code></a> or <a class="link" href="SoupSocket.html#soup-socket-server-new"><code class="function">soup_socket_server_new()</code></a>) receives a
+new connection.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sock</code></em>&#160;:</span></p></td>
+<td> the socket
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>new</code></em>&#160;:</span></p></td>
+<td> the new socket
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id417160"></a><h3>
+<a name="SoupSocket-readable"></a>The "readable" signal</h3>
+<a class="indexterm" name="id417167"></a><pre class="programlisting">void                user_function                      (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>    user_data)      : Run Last</pre>
+<p>
+Emitted when an async socket is readable. See
+<a class="link" href="SoupSocket.html#soup-socket-read"><code class="function">soup_socket_read()</code></a> and <a class="link" href="SoupSocket.html#soup-socket-read-until"><code class="function">soup_socket_read_until()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sock</code></em>&#160;:</span></p></td>
+<td> the socket
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id417244"></a><h3>
+<a name="SoupSocket-writable"></a>The "writable" signal</h3>
+<a class="indexterm" name="id417252"></a><pre class="programlisting">void                user_function                      (<a class="link" href="SoupSocket.html" title="SoupSocket">SoupSocket</a> *sock,
+                                                        <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a>    user_data)      : Run Last</pre>
+<p>
+Emitted when an async socket is writable. See
+<a class="link" href="SoupSocket.html#soup-socket-write"><code class="function">soup_socket_write()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sock</code></em>&#160;:</span></p></td>
+<td> the socket
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>

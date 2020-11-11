@@ -1,0 +1,667 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libsoup-Soup-Miscellaneous-Utilities">
+<refmeta>
+<refentrytitle role="top_of_page">soup-misc</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBSOUP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>soup-misc</refname>
+<refpurpose>Miscellaneous functions</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="char">char</link>*               <link linkend="soup-base64-decode">soup_base64_decode</link>                  (const <link linkend="gchar">gchar</link> *text,
+                                                         <link linkend="int">int</link> *out_len);
+<link linkend="char">char</link>*               <link linkend="soup-base64-encode">soup_base64_encode</link>                  (const <link linkend="char">char</link> *text,
+                                                         <link linkend="int">int</link> len);
+<link linkend="int">int</link>                 <link linkend="soup-base64-decode-step">soup_base64_decode_step</link>             (const <link linkend="guchar">guchar</link> *in,
+                                                         <link linkend="int">int</link> len,
+                                                         <link linkend="guchar">guchar</link> *out,
+                                                         <link linkend="int">int</link> *state,
+                                                         <link linkend="guint">guint</link> *save);
+<link linkend="int">int</link>                 <link linkend="soup-base64-encode-step">soup_base64_encode_step</link>             (const <link linkend="guchar">guchar</link> *in,
+                                                         <link linkend="int">int</link> len,
+                                                         <link linkend="gboolean">gboolean</link> break_lines,
+                                                         <link linkend="guchar">guchar</link> *out,
+                                                         <link linkend="int">int</link> *state,
+                                                         <link linkend="int">int</link> *save);
+<link linkend="int">int</link>                 <link linkend="soup-base64-encode-close">soup_base64_encode_close</link>            (const <link linkend="guchar">guchar</link> *in,
+                                                         <link linkend="int">int</link> inlen,
+                                                         <link linkend="gboolean">gboolean</link> break_lines,
+                                                         <link linkend="guchar">guchar</link> *out,
+                                                         <link linkend="int">int</link> *state,
+                                                         <link linkend="int">int</link> *save);
+
+<link linkend="GSource">GSource</link>*            <link linkend="soup-add-idle">soup_add_idle</link>                       (<link linkend="GMainContext">GMainContext</link> *async_context,
+                                                         <link linkend="GSourceFunc">GSourceFunc</link> function,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="GSource">GSource</link>*            <link linkend="soup-add-io-watch">soup_add_io_watch</link>                   (<link linkend="GMainContext">GMainContext</link> *async_context,
+                                                         <link linkend="GIOChannel">GIOChannel</link> *chan,
+                                                         <link linkend="GIOCondition">GIOCondition</link> condition,
+                                                         <link linkend="GIOFunc">GIOFunc</link> function,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="GSource">GSource</link>*            <link linkend="soup-add-timeout">soup_add_timeout</link>                    (<link linkend="GMainContext">GMainContext</link> *async_context,
+                                                         <link linkend="guint">guint</link> interval,
+                                                         <link linkend="GSourceFunc">GSourceFunc</link> function,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="guint">guint</link>               <link linkend="soup-signal-connect-once">soup_signal_connect_once</link>            (<link linkend="gpointer">gpointer</link> instance,
+                                                         const <link linkend="char">char</link> *detailed_signal,
+                                                         <link linkend="GCallback">GCallback</link> c_handler,
+                                                         <link linkend="gpointer">gpointer</link> data);
+
+<link linkend="time-t">time_t</link>              <link linkend="soup-date-parse">soup_date_parse</link>                     (const <link linkend="char">char</link> *timestamp);
+<link linkend="time-t">time_t</link>              <link linkend="soup-date-iso8601-parse">soup_date_iso8601_parse</link>             (const <link linkend="char">char</link> *timestamp);
+<link linkend="char">char</link>*               <link linkend="soup-date-generate">soup_date_generate</link>                  (<link linkend="time-t">time_t</link> when);
+<link linkend="void">void</link>                <link linkend="soup-gmtime">soup_gmtime</link>                         (const <link linkend="time-t">time_t</link> *when,
+                                                         <link linkend="struct-tm">struct tm</link> *tm);
+<link linkend="time-t">time_t</link>              <link linkend="soup-mktime-utc">soup_mktime_utc</link>                     (<link linkend="struct-tm">struct tm</link> *tm);
+
+<link linkend="char">char</link>*               <link linkend="soup-header-param-copy-token">soup_header_param_copy_token</link>        (<link linkend="GHashTable">GHashTable</link> *tokens,
+                                                         <link linkend="char">char</link> *t);
+<link linkend="char">char</link>*               <link linkend="soup-header-param-decode-token">soup_header_param_decode_token</link>      (<link linkend="char">char</link> **in);
+<link linkend="void">void</link>                <link linkend="soup-header-param-destroy-hash">soup_header_param_destroy_hash</link>      (<link linkend="GHashTable">GHashTable</link> *table);
+<link linkend="GHashTable">GHashTable</link>*         <link linkend="soup-header-param-parse-list">soup_header_param_parse_list</link>        (const <link linkend="char">char</link> *header);
+<link linkend="gboolean">gboolean</link>            <link linkend="soup-headers-parse-request">soup_headers_parse_request</link>          (const <link linkend="char">char</link> *str,
+                                                         <link linkend="int">int</link> len,
+                                                         <link linkend="GHashTable">GHashTable</link> *dest,
+                                                         <link linkend="char">char</link> **req_method,
+                                                         <link linkend="char">char</link> **req_path,
+                                                         <link linkend="SoupHttpVersion">SoupHttpVersion</link> *ver);
+<link linkend="gboolean">gboolean</link>            <link linkend="soup-headers-parse-response">soup_headers_parse_response</link>         (const <link linkend="char">char</link> *str,
+                                                         <link linkend="int">int</link> len,
+                                                         <link linkend="GHashTable">GHashTable</link> *dest,
+                                                         <link linkend="SoupHttpVersion">SoupHttpVersion</link> *ver,
+                                                         <link linkend="guint">guint</link> *status_code,
+                                                         <link linkend="char">char</link> **reason_phrase);
+<link linkend="gboolean">gboolean</link>            <link linkend="soup-headers-parse-status-line">soup_headers_parse_status_line</link>      (const <link linkend="char">char</link> *status_line,
+                                                         <link linkend="SoupHttpVersion">SoupHttpVersion</link> *ver,
+                                                         <link linkend="guint">guint</link> *status_code,
+                                                         <link linkend="char">char</link> **reason_phrase);
+
+<link linkend="gboolean">gboolean</link>            <link linkend="soup-str-case-equal">soup_str_case_equal</link>                 (<link linkend="gconstpointer">gconstpointer</link> v1,
+                                                         <link linkend="gconstpointer">gconstpointer</link> v2);
+<link linkend="guint">guint</link>               <link linkend="soup-str-case-hash">soup_str_case_hash</link>                  (<link linkend="gconstpointer">gconstpointer</link> key);
+
+<link linkend="xmlNode">xmlNode</link>*            <link linkend="soup-xml-real-node">soup_xml_real_node</link>                  (<link linkend="xmlNode">xmlNode</link> *node);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="soup-base64-decode" role="function"/>soup_base64_decode ()</title>
+<indexterm><primary>soup_base64_decode</primary></indexterm><programlisting><link linkend="char">char</link>*               soup_base64_decode                  (const <link linkend="gchar">gchar</link> *text,
+                                                         <link linkend="int">int</link> *out_len);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>text</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>out_len</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-base64-encode" role="function"/>soup_base64_encode ()</title>
+<indexterm><primary>soup_base64_encode</primary></indexterm><programlisting><link linkend="char">char</link>*               soup_base64_encode                  (const <link linkend="char">char</link> *text,
+                                                         <link linkend="int">int</link> len);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>text</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>len</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-base64-decode-step" role="function"/>soup_base64_decode_step ()</title>
+<indexterm><primary>soup_base64_decode_step</primary></indexterm><programlisting><link linkend="int">int</link>                 soup_base64_decode_step             (const <link linkend="guchar">guchar</link> *in,
+                                                         <link linkend="int">int</link> len,
+                                                         <link linkend="guchar">guchar</link> *out,
+                                                         <link linkend="int">int</link> *state,
+                                                         <link linkend="guint">guint</link> *save);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>in</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>len</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>out</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>state</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>save</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-base64-encode-step" role="function"/>soup_base64_encode_step ()</title>
+<indexterm><primary>soup_base64_encode_step</primary></indexterm><programlisting><link linkend="int">int</link>                 soup_base64_encode_step             (const <link linkend="guchar">guchar</link> *in,
+                                                         <link linkend="int">int</link> len,
+                                                         <link linkend="gboolean">gboolean</link> break_lines,
+                                                         <link linkend="guchar">guchar</link> *out,
+                                                         <link linkend="int">int</link> *state,
+                                                         <link linkend="int">int</link> *save);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>in</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>len</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>break_lines</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>out</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>state</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>save</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-base64-encode-close" role="function"/>soup_base64_encode_close ()</title>
+<indexterm><primary>soup_base64_encode_close</primary></indexterm><programlisting><link linkend="int">int</link>                 soup_base64_encode_close            (const <link linkend="guchar">guchar</link> *in,
+                                                         <link linkend="int">int</link> inlen,
+                                                         <link linkend="gboolean">gboolean</link> break_lines,
+                                                         <link linkend="guchar">guchar</link> *out,
+                                                         <link linkend="int">int</link> *state,
+                                                         <link linkend="int">int</link> *save);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>in</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>inlen</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>break_lines</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>out</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>state</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>save</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-add-idle" role="function"/>soup_add_idle ()</title>
+<indexterm><primary>soup_add_idle</primary></indexterm><programlisting><link linkend="GSource">GSource</link>*            soup_add_idle                       (<link linkend="GMainContext">GMainContext</link> *async_context,
+                                                         <link linkend="GSourceFunc">GSourceFunc</link> function,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Adds an idle event as with <link linkend="g-idle-add"><function>g_idle_add()</function></link>, but using the given
+<parameter>async_context</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>async_context</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GMainContext"><type>GMainContext</type></link> to dispatch the idle event in, or
+<link linkend="NULL:CAPS"><literal>NULL</literal></link> for the default context
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>function</parameter>&nbsp;:</term>
+<listitem><simpara> the callback to invoke at idle time
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> user data to pass to <parameter>function</parameter>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a <link linkend="GSource"><type>GSource</type></link>, which can be removed from <parameter>async_context</parameter>
+with <link linkend="g-source-destroy"><function>g_source_destroy()</function></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-add-io-watch" role="function"/>soup_add_io_watch ()</title>
+<indexterm><primary>soup_add_io_watch</primary></indexterm><programlisting><link linkend="GSource">GSource</link>*            soup_add_io_watch                   (<link linkend="GMainContext">GMainContext</link> *async_context,
+                                                         <link linkend="GIOChannel">GIOChannel</link> *chan,
+                                                         <link linkend="GIOCondition">GIOCondition</link> condition,
+                                                         <link linkend="GIOFunc">GIOFunc</link> function,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Adds an I/O watch as with <link linkend="g-io-add-watch"><function>g_io_add_watch()</function></link>, but using the given
+<parameter>async_context</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>async_context</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GMainContext"><type>GMainContext</type></link> to dispatch the I/O watch in, or
+<link linkend="NULL:CAPS"><literal>NULL</literal></link> for the default context
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>chan</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GIOChannel"><type>GIOChannel</type></link> to watch
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>condition</parameter>&nbsp;:</term>
+<listitem><simpara> the condition to watch for
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>function</parameter>&nbsp;:</term>
+<listitem><simpara> the callback to invoke when <parameter>condition</parameter> occurs
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> user data to pass to <parameter>function</parameter>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a <link linkend="GSource"><type>GSource</type></link>, which can be removed from <parameter>async_context</parameter>
+with <link linkend="g-source-destroy"><function>g_source_destroy()</function></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-add-timeout" role="function"/>soup_add_timeout ()</title>
+<indexterm><primary>soup_add_timeout</primary></indexterm><programlisting><link linkend="GSource">GSource</link>*            soup_add_timeout                    (<link linkend="GMainContext">GMainContext</link> *async_context,
+                                                         <link linkend="guint">guint</link> interval,
+                                                         <link linkend="GSourceFunc">GSourceFunc</link> function,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Adds a timeout as with <link linkend="g-timeout-add"><function>g_timeout_add()</function></link>, but using the given
+<parameter>async_context</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>async_context</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GMainContext"><type>GMainContext</type></link> to dispatch the timeout in, or
+<link linkend="NULL:CAPS"><literal>NULL</literal></link> for the default context
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>interval</parameter>&nbsp;:</term>
+<listitem><simpara> the timeout interval, in milliseconds
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>function</parameter>&nbsp;:</term>
+<listitem><simpara> the callback to invoke at timeout time
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> user data to pass to <parameter>function</parameter>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a <link linkend="GSource"><type>GSource</type></link>, which can be removed from <parameter>async_context</parameter>
+with <link linkend="g-source-destroy"><function>g_source_destroy()</function></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-signal-connect-once" role="function"/>soup_signal_connect_once ()</title>
+<indexterm><primary>soup_signal_connect_once</primary></indexterm><programlisting><link linkend="guint">guint</link>               soup_signal_connect_once            (<link linkend="gpointer">gpointer</link> instance,
+                                                         const <link linkend="char">char</link> *detailed_signal,
+                                                         <link linkend="GCallback">GCallback</link> c_handler,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+Connects a <link linkend="GCallback"><type>GCallback</type></link> function to a signal as with
+<link linkend="g-signal-connect"><function>g_signal_connect()</function></link>, but automatically removes the signal handler
+after its first invocation.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>instance</parameter>&nbsp;:</term>
+<listitem><simpara> an object
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>detailed_signal</parameter>&nbsp;:</term>
+<listitem><simpara> "signal-name" or "signal-name::detail" to connect to
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>c_handler</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="GCallback"><type>GCallback</type></link> to connect
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara> data to pass to <parameter>c_handler</parameter> calls
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the signal handler id
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-date-parse" role="function"/>soup_date_parse ()</title>
+<indexterm><primary>soup_date_parse</primary></indexterm><programlisting><link linkend="time-t">time_t</link>              soup_date_parse                     (const <link linkend="char">char</link> *timestamp);</programlisting>
+<para>
+Parses <parameter>timestamp</parameter> and returns its value as a <link linkend="time-t"><type>time_t</type></link>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>timestamp</parameter>&nbsp;:</term>
+<listitem><simpara> a timestamp, in any of the allowed HTTP 1.1 formats
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the <link linkend="time-t"><type>time_t</type></link> corresponding to <parameter>timestamp</parameter>, or -1 if
+<parameter>timestamp</parameter> couldn't be parsed.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-date-iso8601-parse" role="function"/>soup_date_iso8601_parse ()</title>
+<indexterm><primary>soup_date_iso8601_parse</primary></indexterm><programlisting><link linkend="time-t">time_t</link>              soup_date_iso8601_parse             (const <link linkend="char">char</link> *timestamp);</programlisting>
+<para>
+Converts <parameter>timestamp</parameter> to a <link linkend="time-t"><literal>time_t</literal></link> value. <parameter>timestamp</parameter> can be in any of the
+iso8601 formats that specify both a date and a time.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>timestamp</parameter>&nbsp;:</term>
+<listitem><simpara> an ISO8601 timestamp
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the <link linkend="time-t"><literal>time_t</literal></link> corresponding to <parameter>timestamp</parameter>, or -1 on error.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-date-generate" role="function"/>soup_date_generate ()</title>
+<indexterm><primary>soup_date_generate</primary></indexterm><programlisting><link linkend="char">char</link>*               soup_date_generate                  (<link linkend="time-t">time_t</link> when);</programlisting>
+<para>
+Generates an HTTP 1.1 Date header corresponding to <parameter>when</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>when</parameter>&nbsp;:</term>
+<listitem><simpara> the time to generate a timestamp for
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the timestamp, which the caller must free.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-gmtime" role="function"/>soup_gmtime ()</title>
+<indexterm><primary>soup_gmtime</primary></indexterm><programlisting><link linkend="void">void</link>                soup_gmtime                         (const <link linkend="time-t">time_t</link> *when,
+                                                         <link linkend="struct-tm">struct tm</link> *tm);</programlisting>
+<para>
+Expands <parameter>when</parameter> into <parameter>tm</parameter> (as a UTC time). This is just a wrapper
+around <link linkend="gmtime-r"><function>gmtime_r()</function></link> (or <link linkend="gmtime"><function>gmtime()</function></link> on lame platforms). (The Microsoft C
+library on Windows doesn't have <link linkend="gmtime-r"><function>gmtime_r()</function></link>, but its <link linkend="gmtime"><function>gmtime()</function></link> is in
+fact thread-safe as it uses a per-thread buffer, so it's not
+totally lame ;-)</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>when</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="time-t"><type>time_t</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>tm</parameter>&nbsp;:</term>
+<listitem><simpara> a struct tm to be filled in with the expansion of <parameter>when</parameter>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-mktime-utc" role="function"/>soup_mktime_utc ()</title>
+<indexterm><primary>soup_mktime_utc</primary></indexterm><programlisting><link linkend="time-t">time_t</link>              soup_mktime_utc                     (<link linkend="struct-tm">struct tm</link> *tm);</programlisting>
+<para>
+Converts <parameter>tm</parameter> to a <link linkend="time-t"><type>time_t</type></link>. Unlike with <link linkend="mktime"><function>mktime()</function></link>, <parameter>tm</parameter> is interpreted
+as being a UTC time.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>tm</parameter>&nbsp;:</term>
+<listitem><simpara> the UTC time
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <parameter>tm</parameter> as a <link linkend="time-t"><type>time_t</type></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-header-param-copy-token" role="function"/>soup_header_param_copy_token ()</title>
+<indexterm><primary>soup_header_param_copy_token</primary></indexterm><programlisting><link linkend="char">char</link>*               soup_header_param_copy_token        (<link linkend="GHashTable">GHashTable</link> *tokens,
+                                                         <link linkend="char">char</link> *t);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>tokens</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>t</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-header-param-decode-token" role="function"/>soup_header_param_decode_token ()</title>
+<indexterm><primary>soup_header_param_decode_token</primary></indexterm><programlisting><link linkend="char">char</link>*               soup_header_param_decode_token      (<link linkend="char">char</link> **in);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>in</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-header-param-destroy-hash" role="function"/>soup_header_param_destroy_hash ()</title>
+<indexterm><primary>soup_header_param_destroy_hash</primary></indexterm><programlisting><link linkend="void">void</link>                soup_header_param_destroy_hash      (<link linkend="GHashTable">GHashTable</link> *table);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>table</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-header-param-parse-list" role="function"/>soup_header_param_parse_list ()</title>
+<indexterm><primary>soup_header_param_parse_list</primary></indexterm><programlisting><link linkend="GHashTable">GHashTable</link>*         soup_header_param_parse_list        (const <link linkend="char">char</link> *header);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>header</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-headers-parse-request" role="function"/>soup_headers_parse_request ()</title>
+<indexterm><primary>soup_headers_parse_request</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            soup_headers_parse_request          (const <link linkend="char">char</link> *str,
+                                                         <link linkend="int">int</link> len,
+                                                         <link linkend="GHashTable">GHashTable</link> *dest,
+                                                         <link linkend="char">char</link> **req_method,
+                                                         <link linkend="char">char</link> **req_path,
+                                                         <link linkend="SoupHttpVersion">SoupHttpVersion</link> *ver);</programlisting>
+<para>
+Parses the headers of an HTTP request in <parameter>str</parameter> and stores the
+results in <parameter>req_method</parameter>, <parameter>req_path</parameter>, <parameter>ver</parameter>, and <parameter>dest</parameter>.
+</para>
+<para>
+Beware that <parameter>dest</parameter> may be modified even on failure.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>str</parameter>&nbsp;:</term>
+<listitem><simpara> the header string (including the trailing blank line)
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>len</parameter>&nbsp;:</term>
+<listitem><simpara> length of <parameter>str</parameter> up to (but not including) the terminating blank line.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dest</parameter>&nbsp;:</term>
+<listitem><simpara> <link linkend="GHashTable"><type>GHashTable</type></link> to store the header values in
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>req_method</parameter>&nbsp;:</term>
+<listitem><simpara> if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, will be filled in with the request method
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>req_path</parameter>&nbsp;:</term>
+<listitem><simpara> if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, will be filled in with the request path
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>ver</parameter>&nbsp;:</term>
+<listitem><simpara> if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, will be filled in with the HTTP version
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> success or failure.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-headers-parse-response" role="function"/>soup_headers_parse_response ()</title>
+<indexterm><primary>soup_headers_parse_response</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            soup_headers_parse_response         (const <link linkend="char">char</link> *str,
+                                                         <link linkend="int">int</link> len,
+                                                         <link linkend="GHashTable">GHashTable</link> *dest,
+                                                         <link linkend="SoupHttpVersion">SoupHttpVersion</link> *ver,
+                                                         <link linkend="guint">guint</link> *status_code,
+                                                         <link linkend="char">char</link> **reason_phrase);</programlisting>
+<para>
+Parses the headers of an HTTP response in <parameter>str</parameter> and stores the
+results in <parameter>ver</parameter>, <parameter>status_code</parameter>, <parameter>reason_phrase</parameter>, and <parameter>dest</parameter>.
+</para>
+<para>
+Beware that <parameter>dest</parameter> may be modified even on failure.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>str</parameter>&nbsp;:</term>
+<listitem><simpara> the header string (including the trailing blank line)
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>len</parameter>&nbsp;:</term>
+<listitem><simpara> length of <parameter>str</parameter> up to (but not including) the terminating blank line.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dest</parameter>&nbsp;:</term>
+<listitem><simpara> <link linkend="GHashTable"><type>GHashTable</type></link> to store the header values in
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>ver</parameter>&nbsp;:</term>
+<listitem><simpara> if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, will be filled in with the HTTP version
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>status_code</parameter>&nbsp;:</term>
+<listitem><simpara> if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, will be filled in with the status code
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>reason_phrase</parameter>&nbsp;:</term>
+<listitem><simpara> if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, will be filled in with the reason
+phrase
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> success or failure.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-headers-parse-status-line" role="function"/>soup_headers_parse_status_line ()</title>
+<indexterm><primary>soup_headers_parse_status_line</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            soup_headers_parse_status_line      (const <link linkend="char">char</link> *status_line,
+                                                         <link linkend="SoupHttpVersion">SoupHttpVersion</link> *ver,
+                                                         <link linkend="guint">guint</link> *status_code,
+                                                         <link linkend="char">char</link> **reason_phrase);</programlisting>
+<para>
+Parses the HTTP Status-Line string in <parameter>status_line</parameter> into <parameter>ver</parameter>,
+<parameter>status_code</parameter>, and <parameter>reason_phrase</parameter>. <parameter>status_line</parameter> must be terminated by
+either "\0" or "\r\n".</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>status_line</parameter>&nbsp;:</term>
+<listitem><simpara> an HTTP Status-Line
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>ver</parameter>&nbsp;:</term>
+<listitem><simpara> if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, will be filled in with the HTTP version
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>status_code</parameter>&nbsp;:</term>
+<listitem><simpara> if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, will be filled in with the status code
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>reason_phrase</parameter>&nbsp;:</term>
+<listitem><simpara> if non-<link linkend="NULL:CAPS"><literal>NULL</literal></link>, will be filled in with the reason
+phrase
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if <parameter>status_line</parameter> was parsed successfully.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-str-case-equal" role="function"/>soup_str_case_equal ()</title>
+<indexterm><primary>soup_str_case_equal</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            soup_str_case_equal                 (<link linkend="gconstpointer">gconstpointer</link> v1,
+                                                         <link linkend="gconstpointer">gconstpointer</link> v2);</programlisting>
+<para>
+Compares <parameter>v1</parameter> and <parameter>v2</parameter> in a case-insensitive manner</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>v1</parameter>&nbsp;:</term>
+<listitem><simpara> an ASCII string
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>v2</parameter>&nbsp;:</term>
+<listitem><simpara> another ASCII string
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if they are equal (modulo case)
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-str-case-hash" role="function"/>soup_str_case_hash ()</title>
+<indexterm><primary>soup_str_case_hash</primary></indexterm><programlisting><link linkend="guint">guint</link>               soup_str_case_hash                  (<link linkend="gconstpointer">gconstpointer</link> key);</programlisting>
+<para>
+Hashes <parameter>key</parameter> in a case-insensitive manner.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>key</parameter>&nbsp;:</term>
+<listitem><simpara> ASCII string to hash
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the hash code.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-xml-real-node" role="function"/>soup_xml_real_node ()</title>
+<indexterm><primary>soup_xml_real_node</primary></indexterm><programlisting><link linkend="xmlNode">xmlNode</link>*            soup_xml_real_node                  (<link linkend="xmlNode">xmlNode</link> *node);</programlisting>
+<para>
+Finds the first "real" node (ie, not a comment or whitespace) at or
+after <parameter>node</parameter> at its level in the tree.
+</para>
+<para>
+Return: a node, or <link linkend="NULL:CAPS"><literal>NULL</literal></link></para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>node</parameter>&nbsp;:</term>
+<listitem><simpara> an <link linkend="xmlNodePtr"><literal>xmlNodePtr</literal></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,279 @@
+/* 
+ *  Copyright 2008
+ *  Texas Instruments Incorporated
+ *
+ *  All rights reserved.  Property of Texas Instruments Incorporated
+ *  Restricted rights to use, duplicate or disclose this code are
+ *  granted through contract.
+ * 
+ */
+
+var platform = environment["config.platform"];
+print("platform   = " + platform);
+var platShortName = platform.match(/[^\.]+$/)[0];
+
+utils.importFile("ti/platforms/" + platShortName + "/Platform.tci");
+
+/*
+ * Setup platform-specific memory map:
+ */
+var mem_ext = [
+{
+    comment:    "DDRALGHEAP: off-chip memory for dynamic algmem allocation",
+    name:       "DDRALGHEAP",
+    base:       0x8D500000,   // 213MB
+    len:        0x00600000,   //   6MB
+    space:      "code/data"
+},
+{
+    comment:    "BLANK: Allocated for partner specific use",
+    name:       "BLANK",
+    base:       0x8F400000,   // 244MB
+    len:        0x00600000,   //   6MB
+    space:      "code/data"
+},
+{
+    comment:    "DDR2: off-chip memory for application code and data",
+    name:       "DDR2",
+    base:       0x8FA00000,   // 250MB
+    len:        0x00400000,   //   4MB
+    space:      "code/data"
+},
+{
+    comment:    "DSPLINK: off-chip memory reserved for DSPLINK code and data",
+    name:       "DSPLINKMEM",
+    base:       0x8FE00000,   // 254MB
+    len:        0x00100000,   //   1MB
+    space:      "code/data"
+},
+{
+    comment:    "RESET_VECTOR: off-chip memory for the reset vector table",
+    name:       "RESET_VECTOR",
+    base:       0x8FF00000,   // 255MB
+    len:        0x00000080,   // 128 B
+    space:      "code/data"
+}
+];
+
+
+/*
+ *  Internal memory partitioning for DM6446
+ *
+ *  On the left in the diagram below is the layout of internal memory
+ *  available on DM6446 for data caching and as RAM; on the right is the
+ *  diagram showing how this configuration file partitions the available
+ *  64k+80k of memory. (The 32K for program cache is not affected by this
+ *  configuration, and not shown below.) Please find more specifics on how 
+ *  the configuration is done further below.
+ *
+ *
+ *  Physical internal memory on DM6446     Default partitioning in this .tcf
+ *
+ *              |//////////|                           |//////////|
+ *  0x11800000  +----------+               0x11800000  +----------+
+ *              | L2Cache  |                           |          |
+ *              |  and/or  | 64k                       | L2 Cache | 64k
+ *              |  IRAM    |                           |          |
+ *              |          |                           |          |
+ *  0x11810000  +----------+               0x11810000  +----------+
+ *              |//////////|                           |//////////|
+ *              :          :                           :          :
+ *              |//////////|                           |//////////|
+ *  0x11F04000  +----------+               0x11F04000  +----------+
+ *              |          |                           |          |
+ *              | L1DSRAM  | 48k                       | L1DSRAM  |
+ *              |          |                           |          | 64k
+ *  0x11F10000  +- - - - - +                           |          |
+ *              |L1Cache or| 32k                       +- - - - - +
+ *              |more L1DSR|               0x11F14000  | L1 cache | 16k
+ *  0x11F18000  +----------+               0x11F18000  +----------+
+ *              |//////////|                           |//////////|
+ */
+
+/*
+ *  Specify the L2 CACHE memory setting. This value indicates how the physical
+ *  internal memory of size 64K starting at 0x11800000 will be split between
+ *  L2 cache and a general-purpose internal memory segment IRAM. The options
+ *  are:
+ *  l2Mode: "0k"  -- IRAM is 64K long, starts at 0x11800000; no L2 cache
+ *  l2Mode: "32k" -- IRAM is 32K long, starts at 0x11800000; L2 cache is
+ *                           32K long, starts at 0x11808000
+ *  l2Mode: "64k" -- no IRAM; L2 cache is 64k long, starts at 0x11800000
+ */
+
+if (platform == "ti.platforms.evmDM6446") {
+
+    var device_regs = {
+        l2Mode: "64k"
+    };
+
+    var params = {
+        clockRate: 594,
+        catalogName: "ti.catalog.c6000",
+        deviceName: "DM6446",
+        regs: device_regs,
+        mem: mem_ext
+    };
+}
+
+if (platform == "ti.platforms.evmTNETV107X") {
+
+    var device_regs = {
+        l2Mode: "64k"
+    };
+
+    var params = {
+        clockRate: 400,
+        catalogName: "ti.catalog.c6000",
+        deviceName: "TNETV107X",
+        regs: device_regs,
+        mem: mem_ext
+    };
+}
+
+
+/*
+ * Now customize the generic platform with parameters specified above.
+ */
+utils.loadPlatform("ti.platforms.generic", params);
+
+/*  ===========================================================================
+ *  Enable heaps and tasks
+ *  ===========================================================================
+ */
+bios.enableMemoryHeaps(prog);
+bios.enableTskManager(prog);
+
+/*  ===========================================================================
+ *  Configure L1 cache and L1DSRAM segment - DM6446
+ *
+ *  In addition to the 64K at address 0x11800000, the DM6446 device has another
+ *  48K of physical memory at 0x11F04000 available as internal RAM,
+ *  called the "L1DSRAM" segment in BIOS, and it has another adjacent 32K
+ *  at 0x11F10000 that can either be used entirely for L1 cache,
+ *  or split between L1 cache and more internal memory.
+ *
+ *  The 80K segment (48K + 32K) starts at 0x11F04000. When powered on, the
+ *  device uses the upper 32K for L1 cache entirely, so BIOS by default defines
+ *  the L1DSRAM segment to be 48K long and does not change the cache.
+ *
+ *  We can change the default behavior, by shrinking the L1 cache and adding
+ *  the extra space to L1DSRAM. We can set the L1 cache to be 32K (the default)
+ *  or 16K, 8K, 4K, or 0K. The corresponding L1DSRAM sizes then are 48K (the
+ *  default), or 64K, 72K, 76K, or 80K.
+ *
+ *  The L1DSRAM segment always starts at 0x11F04000.
+ *  ===========================================================================
+ */
+prog.module("GBL").C64PLUSCONFIGURE   = true;
+
+if ((platform == "ti.platforms.evmDM6446") || (platform == "ti.platforms.evmTNETV107X")) {
+    prog.module("GBL").C64PLUSL1DCFG = "16k";  // changed from default of 32k
+}
+
+if ((platform == "ti.platforms.evmDM6446") || (platform == "ti.platforms.evmTNETV107X")) {
+    /*  increase the size of the L1DSRAM by 16K because L1 Cache size has been
+     *  reduced by 16K
+     */
+    bios.L1DSRAM.len  += 0x3000;
+}
+
+/*  ===========================================================================
+ *  Create heaps in memory segments that are to have heap
+ *  ===========================================================================
+ */
+bios.DDR2.createHeap = true;
+bios.DDR2.heapSize   = 0x20000; // 128K
+
+bios.DDRALGHEAP.createHeap = true;
+bios.DDRALGHEAP.heapSize   = bios.DDRALGHEAP.len;
+
+bios.L1DSRAM.createHeap       = true;
+bios.L1DSRAM.enableHeapLabel  = true;
+bios.L1DSRAM["heapLabel"]     = prog.extern("L1DHEAP");
+
+
+var IRAM                = prog.module("MEM").create("IRAM");
+IRAM.comment            = "IRAM";
+IRAM.base               = 0x11F13000;
+IRAM.len                = 0x1000;
+IRAM.createHeap         = true;
+IRAM.heapSize           = 0x800;
+IRAM.space              = "code/data";
+
+if ((platform == "ti.platforms.evmDM6446") || (platform == "ti.platforms.evmTNETV107X")) {
+    bios.L1DSRAM.heapSize     = 0xF000;  // all of L1DSRAM's 64K for this heap
+}
+
+/*  ===========================================================================
+ *  GBL
+ *  ===========================================================================
+ */
+/* set MAR register to cache external memory 0x80000000-0x8FFFFFFF */
+prog.module("GBL").C64PLUSMAR128to159 = 0x0000ffff;
+
+prog.module("GBL").ENABLEALLTRC    = false;
+prog.module("GBL").PROCID          = 0;
+
+/*  ===========================================================================
+ *  MEM : startup and SWI stack size
+ *  ===========================================================================
+ */
+prog.module("MEM").STACKSIZE = 0x1000;
+
+/*  ===========================================================================
+ *  Global Settings
+ *  ===========================================================================
+ */
+prog.module("MEM").ARGSSIZE = 256;
+
+/*  ===========================================================================
+ *  Enable MSGQ and POOL Managers
+ *  ===========================================================================
+ */
+bios.MSGQ.ENABLEMSGQ = true;
+bios.POOL.ENABLEPOOL = true;
+
+/*  ===========================================================================
+ *  Set all code and data sections to use DDR2
+ *  ===========================================================================
+ */
+bios.setMemCodeSections (prog, bios.DDR2);
+bios.setMemDataNoHeapSections (prog, bios.DDR2);
+bios.setMemDataHeapSections (prog, bios.DDR2);
+
+/*  ===========================================================================
+ *  MEM : Global
+ *  ===========================================================================
+ */
+prog.module("MEM").BIOSOBJSEG = bios.DDR2;
+prog.module("MEM").MALLOCSEG  = bios.DDR2;
+
+/*  ===========================================================================
+ *  TSK : Global
+ *  ===========================================================================
+ */
+prog.module("TSK").STACKSEG = bios.DDR2;
+
+/* =============================================================================
+ * --- LOG Module Commonly configured Global Properties ---
+ * =============================================================================
+ */
+/*
+ * --- LOG instances ---
+ */
+var trace     = prog.module("LOG").create("trace");
+trace.bufLen  = 8192;
+
+/*  ===========================================================================
+ *  Generate configuration files...
+ *  ===========================================================================
+ */
+if (config.hasReportedError == false) {
+    prog.gen();
+}
+
+/*
+ *  @(#) ti.sdo.ce.examples.servers.all_codecs; 1,0,0,99; 2-15-2008 16:14:22; /db/atree/library/trees/ce-h15x/src/
+ */
+

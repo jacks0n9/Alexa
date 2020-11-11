@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libsoup-SoupMessageFilter">
+<refmeta>
+<refentrytitle role="top_of_page">SoupMessageFilter</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBSOUP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>SoupMessageFilter</refname>
+<refpurpose>Automatic message processing</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+<link linkend="void">void</link>                <link linkend="soup-message-filter-setup-message">soup_message_filter_setup_message</link>   (<link linkend="SoupMessageFilter">SoupMessageFilter</link> *filter,
+                                                         <link linkend="SoupMessage">SoupMessage</link> *msg);
+
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="soup-message-filter-setup-message" role="function"/>soup_message_filter_setup_message ()</title>
+<indexterm><primary>soup_message_filter_setup_message</primary></indexterm><programlisting><link linkend="void">void</link>                soup_message_filter_setup_message   (<link linkend="SoupMessageFilter">SoupMessageFilter</link> *filter,
+                                                         <link linkend="SoupMessage">SoupMessage</link> *msg);</programlisting>
+<para>
+Performs some sort of processing on <parameter>msg</parameter> in preparation for it
+being sent. This will generally involve some combination of adding
+headers, adding handlers, and connecting to signals.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>filter</parameter>&nbsp;:</term>
+<listitem><simpara> an object that implements the <link linkend="SoupMessageFilter"><type>SoupMessageFilter</type></link> interface
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>msg</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupMessage"><type>SoupMessage</type></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

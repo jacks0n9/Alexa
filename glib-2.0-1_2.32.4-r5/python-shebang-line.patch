@@ -1,0 +1,17 @@
+Fix the shebang line for gdbus-codegen
+
+The shebang line for gdbus-codegen pointed to the build environment
+instead of the install environment. This is inappropriate for an SDK.
+Index: glib-2.32.4/gio/gdbus-2.0/codegen/Makefile.am
+===================================================================
+--- glib-2.32.4.orig/gio/gdbus-2.0/codegen/Makefile.am	2012-07-14 20:33:19.000000000 +0000
++++ glib-2.32.4/gio/gdbus-2.0/codegen/Makefile.am	2014-04-15 05:44:04.788484808 +0000
+@@ -23,7 +23,7 @@
+ EXTRA_DIST += gdbus-codegen.in
+ 
+ gdbus-codegen: gdbus-codegen.in Makefile $(codegen_PYTHON)
+-	$(AM_V_GEN) sed -e 's,@libdir\@,$(libdir),' -e 's,@PYTHON\@,$(PYTHON),' $< > $@.tmp && mv $@.tmp $@
++	$(AM_V_GEN) sed -e 's,@libdir\@,$(libdir),' -e 's,@PYTHON\@,$(bindir)/python,' $< > $@.tmp && mv $@.tmp $@
+ 	@chmod a+x $@
+ 
+ clean-local:

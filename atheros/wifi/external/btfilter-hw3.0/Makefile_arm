@@ -1,0 +1,136 @@
+# Copyright (c) 2008-2011 Atheros Communications Inc.
+# Copyright (c) 2011-2012 Qualcomm Atheros, Inc.
+#
+# Permission to use, copy, modify, and/or distribute this software for any
+# purpose with or without fee is hereby granted, provided that the above
+# copyright notice and this permission notice appear in all copies.
+#
+# THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+# WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+# ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+# WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+# ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+# OR IN CONN:Q!ECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+#USE_GLIB=1
+#USE_HCIUTILS=1
+BOARD_HAS_ATH_WLAN_AR6004=1
+
+CROSS_COMPILE=arm-arago-linux-gnueabi-
+ARCH=arm
+CC=${CROSS_COMPILE}gcc
+AS=${CROSS_COMPILE}as
+AR=${CROSS_COMPILE}ar
+OBJDUMP=${CROSS_COMPILE}objdump
+NM=${CROSS_COMPILE}nm
+RANLIB=${CROSS_COMPILE}ranlib
+STRIP=${CROSS_COMPILE}strip
+
+ifdef V210
+#V210_DIR=/tftpboot/ubuntu-taiwan
+V210_DIR=$(ROOTFS)
+endif
+#PREFIX ?= $(ROOTFS)/usr
+#SBINDIR ?= $(PREFIX)/sbin
+#MANDIR ?= $(PREFIX)/share/man
+
+#PKG_CONFIG ?= pkg-config
+#ifdef V210
+#CC=		$(ATH_CROSS_COMPILE_TYPE)gcc
+#LD=		$(ATH_CROSS_COMPILE_TYPE)ld
+#else
+#CC=		$(ATH_CROSSS_COMPILE_TYPE)gcc
+#LD=		$(ATH_CROSSS_COMPILE_TYPE)ld
+#endif
+
+SOURCES=abtfilt_main.c \
+		abtfilt_wlan.c \
+		abtfilt_core.c \
+		abtfilt_utils.c \
+		btfilter_action.c\
+		nl80211_utils.c\
+		btfilter_core.c
+
+INCLUDES=-I$(ROOTFS)/usr/include/dbus-1.0/ \
+		-I$(ROOTFS)/usr/lib/dbus-1.0/include \
+		-I$(ROOTFS)/usr/local/include/dbus-1.0 \
+		-I$(ROOTFS)/usr/local/lib/dbus-1.0/include \
+		-I${ROOTFS}/usr/include/bluetooth \
+		-I$(ROOTFS)/usr/local/include/bluetooth \
+
+CFLAGS = -Wall -g -DABF_DEBUG -I./include -I./os/linux/include -I./common/include -I$(ROOTFS)/usr/include -DOLCA_3_5 -DCONFIG_TI_OMAP
+#CFLAGS += -DSEND_WMI_BY_IOCTL
+#LIBS=		-ldbus-1 -lpthread -lbtfilt -lrt -lbluetooth
+#LIBS=		-ldbus-1 -lpthread -lrt -lbluetooth -lnl -L/root/libnl-1.1/lib -L/home/henry/targetfs/usr/lib
+LIBS=		-ldbus-1 -lpthread -lrt -lbluetooth -lnl -L/root/libnl-1.1/lib -L$(ROOTFS)/usr/lib
+#NL1FOUND := $(shell $(PKG_CONFIG) --atleast-version=1 libnl-1 && echo Y)
+#NL2FOUND := $(shell $(PKG_CONFIG) --atleast-version=2 libnl-2.0 && echo Y)
+
+#CFLAGS += -DCONFIG_LIBNL20
+
+#ifeq ($(NL1FOUND),Y)
+#NLLIBNAME = libnl-1
+#endif
+
+#ifeq ($(NL2FOUND),Y)
+#CFLAGS += -DCONFIG_LIBNL20
+#LIBS += -lnl-genl
+#NLLIBNAME = libnl-2.0
+#endif
+
+#ifeq ($(NLLIBNAME),)
+#$(error Cannot find development files for any supported version of libnl)
+#endif
+
+#LIBS += $(shell $(PKG_CONFIG) --libs $(NLLIBNAME))
+#CFLAGS += $(shell $(PKG_CONFIG) --cflags $(NLLIBNAME))
+
+#send btcoex wmi command by ioctl instead of nl80211
+CFLAGS += -DSEND_WMI_BY_IOCTL
+
+ifdef BOARD_HAS_ATH_WLAN_AR6004
+CFLAGS += -DMULTI_WLAN_CHAN_SUPPORT
+endif
+
+ifdef USE_HCIUTILS
+SOURCES += abtfilt_bluez_hciutils.c
+LIBS += -ldl
+else
+CFLAGS += -DCONFIG_NO_HCILIBS
+endif
+
+ifdef USE_GLIB
+SOURCES += abtfilt_bluez_dbus_glib.c
+
+LIBS += -lgobject-2.0 -lglib-2.0 -ldbus-glib-1 -lnl
+
+INCLUDES += -I$(ROOTFS)/usr/include/glib-2.0     \
+			-I$(ROOTFS)/usr/lib/glib-2.0/include \
+
+OBJECTS=	$(SOURCES:.c=.o)
+
+else
+SOURCES += abtfilt_bluez_dbus.c
+
+OBJECTS=	$(SOURCES:.c=.o)
+endif
+
+
+#LDFLAGS=	-L$(WORKAREA)/host/btfilter
+#copy libbluetooth.so from /tftpboot/ubuntu-taiwan/usr/lib to /tftpboot/ubuntu-taiwan/lib [for V210]
+
+LDFLAGS=	-L$(ROOTFS)/lib
+ifdef V210
+LDFLAGS=	-L$(ROOTFS)/lib
+endif
+FILTERAPP=	abtfilt
+
+all: $(OBJECTS)
+	$(CC) -o $(FILTERAPP) $(OBJECTS) $(LDFLAGS) $(LIBS)
+
+.c.o:
+	$(CC) -c $(CFLAGS) $(INCLUDES)$(LDFLAGS) $(LIBS) $< -o $@
+
+clean:
+	rm -f $(FILTERAPP) $(OBJECTS)

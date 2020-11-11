@@ -1,0 +1,10 @@
+#
+# omap34xx temperature sensor driver configuration
+#
+
+menuconfig TEMPERATURE
+	tristate "omap34xx temperature sensor driver"
+
+config TEMPERATURE
+	help
+	  If you say yes here you get the temperature sensor support.

@@ -1,0 +1,12 @@
+*.lo
+*.la
+*.so
+/.dirstamp
+/rootfs/
+/test-alias
+/test-init
+/test-loaded
+/test-modinfo
+/test-new-module
+/test-testsuite
+/test-modprobe

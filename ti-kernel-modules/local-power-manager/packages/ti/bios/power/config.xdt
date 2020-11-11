@@ -1,0 +1,122 @@
+%%{
+/* 
+ * Copyright (c) 2011, Texas Instruments Incorporated
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * *  Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * *  Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * *  Neither the name of Texas Instruments Incorporated nor the names of
+ *    its contributors may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * 
+ */
+%%}
+%%{
+
+    // The output of this file is added to <program>_x<isa>.c
+
+%%}
+%
+% // DSP side configuration
+%
+%if (Program.build.target.name.match(/C64P/)) {
+extern Void FXN_F_nop();
+
+/* Initialize the DSP runtime context buffer. */
+Uns _PWRM_LENGTHFORCONTEXTDSP = 0x`this.dspRC.len.toString(16)`;
+Bool _PWRM_OVERRIDESAVRESDSP = `this.dspRC.useUserFxns ? "TRUE" : "FALSE"`;
+    %if (this.dspRC.useUserFxns) {
+extern Int `this.dspRC.saveFxn`();
+Fxn _PWRM_DSPSAVEFXN = `this.dspRC.saveFxn`;
+extern Int `this.dspRC.restoreFxn`();
+Fxn _PWRM_DSPRESTOREFXN = `this.dspRC.saveFxn`;
+    %} else {
+Fxn _PWRM_DSPSAVEFXN = (Fxn)FXN_F_nop;
+Fxn _PWRM_DSPRESTOREFXN = (Fxn)FXN_F_nop;
+    %}
+
+%if ('imcopRC' in this) {
+/* Initialize the IMCOP runtime context buffer. */
+Uns _PWRM_LENGTHFORCONTEXTIMCOP = 0x`this.imcopRC.len.toString(16)`;
+Bool _PWRM_OVERRIDESAVRESIMCOP = `this.imcopRC.useUserFxns ? "TRUE" : "FALSE"`;
+    %if (this.imcopRC.useUserFxns) {
+extern Int `this.imcopRC.saveFxn`();
+Fxn _PWRM_IMCOPSAVEFXN = `this.imcopRC.saveFxn`;
+extern Int `this.imcopRC.restoreFxn`();
+Fxn _PWRM_IMCOPRESTOREFXN = `this.imcopRC.saveFxn`;
+    %} else {
+Fxn _PWRM_IMCOPSAVEFXN = (Fxn)FXN_F_nop;
+Fxn _PWRM_IMCOPRESTOREFXN = (Fxn)FXN_F_nop;
+    %}
+%}
+
+/* EDMA3 channel number to use for save/restore transfers. */
+Uns PWRM_edma3ChannelNum = `this.edmaChannel`;
+
+%if ('stopBiosClockOnHibernate' in this) {
+    %var stopBiosClockOnHibernate = this.stopBiosClockOnHibernate;
+    %if (this.stopBiosClockOnHibernate == undefined) {
+        %stopBiosClockOnHibernate = $$legacy.prog.module("CLK").ENABLECLK;
+    %}
+/* hibernate support config params */
+Bool ti_bios_power_stopBiosClockOnHibernate = `stopBiosClockOnHibernate ? "TRUE" : "FALSE"`;
+%}
+%if ('stopCpuLoadMonitorOnHibernate' in this) {
+Bool ti_bios_power_stopLoadMonitorOnHibernate = `this.stopCpuLoadMonitorOnHibernate ? "TRUE" : "FALSE"`;
+%}
+%if ('wugenEventMask' in this) {
+UInt32 ti_bios_power_wugenEventMask[] = {
+    %if (this.wugenEventMask[0] == undefined) {
+        %throw new Error("wugenEventMask must be set");
+    %} else {
+    `utils.toHex(this.wugenEventMask[0])`,
+    `utils.toHex(this.wugenEventMask[1])`,
+    `utils.toHex(this.wugenEventMask[2])`,
+    %}
+};
+%}
+%}
+%
+% // GPP side configuration
+%
+%else if (("os" in Program.build.target)
+%   && (Program.build.target.os != undefined)) {
+
+    %if ("enableVicpAtPowerOn" in this) {
+/* IMCOP power on state */
+int PWRM_doImcopConfig = `this.enableVicpAtPowerOn == undefined ? 0 : 1`;
+int PWRM_enableImcopAtPowerOn = `this.enableVicpAtPowerOn ? 1 : 0`;
+    %} else {
+/* configuration parameters needed to avoid undefined references */
+int PWRM_doImcopConfig = 0;
+int PWRM_enableImcopAtPowerOn;
+    %}
+%}
+%%{
+/*
+ * @(#) ti.bios.power; 1, 1, 1,1; 7-13-2011 17:46:31; /db/atree/library/trees/power/power-g10x/src/ xlibrary
+
+ */
+
+%%}

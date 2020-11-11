@@ -1,0 +1,58 @@
+/* 
+ *  Copyright 2007
+ *  Texas Instruments Incorporated
+ *
+ *  All rights reserved.  Property of Texas Instruments Incorporated
+ *  Restricted rights to use, duplicate or disclose this code are
+ *  granted through contract.
+ * 
+ */
+/*
+ *  ======== package.bld ========
+ */
+
+/* Set up version numbers for this package */
+var version = [1,0,0,0];
+
+
+/* List of XDC files to be delivered as part of source/object release */
+var env_xdc_files = [
+  "package.bld",
+  "package.xdc",
+  "xdcrules.mak",
+  "Rules_windows.mak",
+  "Rules.mak",
+  "xdcpaths.mak",
+  "DM3730",
+];
+
+
+createTarball();
+
+/*
+ * Function to create source tar ball
+ */
+function createTarball ()
+{
+  var j = 0;
+  var i = 0;
+  var releaseName = "ti_mas_env"
+                    + "_" + version[0] + "_" + version[1] 
+                    + "_" + version[2] + "_" + version[3];
+
+  var fileArray = [];
+  
+  var src = Pkg.addRelease (releaseName, {exportAll : false, compress: false, archiver: "zip"});
+
+  print ("RELEASE WITH TAR BALL");
+  
+  for (i = 0; i < env_xdc_files.length; i++, j++) {
+    fileArray[j] = env_xdc_files[i];
+  }  
+  
+  src.otherFiles = fileArray;
+  
+  Pkg.defaultRelease = src;
+}
+
+

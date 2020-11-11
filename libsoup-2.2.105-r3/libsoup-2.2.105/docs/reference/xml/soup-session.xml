@@ -1,0 +1,518 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="SoupSession">
+<refmeta>
+<refentrytitle role="top_of_page">SoupSession</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBSOUP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>SoupSession</refname>
+<refpurpose>Soup session state object</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+struct              <link linkend="SoupSession-struct">SoupSession</link>;
+<link linkend="void">void</link>                <link linkend="soup-session-queue-message">soup_session_queue_message</link>          (<link linkend="SoupSession">SoupSession</link> *session,
+                                                         <link linkend="SoupMessage">SoupMessage</link> *msg,
+                                                         <link linkend="SoupMessageCallbackFn">SoupMessageCallbackFn</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+<link linkend="void">void</link>                <link linkend="soup-session-requeue-message">soup_session_requeue_message</link>        (<link linkend="SoupSession">SoupSession</link> *session,
+                                                         <link linkend="SoupMessage">SoupMessage</link> *msg);
+<link linkend="guint">guint</link>               <link linkend="soup-session-send-message">soup_session_send_message</link>           (<link linkend="SoupSession">SoupSession</link> *session,
+                                                         <link linkend="SoupMessage">SoupMessage</link> *msg);
+<link linkend="void">void</link>                <link linkend="soup-session-abort">soup_session_abort</link>                  (<link linkend="SoupSession">SoupSession</link> *session);
+<link linkend="void">void</link>                <link linkend="soup-session-add-filter">soup_session_add_filter</link>             (<link linkend="SoupSession">SoupSession</link> *session,
+                                                         <link linkend="SoupMessageFilter">SoupMessageFilter</link> *filter);
+<link linkend="void">void</link>                <link linkend="soup-session-cancel-message">soup_session_cancel_message</link>         (<link linkend="SoupSession">SoupSession</link> *session,
+                                                         <link linkend="SoupMessage">SoupMessage</link> *msg);
+<link linkend="SoupConnection">SoupConnection</link>*     <link linkend="soup-session-get-connection">soup_session_get_connection</link>         (<link linkend="SoupSession">SoupSession</link> *session,
+                                                         <link linkend="SoupMessage">SoupMessage</link> *msg,
+                                                         <link linkend="gboolean">gboolean</link> *try_pruning,
+                                                         <link linkend="gboolean">gboolean</link> *is_new);
+<link linkend="void">void</link>                <link linkend="soup-session-remove-filter">soup_session_remove_filter</link>          (<link linkend="SoupSession">SoupSession</link> *session,
+                                                         <link linkend="SoupMessageFilter">SoupMessageFilter</link> *filter);
+<link linkend="gboolean">gboolean</link>            <link linkend="soup-session-try-prune-connection">soup_session_try_prune_connection</link>   (<link linkend="SoupSession">SoupSession</link> *session);
+#define             <link linkend="SOUP-SESSION-PROXY-URI:CAPS">SOUP_SESSION_PROXY_URI</link>
+#define             <link linkend="SOUP-SESSION-MAX-CONNS:CAPS">SOUP_SESSION_MAX_CONNS</link>
+#define             <link linkend="SOUP-SESSION-MAX-CONNS-PER-HOST:CAPS">SOUP_SESSION_MAX_CONNS_PER_HOST</link>
+#define             <link linkend="SOUP-SESSION-USE-NTLM:CAPS">SOUP_SESSION_USE_NTLM</link>
+#define             <link linkend="SOUP-SESSION-SSL-CA-FILE:CAPS">SOUP_SESSION_SSL_CA_FILE</link>
+#define             <link linkend="SOUP-SESSION-ASYNC-CONTEXT:CAPS">SOUP_SESSION_ASYNC_CONTEXT</link>
+#define             <link linkend="SOUP-SESSION-TIMEOUT:CAPS">SOUP_SESSION_TIMEOUT</link>
+
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----SoupSession
+         +----<link linkend="SoupSessionSync">SoupSessionSync</link>
+         +----<link linkend="SoupSessionAsync">SoupSessionAsync</link>
+</synopsis>
+
+</refsect1>
+
+
+
+<refsect1 role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+SoupSession implements
+ <link linkend="SoupMessageFilter">SoupMessageFilter</link>.</para>
+
+</refsect1>
+
+
+<refsect1 role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+
+  &quot;<link linkend="SoupSession--async-context">async-context</link>&quot;            <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only
+  &quot;<link linkend="SoupSession--max-conns">max-conns</link>&quot;                <link linkend="gint">gint</link>                  : Read / Write
+  &quot;<link linkend="SoupSession--max-conns-per-host">max-conns-per-host</link>&quot;       <link linkend="gint">gint</link>                  : Read / Write
+  &quot;<link linkend="SoupSession--proxy-uri">proxy-uri</link>&quot;                <link linkend="gpointer">gpointer</link>              : Read / Write
+  &quot;<link linkend="SoupSession--ssl-ca-file">ssl-ca-file</link>&quot;              <link linkend="gchararray">gchararray</link>            : Read / Write
+  &quot;<link linkend="SoupSession--timeout">timeout</link>&quot;                  <link linkend="guint">guint</link>                 : Read / Write
+  &quot;<link linkend="SoupSession--use-ntlm">use-ntlm</link>&quot;                 <link linkend="gboolean">gboolean</link>              : Read / Write
+</synopsis>
+</refsect1>
+
+<refsect1 role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+
+  &quot;<link linkend="SoupSession-authenticate">authenticate</link>&quot;                                   : Run First
+  &quot;<link linkend="SoupSession-reauthenticate">reauthenticate</link>&quot;                                 : Run First
+</synopsis>
+</refsect1>
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="SoupSession-struct" role="struct"/>struct SoupSession</title>
+<indexterm><primary>SoupSession</primary></indexterm><programlisting>struct SoupSession;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="soup-session-queue-message" role="function"/>soup_session_queue_message ()</title>
+<indexterm><primary>soup_session_queue_message</primary></indexterm><programlisting><link linkend="void">void</link>                soup_session_queue_message          (<link linkend="SoupSession">SoupSession</link> *session,
+                                                         <link linkend="SoupMessage">SoupMessage</link> *msg,
+                                                         <link linkend="SoupMessageCallbackFn">SoupMessageCallbackFn</link> callback,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<para>
+Queues the message <parameter>msg</parameter> for sending. All messages are processed
+while the glib main loop runs. If <parameter>msg</parameter> has been processed before,
+any resources related to the time it was last sent are freed.
+</para>
+<para>
+Upon message completion, the callback specified in <parameter>callback</parameter> will
+be invoked (in the thread associated with <parameter>session</parameter>'s async
+context). If after returning from this callback the message has not
+been requeued, <parameter>msg</parameter> will be unreffed.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>session</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupSession"><type>SoupSession</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>msg</parameter>&nbsp;:</term>
+<listitem><simpara> the message to queue
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupMessageCallbackFn"><type>SoupMessageCallbackFn</type></link> which will be called after the
+message completes or when an unrecoverable error occurs.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara> a pointer passed to <parameter>callback</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-session-requeue-message" role="function"/>soup_session_requeue_message ()</title>
+<indexterm><primary>soup_session_requeue_message</primary></indexterm><programlisting><link linkend="void">void</link>                soup_session_requeue_message        (<link linkend="SoupSession">SoupSession</link> *session,
+                                                         <link linkend="SoupMessage">SoupMessage</link> *msg);</programlisting>
+<para>
+This causes <parameter>msg</parameter> to be placed back on the queue to be attempted
+again.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>session</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupSession"><type>SoupSession</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>msg</parameter>&nbsp;:</term>
+<listitem><simpara> the message to requeue
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-session-send-message" role="function"/>soup_session_send_message ()</title>
+<indexterm><primary>soup_session_send_message</primary></indexterm><programlisting><link linkend="guint">guint</link>               soup_session_send_message           (<link linkend="SoupSession">SoupSession</link> *session,
+                                                         <link linkend="SoupMessage">SoupMessage</link> *msg);</programlisting>
+<para>
+Synchronously send <parameter>msg</parameter>. This call will not return until the
+transfer is finished successfully or there is an unrecoverable
+error.
+</para>
+<para>
+<parameter>msg</parameter> is not freed upon return.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>session</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupSession"><type>SoupSession</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>msg</parameter>&nbsp;:</term>
+<listitem><simpara> the message to send
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> the HTTP status code of the response
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-session-abort" role="function"/>soup_session_abort ()</title>
+<indexterm><primary>soup_session_abort</primary></indexterm><programlisting><link linkend="void">void</link>                soup_session_abort                  (<link linkend="SoupSession">SoupSession</link> *session);</programlisting>
+<para>
+Cancels all pending requests in <parameter>session</parameter>.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>session</parameter>&nbsp;:</term>
+<listitem><simpara> the session
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-session-add-filter" role="function"/>soup_session_add_filter ()</title>
+<indexterm><primary>soup_session_add_filter</primary></indexterm><programlisting><link linkend="void">void</link>                soup_session_add_filter             (<link linkend="SoupSession">SoupSession</link> *session,
+                                                         <link linkend="SoupMessageFilter">SoupMessageFilter</link> *filter);</programlisting>
+<para>
+Adds <parameter>filter</parameter> to <parameter>session</parameter>'s list of message filters to be applied to
+all messages.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>session</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupSession"><type>SoupSession</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>filter</parameter>&nbsp;:</term>
+<listitem><simpara> an object implementing the <link linkend="SoupMessageFilter"><type>SoupMessageFilter</type></link> interface
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-session-cancel-message" role="function"/>soup_session_cancel_message ()</title>
+<indexterm><primary>soup_session_cancel_message</primary></indexterm><programlisting><link linkend="void">void</link>                soup_session_cancel_message         (<link linkend="SoupSession">SoupSession</link> *session,
+                                                         <link linkend="SoupMessage">SoupMessage</link> *msg);</programlisting>
+<para>
+Causes <parameter>session</parameter> to immediately finish processing <parameter>msg</parameter>. You should
+set a status code on <parameter>msg</parameter> with <link linkend="soup-message-set-status"><function>soup_message_set_status()</function></link> before
+calling this function.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>session</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupSession"><type>SoupSession</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>msg</parameter>&nbsp;:</term>
+<listitem><simpara> the message to cancel
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-session-get-connection" role="function"/>soup_session_get_connection ()</title>
+<indexterm><primary>soup_session_get_connection</primary></indexterm><programlisting><link linkend="SoupConnection">SoupConnection</link>*     soup_session_get_connection         (<link linkend="SoupSession">SoupSession</link> *session,
+                                                         <link linkend="SoupMessage">SoupMessage</link> *msg,
+                                                         <link linkend="gboolean">gboolean</link> *try_pruning,
+                                                         <link linkend="gboolean">gboolean</link> *is_new);</programlisting>
+<para>
+Tries to find or create a connection for <parameter>msg</parameter>; this is an internal
+method for <link linkend="SoupSession"><type>SoupSession</type></link> subclasses.
+</para>
+<para>
+If there is an idle connection to the relevant host available, then
+that connection will be returned (with *<parameter>is_new</parameter> set to <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>). The
+connection will be marked "reserved", so the caller must call
+<link linkend="soup-connection-release"><function>soup_connection_release()</function></link> if it ends up not using the connection
+right away.
+</para>
+<para>
+If there is no idle connection available, but it is possible to
+create a new connection, then one will be created and returned,
+with *<parameter>is_new</parameter> set to <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>. The caller MUST then call
+<link linkend="soup-connection-connect-sync"><function>soup_connection_connect_sync()</function></link> or <link linkend="soup-connection-connect-async"><function>soup_connection_connect_async()</function></link>
+to connect it. If the connection attempt succeeds, the connection
+will be marked "reserved" and added to <parameter>session</parameter>'s connection pool
+once it connects. If the connection attempt fails, the connection
+will be unreffed.
+</para>
+<para>
+If no connection is available and a new connection cannot be made,
+<link linkend="soup-session-get-connection"><function>soup_session_get_connection()</function></link> will return <link linkend="NULL:CAPS"><literal>NULL</literal></link>. If <parameter>session</parameter> has
+the maximum number of open connections open, but does not have the
+maximum number of per-host connections open to the relevant host,
+then *<parameter>try_pruning</parameter> will be set to <link linkend="TRUE:CAPS"><literal>TRUE</literal></link>. In this case, the caller
+can call <link linkend="soup-session-try-prune-connection"><function>soup_session_try_prune_connection()</function></link> to close an idle
+connection, and then try <link linkend="soup-session-get-connection"><function>soup_session_get_connection()</function></link> again. (If
+calling <link linkend="soup-session-try-prune-connection"><function>soup_session_try_prune_connection()</function></link> wouldn't help, then
+*<parameter>try_pruning</parameter> is left untouched; it is NOT set to <link linkend="FALSE:CAPS"><literal>FALSE</literal></link>.)</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>session</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupSession"><type>SoupSession</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>msg</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupMessage"><type>SoupMessage</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>try_pruning</parameter>&nbsp;:</term>
+<listitem><simpara> on return, whether or not to try pruning a connection
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>is_new</parameter>&nbsp;:</term>
+<listitem><simpara> on return, <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if the returned connection is new and not
+yet connected
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> a <link linkend="SoupConnection"><type>SoupConnection</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-session-remove-filter" role="function"/>soup_session_remove_filter ()</title>
+<indexterm><primary>soup_session_remove_filter</primary></indexterm><programlisting><link linkend="void">void</link>                soup_session_remove_filter          (<link linkend="SoupSession">SoupSession</link> *session,
+                                                         <link linkend="SoupMessageFilter">SoupMessageFilter</link> *filter);</programlisting>
+<para>
+Removes <parameter>filter</parameter> from <parameter>session</parameter>'s list of message filters</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>session</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupSession"><type>SoupSession</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>filter</parameter>&nbsp;:</term>
+<listitem><simpara> an object implementing the <link linkend="SoupMessageFilter"><type>SoupMessageFilter</type></link> interface
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-session-try-prune-connection" role="function"/>soup_session_try_prune_connection ()</title>
+<indexterm><primary>soup_session_try_prune_connection</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            soup_session_try_prune_connection   (<link linkend="SoupSession">SoupSession</link> *session);</programlisting>
+<para>
+Finds the least-recently-used idle connection in <parameter>session</parameter> and closes
+it.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>session</parameter>&nbsp;:</term>
+<listitem><simpara> a <link linkend="SoupSession"><type>SoupSession</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> <link linkend="TRUE:CAPS"><literal>TRUE</literal></link> if a connection was closed, <link linkend="FALSE:CAPS"><literal>FALSE</literal></link> if there are
+no idle connections.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="SOUP-SESSION-PROXY-URI:CAPS" role="macro"/>SOUP_SESSION_PROXY_URI</title>
+<indexterm><primary>SOUP_SESSION_PROXY_URI</primary></indexterm><programlisting>#define SOUP_SESSION_PROXY_URI          "proxy-uri"
+</programlisting>
+<para>
+An alias for the "proxy-uri" property.
+</para></refsect2>
+<refsect2>
+<title><anchor id="SOUP-SESSION-MAX-CONNS:CAPS" role="macro"/>SOUP_SESSION_MAX_CONNS</title>
+<indexterm><primary>SOUP_SESSION_MAX_CONNS</primary></indexterm><programlisting>#define SOUP_SESSION_MAX_CONNS          "max-conns"
+</programlisting>
+<para>
+An alias for the "max-conns" property.
+</para></refsect2>
+<refsect2>
+<title><anchor id="SOUP-SESSION-MAX-CONNS-PER-HOST:CAPS" role="macro"/>SOUP_SESSION_MAX_CONNS_PER_HOST</title>
+<indexterm><primary>SOUP_SESSION_MAX_CONNS_PER_HOST</primary></indexterm><programlisting>#define SOUP_SESSION_MAX_CONNS_PER_HOST "max-conns-per-host"
+</programlisting>
+<para>
+An alias for the "max-conns-per-host" property.
+</para></refsect2>
+<refsect2>
+<title><anchor id="SOUP-SESSION-USE-NTLM:CAPS" role="macro"/>SOUP_SESSION_USE_NTLM</title>
+<indexterm><primary>SOUP_SESSION_USE_NTLM</primary></indexterm><programlisting>#define SOUP_SESSION_USE_NTLM           "use-ntlm"
+</programlisting>
+<para>
+An alias for the "use-ntlm" property.
+</para></refsect2>
+<refsect2>
+<title><anchor id="SOUP-SESSION-SSL-CA-FILE:CAPS" role="macro"/>SOUP_SESSION_SSL_CA_FILE</title>
+<indexterm><primary>SOUP_SESSION_SSL_CA_FILE</primary></indexterm><programlisting>#define SOUP_SESSION_SSL_CA_FILE        "ssl-ca-file"
+</programlisting>
+<para>
+An alias for the "ssl-ca-file" property.
+</para></refsect2>
+<refsect2>
+<title><anchor id="SOUP-SESSION-ASYNC-CONTEXT:CAPS" role="macro"/>SOUP_SESSION_ASYNC_CONTEXT</title>
+<indexterm><primary>SOUP_SESSION_ASYNC_CONTEXT</primary></indexterm><programlisting>#define SOUP_SESSION_ASYNC_CONTEXT      "async-context"
+</programlisting>
+<para>
+An alias for the "async-context" property.
+</para></refsect2>
+<refsect2>
+<title><anchor id="SOUP-SESSION-TIMEOUT:CAPS" role="macro"/>SOUP_SESSION_TIMEOUT</title>
+<indexterm><primary>SOUP_SESSION_TIMEOUT</primary></indexterm><programlisting>#define SOUP_SESSION_TIMEOUT		"timeout"
+</programlisting>
+<para>
+An alias for the "timeout" property.
+</para></refsect2>
+
+</refsect1>
+<refsect1 role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2><title><anchor id="SoupSession--async-context"/>The &quot;<literal>async-context</literal>&quot; property</title>
+<indexterm><primary>SoupSession:async-context</primary></indexterm><programlisting>  &quot;async-context&quot;            <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only</programlisting>
+<para>The GMainContext to dispatch async I/O in.</para></refsect2>
+<refsect2><title><anchor id="SoupSession--max-conns"/>The &quot;<literal>max-conns</literal>&quot; property</title>
+<indexterm><primary>SoupSession:max-conns</primary></indexterm><programlisting>  &quot;max-conns&quot;                <link linkend="gint">gint</link>                  : Read / Write</programlisting>
+<para>The maximum number of connections that the session can open at once.</para><para>Allowed values: &gt;= 1</para>
+<para>Default value: 10</para>
+</refsect2>
+<refsect2><title><anchor id="SoupSession--max-conns-per-host"/>The &quot;<literal>max-conns-per-host</literal>&quot; property</title>
+<indexterm><primary>SoupSession:max-conns-per-host</primary></indexterm><programlisting>  &quot;max-conns-per-host&quot;       <link linkend="gint">gint</link>                  : Read / Write</programlisting>
+<para>The maximum number of connections that the session can open at once to a given host.</para><para>Allowed values: &gt;= 1</para>
+<para>Default value: 4</para>
+</refsect2>
+<refsect2><title><anchor id="SoupSession--proxy-uri"/>The &quot;<literal>proxy-uri</literal>&quot; property</title>
+<indexterm><primary>SoupSession:proxy-uri</primary></indexterm><programlisting>  &quot;proxy-uri&quot;                <link linkend="gpointer">gpointer</link>              : Read / Write</programlisting>
+<para>The HTTP Proxy to use for this session.</para></refsect2>
+<refsect2><title><anchor id="SoupSession--ssl-ca-file"/>The &quot;<literal>ssl-ca-file</literal>&quot; property</title>
+<indexterm><primary>SoupSession:ssl-ca-file</primary></indexterm><programlisting>  &quot;ssl-ca-file&quot;              <link linkend="gchararray">gchararray</link>            : Read / Write</programlisting>
+<para>File containing SSL CA certificates.</para><para>Default value: NULL</para>
+</refsect2>
+<refsect2><title><anchor id="SoupSession--timeout"/>The &quot;<literal>timeout</literal>&quot; property</title>
+<indexterm><primary>SoupSession:timeout</primary></indexterm><programlisting>  &quot;timeout&quot;                  <link linkend="guint">guint</link>                 : Read / Write</programlisting>
+<para>Value in seconds to timeout a blocking I/O.</para><para>Default value: 0</para>
+</refsect2>
+<refsect2><title><anchor id="SoupSession--use-ntlm"/>The &quot;<literal>use-ntlm</literal>&quot; property</title>
+<indexterm><primary>SoupSession:use-ntlm</primary></indexterm><programlisting>  &quot;use-ntlm&quot;                 <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>Whether or not to use NTLM authentication.</para><para>Default value: FALSE</para>
+</refsect2>
+
+</refsect1>
+
+<refsect1 role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2><title><anchor id="SoupSession-authenticate"/>The &quot;authenticate&quot; signal</title>
+<indexterm><primary>SoupSession::authenticate</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="SoupSession">SoupSession</link> *session,
+                                                        <link linkend="SoupMessage">SoupMessage</link> *msg,
+                                                        <link linkend="gchar">gchar</link>       *auth_type,
+                                                        <link linkend="gchar">gchar</link>       *auth_realm,
+                                                        <link linkend="gpointer">gpointer</link>     username,
+                                                        <link linkend="gpointer">gpointer</link>     password,
+                                                        <link linkend="gpointer">gpointer</link>     user_data)       : Run First</programlisting>
+<para>
+Emitted when the session requires authentication. The
+credentials may come from the user, or from cached
+information. If no credentials are available, leave
+<parameter>username</parameter> and <parameter>password</parameter> unchanged.
+</para>
+<para>
+If the provided credentials fail, the <link linkend="reauthenticate"><type>reauthenticate</type></link>
+signal will be emitted.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>session</parameter>&nbsp;:</term>
+<listitem><simpara> the session
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>msg</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="SoupMessage"><type>SoupMessage</type></link> being sent
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>auth_type</parameter>&nbsp;:</term>
+<listitem><simpara> the authentication type
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>auth_realm</parameter>&nbsp;:</term>
+<listitem><simpara> the realm being authenticated to
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>username</parameter>&nbsp;:</term>
+<listitem><simpara> the signal handler should set this to point to
+the provided username
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>password</parameter>&nbsp;:</term>
+<listitem><simpara> the signal handler should set this to point to
+the provided password
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2><title><anchor id="SoupSession-reauthenticate"/>The &quot;reauthenticate&quot; signal</title>
+<indexterm><primary>SoupSession::reauthenticate</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="SoupSession">SoupSession</link> *session,
+                                                        <link linkend="SoupMessage">SoupMessage</link> *msg,
+                                                        <link linkend="gchar">gchar</link>       *auth_type,
+                                                        <link linkend="gchar">gchar</link>       *auth_realm,
+                                                        <link linkend="gpointer">gpointer</link>     username,
+                                                        <link linkend="gpointer">gpointer</link>     password,
+                                                        <link linkend="gpointer">gpointer</link>     user_data)       : Run First</programlisting>
+<para>
+Emitted when the credentials provided by the application to
+the <link linkend="authenticate"><type>authenticate</type></link> signal have failed. This gives the
+application a second chance to provide authentication
+credentials. If the new credentials also fail, <link linkend="SoupSession"><type>SoupSession</type></link>
+will emit <link linkend="reauthenticate"><type>reauthenticate</type></link> again, and will continue doing so
+until the provided credentials work, or a <link linkend="reauthenticate"><type>reauthenticate</type></link>
+signal emission "fails" (because the handler left <parameter>username</parameter>
+and <parameter>password</parameter> unchanged). At that point, the 401 or 407
+error status will be returned to the caller.
+</para>
+<para>
+If your application only uses cached passwords, it should
+only connect to <link linkend="authenticate"><type>authenticate</type></link>, and not <link linkend="reauthenticate"><type>reauthenticate</type></link>.
+</para>
+<para>
+If your application always prompts the user for a password,
+and never uses cached information, then you can connect the
+same handler to <link linkend="authenticate"><type>authenticate</type></link> and <link linkend="reauthenticate"><type>reauthenticate</type></link>.
+</para>
+<para>
+To get standard web-browser behavior, return either cached
+information or a user-provided password (whichever is
+available) from the <link linkend="authenticate"><type>authenticate</type></link> handler, but return only
+user-provided information from the <link linkend="reauthenticate"><type>reauthenticate</type></link> handler.</para>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>session</parameter>&nbsp;:</term>
+<listitem><simpara> the session
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>msg</parameter>&nbsp;:</term>
+<listitem><simpara> the <link linkend="SoupMessage"><type>SoupMessage</type></link> being sent
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>auth_type</parameter>&nbsp;:</term>
+<listitem><simpara> the authentication type
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>auth_realm</parameter>&nbsp;:</term>
+<listitem><simpara> the realm being authenticated to
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>username</parameter>&nbsp;:</term>
+<listitem><simpara> the signal handler should set this to point to
+the provided username
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>password</parameter>&nbsp;:</term>
+<listitem><simpara> the signal handler should set this to point to
+the provided password
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

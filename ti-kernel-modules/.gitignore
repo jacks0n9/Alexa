@@ -1,0 +1,69 @@
+#
+# NOTE! Don't add files that are generated in specific
+# subdirectories here. Add them in the ".gitignore" file
+# in that subdirectory instead.
+#
+# NOTE! Please use 'git ls-files -i --exclude-standard'
+# command after changing this file, to see if there are
+# any tracked files which get ignored after the change.
+#
+# Normal rules
+#
+*.o
+*.o.*
+*.a
+*.ko
+*.so
+*.so.dbg
+*.lst
+*.symtypes
+*.order
+*.elf
+*.bin
+*.gz
+*.bz2
+*.lzma
+*.lzo
+*.gcno
+*.out
+*.cbd
+*.obj
+*.pp
+
+#
+# git files that we don't want to ignore even it they are dot-files
+#
+!.gitignore
+
+# Generated files
+/dsplink/dsplink/config/BUILD/
+/dsplink/dsplink/dsp/.interfaces
+/dsplink/dsplink/dsp/.xdcenv.mak
+/dsplink/dsplink/dsp/BUILD/
+/dsplink/dsplink/dsp/Global.xdc
+/dsplink/dsplink/dsp/export/BIN/
+/dsplink/dsplink/dsp/export/INCLUDE/
+/dsplink/dsplink/dsp/package.mak
+/dsplink/dsplink/dsp/package/
+/dsplink/dsplink/etc/host/scripts/Linux/multimake.sh
+/dsplink/dsplink/gpp/.interfaces
+/dsplink/dsplink/gpp/.xdcenv.mak
+/dsplink/dsplink/gpp/BUILD/
+/dsplink/dsplink/gpp/Global.xdc
+/dsplink/dsplink/gpp/export/BIN/
+/dsplink/dsplink/gpp/export/INCLUDE/
+/dsplink/dsplink/gpp/package.mak
+/dsplink/dsplink/gpp/package/
+/dsplink/dsplink/gpp/src/.dsplinkk.ko.cmd
+/dsplink/dsplink/gpp/src/.tmp_versions/
+/dsplink/dsplink/gpp/src/dsplinkk.mod.c
+/linuxutils/packages/ti/sdo/linuxutils/cmem/lib/
+/linuxutils/packages/ti/sdo/linuxutils/cmem/src/interface/release/
+/linuxutils/packages/ti/sdo/linuxutils/cmem/src/module/.cmemk.ko.cmd
+/linuxutils/packages/ti/sdo/linuxutils/cmem/src/module/.tmp_versions/
+/linuxutils/packages/ti/sdo/linuxutils/cmem/src/module/Module.symvers
+/linuxutils/packages/ti/sdo/linuxutils/cmem/src/module/cmemk.mod.c
+/local-power-manager/packages/ti/bios/power/modules/omap3530/lpm/.lpm_omap3530.ko.cmd
+/local-power-manager/packages/ti/bios/power/modules/omap3530/lpm/.tmp_versions/
+/local-power-manager/packages/ti/bios/power/modules/omap3530/lpm/Module.symvers
+/local-power-manager/packages/ti/bios/power/modules/omap3530/lpm/lpm_omap3530.mod.c

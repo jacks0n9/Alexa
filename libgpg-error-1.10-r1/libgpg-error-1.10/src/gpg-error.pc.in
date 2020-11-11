@@ -1,0 +1,10 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: gpg-error
+Description: a library that defines common error values for all GnuPG components
+Version: @VERSION@
+Libs: -L{libdir} -lgpg-error
+Cflags: -I${includedir}

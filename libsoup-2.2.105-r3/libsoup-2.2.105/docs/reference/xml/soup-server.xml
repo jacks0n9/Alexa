@@ -1,0 +1,446 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="SoupServer">
+<refmeta>
+<refentrytitle role="top_of_page">SoupServer</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBSOUP Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>SoupServer</refname>
+<refpurpose>HTTP server</refpurpose>
+<!--[<xref linkend="desc" endterm="desc.title"/>]-->
+</refnamediv>
+
+<refsynopsisdiv role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+
+
+
+struct              <link linkend="SoupServer-struct">SoupServer</link>;
+                    <link linkend="SoupServerContext">SoupServerContext</link>;
+<link linkend="void">void</link>                (<link linkend="SoupServerCallbackFn">*SoupServerCallbackFn</link>)             (<link linkend="SoupServerContext">SoupServerContext</link> *context,
+                                                         <link linkend="SoupMessage">SoupMessage</link> *msg,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+<link linkend="void">void</link>                (<link linkend="SoupServerUnregisterFn">*SoupServerUnregisterFn</link>)           (<link linkend="SoupServer">SoupServer</link> *server,
+                                                         <link linkend="SoupServerHandler">SoupServerHandler</link> *handler,
+                                                         <link linkend="gpointer">gpointer</link> user_data);
+<link linkend="SoupServer">SoupServer</link>*         <link linkend="soup-server-new">soup_server_new</link>                     (const <link linkend="char">char</link> *optname1,
+                                                         ...);
+<link linkend="SoupProtocol">SoupProtocol</link>        <link linkend="soup-server-get-protocol">soup_server_get_protocol</link>            (<link linkend="SoupServer">SoupServer</link> *serv);
+<link linkend="guint">guint</link>               <link linkend="soup-server-get-port">soup_server_get_port</link>                (<link linkend="SoupServer">SoupServer</link> *serv);
+<link linkend="SoupSocket">SoupSocket</link>*         <link linkend="soup-server-get-listener">soup_server_get_listener</link>            (<link linkend="SoupServer">SoupServer</link> *serv);
+<link linkend="void">void</link>                <link linkend="soup-server-run">soup_server_run</link>                     (<link linkend="SoupServer">SoupServer</link> *serv);
+<link linkend="void">void</link>                <link linkend="soup-server-run-async">soup_server_run_async</link>               (<link linkend="SoupServer">SoupServer</link> *serv);
+<link linkend="void">void</link>                <link linkend="soup-server-quit">soup_server_quit</link>                    (<link linkend="SoupServer">SoupServer</link> *serv);
+
+typedef             <link linkend="SoupServerHandler">SoupServerHandler</link>;
+<link linkend="void">void</link>                <link linkend="soup-server-add-handler">soup_server_add_handler</link>             (<link linkend="SoupServer">SoupServer</link> *serv,
+                                                         const <link linkend="char">char</link> *path,
+                                                         <link linkend="SoupServerAuthContext">SoupServerAuthContext</link> *auth_ctx,
+                                                         <link linkend="SoupServerCallbackFn">SoupServerCallbackFn</link> callback,
+                                                         <link linkend="SoupServerUnregisterFn">SoupServerUnregisterFn</link> unreg,
+                                                         <link linkend="gpointer">gpointer</link> data);
+<link linkend="void">void</link>                <link linkend="soup-server-remove-handler">soup_server_remove_handler</link>          (<link linkend="SoupServer">SoupServer</link> *serv,
+                                                         const <link linkend="char">char</link> *path);
+<link linkend="SoupServerHandler">SoupServerHandler</link>*  <link linkend="soup-server-get-handler">soup_server_get_handler</link>             (<link linkend="SoupServer">SoupServer</link> *serv,
+                                                         const <link linkend="char">char</link> *path);
+<link linkend="GSList">GSList</link>*             <link linkend="soup-server-list-handlers">soup_server_list_handlers</link>           (<link linkend="SoupServer">SoupServer</link> *serv);
+<link linkend="SoupAddress">SoupAddress</link>*        <link linkend="soup-server-context-get-client-address">soup_server_context_get_client_address</link>
+                                                        (<link linkend="SoupServerContext">SoupServerContext</link> *ctx);
+const <link linkend="char">char</link>*         <link linkend="soup-server-context-get-client-host">soup_server_context_get_client_host</link> (<link linkend="SoupServerContext">SoupServerContext</link> *ctx);
+
+#define             <link linkend="SOUP-SERVER-PORT:CAPS">SOUP_SERVER_PORT</link>
+#define             <link linkend="SOUP-SERVER-INTERFACE:CAPS">SOUP_SERVER_INTERFACE</link>
+#define             <link linkend="SOUP-SERVER-SSL-CERT-FILE:CAPS">SOUP_SERVER_SSL_CERT_FILE</link>
+#define             <link linkend="SOUP-SERVER-SSL-KEY-FILE:CAPS">SOUP_SERVER_SSL_KEY_FILE</link>
+#define             <link linkend="SOUP-SERVER-ASYNC-CONTEXT:CAPS">SOUP_SERVER_ASYNC_CONTEXT</link>
+
+
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+
+  <link linkend="GObject">GObject</link>
+   +----SoupServer
+</synopsis>
+
+</refsect1>
+
+
+
+
+
+<refsect1 role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+
+  &quot;<link linkend="SoupServer--async-context">async-context</link>&quot;            <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only
+  &quot;<link linkend="SoupServer--interface">interface</link>&quot;                <link linkend="SoupAddress">SoupAddress</link>           : Read / Write / Construct Only
+  &quot;<link linkend="SoupServer--port">port</link>&quot;                     <link linkend="guint">guint</link>                 : Read / Write / Construct Only
+  &quot;<link linkend="SoupServer--ssl-cert-file">ssl-cert-file</link>&quot;            <link linkend="gchararray">gchararray</link>            : Read / Write / Construct Only
+  &quot;<link linkend="SoupServer--ssl-key-file">ssl-key-file</link>&quot;             <link linkend="gchararray">gchararray</link>            : Read / Write / Construct Only
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 role="desc">
+<title role="desc.title">Description</title>
+<para>
+<link linkend="SoupServer"><type>SoupServer</type></link> implements a simple HTTP server.
+</para>
+
+<para>
+This API is less stable than the soup client API, and will most likely
+change in the next release.
+</para>
+</refsect1>
+
+<refsect1 role="details">
+<title role="details.title">Details</title>
+<refsect2>
+<title><anchor id="SoupServer-struct" role="struct"/>struct SoupServer</title>
+<indexterm><primary>SoupServer</primary></indexterm><programlisting>struct SoupServer;</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="SoupServerContext" role="struct"/>SoupServerContext</title>
+<indexterm><primary>SoupServerContext</primary></indexterm><programlisting>typedef struct {
+	SoupMessage       *msg;
+	char              *path;
+	SoupMethodId       method_id;
+	SoupServerAuth    *auth;
+	SoupServer        *server;
+	SoupServerHandler *handler;
+	SoupSocket        *sock;
+} SoupServerContext;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="SoupServerCallbackFn" role="function"/>SoupServerCallbackFn ()</title>
+<indexterm><primary>SoupServerCallbackFn</primary></indexterm><programlisting><link linkend="void">void</link>                (*SoupServerCallbackFn)             (<link linkend="SoupServerContext">SoupServerContext</link> *context,
+                                                         <link linkend="SoupMessage">SoupMessage</link> *msg,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>context</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>msg</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="SoupServerUnregisterFn" role="function"/>SoupServerUnregisterFn ()</title>
+<indexterm><primary>SoupServerUnregisterFn</primary></indexterm><programlisting><link linkend="void">void</link>                (*SoupServerUnregisterFn)           (<link linkend="SoupServer">SoupServer</link> *server,
+                                                         <link linkend="SoupServerHandler">SoupServerHandler</link> *handler,
+                                                         <link linkend="gpointer">gpointer</link> user_data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>server</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>handler</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-server-new" role="function"/>soup_server_new ()</title>
+<indexterm><primary>soup_server_new</primary></indexterm><programlisting><link linkend="SoupServer">SoupServer</link>*         soup_server_new                     (const <link linkend="char">char</link> *optname1,
+                                                         ...);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>optname1</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-server-get-protocol" role="function"/>soup_server_get_protocol ()</title>
+<indexterm><primary>soup_server_get_protocol</primary></indexterm><programlisting><link linkend="SoupProtocol">SoupProtocol</link>        soup_server_get_protocol            (<link linkend="SoupServer">SoupServer</link> *serv);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>serv</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-server-get-port" role="function"/>soup_server_get_port ()</title>
+<indexterm><primary>soup_server_get_port</primary></indexterm><programlisting><link linkend="guint">guint</link>               soup_server_get_port                (<link linkend="SoupServer">SoupServer</link> *serv);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>serv</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-server-get-listener" role="function"/>soup_server_get_listener ()</title>
+<indexterm><primary>soup_server_get_listener</primary></indexterm><programlisting><link linkend="SoupSocket">SoupSocket</link>*         soup_server_get_listener            (<link linkend="SoupServer">SoupServer</link> *serv);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>serv</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-server-run" role="function"/>soup_server_run ()</title>
+<indexterm><primary>soup_server_run</primary></indexterm><programlisting><link linkend="void">void</link>                soup_server_run                     (<link linkend="SoupServer">SoupServer</link> *serv);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>serv</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-server-run-async" role="function"/>soup_server_run_async ()</title>
+<indexterm><primary>soup_server_run_async</primary></indexterm><programlisting><link linkend="void">void</link>                soup_server_run_async               (<link linkend="SoupServer">SoupServer</link> *serv);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>serv</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-server-quit" role="function"/>soup_server_quit ()</title>
+<indexterm><primary>soup_server_quit</primary></indexterm><programlisting><link linkend="void">void</link>                soup_server_quit                    (<link linkend="SoupServer">SoupServer</link> *serv);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>serv</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="SoupServerHandler" role="typedef"/>SoupServerHandler</title>
+<indexterm><primary>SoupServerHandler</primary></indexterm><programlisting>typedef struct SoupServerHandler SoupServerHandler;
+</programlisting>
+<para>
+
+</para></refsect2>
+<refsect2>
+<title><anchor id="soup-server-add-handler" role="function"/>soup_server_add_handler ()</title>
+<indexterm><primary>soup_server_add_handler</primary></indexterm><programlisting><link linkend="void">void</link>                soup_server_add_handler             (<link linkend="SoupServer">SoupServer</link> *serv,
+                                                         const <link linkend="char">char</link> *path,
+                                                         <link linkend="SoupServerAuthContext">SoupServerAuthContext</link> *auth_ctx,
+                                                         <link linkend="SoupServerCallbackFn">SoupServerCallbackFn</link> callback,
+                                                         <link linkend="SoupServerUnregisterFn">SoupServerUnregisterFn</link> unreg,
+                                                         <link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>serv</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>path</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>auth_ctx</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>callback</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>unreg</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-server-remove-handler" role="function"/>soup_server_remove_handler ()</title>
+<indexterm><primary>soup_server_remove_handler</primary></indexterm><programlisting><link linkend="void">void</link>                soup_server_remove_handler          (<link linkend="SoupServer">SoupServer</link> *serv,
+                                                         const <link linkend="char">char</link> *path);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>serv</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>path</parameter>&nbsp;:</term>
+<listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-server-get-handler" role="function"/>soup_server_get_handler ()</title>
+<indexterm><primary>soup_server_get_handler</primary></indexterm><programlisting><link linkend="SoupServerHandler">SoupServerHandler</link>*  soup_server_get_handler             (<link linkend="SoupServer">SoupServer</link> *serv,
+                                                         const <link linkend="char">char</link> *path);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>serv</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>path</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-server-list-handlers" role="function"/>soup_server_list_handlers ()</title>
+<indexterm><primary>soup_server_list_handlers</primary></indexterm><programlisting><link linkend="GSList">GSList</link>*             soup_server_list_handlers           (<link linkend="SoupServer">SoupServer</link> *serv);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>serv</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-server-context-get-client-address" role="function"/>soup_server_context_get_client_address ()</title>
+<indexterm><primary>soup_server_context_get_client_address</primary></indexterm><programlisting><link linkend="SoupAddress">SoupAddress</link>*        soup_server_context_get_client_address
+                                                        (<link linkend="SoupServerContext">SoupServerContext</link> *ctx);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>ctx</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="soup-server-context-get-client-host" role="function"/>soup_server_context_get_client_host ()</title>
+<indexterm><primary>soup_server_context_get_client_host</primary></indexterm><programlisting>const <link linkend="char">char</link>*         soup_server_context_get_client_host (<link linkend="SoupServerContext">SoupServerContext</link> *ctx);</programlisting>
+<para>
+
+</para><variablelist role="params">
+<varlistentry><term><parameter>ctx</parameter>&nbsp;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara>
+
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2>
+<title><anchor id="SOUP-SERVER-PORT:CAPS" role="macro"/>SOUP_SERVER_PORT</title>
+<indexterm><primary>SOUP_SERVER_PORT</primary></indexterm><programlisting>#define SOUP_SERVER_PORT          "port"
+</programlisting>
+<para>
+An alias for the "port" property.
+</para></refsect2>
+<refsect2>
+<title><anchor id="SOUP-SERVER-INTERFACE:CAPS" role="macro"/>SOUP_SERVER_INTERFACE</title>
+<indexterm><primary>SOUP_SERVER_INTERFACE</primary></indexterm><programlisting>#define SOUP_SERVER_INTERFACE     "interface"
+</programlisting>
+<para>
+An alias for the "interface" property.
+</para></refsect2>
+<refsect2>
+<title><anchor id="SOUP-SERVER-SSL-CERT-FILE:CAPS" role="macro"/>SOUP_SERVER_SSL_CERT_FILE</title>
+<indexterm><primary>SOUP_SERVER_SSL_CERT_FILE</primary></indexterm><programlisting>#define SOUP_SERVER_SSL_CERT_FILE "ssl-cert-file"
+</programlisting>
+<para>
+An alias for the "ssl-cert-file" property.
+</para></refsect2>
+<refsect2>
+<title><anchor id="SOUP-SERVER-SSL-KEY-FILE:CAPS" role="macro"/>SOUP_SERVER_SSL_KEY_FILE</title>
+<indexterm><primary>SOUP_SERVER_SSL_KEY_FILE</primary></indexterm><programlisting>#define SOUP_SERVER_SSL_KEY_FILE  "ssl-key-file"
+</programlisting>
+<para>
+An alias for the "ssl-key-file" property.
+</para></refsect2>
+<refsect2>
+<title><anchor id="SOUP-SERVER-ASYNC-CONTEXT:CAPS" role="macro"/>SOUP_SERVER_ASYNC_CONTEXT</title>
+<indexterm><primary>SOUP_SERVER_ASYNC_CONTEXT</primary></indexterm><programlisting>#define SOUP_SERVER_ASYNC_CONTEXT "async-context"
+</programlisting>
+<para>
+An alias for the "async-context" property.
+</para></refsect2>
+
+</refsect1>
+<refsect1 role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2><title><anchor id="SoupServer--async-context"/>The &quot;<literal>async-context</literal>&quot; property</title>
+<indexterm><primary>SoupServer:async-context</primary></indexterm><programlisting>  &quot;async-context&quot;            <link linkend="gpointer">gpointer</link>              : Read / Write / Construct Only</programlisting>
+<para>The GMainContext to dispatch async I/O in.</para></refsect2>
+<refsect2><title><anchor id="SoupServer--interface"/>The &quot;<literal>interface</literal>&quot; property</title>
+<indexterm><primary>SoupServer:interface</primary></indexterm><programlisting>  &quot;interface&quot;                <link linkend="SoupAddress">SoupAddress</link>           : Read / Write / Construct Only</programlisting>
+<para>Address of interface to listen on.</para></refsect2>
+<refsect2><title><anchor id="SoupServer--port"/>The &quot;<literal>port</literal>&quot; property</title>
+<indexterm><primary>SoupServer:port</primary></indexterm><programlisting>  &quot;port&quot;                     <link linkend="guint">guint</link>                 : Read / Write / Construct Only</programlisting>
+<para>Port to listen on.</para><para>Allowed values: &lt;= 65536</para>
+<para>Default value: 0</para>
+</refsect2>
+<refsect2><title><anchor id="SoupServer--ssl-cert-file"/>The &quot;<literal>ssl-cert-file</literal>&quot; property</title>
+<indexterm><primary>SoupServer:ssl-cert-file</primary></indexterm><programlisting>  &quot;ssl-cert-file&quot;            <link linkend="gchararray">gchararray</link>            : Read / Write / Construct Only</programlisting>
+<para>File containing server SSL certificate.</para><para>Default value: NULL</para>
+</refsect2>
+<refsect2><title><anchor id="SoupServer--ssl-key-file"/>The &quot;<literal>ssl-key-file</literal>&quot; property</title>
+<indexterm><primary>SoupServer:ssl-key-file</primary></indexterm><programlisting>  &quot;ssl-key-file&quot;             <link linkend="gchararray">gchararray</link>            : Read / Write / Construct Only</programlisting>
+<para>File containing server SSL key.</para><para>Default value: NULL</para>
+</refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

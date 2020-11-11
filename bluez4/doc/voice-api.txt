@@ -1,0 +1,75 @@
+Voice hierarchy
+===============
+
+Service		org.bluez
+Interface	org.bluez.Voice
+Object path	[variable prefix]/{hci0,hci1,...}/dev_XX_XX_XX_XX_XX_XX
+
+Methods		void Connect()
+
+			Connect to the Voice service on the remote device.
+
+		void Disconnect()
+
+			Disconnect from the HSP/HFP service on the remote
+			device.
+
+		void Stop()
+
+			Close the audio connection.
+
+		dict GetProperties()
+
+			Returns all properties for the interface. See the
+			properties section for available properties.
+
+			Possible Errors: org.bluez.Error.InvalidArguments
+
+		void SetProperty(string name, variant value)
+
+			Changes the value of the specified property. Only
+			properties that are listed a read-write are changeable.
+			On success this will emit a PropertyChanged signal.
+
+			Possible Errors: org.bluez.Error.DoesNotExist
+					 org.bluez.Error.InvalidArguments
+
+Signals		PropertyChanged(string name, variant value)
+
+			This signal indicates a changed value of the given
+			property.
+
+properties	string State [readonly]
+
+			Possible values: "disconnected", "connecting",
+			"connected", "playing"
+
+			"disconnected" -> "connecting"
+				Either an incoming or outgoing connection
+				attempt ongoing.
+
+			"connecting" -> "disconnected"
+				Connection attempt failed
+
+			"connecting" -> "connected"
+				Successfully connected
+
+			"connected" -> "playing"
+				SCO audio connection successfully opened
+
+			"playing" -> "connected"
+				SCO audio connection closed
+
+			"connected" -> "disconnected"
+			"playing" -> "disconnected"
+				Disconnected from the remote device
+
+		boolean Connected [readonly]
+
+			Indicates if there is a active connection to the
+			HSP/HFP connection on the remote device.
+
+		boolean Playing  [readonly]
+
+			Indicates if an audio connection to the headset
+			is active.

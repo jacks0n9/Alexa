@@ -1,0 +1,36 @@
+diff -Naur glib-2.32.4.orig/glib/gmacros.h glib-2.32.4/glib/gmacros.h
+--- glib-2.32.4.orig/glib/gmacros.h	2012-03-11 17:42:41.000000000 -0700
++++ glib-2.32.4/glib/gmacros.h	2013-04-16 09:38:02.155608650 -0700
+@@ -28,7 +28,7 @@
+  * not refer to variables from glibconfig.h
+  */
+ 
+-#if !defined (__GLIB_H_INSIDE__) && !defined (GLIB_COMPILATION)
++#if defined(G_DISABLE_SINGLE_INCLUDES) && !defined (__GLIB_H_INSIDE__) && !defined (GLIB_COMPILATION)
+ #error "Only <glib.h> can be included directly."
+ #endif
+ 
+diff -Naur glib-2.32.4.orig/glib/gtypes.h glib-2.32.4/glib/gtypes.h
+--- glib-2.32.4.orig/glib/gtypes.h	2012-03-17 20:27:18.000000000 -0700
++++ glib-2.32.4/glib/gtypes.h	2013-04-16 09:23:32.379592321 -0700
+@@ -24,7 +24,7 @@
+  * GLib at ftp://ftp.gtk.org/pub/gtk/.
+  */
+ 
+-#if !defined (__GLIB_H_INSIDE__) && !defined (GLIB_COMPILATION)
++#if defined(G_DISABLE_SINGLE_INCLUDES) && !defined (__GLIB_H_INSIDE__) && !defined (GLIB_COMPILATION)
+ #error "Only <glib.h> can be included directly."
+ #endif
+ 
+diff -Naur glib-2.32.4.orig/glib/gversionmacros.h glib-2.32.4/glib/gversionmacros.h
+--- glib-2.32.4.orig/glib/gversionmacros.h	2012-07-14 13:11:37.000000000 -0700
++++ glib-2.32.4/glib/gversionmacros.h	2013-04-16 09:38:07.651608753 -0700
+@@ -24,7 +24,7 @@
+  * GLib at ftp://ftp.gtk.org/pub/gtk/.
+  */
+ 
+-#if !defined (__GLIB_H_INSIDE__) && !defined (GLIB_COMPILATION)
++#if defined(G_DISABLE_SINGLE_INCLUDES) && !defined (__GLIB_H_INSIDE__) && !defined (GLIB_COMPILATION)
+ #error "Only <glib.h> can be included directly."
+ #endif
+ 

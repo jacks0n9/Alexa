@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<title>soup-dns</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="libsoup Reference Manual">
+<link rel="up" href="ch03.html" title="libsoup internals">
+<link rel="prev" href="ch03.html" title="libsoup internals">
+<link rel="next" href="libsoup-soup-ssl.html" title="soup-ssl">
+<meta name="generator" content="GTK-Doc V1.8 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="libsoup Tutorial">
+<link rel="chapter" href="ch02.html" title="libsoup API Reference">
+<link rel="chapter" href="ch03.html" title="libsoup internals">
+<link rel="index" href="ix01.html" title="Index">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch03.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch03.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libsoup Reference Manual</th>
+<td><a accesskey="n" href="libsoup-soup-ssl.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#id343176" class="shortcut">Top</a>
+                  &#160;|&#160;
+                  <a href="#id418012" class="shortcut">Description</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="libsoup-soup-dns"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2>
+<a name="id343176"></a><span class="refentrytitle">soup-dns</span>
+</h2>
+<p>soup-dns &#8212; Low-level DNS routines</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<h2>Synopsis</h2>
+<pre class="synopsis">
+
+
+
+void                <a class="link" href="libsoup-soup-dns.html#soup-dns-init">soup_dns_init</a>                       (void);
+char*               <a class="link" href="libsoup-soup-dns.html#soup-dns-ntop">soup_dns_ntop</a>                       (struct sockaddr *sa);
+typedef             <a class="link" href="libsoup-soup-dns.html#SoupDNSLookup">SoupDNSLookup</a>;
+<a class="link" href="libsoup-soup-dns.html#SoupDNSLookup">SoupDNSLookup</a>*      <a class="link" href="libsoup-soup-dns.html#soup-dns-lookup-name">soup_dns_lookup_name</a>                (const char *name);
+<a class="link" href="libsoup-soup-dns.html#SoupDNSLookup">SoupDNSLookup</a>*      <a class="link" href="libsoup-soup-dns.html#soup-dns-lookup-address">soup_dns_lookup_address</a>             (struct sockaddr *sockaddr);
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="libsoup-soup-dns.html#soup-dns-lookup-resolve">soup_dns_lookup_resolve</a>             (<a class="link" href="libsoup-soup-dns.html#SoupDNSLookup">SoupDNSLookup</a> *lookup);
+void                (<a class="link" href="libsoup-soup-dns.html#SoupDNSCallback">*SoupDNSCallback</a>)                  (<a class="link" href="libsoup-soup-dns.html#SoupDNSLookup">SoupDNSLookup</a> *lookup,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> success,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+void                <a class="link" href="libsoup-soup-dns.html#soup-dns-lookup-resolve-async">soup_dns_lookup_resolve_async</a>       (<a class="link" href="libsoup-soup-dns.html#SoupDNSLookup">SoupDNSLookup</a> *lookup,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GMainContext"
+>GMainContext</a> *async_context,
+                                                         <a class="link" href="libsoup-soup-dns.html#SoupDNSCallback">SoupDNSCallback</a> callback,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);
+void                <a class="link" href="libsoup-soup-dns.html#soup-dns-lookup-cancel">soup_dns_lookup_cancel</a>              (<a class="link" href="libsoup-soup-dns.html#SoupDNSLookup">SoupDNSLookup</a> *lookup);
+char*               <a class="link" href="libsoup-soup-dns.html#soup-dns-lookup-get-hostname">soup_dns_lookup_get_hostname</a>        (<a class="link" href="libsoup-soup-dns.html#SoupDNSLookup">SoupDNSLookup</a> *lookup);
+struct sockaddr*    <a class="link" href="libsoup-soup-dns.html#soup-dns-lookup-get-address">soup_dns_lookup_get_address</a>         (<a class="link" href="libsoup-soup-dns.html#SoupDNSLookup">SoupDNSLookup</a> *lookup);
+void                <a class="link" href="libsoup-soup-dns.html#soup-dns-lookup-free">soup_dns_lookup_free</a>                (<a class="link" href="libsoup-soup-dns.html#SoupDNSLookup">SoupDNSLookup</a> *lookup);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="id418012"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="id418028"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="id418038"></a><h3>
+<a name="soup-dns-init"></a>soup_dns_init ()</h3>
+<a class="indexterm" name="id418050"></a><pre class="programlisting">void                soup_dns_init                       (void);</pre>
+<p>
+Initializes the libsoup DNS system. Must be called before any other
+soup_dns method is called. Normally this gets called automatically
+by <a class="link" href="SoupAddress.html" title="SoupAddress"><span class="type">SoupAddress</span></a>'s class_init function.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id418082"></a><h3>
+<a name="soup-dns-ntop"></a>soup_dns_ntop ()</h3>
+<a class="indexterm" name="id418094"></a><pre class="programlisting">char*               soup_dns_ntop                       (struct sockaddr *sa);</pre>
+<p>
+Converts <em class="parameter"><code>sa</code></em>'s address into textual form (eg, "141.213.8.59"), like
+the standard library function <code class="function">inet_ntop()</code>, except that the returned
+string must be freed.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sa</code></em>&#160;:</span></p></td>
+<td> pointer to a <span class="type">sockaddr</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the text form or <em class="parameter"><code>sa</code></em>, which must be freed.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id426001"></a><h3>
+<a name="SoupDNSLookup"></a>SoupDNSLookup</h3>
+<a class="indexterm" name="id426013"></a><pre class="programlisting">typedef struct SoupDNSLookup SoupDNSLookup;
+</pre>
+<p>
+An opaque type that represents a DNS lookup operation.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id426031"></a><h3>
+<a name="soup-dns-lookup-name"></a>soup_dns_lookup_name ()</h3>
+<a class="indexterm" name="id426043"></a><pre class="programlisting"><a class="link" href="libsoup-soup-dns.html#SoupDNSLookup">SoupDNSLookup</a>*      soup_dns_lookup_name                (const char *name);</pre>
+<p>
+Creates a <a class="link" href="libsoup-soup-dns.html#SoupDNSLookup"><span class="type">SoupDNSLookup</span></a> for <em class="parameter"><code>name</code></em>. This should be passed to
+<a class="link" href="libsoup-soup-dns.html#soup-dns-lookup-resolve"><code class="function">soup_dns_lookup_resolve()</code></a> or <a class="link" href="libsoup-soup-dns.html#soup-dns-lookup-resolve-async"><code class="function">soup_dns_lookup_resolve_async()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em>&#160;:</span></p></td>
+<td> a hostname (eg, "www.gnome.org") or physical address
+(eg, "12.107.209.247").
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> a <a class="link" href="libsoup-soup-dns.html#SoupDNSLookup"><span class="type">SoupDNSLookup</span></a>, which should eventually be freed with
+<a class="link" href="libsoup-soup-dns.html#soup-dns-lookup-free"><code class="function">soup_dns_lookup_free()</code></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id426151"></a><h3>
+<a name="soup-dns-lookup-address"></a>soup_dns_lookup_address ()</h3>
+<a class="indexterm" name="id426163"></a><pre class="programlisting"><a class="link" href="libsoup-soup-dns.html#SoupDNSLookup">SoupDNSLookup</a>*      soup_dns_lookup_address             (struct sockaddr *sockaddr);</pre>
+<p>
+Creates a <a class="link" href="libsoup-soup-dns.html#SoupDNSLookup"><span class="type">SoupDNSLookup</span></a> for <em class="parameter"><code>sockaddr</code></em>. This should be passed to
+<a class="link" href="libsoup-soup-dns.html#soup-dns-lookup-resolve"><code class="function">soup_dns_lookup_resolve()</code></a> or <a class="link" href="libsoup-soup-dns.html#soup-dns-lookup-resolve-async"><code class="function">soup_dns_lookup_resolve_async()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sockaddr</code></em>&#160;:</span></p></td>
+<td> pointer to a <span class="type">sockaddr</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> a <a class="link" href="libsoup-soup-dns.html#SoupDNSLookup"><span class="type">SoupDNSLookup</span></a>, which should eventually be freed with
+<a class="link" href="libsoup-soup-dns.html#soup-dns-lookup-free"><code class="function">soup_dns_lookup_free()</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id426278"></a><h3>
+<a name="soup-dns-lookup-resolve"></a>soup_dns_lookup_resolve ()</h3>
+<a class="indexterm" name="id426290"></a><pre class="programlisting"><a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a>            soup_dns_lookup_resolve             (<a class="link" href="libsoup-soup-dns.html#SoupDNSLookup">SoupDNSLookup</a> *lookup);</pre>
+<p>
+Synchronously resolves <em class="parameter"><code>lookup</code></em>. You can cancel a pending resolution
+using <a class="link" href="libsoup-soup-dns.html#soup-dns-lookup-cancel"><code class="function">soup_dns_lookup_cancel()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lookup</code></em>&#160;:</span></p></td>
+<td> a <a class="link" href="libsoup-soup-dns.html#SoupDNSLookup"><span class="type">SoupDNSLookup</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> success or failure.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id426371"></a><h3>
+<a name="SoupDNSCallback"></a>SoupDNSCallback ()</h3>
+<a class="indexterm" name="id426383"></a><pre class="programlisting">void                (*SoupDNSCallback)                  (<a class="link" href="libsoup-soup-dns.html#SoupDNSLookup">SoupDNSLookup</a> *lookup,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gboolean"
+>gboolean</a> success,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+The callback function passed to <a class="link" href="libsoup-soup-dns.html#soup-dns-lookup-resolve-async"><code class="function">soup_dns_lookup_resolve_async()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lookup</code></em>&#160;:</span></p></td>
+<td> the completed lookup
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>success</code></em>&#160;:</span></p></td>
+<td> <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS"
+><code class="literal">TRUE</code></a> if <em class="parameter"><code>lookup</code></em> completed successfully, <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS"
+><code class="literal">FALSE</code></a> if it failed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></p></td>
+<td> the data passed to <a class="link" href="libsoup-soup-dns.html#soup-dns-lookup-resolve-async"><code class="function">soup_dns_lookup_resolve_async()</code></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id426516"></a><h3>
+<a name="soup-dns-lookup-resolve-async"></a>soup_dns_lookup_resolve_async ()</h3>
+<a class="indexterm" name="id426528"></a><pre class="programlisting">void                soup_dns_lookup_resolve_async       (<a class="link" href="libsoup-soup-dns.html#SoupDNSLookup">SoupDNSLookup</a> *lookup,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GMainContext"
+>GMainContext</a> *async_context,
+                                                         <a class="link" href="libsoup-soup-dns.html#SoupDNSCallback">SoupDNSCallback</a> callback,
+                                                         <a
+href="/usr/share/gtk-doc/html/glib/glib-Basic-Types.html#gpointer"
+>gpointer</a> user_data);</pre>
+<p>
+Tries to asynchronously resolve <em class="parameter"><code>lookup</code></em>. Invokes <em class="parameter"><code>callback</code></em> when it
+has succeeded or failed. You can cancel a pending resolution using
+<a class="link" href="libsoup-soup-dns.html#soup-dns-lookup-cancel"><code class="function">soup_dns_lookup_cancel()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lookup</code></em>&#160;:</span></p></td>
+<td> a <a class="link" href="libsoup-soup-dns.html#SoupDNSLookup"><span class="type">SoupDNSLookup</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>async_context</code></em>&#160;:</span></p></td>
+<td> <a
+href="/usr/share/gtk-doc/html/glib/glib-The-Main-Event-Loop.html#GMainContext"
+><span class="type">GMainContext</span></a> to call <em class="parameter"><code>callback</code></em> in
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em>&#160;:</span></p></td>
+<td> callback to call when <em class="parameter"><code>lookup</code></em> is resolved
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em>&#160;:</span></p></td>
+<td> data to pass to <em class="parameter"><code>callback</code></em>;
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id426690"></a><h3>
+<a name="soup-dns-lookup-cancel"></a>soup_dns_lookup_cancel ()</h3>
+<a class="indexterm" name="id426703"></a><pre class="programlisting">void                soup_dns_lookup_cancel              (<a class="link" href="libsoup-soup-dns.html#SoupDNSLookup">SoupDNSLookup</a> *lookup);</pre>
+<p>
+Cancels <em class="parameter"><code>lookup</code></em>. If <em class="parameter"><code>lookup</code></em> was running synchronously in another
+thread, it will immediately return <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS"
+><code class="literal">FALSE</code></a>. If <em class="parameter"><code>lookup</code></em> was running
+asynchronously, its callback function will not be called.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>lookup</code></em>&#160;:</span></p></td>
+<td> a <a class="link" href="libsoup-soup-dns.html#SoupDNSLookup"><span class="type">SoupDNSLookup</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id426786"></a><h3>
+<a name="soup-dns-lookup-get-hostname"></a>soup_dns_lookup_get_hostname ()</h3>
+<a class="indexterm" name="id426798"></a><pre class="programlisting">char*               soup_dns_lookup_get_hostname        (<a class="link" href="libsoup-soup-dns.html#SoupDNSLookup">SoupDNSLookup</a> *lookup);</pre>
+<p>
+Gets the hostname of <em class="parameter"><code>lookup</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lookup</code></em>&#160;:</span></p></td>
+<td> a <a class="link" href="libsoup-soup-dns.html#SoupDNSLookup"><span class="type">SoupDNSLookup</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the hostname, which the caller owns and must free, or
+<a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a> if <em class="parameter"><code>lookup</code></em> has not been completely resolved.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id426886"></a><h3>
+<a name="soup-dns-lookup-get-address"></a>soup_dns_lookup_get_address ()</h3>
+<a class="indexterm" name="id426898"></a><pre class="programlisting">struct sockaddr*    soup_dns_lookup_get_address         (<a class="link" href="libsoup-soup-dns.html#SoupDNSLookup">SoupDNSLookup</a> *lookup);</pre>
+<p>
+Gets the address of <em class="parameter"><code>lookup</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lookup</code></em>&#160;:</span></p></td>
+<td> a <a class="link" href="libsoup-soup-dns.html#SoupDNSLookup"><span class="type">SoupDNSLookup</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span>&#160;:</span></p></td>
+<td> the address, which the caller owns and must free, or
+<a
+href="../liboil/liboil-liboiljunk.html#NULL:CAPS"
+><code class="literal">NULL</code></a> if <em class="parameter"><code>lookup</code></em> has not been completely resolved.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="id426987"></a><h3>
+<a name="soup-dns-lookup-free"></a>soup_dns_lookup_free ()</h3>
+<a class="indexterm" name="id426999"></a><pre class="programlisting">void                soup_dns_lookup_free                (<a class="link" href="libsoup-soup-dns.html#SoupDNSLookup">SoupDNSLookup</a> *lookup);</pre>
+<p>
+Frees <em class="parameter"><code>lookup</code></em>. If <em class="parameter"><code>lookup</code></em> is still running, it will be canceled
+first.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>lookup</code></em>&#160;:</span></p></td>
+<td> a <a class="link" href="libsoup-soup-dns.html#SoupDNSLookup"><span class="type">SoupDNSLookup</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+</body>
+</html>
